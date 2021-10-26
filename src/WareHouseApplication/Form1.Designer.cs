@@ -79,14 +79,18 @@ namespace WareHouseApplication
             // 
             // informacjeOWersjiToolStripMenuItem
             // 
+            this.informacjeOWersjiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("informacjeOWersjiToolStripMenuItem.Image")));
+            this.informacjeOWersjiToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.informacjeOWersjiToolStripMenuItem.Name = "informacjeOWersjiToolStripMenuItem";
-            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.informacjeOWersjiToolStripMenuItem.Text = "Informacje o wersji";
             // 
             // ustawieniaToolStripMenuItem
             // 
+            this.ustawieniaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ustawieniaToolStripMenuItem.Image")));
+            this.ustawieniaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             // 
             // magazynToolStripMenuItem
@@ -187,8 +191,10 @@ namespace WareHouseApplication
             // 
             // pomocToolStripMenuItem
             // 
+            this.pomocToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pomocToolStripMenuItem.Image")));
+            this.pomocToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
-            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.pomocToolStripMenuItem.Text = "Pomoc";
             // 
             // Form1
