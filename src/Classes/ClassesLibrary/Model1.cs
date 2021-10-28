@@ -15,52 +15,52 @@ namespace ClassesLibrary
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Returns> Returns { get; set; }
         public virtual DbSet<Sales> Sales { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Sysdiagrams> Sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()
-                .Property(e => e.Id_Product)
+                .Property(e => e.IdProduct)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Product>()
-                .Property(e => e.Id_Warehouse)
+                .Property(e => e.IdWarehouse)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Product>()
-                .Property(e => e.Purchase_Price)
+                .Property(e => e.PurchasePrice)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Product>()
-                .Property(e => e.Sell_Price)
+                .Property(e => e.SellPrice)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Returns)
                 .WithOptional(e => e.Product)
-                .HasForeignKey(e => e.Pro_Id_Product);
+                .HasForeignKey(e => e.ProIdProduct);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Sales)
                 .WithOptional(e => e.Product)
-                .HasForeignKey(e => e.Pro_Id_Product);
+                .HasForeignKey(e => e.ProIdProduct);
 
             modelBuilder.Entity<Returns>()
-                .Property(e => e.Id_Returns)
+                .Property(e => e.IdReturns)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Returns>()
-                .Property(e => e.Pro_Id_Product)
+                .Property(e => e.ProIdProduct)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Sales>()
-                .Property(e => e.Id_Sales)
+                .Property(e => e.IdSales)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Sales>()
-                .Property(e => e.Pro_Id_Product)
+                .Property(e => e.ProIdProduct)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Sales>()
@@ -68,7 +68,7 @@ namespace ClassesLibrary
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Users>()
-                .Property(e => e.Id_User)
+                .Property(e => e.IdUser)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Users>()
@@ -76,7 +76,7 @@ namespace ClassesLibrary
                 .IsUnicode(false);
 
             modelBuilder.Entity<Warehouse>()
-                .Property(e => e.Id_Warehouse)
+                .Property(e => e.IdWarehouse)
                 .HasPrecision(18, 0);
         }
     }

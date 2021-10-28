@@ -11,12 +11,12 @@ namespace ClassesLibrary
         [Key]
         [Column(TypeName = "numeric")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public decimal Id_Returns { get; set; }
+        public decimal IdReturns { get; set; }
 
         [Column(TypeName = "numeric")]
-        public decimal? Pro_Id_Product { get; set; }
+        public decimal? ProIdProduct { get; set; }
 
-        public int? Id_Product { get; set; }
+        public int? IdProduct { get; set; }
 
         public DateTime? Date { get; set; }
 

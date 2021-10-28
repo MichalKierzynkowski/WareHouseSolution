@@ -19,25 +19,25 @@ namespace ClassesLibrary
         [Key]
         [Column(TypeName = "numeric")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public decimal Id_Product { get; set; }
+        public decimal IdProduct { get; set; }
 
         [Column(TypeName = "numeric")]
-        public decimal? Id_Warehouse { get; set; }
+        public decimal? IdWarehouse { get; set; }
 
         public int? Type { get; set; }
 
-        public int? Bar_Number { get; set; }
+        public int? BarNumber { get; set; }
 
         [StringLength(255)]
         public string Description { get; set; }
 
-        public int? Purchase_Method { get; set; }
+        public int? PurchaseMethod { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? Purchase_Price { get; set; }
+        public decimal? PurchasePrice { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? Sell_Price { get; set; }
+        public decimal? SellPrice { get; set; }
 
         public virtual Warehouse Warehouse { get; set; }
 

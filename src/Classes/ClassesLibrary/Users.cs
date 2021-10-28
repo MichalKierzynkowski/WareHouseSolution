@@ -11,7 +11,7 @@ namespace ClassesLibrary
         [Key]
         [Column(TypeName = "numeric")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public decimal Id_User { get; set; }
+        public decimal IdUser { get; set; }
 
         [StringLength(15)]
         public string Name { get; set; }

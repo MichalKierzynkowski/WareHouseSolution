@@ -18,9 +18,9 @@ namespace ClassesLibrary
         [Key]
         [Column(TypeName = "numeric")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public decimal Id_Warehouse { get; set; }
+        public decimal IdWarehouse { get; set; }
 
-        public int? Id_Product { get; set; }
+        public int? IdProduct { get; set; }
 
         public int? Quantity { get; set; }
 

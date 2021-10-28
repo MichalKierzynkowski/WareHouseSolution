@@ -1,7 +1,7 @@
 ﻿
 namespace WareHouseApplication
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace WareHouseApplication
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dsfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacjeOWersjiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,12 +43,14 @@ namespace WareHouseApplication
             this.sprzedażToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sprzedajPrzedmiotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.archiwumSprzedażyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edytujArchwiumSprzedażyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wyjścieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.edytujArchwiumSprzedażyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,6 +125,7 @@ namespace WareHouseApplication
             this.dodajProduktToolStripMenuItem.Name = "dodajProduktToolStripMenuItem";
             this.dodajProduktToolStripMenuItem.Size = new System.Drawing.Size(220, 32);
             this.dodajProduktToolStripMenuItem.Text = "Dodaj Produkt";
+            this.dodajProduktToolStripMenuItem.Click += new System.EventHandler(this.dodajProduktToolStripMenuItem_Click);
             // 
             // zwróćProduktToolStripMenuItem
             // 
@@ -175,6 +178,13 @@ namespace WareHouseApplication
             this.archiwumSprzedażyToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
             this.archiwumSprzedażyToolStripMenuItem.Text = "Archiwum Sprzedaży";
             // 
+            // edytujArchwiumSprzedażyToolStripMenuItem
+            // 
+            this.edytujArchwiumSprzedażyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("edytujArchwiumSprzedażyToolStripMenuItem.Image")));
+            this.edytujArchwiumSprzedażyToolStripMenuItem.Name = "edytujArchwiumSprzedażyToolStripMenuItem";
+            this.edytujArchwiumSprzedażyToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
+            this.edytujArchwiumSprzedażyToolStripMenuItem.Text = "Edytuj Archwium Sprzedaży";
+            // 
             // wyjścieToolStripMenuItem
             // 
             this.wyjścieToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("wyjścieToolStripMenuItem.Image")));
@@ -210,30 +220,38 @@ namespace WareHouseApplication
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // edytujArchwiumSprzedażyToolStripMenuItem
+            // pictureBox2
             // 
-            this.edytujArchwiumSprzedażyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("edytujArchwiumSprzedażyToolStripMenuItem.Image")));
-            this.edytujArchwiumSprzedażyToolStripMenuItem.Name = "edytujArchwiumSprzedażyToolStripMenuItem";
-            this.edytujArchwiumSprzedażyToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
-            this.edytujArchwiumSprzedażyToolStripMenuItem.Text = "Edytuj Archwium Sprzedaży";
+            this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1586, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // Form1
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1667, 1030);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,6 +276,7 @@ namespace WareHouseApplication
         private System.Windows.Forms.ToolStripMenuItem archiwumSprzedażyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zwróćProduktToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem edytujArchwiumSprzedażyToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
