@@ -236,8 +236,10 @@ namespace WareHouseApplication
             // 
             // użytkownicyToolStripMenuItem
             // 
+            this.użytkownicyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("użytkownicyToolStripMenuItem.Image")));
+            this.użytkownicyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.użytkownicyToolStripMenuItem.Name = "użytkownicyToolStripMenuItem";
-            this.użytkownicyToolStripMenuItem.Size = new System.Drawing.Size(105, 52);
+            this.użytkownicyToolStripMenuItem.Size = new System.Drawing.Size(153, 52);
             this.użytkownicyToolStripMenuItem.Text = "Użytkownicy";
             // 
             // MainMenu
