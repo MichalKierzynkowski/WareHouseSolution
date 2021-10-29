@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EntityFrrameworkClasses;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace WareHouseApplication.Forms
 {
@@ -60,7 +63,25 @@ namespace WareHouseApplication.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+                var context = new WareHouseEntities1();
+                var user = new Users()
+                {
+                    Name = "michu",
+                    Password = "testpwy"
+
+                };
+                context.Users.Add(user);
+                context.SaveChanges();
             
+
+
+
+
+           
+
         }
+
     }
-}
+    }
+

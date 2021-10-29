@@ -48,6 +48,7 @@ namespace WareHouseApplication
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.użytkownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,6 +62,7 @@ namespace WareHouseApplication
             this.dsfToolStripMenuItem,
             this.magazynToolStripMenuItem,
             this.sprzedażToolStripMenuItem,
+            this.użytkownicyToolStripMenuItem,
             this.wyjścieToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -232,6 +234,12 @@ namespace WareHouseApplication
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // użytkownicyToolStripMenuItem
+            // 
+            this.użytkownicyToolStripMenuItem.Name = "użytkownicyToolStripMenuItem";
+            this.użytkownicyToolStripMenuItem.Size = new System.Drawing.Size(105, 52);
+            this.użytkownicyToolStripMenuItem.Text = "Użytkownicy";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -277,6 +285,7 @@ namespace WareHouseApplication
         private System.Windows.Forms.ToolStripMenuItem zwróćProduktToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem edytujArchwiumSprzedażyToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem użytkownicyToolStripMenuItem;
     }
 }
 
