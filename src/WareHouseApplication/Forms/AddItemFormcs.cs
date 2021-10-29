@@ -44,5 +44,18 @@ namespace WareHouseApplication.Forms
                 this.Hide();
             }
         }
+
+        private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int selectedItemComboBox2 = Convert.ToInt16(comboBox2.SelectedIndex);
+            comboBox3.SelectedIndex= selectedItemComboBox2;
+        }
+
+        private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int selectedItemComboBox3 = Convert.ToInt16(comboBox3.SelectedIndex);
+            comboBox2.SelectedIndex = selectedItemComboBox3;
+
+        }
     }
 }
