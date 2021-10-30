@@ -40,7 +40,7 @@ namespace WareHouseApplication.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz wrócić do głównego Menu? Wszystkie nie zapisane dane zostaną stracone!", "Wyjście!", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz wrócić do głównego Menu?" +Environment.NewLine + " Wszystkie nie zapisane dane zostaną stracone!", "Wyjście!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -54,7 +54,7 @@ namespace WareHouseApplication.Forms
             int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
             comboBox3.SelectedIndex= selectedItemComboBox2;
         }
-
+        
         private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
         {
             int selectedItemComboBox3 = Convert.ToInt16(comboBox3.SelectedIndex);
@@ -65,9 +65,9 @@ namespace WareHouseApplication.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             
-            var notNullValidationObj = new IsNullIAddingItemValidation(OpisProduktuTBox.Text.ToString(),RodzajProdCBox.Text,NumerKreskowyTBox.Text.ToString(),MetodaKupnaWyrazCBox.Text,CenaZakupuTBox.Text.ToString(),CenaSprzedTBox.Text.ToString(),IloscProdTBox.Text.ToString());
+            var notNullValidationObj = new IsNullIAddingItemValidation(OpisProduktuTBox.Text.ToString(),RodzajProdCBox.Text,NumerKreskowyTBox.Text.ToString(),MetodaKupnaCyfraCBox.Text,CenaZakupuTBox.Text.ToString(),CenaSprzedTBox.Text.ToString(),IloscProdTBox.Text.ToString());
 
-            var rulesValidationObj = new RulesValidationAddingItem(OpisProduktuTBox.Text.ToString(), RodzajProdCBox.Text, NumerKreskowyTBox.Text.ToString(), MetodaKupnaWyrazCBox.Text, CenaZakupuTBox.Text.ToString(), CenaSprzedTBox.Text.ToString(), IloscProdTBox.Text.ToString());
+            var rulesValidationObj = new RulesValidationAddingItem(OpisProduktuTBox.Text.ToString(), RodzajProdCBox.Text, NumerKreskowyTBox.Text.ToString(), MetodaKupnaCyfraCBox.Text, CenaZakupuTBox.Text.ToString(), CenaSprzedTBox.Text.ToString(), IloscProdTBox.Text.ToString());
             var list = notNullValidationObj.list;
             var isNull = notNullValidationObj.isNullValidation(list);
 
@@ -81,23 +81,31 @@ namespace WareHouseApplication.Forms
                 
                 if (isCorrect==true)
                 {
-                    int c = 7;
+
+                    var context = new WareHouseEntities1();
+                    var product = new Product()
+                    {
+
+
+                    };
+                    context.Product.Add(product);
+                    context.SaveChanges();
+
+
+
                 }
             }
-            int x = 6;
+            else
+            {
+                MessageBox.Show("Formularz nie został wypełniony prawidłowo!" + Environment.NewLine+"Możliwe również, że formularz zawiera puste pola!", "Błąd!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+           
 
             
 
-            var context = new WareHouseEntities1();
-                var product = new Product()
-                {
-                   
-
-                };
-                context.Product.Add(product);
-                context.SaveChanges();
-            
-
+          
 
 
 
@@ -105,16 +113,21 @@ namespace WareHouseApplication.Forms
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
-            comboBox3.SelectedIndex = selectedItemComboBox2;
+            int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
+            MetodaKupnaWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
         }
 
-        private void MetodaKupnaCBox_SelectedValueChanged(object sender, EventArgs e)
+        private void MetodaKupnaWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
+            MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
         }
+
+       
+
+       
     }
     }
 

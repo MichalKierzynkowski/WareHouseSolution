@@ -29,6 +29,7 @@ namespace WareHouseApplication.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItemFormcs));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,9 +53,24 @@ namespace WareHouseApplication.Forms
             this.RodzajProdCBox = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.MetodaKupnaCyfraCBox = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.OpisProdInfo = new System.Windows.Forms.PictureBox();
+            this.RodzajProdInfo = new System.Windows.Forms.PictureBox();
+            this.NumerKreskInfo = new System.Windows.Forms.PictureBox();
+            this.MetKupnaInfo = new System.Windows.Forms.PictureBox();
+            this.CenaZakupuInfo = new System.Windows.Forms.PictureBox();
+            this.CenaSprzedInfo = new System.Windows.Forms.PictureBox();
+            this.IloscProduktuInfo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OpisProdInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RodzajProdInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumerKreskInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MetKupnaInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CenaZakupuInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CenaSprzedInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IloscProduktuInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -166,15 +182,15 @@ namespace WareHouseApplication.Forms
             this.OpisProduktuTBox.Location = new System.Drawing.Point(484, 207);
             this.OpisProduktuTBox.Multiline = true;
             this.OpisProduktuTBox.Name = "OpisProduktuTBox";
-            this.OpisProduktuTBox.Size = new System.Drawing.Size(327, 22);
+            this.OpisProduktuTBox.Size = new System.Drawing.Size(327, 25);
             this.OpisProduktuTBox.TabIndex = 7;
             // 
             // NumerKreskowyTBox
             // 
-            this.NumerKreskowyTBox.Location = new System.Drawing.Point(484, 348);
+            this.NumerKreskowyTBox.Location = new System.Drawing.Point(484, 342);
             this.NumerKreskowyTBox.Multiline = true;
             this.NumerKreskowyTBox.Name = "NumerKreskowyTBox";
-            this.NumerKreskowyTBox.Size = new System.Drawing.Size(327, 22);
+            this.NumerKreskowyTBox.Size = new System.Drawing.Size(327, 28);
             this.NumerKreskowyTBox.TabIndex = 9;
             // 
             // MetodaKupnaWyrazCBox
@@ -188,22 +204,22 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaWyrazCBox.Name = "MetodaKupnaWyrazCBox";
             this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(224, 24);
             this.MetodaKupnaWyrazCBox.TabIndex = 10;
-            this.MetodaKupnaWyrazCBox.SelectedValueChanged += new System.EventHandler(this.MetodaKupnaCBox_SelectedValueChanged);
+            this.MetodaKupnaWyrazCBox.SelectedValueChanged += new System.EventHandler(this.MetodaKupnaWyrazCBox_SelectedValueChanged);
             // 
             // CenaZakupuTBox
             // 
-            this.CenaZakupuTBox.Location = new System.Drawing.Point(484, 496);
+            this.CenaZakupuTBox.Location = new System.Drawing.Point(484, 493);
             this.CenaZakupuTBox.Multiline = true;
             this.CenaZakupuTBox.Name = "CenaZakupuTBox";
-            this.CenaZakupuTBox.Size = new System.Drawing.Size(327, 22);
+            this.CenaZakupuTBox.Size = new System.Drawing.Size(327, 25);
             this.CenaZakupuTBox.TabIndex = 11;
             // 
             // CenaSprzedTBox
             // 
-            this.CenaSprzedTBox.Location = new System.Drawing.Point(484, 571);
+            this.CenaSprzedTBox.Location = new System.Drawing.Point(484, 568);
             this.CenaSprzedTBox.Multiline = true;
             this.CenaSprzedTBox.Name = "CenaSprzedTBox";
-            this.CenaSprzedTBox.Size = new System.Drawing.Size(327, 22);
+            this.CenaSprzedTBox.Size = new System.Drawing.Size(327, 25);
             this.CenaSprzedTBox.TabIndex = 12;
             // 
             // DodajProduktButton
@@ -238,10 +254,10 @@ namespace WareHouseApplication.Forms
             // 
             // IloscProdTBox
             // 
-            this.IloscProdTBox.Location = new System.Drawing.Point(484, 632);
+            this.IloscProdTBox.Location = new System.Drawing.Point(484, 629);
             this.IloscProdTBox.Multiline = true;
             this.IloscProdTBox.Name = "IloscProdTBox";
-            this.IloscProdTBox.Size = new System.Drawing.Size(327, 22);
+            this.IloscProdTBox.Size = new System.Drawing.Size(327, 25);
             this.IloscProdTBox.TabIndex = 16;
             // 
             // RodzajProdCBox
@@ -359,55 +375,100 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaCyfraCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MetodaKupnaCyfraCBox.FormattingEnabled = true;
             this.MetodaKupnaCyfraCBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "55"});
+            "0",
+            "1"});
             this.MetodaKupnaCyfraCBox.Location = new System.Drawing.Point(484, 423);
             this.MetodaKupnaCyfraCBox.Name = "MetodaKupnaCyfraCBox";
             this.MetodaKupnaCyfraCBox.Size = new System.Drawing.Size(52, 24);
             this.MetodaKupnaCyfraCBox.TabIndex = 19;
-            this.MetodaKupnaCyfraCBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.MetodaKupnaCyfraCBox.SelectedValueChanged += new System.EventHandler(this.MetodaKupnaCyfraCBox_SelectedValueChanged);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.toolTip1.ToolTipTitle = "Info";
+            // 
+            // OpisProdInfo
+            // 
+            this.OpisProdInfo.Image = ((System.Drawing.Image)(resources.GetObject("OpisProdInfo.Image")));
+            this.OpisProdInfo.Location = new System.Drawing.Point(817, 207);
+            this.OpisProdInfo.Name = "OpisProdInfo";
+            this.OpisProdInfo.Size = new System.Drawing.Size(25, 25);
+            this.OpisProdInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.OpisProdInfo.TabIndex = 20;
+            this.OpisProdInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.OpisProdInfo, "Pole służące do  wpisania opisu produktu.\r\nPole nie może być puste!");
+            // 
+            // RodzajProdInfo
+            // 
+            this.RodzajProdInfo.Image = ((System.Drawing.Image)(resources.GetObject("RodzajProdInfo.Image")));
+            this.RodzajProdInfo.Location = new System.Drawing.Point(817, 277);
+            this.RodzajProdInfo.Name = "RodzajProdInfo";
+            this.RodzajProdInfo.Size = new System.Drawing.Size(25, 25);
+            this.RodzajProdInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.RodzajProdInfo.TabIndex = 21;
+            this.RodzajProdInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.RodzajProdInfo, "Pole służące do  zaznaczenia  rodzaju produktu.\r\nW tym polu musi być wybrana opcj" +
+        "a!\r\n");
+            // 
+            // NumerKreskInfo
+            // 
+            this.NumerKreskInfo.Image = ((System.Drawing.Image)(resources.GetObject("NumerKreskInfo.Image")));
+            this.NumerKreskInfo.Location = new System.Drawing.Point(817, 345);
+            this.NumerKreskInfo.Name = "NumerKreskInfo";
+            this.NumerKreskInfo.Size = new System.Drawing.Size(25, 25);
+            this.NumerKreskInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.NumerKreskInfo.TabIndex = 22;
+            this.NumerKreskInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.NumerKreskInfo, "Pole służące do  wpisania numeru kreskowego produktu.\r\nPole nie może być puste i " +
+        "musi zawierać tylko liczby!\r\n\r\n\r\n");
+            // 
+            // MetKupnaInfo
+            // 
+            this.MetKupnaInfo.Image = ((System.Drawing.Image)(resources.GetObject("MetKupnaInfo.Image")));
+            this.MetKupnaInfo.Location = new System.Drawing.Point(817, 420);
+            this.MetKupnaInfo.Name = "MetKupnaInfo";
+            this.MetKupnaInfo.Size = new System.Drawing.Size(25, 25);
+            this.MetKupnaInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.MetKupnaInfo.TabIndex = 23;
+            this.MetKupnaInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.MetKupnaInfo, "Pole służące do  zaznaczenia metody kupna.\r\nPole musi być zaznaczone.\r\n");
+            // 
+            // CenaZakupuInfo
+            // 
+            this.CenaZakupuInfo.Image = ((System.Drawing.Image)(resources.GetObject("CenaZakupuInfo.Image")));
+            this.CenaZakupuInfo.Location = new System.Drawing.Point(817, 493);
+            this.CenaZakupuInfo.Name = "CenaZakupuInfo";
+            this.CenaZakupuInfo.Size = new System.Drawing.Size(25, 25);
+            this.CenaZakupuInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.CenaZakupuInfo.TabIndex = 24;
+            this.CenaZakupuInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.CenaZakupuInfo, "Pole służące do  wpisania cen zakupu produktu.\r\nPole nie może być puste i musi za" +
+        "wierać tylko cyfry!\r\n");
+            // 
+            // CenaSprzedInfo
+            // 
+            this.CenaSprzedInfo.Image = ((System.Drawing.Image)(resources.GetObject("CenaSprzedInfo.Image")));
+            this.CenaSprzedInfo.Location = new System.Drawing.Point(817, 568);
+            this.CenaSprzedInfo.Name = "CenaSprzedInfo";
+            this.CenaSprzedInfo.Size = new System.Drawing.Size(25, 25);
+            this.CenaSprzedInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.CenaSprzedInfo.TabIndex = 25;
+            this.CenaSprzedInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.CenaSprzedInfo, "Pole służące do  wpisania cen sprzedaży produktu.\r\nPole nie może być puste i musi" +
+        " zawierać tylko cyfry!\r\n\r\n");
+            // 
+            // IloscProduktuInfo
+            // 
+            this.IloscProduktuInfo.Image = ((System.Drawing.Image)(resources.GetObject("IloscProduktuInfo.Image")));
+            this.IloscProduktuInfo.Location = new System.Drawing.Point(817, 629);
+            this.IloscProduktuInfo.Name = "IloscProduktuInfo";
+            this.IloscProduktuInfo.Size = new System.Drawing.Size(25, 25);
+            this.IloscProduktuInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.IloscProduktuInfo.TabIndex = 26;
+            this.IloscProduktuInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.IloscProduktuInfo, "Pole służące do  wpisania ilości produktu.\r\nPole nie może być puste i musi zawier" +
+        "ać tylko cyfry!\r\n\r\n");
             // 
             // AddItemFormcs
             // 
@@ -415,6 +476,13 @@ namespace WareHouseApplication.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1009, 810);
+            this.Controls.Add(this.IloscProduktuInfo);
+            this.Controls.Add(this.CenaSprzedInfo);
+            this.Controls.Add(this.CenaZakupuInfo);
+            this.Controls.Add(this.MetKupnaInfo);
+            this.Controls.Add(this.NumerKreskInfo);
+            this.Controls.Add(this.RodzajProdInfo);
+            this.Controls.Add(this.OpisProdInfo);
             this.Controls.Add(this.MetodaKupnaCyfraCBox);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.RodzajProdCBox);
@@ -442,6 +510,13 @@ namespace WareHouseApplication.Forms
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OpisProdInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RodzajProdInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumerKreskInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MetKupnaInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CenaZakupuInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CenaSprzedInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IloscProduktuInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,5 +546,13 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.ComboBox RodzajProdCBox;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox MetodaKupnaCyfraCBox;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox OpisProdInfo;
+        private System.Windows.Forms.PictureBox RodzajProdInfo;
+        private System.Windows.Forms.PictureBox NumerKreskInfo;
+        private System.Windows.Forms.PictureBox MetKupnaInfo;
+        private System.Windows.Forms.PictureBox CenaZakupuInfo;
+        private System.Windows.Forms.PictureBox CenaSprzedInfo;
+        private System.Windows.Forms.PictureBox IloscProduktuInfo;
     }
 }
