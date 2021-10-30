@@ -63,15 +63,14 @@ namespace WareHouseApplication.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+                
                 var context = new WareHouseEntities1();
-                var user = new Users()
+                var product = new Product()
                 {
-                    Name = "michu",
-                    Password = "testpwy"
+                   
 
                 };
-                context.Users.Add(user);
+                context.Product.Add(product);
                 context.SaveChanges();
             
 

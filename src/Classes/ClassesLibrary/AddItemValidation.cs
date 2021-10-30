@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassesLibrary
 {
-    public class Class1
+    public class AddItemValidation
     {
+
     }
 }
