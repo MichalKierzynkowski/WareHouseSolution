@@ -72,7 +72,7 @@ namespace WareHouseApplication.Forms
             var isNull = notNullValidationObj.isNullValidation(list);
 
             var isCorrect = rulesValidationObj.Validation(OpisProduktuTBox.Text.ToString(), RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text.ToString(), MetodaKupnaWyrazCBox.Text, CenaZakupuTBox.Text.ToString(),
+                NumerKreskowyTBox.Text.ToString(), MetodaKupnaCyfraCBox.Text, CenaZakupuTBox.Text.ToString(),
                 CenaSprzedTBox.Text.ToString(), IloscProdTBox.Text.ToString());
 
 
@@ -94,10 +94,15 @@ namespace WareHouseApplication.Forms
 
 
                 }
+                else
+                {
+                    MessageBox.Show("Formularz nie został wypełniony prawidłowo!" + Environment.NewLine + "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Formularz nie został wypełniony prawidłowo!" + Environment.NewLine+"Możliwe również, że formularz zawiera puste pola!", "Błąd!",
+                MessageBox.Show("Formularz nie został wypełniony prawidłowo!" + Environment.NewLine+"Formularz zawiera puste pola!", "Błąd!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 

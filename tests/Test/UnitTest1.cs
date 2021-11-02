@@ -25,7 +25,7 @@ namespace Test
 
             //assert
 
-            Assert.True(validationObj.Validation(listToTest));
+            Assert.False(validationObj.isNullValidation(listToTest));
         }
 
 
