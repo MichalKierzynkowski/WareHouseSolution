@@ -14,14 +14,23 @@ namespace EntityFrrameworkClasses
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    using System.ComponentModel.DataAnnotations.Schema;
-    
+    using System.Data.Entity.ModelConfiguration.Conventions;
+
     public partial class WareHouseEntities1 : DbContext
     {
         public WareHouseEntities1()
-            : base("Data Source=DESKTOP-GI0C1PC\\SQLEXPRESS;Initial Catalog=WareHouse;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            : base("Data Source=DESKTOP-GI0C1PC\\SQLEXPRESS;Initial Catalog=WareHouse;Integrated Security=True")
         {
         }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Towar>().ToTable("Towar");
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //throw new UnintentionalCodeFirstException();
+
+        }
+
     
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Returns> Returns { get; set; }

@@ -10,13 +10,17 @@
 namespace EntityFrrameworkClasses
 {
     using System;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class sp_helpdiagrams_Result
     {
         public string Database { get; set; }
         public string Name { get; set; }
+        [Key, Column(Order = 0)]
         public int ID { get; set; }
         public string Owner { get; set; }
+        [Key, Column(Order = 1)]
         public int OwnerID { get; set; }
     }
 }

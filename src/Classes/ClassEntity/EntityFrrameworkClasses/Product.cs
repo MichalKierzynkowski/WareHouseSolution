@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Data.Entity.ModelConfiguration.Conventions;
+
 namespace EntityFrrameworkClasses
 {
     using System;
@@ -22,9 +24,9 @@ namespace EntityFrrameworkClasses
             this.Returns = new HashSet<Returns>();
             this.Sales = new HashSet<Sales>();
         }
-        [Key, Column(Order = 0)]
+        [Key, DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity),Column(Order = 0)]
         public decimal Id_Product { get; set; }
-        [Key, Column(Order = 1)]
+        
         public Nullable<decimal> Id_Warehouse { get; set; }
         public Nullable<int> Type { get; set; }
         public Nullable<int> Bar_Number { get; set; }
@@ -32,7 +34,7 @@ namespace EntityFrrameworkClasses
         public Nullable<int> Purchase_Method { get; set; }
         public Nullable<decimal> Purchase_Price { get; set; }
         public Nullable<decimal> Sell_Price { get; set; }
-    
+        [ForeignKey("Id_Warehouse")]
         public virtual Warehouse Warehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Returns> Returns { get; set; }

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFrrameworkClasses
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Warehouse
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Warehouse()
         {
-            this.Product = new HashSet<Product>();
+            //this.Product = new HashSet<Product>();
         }
         [Key, Column(Order = 0)]
         public decimal Id_Warehouse { get; set; }
@@ -28,7 +28,7 @@ namespace EntityFrrameworkClasses
         public Nullable<int> Id_Product { get; set; }
         public Nullable<int> Quantity { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+       // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Product> Product { get; set; }
     }
 }
