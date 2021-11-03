@@ -68,7 +68,7 @@ namespace WareHouseApplication.Forms
                     if (isCorrect)
                     {
 
-                       // using(var context = new WareHouseContext)
+                      
                     
 
                     
