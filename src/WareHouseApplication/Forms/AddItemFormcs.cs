@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Data.Entity.Validation;
 using System.Windows.Forms;
 using ClassesLibrary;
-using EntityFrrameworkClasses;
+
+
 
 namespace WareHouseApplication.Forms
 {
@@ -62,29 +62,13 @@ namespace WareHouseApplication.Forms
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaZakupuTBox.Text,
                 CenaSprzedTBox.Text, IloscProdTBox.Text);
 
-            try
-            {
+            
                 if (isNull == false)
                 {
                     if (isCorrect)
                     {
-                        var context = new WareHouseEntities1();
-                        var product = new Product
-                        {
 
-
-                            Description = OpisProduktuTBox.Text,
-                            Type = Convert.ToInt32(RodzajProdCBox.Text),
-                            Bar_Number = Convert.ToInt32(NumerKreskowyTBox.Text),
-                            Purchase_Method = Convert.ToInt32(Convert.ToInt32(MetodaKupnaCyfraCBox.Text)),
-                            Purchase_Price = Convert.ToDecimal(CenaZakupuTBox.Text),
-                            Sell_Price = Convert.ToDecimal(CenaSprzedTBox.Text),
-                            Id_Warehouse = 0,
-
-
-                        };
-                        context.Product.Add(product);
-                        context.SaveChanges();
+                        
                     }
                     else
                     {
@@ -103,25 +87,8 @@ namespace WareHouseApplication.Forms
                 }
 
             }
-            catch (DbEntityValidationException dbex)
-            {
-                foreach (var validationErrors in dbex.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        var value = ("Property: {0} Error: {1}", validationError.PropertyName.ToString(),
-                            validationError.ErrorMessage.ToString());
-                        int x = 6;
-                    }
-                }
-            }
-           // catch (Exception dException)
-            //{
-              //  var value = dException.InnerException.Message;
-            //    int x = 5;
-            //}
 
-        }
+        
 
         private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
         {
