@@ -44,11 +44,13 @@ namespace WareHouseApplication
             this.sprzedajPrzedmiotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.archiwumSprzedażyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edytujArchwiumSprzedażyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.użytkownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wyjścieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.użytkownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zakupyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajZakupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,6 +63,7 @@ namespace WareHouseApplication
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dsfToolStripMenuItem,
             this.magazynToolStripMenuItem,
+            this.zakupyToolStripMenuItem,
             this.sprzedażToolStripMenuItem,
             this.użytkownicyToolStripMenuItem,
             this.wyjścieToolStripMenuItem});
@@ -88,7 +91,7 @@ namespace WareHouseApplication
             this.informacjeOWersjiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("informacjeOWersjiToolStripMenuItem.Image")));
             this.informacjeOWersjiToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.informacjeOWersjiToolStripMenuItem.Name = "informacjeOWersjiToolStripMenuItem";
-            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(223, 32);
+            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.informacjeOWersjiToolStripMenuItem.Text = "Informacje o wersji";
             // 
             // ustawieniaToolStripMenuItem
@@ -187,6 +190,14 @@ namespace WareHouseApplication
             this.edytujArchwiumSprzedażyToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
             this.edytujArchwiumSprzedażyToolStripMenuItem.Text = "Edytuj Archwium Sprzedaży";
             // 
+            // użytkownicyToolStripMenuItem
+            // 
+            this.użytkownicyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("użytkownicyToolStripMenuItem.Image")));
+            this.użytkownicyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.użytkownicyToolStripMenuItem.Name = "użytkownicyToolStripMenuItem";
+            this.użytkownicyToolStripMenuItem.Size = new System.Drawing.Size(153, 52);
+            this.użytkownicyToolStripMenuItem.Text = "Użytkownicy";
+            // 
             // wyjścieToolStripMenuItem
             // 
             this.wyjścieToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("wyjścieToolStripMenuItem.Image")));
@@ -234,13 +245,23 @@ namespace WareHouseApplication
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // użytkownicyToolStripMenuItem
+            // zakupyToolStripMenuItem
             // 
-            this.użytkownicyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("użytkownicyToolStripMenuItem.Image")));
-            this.użytkownicyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.użytkownicyToolStripMenuItem.Name = "użytkownicyToolStripMenuItem";
-            this.użytkownicyToolStripMenuItem.Size = new System.Drawing.Size(153, 52);
-            this.użytkownicyToolStripMenuItem.Text = "Użytkownicy";
+            this.zakupyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajZakupToolStripMenuItem});
+            this.zakupyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zakupyToolStripMenuItem.Image")));
+            this.zakupyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.zakupyToolStripMenuItem.Name = "zakupyToolStripMenuItem";
+            this.zakupyToolStripMenuItem.Size = new System.Drawing.Size(119, 52);
+            this.zakupyToolStripMenuItem.Text = "Zakupy";
+            // 
+            // dodajZakupToolStripMenuItem
+            // 
+            this.dodajZakupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("dodajZakupToolStripMenuItem.Image")));
+            this.dodajZakupToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.dodajZakupToolStripMenuItem.Name = "dodajZakupToolStripMenuItem";
+            this.dodajZakupToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
+            this.dodajZakupToolStripMenuItem.Text = "Dodaj Zakup";
             // 
             // MainMenu
             // 
@@ -288,6 +309,8 @@ namespace WareHouseApplication
         private System.Windows.Forms.ToolStripMenuItem edytujArchwiumSprzedażyToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem użytkownicyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zakupyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajZakupToolStripMenuItem;
     }
 }
 

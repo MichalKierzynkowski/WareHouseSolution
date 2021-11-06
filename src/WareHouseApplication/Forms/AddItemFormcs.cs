@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using ClassesLibrary;
 
 
-
 namespace WareHouseApplication.Forms
 {
     public partial class AddItemFormcs : Form
@@ -48,18 +47,19 @@ namespace WareHouseApplication.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             var notNullValidationObj = new IsNullIAddingItemValidation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaZakupuTBox.Text, CenaSprzedTBox.Text,
+                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,  CenaSprzedTBox.Text,
                 IloscProdTBox.Text);
 
             var rulesValidationObj = new RulesValidationAddingItem(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaZakupuTBox.Text, CenaSprzedTBox.Text,
+                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaSprzedTBox.Text,
                 IloscProdTBox.Text);
             var list = notNullValidationObj.list;
             var isNull = notNullValidationObj.isNullValidation(list);
 
             var isCorrect = rulesValidationObj.Validation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaZakupuTBox.Text,
+                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
                 CenaSprzedTBox.Text, IloscProdTBox.Text);
 
             
@@ -68,7 +68,7 @@ namespace WareHouseApplication.Forms
                     if (isCorrect)
                     {
 
-                      
+                    
                     
 
                     

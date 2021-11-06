@@ -39,12 +39,10 @@ namespace WareHouseApplication.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.OpisProduktuTBox = new System.Windows.Forms.TextBox();
             this.NumerKreskowyTBox = new System.Windows.Forms.TextBox();
             this.MetodaKupnaWyrazCBox = new System.Windows.Forms.ComboBox();
-            this.CenaZakupuTBox = new System.Windows.Forms.TextBox();
             this.CenaSprzedTBox = new System.Windows.Forms.TextBox();
             this.DodajProduktButton = new System.Windows.Forms.Button();
             this.AnulujButton = new System.Windows.Forms.Button();
@@ -58,9 +56,9 @@ namespace WareHouseApplication.Forms
             this.RodzajProdInfo = new System.Windows.Forms.PictureBox();
             this.NumerKreskInfo = new System.Windows.Forms.PictureBox();
             this.MetKupnaInfo = new System.Windows.Forms.PictureBox();
-            this.CenaZakupuInfo = new System.Windows.Forms.PictureBox();
             this.CenaSprzedInfo = new System.Windows.Forms.PictureBox();
             this.IloscProduktuInfo = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,7 +66,6 @@ namespace WareHouseApplication.Forms
             ((System.ComponentModel.ISupportInitialize)(this.RodzajProdInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumerKreskInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MetKupnaInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CenaZakupuInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CenaSprzedInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IloscProduktuInfo)).BeginInit();
             this.SuspendLayout();
@@ -151,27 +148,17 @@ namespace WareHouseApplication.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(194, 419);
+            this.label5.Location = new System.Drawing.Point(194, 423);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 28);
             this.label5.TabIndex = 4;
             this.label5.Text = "Metoda Kupna";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(194, 489);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 28);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Cena zakupu produktu";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(194, 565);
+            this.label7.Location = new System.Drawing.Point(194, 513);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(243, 28);
             this.label7.TabIndex = 6;
@@ -206,17 +193,9 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaWyrazCBox.TabIndex = 10;
             this.MetodaKupnaWyrazCBox.SelectedValueChanged += new System.EventHandler(this.MetodaKupnaWyrazCBox_SelectedValueChanged);
             // 
-            // CenaZakupuTBox
-            // 
-            this.CenaZakupuTBox.Location = new System.Drawing.Point(484, 493);
-            this.CenaZakupuTBox.Multiline = true;
-            this.CenaZakupuTBox.Name = "CenaZakupuTBox";
-            this.CenaZakupuTBox.Size = new System.Drawing.Size(327, 25);
-            this.CenaZakupuTBox.TabIndex = 11;
-            // 
             // CenaSprzedTBox
             // 
-            this.CenaSprzedTBox.Location = new System.Drawing.Point(484, 568);
+            this.CenaSprzedTBox.Location = new System.Drawing.Point(484, 520);
             this.CenaSprzedTBox.Multiline = true;
             this.CenaSprzedTBox.Name = "CenaSprzedTBox";
             this.CenaSprzedTBox.Size = new System.Drawing.Size(327, 25);
@@ -224,9 +203,9 @@ namespace WareHouseApplication.Forms
             // 
             // DodajProduktButton
             // 
-            this.DodajProduktButton.Location = new System.Drawing.Point(654, 716);
+            this.DodajProduktButton.Location = new System.Drawing.Point(707, 701);
             this.DodajProduktButton.Name = "DodajProduktButton";
-            this.DodajProduktButton.Size = new System.Drawing.Size(141, 43);
+            this.DodajProduktButton.Size = new System.Drawing.Size(141, 61);
             this.DodajProduktButton.TabIndex = 13;
             this.DodajProduktButton.Text = "Dodaj Produkt";
             this.DodajProduktButton.UseVisualStyleBackColor = true;
@@ -234,9 +213,9 @@ namespace WareHouseApplication.Forms
             // 
             // AnulujButton
             // 
-            this.AnulujButton.Location = new System.Drawing.Point(484, 716);
+            this.AnulujButton.Location = new System.Drawing.Point(413, 701);
             this.AnulujButton.Name = "AnulujButton";
-            this.AnulujButton.Size = new System.Drawing.Size(141, 43);
+            this.AnulujButton.Size = new System.Drawing.Size(141, 61);
             this.AnulujButton.TabIndex = 14;
             this.AnulujButton.Text = "Anuluj";
             this.AnulujButton.UseVisualStyleBackColor = true;
@@ -246,7 +225,7 @@ namespace WareHouseApplication.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(194, 626);
+            this.label8.Location = new System.Drawing.Point(196, 609);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(144, 28);
             this.label8.TabIndex = 15;
@@ -254,7 +233,7 @@ namespace WareHouseApplication.Forms
             // 
             // IloscProdTBox
             // 
-            this.IloscProdTBox.Location = new System.Drawing.Point(484, 629);
+            this.IloscProdTBox.Location = new System.Drawing.Point(484, 612);
             this.IloscProdTBox.Multiline = true;
             this.IloscProdTBox.Name = "IloscProdTBox";
             this.IloscProdTBox.Size = new System.Drawing.Size(327, 25);
@@ -434,22 +413,10 @@ namespace WareHouseApplication.Forms
             this.MetKupnaInfo.TabStop = false;
             this.toolTip1.SetToolTip(this.MetKupnaInfo, "Pole służące do  zaznaczenia metody kupna.\r\nPole musi być zaznaczone.\r\n");
             // 
-            // CenaZakupuInfo
-            // 
-            this.CenaZakupuInfo.Image = ((System.Drawing.Image)(resources.GetObject("CenaZakupuInfo.Image")));
-            this.CenaZakupuInfo.Location = new System.Drawing.Point(817, 493);
-            this.CenaZakupuInfo.Name = "CenaZakupuInfo";
-            this.CenaZakupuInfo.Size = new System.Drawing.Size(25, 25);
-            this.CenaZakupuInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.CenaZakupuInfo.TabIndex = 24;
-            this.CenaZakupuInfo.TabStop = false;
-            this.toolTip1.SetToolTip(this.CenaZakupuInfo, "Pole służące do  wpisania cen zakupu produktu.\r\nPole nie może być puste i musi za" +
-        "wierać tylko cyfry!\r\n");
-            // 
             // CenaSprzedInfo
             // 
             this.CenaSprzedInfo.Image = ((System.Drawing.Image)(resources.GetObject("CenaSprzedInfo.Image")));
-            this.CenaSprzedInfo.Location = new System.Drawing.Point(817, 568);
+            this.CenaSprzedInfo.Location = new System.Drawing.Point(817, 520);
             this.CenaSprzedInfo.Name = "CenaSprzedInfo";
             this.CenaSprzedInfo.Size = new System.Drawing.Size(25, 25);
             this.CenaSprzedInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -461,7 +428,7 @@ namespace WareHouseApplication.Forms
             // IloscProduktuInfo
             // 
             this.IloscProduktuInfo.Image = ((System.Drawing.Image)(resources.GetObject("IloscProduktuInfo.Image")));
-            this.IloscProduktuInfo.Location = new System.Drawing.Point(817, 629);
+            this.IloscProduktuInfo.Location = new System.Drawing.Point(817, 612);
             this.IloscProduktuInfo.Name = "IloscProduktuInfo";
             this.IloscProduktuInfo.Size = new System.Drawing.Size(25, 25);
             this.IloscProduktuInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -470,15 +437,24 @@ namespace WareHouseApplication.Forms
             this.toolTip1.SetToolTip(this.IloscProduktuInfo, "Pole służące do  wpisania ilości produktu.\r\nPole nie może być puste i musi zawier" +
         "ać tylko cyfry!\r\n\r\n");
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(560, 701);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 61);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Sprawdz Dostępność Produktu";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // AddItemFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1009, 810);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.IloscProduktuInfo);
             this.Controls.Add(this.CenaSprzedInfo);
-            this.Controls.Add(this.CenaZakupuInfo);
             this.Controls.Add(this.MetKupnaInfo);
             this.Controls.Add(this.NumerKreskInfo);
             this.Controls.Add(this.RodzajProdInfo);
@@ -491,12 +467,10 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.AnulujButton);
             this.Controls.Add(this.DodajProduktButton);
             this.Controls.Add(this.CenaSprzedTBox);
-            this.Controls.Add(this.CenaZakupuTBox);
             this.Controls.Add(this.MetodaKupnaWyrazCBox);
             this.Controls.Add(this.NumerKreskowyTBox);
             this.Controls.Add(this.OpisProduktuTBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -514,7 +488,6 @@ namespace WareHouseApplication.Forms
             ((System.ComponentModel.ISupportInitialize)(this.RodzajProdInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumerKreskInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MetKupnaInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CenaZakupuInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CenaSprzedInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IloscProduktuInfo)).EndInit();
             this.ResumeLayout(false);
@@ -532,12 +505,10 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox OpisProduktuTBox;
         private System.Windows.Forms.TextBox NumerKreskowyTBox;
         private System.Windows.Forms.ComboBox MetodaKupnaWyrazCBox;
-        private System.Windows.Forms.TextBox CenaZakupuTBox;
         private System.Windows.Forms.TextBox CenaSprzedTBox;
         private System.Windows.Forms.Button DodajProduktButton;
         private System.Windows.Forms.Button AnulujButton;
@@ -551,8 +522,8 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.PictureBox RodzajProdInfo;
         private System.Windows.Forms.PictureBox NumerKreskInfo;
         private System.Windows.Forms.PictureBox MetKupnaInfo;
-        private System.Windows.Forms.PictureBox CenaZakupuInfo;
         private System.Windows.Forms.PictureBox CenaSprzedInfo;
         private System.Windows.Forms.PictureBox IloscProduktuInfo;
+        private System.Windows.Forms.Button button1;
     }
 }

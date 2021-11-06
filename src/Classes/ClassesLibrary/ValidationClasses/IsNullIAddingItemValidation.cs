@@ -16,7 +16,7 @@ namespace ClassesLibrary
 
         }
 
-        public IsNullIAddingItemValidation(string v1, string v2, string v3, string v4, string v5, string v6, string v7)
+        public IsNullIAddingItemValidation(string v1, string v2, string v3, string v4, string v5, string v6)
         {
             list = new List<string>();
             list.Add(v1);
@@ -25,7 +25,7 @@ namespace ClassesLibrary
             list.Add(v4);
             list.Add(v5);
             list.Add(v6);
-            list.Add(v7);
+            
             
 
 
