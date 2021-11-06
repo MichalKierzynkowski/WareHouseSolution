@@ -1,22 +1,23 @@
-﻿using System;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Windows.Forms;
-using ClassesLibrary;
+﻿using ClassesLibrary;
+using ClassesLibrary.ValidationClasses;
 using Dapper;
+using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace WareHouseApplication.Forms
 {
     public partial class AddItemFormcs : Form
     {
+        const string connectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
         public AddItemFormcs(MainMenu objMainMenu)
         {
+            
             InitializeComponent();
             ObjMainMenu = objMainMenu;
         }
 
         public MainMenu ObjMainMenu { get; }
-
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -49,9 +50,8 @@ namespace WareHouseApplication.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             var notNullValidationObj = new IsNullIAddingItemValidation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,  CenaSprzedTBox.Text,
+                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaSprzedTBox.Text,
                 IloscProdTBox.Text, CenaZakupuTBox.Text);
 
             var rulesValidationObj = new RulesValidationAddingItem(OpisProduktuTBox.Text, RodzajProdCBox.Text,
@@ -62,38 +62,56 @@ namespace WareHouseApplication.Forms
 
             var isCorrect = rulesValidationObj.Validation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
-                CenaSprzedTBox.Text, IloscProdTBox.Text,CenaZakupuTBox.Text);
+                CenaSprzedTBox.Text, IloscProdTBox.Text, CenaZakupuTBox.Text);
 
-            
-                if (isNull == false)
+
+
+            if (isNull == false)
+            {
+                if (isCorrect)
                 {
-                    if (isCorrect)
+                    var objBarNumbValid = new BarNumberValidation();
+                    var exists = objBarNumbValid.Validation(NumerKreskowyTBox.Text);
+                    if (exists == true)
                     {
-
-                    
-                    
-
-                    
+                        MessageBox.Show(
+                       "Błąd bazy danych!" + Environment.NewLine +
+                       "Baza zawiera już produkt o takim kodzie kreskowym!", "Błąd!",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show(
-                            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                            "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        var objInsData = new ProductModelOperations(OpisProduktuTBox.Text, RodzajProdCBox.Text, NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaSprzedTBox.Text, IloscProdTBox.Text);
+                        
+
+                        string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Descripton_Product,Purchase_Method,Quantity,Offer_Price) Values (@Type_Product1,@Bar_Number1,@Desctription_Method1,@Purchase_Method1,@Quantity1,@Offer_Price1);";
+                        using (var connection = new SqlConnection(connectionString))
+                        {
+                            connection.Execute(insertSql);
+                            
+
+
+
+
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show(
                         "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                        "Formularz zawiera puste pola!", "Błąd!",
+                        "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
-
-        
+            else
+            {
+                MessageBox.Show(
+                    "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                    "Formularz zawiera puste pola!", "Błąd!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -106,47 +124,34 @@ namespace WareHouseApplication.Forms
             int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
             MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
         }
-        
+
         private void DostepnoscButton_Click(object sender, EventArgs e)
         {
-
-           
-                
-                string  bar_Number = NumerKreskowyTBox.Text;
+            string bar_Number = NumerKreskowyTBox.Text;
             var notNullValidationObj = new IsNullIAddingItemValidation(bar_Number);
             var list = notNullValidationObj.list;
             var isNull = notNullValidationObj.isNullValidation(list);
             var rulesValidationObj = new RulesValidationAddingItem(bar_Number);
             var isCorrect = rulesValidationObj.Validation(bar_Number);
 
-
             if (isNull == false)
+            {
+                if (isCorrect)
                 {
-                    if (isCorrect)
+                    var objBarNumbValid = new BarNumberValidation();
+                    var exists = objBarNumbValid.Validation(bar_Number);
+
+                    if (exists == true)
                     {
-                    string connectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
-                    using (var connection = new SqlConnection(connectionString))
-                    {
-                         var exists = connection.Query<object>(
-                     "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE Bar_Number = @bar_Number)", new { bar_Number })
-                          .Any();
-
-
-
-                        connection.Close();
-
-                    }
-
-
-
-
+                        string message = "Instnieje w bazie taki produkt!";
+                        string title = "Informacja";
+                        MessageBox.Show(message, title);
                     }
                     else
                     {
-                        MessageBox.Show(
-                            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                            "Jeśli chcesz sprawdzić dostepność produktu, wprowadź odpowiednie znaki!", "Błąd!",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        string message = "Nie istnieje w bazie taki produkt!";
+                        string title = "Informacja";
+                        MessageBox.Show(message, title);
                     }
                 }
                 else
@@ -157,9 +162,16 @@ namespace WareHouseApplication.Forms
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-            }
 
-            
             }
+            else
+            {
+                MessageBox.Show(
+                    "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                    "Jeśli chcesz sprawdzić dostepność produktu, wprowadź odpowiednie znaki!", "Błąd!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
-    
+    }
+}
