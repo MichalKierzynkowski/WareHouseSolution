@@ -32,6 +32,23 @@ namespace ClassesLibrary
         {
         }
 
+        public RulesValidationAddingItem(string bar_Number)
+        {
+            Validation(bar_Number);
+        }
+
+        public bool Validation(string bar_Number)
+        {
+            if(bar_Number.All(char.IsDigit))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool Validation(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying,  string PriceSelling, string AmountOfProduct,string BuyingPrice)
         {
             if (ProductType.All(char.IsDigit) && BarNumber.All(char.IsDigit) && BuyingPrice.All(char.IsDigit) &&  MethodOfBuying.All(char.IsDigit) && PriceSelling.All(char.IsDigit) && AmountOfProduct.All(char.IsDigit)  )

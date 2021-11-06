@@ -144,9 +144,9 @@ namespace WareHouseApplication.Forms
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(194, 342);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(168, 28);
+            this.label4.Size = new System.Drawing.Size(141, 28);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Numer Kreskowy";
+            this.label4.Text = "Kod Kreskowy";
             // 
             // label5
             // 

@@ -16,9 +16,17 @@ namespace ClassesLibrary
 
         }
 
+        public IsNullIAddingItemValidation(string bar_Number)
+        {
+            list = new List<string>();
+            list.Clear();
+            list.Add(bar_Number);
+        }
+
         public IsNullIAddingItemValidation(string v1, string v2, string v3, string v4, string v5, string v6,string v7)
         {
             list = new List<string>();
+            list.Clear();
             list.Add(v1);
             list.Add(v2);
             list.Add(v3);

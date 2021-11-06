@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 using ClassesLibrary;
-
+using Dapper;
 
 namespace WareHouseApplication.Forms
 {
@@ -107,7 +109,57 @@ namespace WareHouseApplication.Forms
         
         private void DostepnoscButton_Click(object sender, EventArgs e)
         {
+
+           
+                
+                string  bar_Number = NumerKreskowyTBox.Text;
+            var notNullValidationObj = new IsNullIAddingItemValidation(bar_Number);
+            var list = notNullValidationObj.list;
+            var isNull = notNullValidationObj.isNullValidation(list);
+            var rulesValidationObj = new RulesValidationAddingItem(bar_Number);
+            var isCorrect = rulesValidationObj.Validation(bar_Number);
+
+
+            if (isNull == false)
+                {
+                    if (isCorrect)
+                    {
+                    string connectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
+                    using (var connection = new SqlConnection(connectionString))
+                    {
+                         var exists = connection.Query<object>(
+                     "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE Bar_Number = @bar_Number)", new { bar_Number })
+                          .Any();
+
+
+
+                        connection.Close();
+
+                    }
+
+
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                            "Jeśli chcesz sprawdzić dostepność produktu, wprowadź odpowiednie znaki!", "Błąd!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                        "Jeśli chcesz sprawdzić dostępność produktu wypełni pole Numer_Kreskowy!", "Błąd!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+
             
+            }
         }
-    }
-}
+    
