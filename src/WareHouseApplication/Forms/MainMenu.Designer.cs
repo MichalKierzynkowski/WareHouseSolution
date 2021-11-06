@@ -51,6 +51,7 @@ namespace WareHouseApplication
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.zakupyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajZakupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zobaczZakupyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -248,7 +249,8 @@ namespace WareHouseApplication
             // zakupyToolStripMenuItem
             // 
             this.zakupyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajZakupToolStripMenuItem});
+            this.dodajZakupToolStripMenuItem,
+            this.zobaczZakupyToolStripMenuItem});
             this.zakupyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zakupyToolStripMenuItem.Image")));
             this.zakupyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.zakupyToolStripMenuItem.Name = "zakupyToolStripMenuItem";
@@ -262,6 +264,14 @@ namespace WareHouseApplication
             this.dodajZakupToolStripMenuItem.Name = "dodajZakupToolStripMenuItem";
             this.dodajZakupToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.dodajZakupToolStripMenuItem.Text = "Dodaj Zakup";
+            // 
+            // zobaczZakupyToolStripMenuItem
+            // 
+            this.zobaczZakupyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zobaczZakupyToolStripMenuItem.Image")));
+            this.zobaczZakupyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.zobaczZakupyToolStripMenuItem.Name = "zobaczZakupyToolStripMenuItem";
+            this.zobaczZakupyToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
+            this.zobaczZakupyToolStripMenuItem.Text = "Zobacz Zakupy";
             // 
             // MainMenu
             // 
@@ -311,6 +321,7 @@ namespace WareHouseApplication
         private System.Windows.Forms.ToolStripMenuItem użytkownicyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zakupyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajZakupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zobaczZakupyToolStripMenuItem;
     }
 }
 

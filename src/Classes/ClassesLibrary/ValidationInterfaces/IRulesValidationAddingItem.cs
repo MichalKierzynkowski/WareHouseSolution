@@ -8,6 +8,6 @@ namespace ClassesLibrary.ValidationInterfaces
 {
     public interface IRulesValidationAddingItem
     {
-        bool Validation(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying,  string PriceSelling, string AmountOfProduct);
+        bool Validation(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying,  string PriceSelling, string AmountOfProduct,string PriceBuying);
     }
 }

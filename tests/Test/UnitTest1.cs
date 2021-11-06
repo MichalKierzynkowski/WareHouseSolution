@@ -15,11 +15,11 @@ namespace Test
             var four = "test";
             var fiv = "test";
             var six = "test";
-           
+            var sev = "test";
 
 
             //act
-            var validationObj = new IsNullIAddingItemValidation(fir, sec, thi, four, fiv, six);
+            var validationObj = new IsNullIAddingItemValidation(fir, sec, thi, four, fiv, six,sev);
             var listToTest = validationObj.list;
 
 
@@ -37,7 +37,7 @@ namespace Test
             var ProductType = "12";
             var BarNumber = "0123";
             var MethodOfBuying = "1";
-          
+            var PriceBuing = "25";
             var PriceSelling = "35";
             var AmountOfProduct = "12";
 
@@ -48,7 +48,7 @@ namespace Test
             
             //assert
             Assert.True(validationObj.Validation(ProductInfo, ProductType, BarNumber,
-                MethodOfBuying, PriceSelling, AmountOfProduct));
+                MethodOfBuying, PriceSelling, AmountOfProduct,PriceBuing));
         }
     }
 }

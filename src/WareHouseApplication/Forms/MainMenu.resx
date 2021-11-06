@@ -164,6 +164,17 @@
         YII=
 </value>
   </data>
+  <data name="zobaczZakupyToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAEZSURBVEhL7dOxTsJAAMbxixKMI04MMDm46cTIosG4sMMr+AS8ggzqC7iwATsL7+DCgBrFiZCg
+        LiTO8v+O1JTm2kCvY7/kF3qXXr/0rpg8WaWGT/ylsEIFibnFAk072j2X+EIfA024cownPONUE3ukjiWu
+        UMQLbrCVM0zQg8r2SbggSANvOLIjUob20bW/u2ojmiE6m0tj7qEb00Zr9cBoVDzXhd7iB74lU1zb0SbB
+        R6Bf8wBXSQHaZ82H6dyi0bzO4BU6g60C5R2P0I1pE6zVlunz/cV/QThZlFQxQ+yzsigJkpckJrz2HPpj
+        O5NFSQn6Wlt25IhvyQFGuNNEXHxLuhjjUBNx8S35wIkdJeQbujkNHfQF8vjGmDUcHnWMFVsXmwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
   <data name="zakupyToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

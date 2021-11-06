@@ -50,17 +50,17 @@ namespace WareHouseApplication.Forms
             
             var notNullValidationObj = new IsNullIAddingItemValidation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,  CenaSprzedTBox.Text,
-                IloscProdTBox.Text);
+                IloscProdTBox.Text, CenaZakupuTBox.Text);
 
             var rulesValidationObj = new RulesValidationAddingItem(OpisProduktuTBox.Text, RodzajProdCBox.Text,
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaSprzedTBox.Text,
-                IloscProdTBox.Text);
+                IloscProdTBox.Text, CenaZakupuTBox.Text);
             var list = notNullValidationObj.list;
             var isNull = notNullValidationObj.isNullValidation(list);
 
             var isCorrect = rulesValidationObj.Validation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
-                CenaSprzedTBox.Text, IloscProdTBox.Text);
+                CenaSprzedTBox.Text, IloscProdTBox.Text,CenaZakupuTBox.Text);
 
             
                 if (isNull == false)
@@ -103,6 +103,11 @@ namespace WareHouseApplication.Forms
         {
             int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
             MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
+        }
+        
+        private void DostepnoscButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

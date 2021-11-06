@@ -58,7 +58,10 @@ namespace WareHouseApplication.Forms
             this.MetKupnaInfo = new System.Windows.Forms.PictureBox();
             this.CenaSprzedInfo = new System.Windows.Forms.PictureBox();
             this.IloscProduktuInfo = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.DostepnoscButton = new System.Windows.Forms.Button();
+            this.CenaZakupuTBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,6 +71,7 @@ namespace WareHouseApplication.Forms
             ((System.ComponentModel.ISupportInitialize)(this.MetKupnaInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CenaSprzedInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IloscProduktuInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -158,7 +162,7 @@ namespace WareHouseApplication.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(194, 513);
+            this.label7.Location = new System.Drawing.Point(194, 497);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(243, 28);
             this.label7.TabIndex = 6;
@@ -195,7 +199,7 @@ namespace WareHouseApplication.Forms
             // 
             // CenaSprzedTBox
             // 
-            this.CenaSprzedTBox.Location = new System.Drawing.Point(484, 520);
+            this.CenaSprzedTBox.Location = new System.Drawing.Point(484, 504);
             this.CenaSprzedTBox.Multiline = true;
             this.CenaSprzedTBox.Name = "CenaSprzedTBox";
             this.CenaSprzedTBox.Size = new System.Drawing.Size(327, 25);
@@ -416,7 +420,7 @@ namespace WareHouseApplication.Forms
             // CenaSprzedInfo
             // 
             this.CenaSprzedInfo.Image = ((System.Drawing.Image)(resources.GetObject("CenaSprzedInfo.Image")));
-            this.CenaSprzedInfo.Location = new System.Drawing.Point(817, 520);
+            this.CenaSprzedInfo.Location = new System.Drawing.Point(817, 504);
             this.CenaSprzedInfo.Name = "CenaSprzedInfo";
             this.CenaSprzedInfo.Size = new System.Drawing.Size(25, 25);
             this.CenaSprzedInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -437,22 +441,56 @@ namespace WareHouseApplication.Forms
             this.toolTip1.SetToolTip(this.IloscProduktuInfo, "Pole służące do  wpisania ilości produktu.\r\nPole nie może być puste i musi zawier" +
         "ać tylko cyfry!\r\n\r\n");
             // 
-            // button1
+            // pictureBox3
             // 
-            this.button1.Location = new System.Drawing.Point(560, 701);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 61);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Sprawdz Dostępność Produktu";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(817, 561);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 30;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, "Pole służące do  wpisania ceny zakupu produktu.\r\nPole nie może być puste i musi z" +
+        "awierać tylko cyfry!\r\n\r\n");
+            // 
+            // DostepnoscButton
+            // 
+            this.DostepnoscButton.Location = new System.Drawing.Point(560, 701);
+            this.DostepnoscButton.Name = "DostepnoscButton";
+            this.DostepnoscButton.Size = new System.Drawing.Size(141, 61);
+            this.DostepnoscButton.TabIndex = 27;
+            this.DostepnoscButton.Text = "Sprawdz Dostępność Produktu";
+            this.DostepnoscButton.UseVisualStyleBackColor = true;
+            this.DostepnoscButton.Click += new System.EventHandler(this.DostepnoscButton_Click);
+            // 
+            // CenaZakupuTBox
+            // 
+            this.CenaZakupuTBox.Location = new System.Drawing.Point(484, 561);
+            this.CenaZakupuTBox.Multiline = true;
+            this.CenaZakupuTBox.Name = "CenaZakupuTBox";
+            this.CenaZakupuTBox.Size = new System.Drawing.Size(327, 25);
+            this.CenaZakupuTBox.TabIndex = 29;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(194, 554);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(223, 28);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Cena Zakupu Produktu";
             // 
             // AddItemFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1009, 810);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1029, 810);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.CenaZakupuTBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.DostepnoscButton);
             this.Controls.Add(this.IloscProduktuInfo);
             this.Controls.Add(this.CenaSprzedInfo);
             this.Controls.Add(this.MetKupnaInfo);
@@ -490,6 +528,7 @@ namespace WareHouseApplication.Forms
             ((System.ComponentModel.ISupportInitialize)(this.MetKupnaInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CenaSprzedInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IloscProduktuInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,6 +563,9 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.PictureBox MetKupnaInfo;
         private System.Windows.Forms.PictureBox CenaSprzedInfo;
         private System.Windows.Forms.PictureBox IloscProduktuInfo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DostepnoscButton;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox CenaZakupuTBox;
+        private System.Windows.Forms.Label label6;
     }
 }
