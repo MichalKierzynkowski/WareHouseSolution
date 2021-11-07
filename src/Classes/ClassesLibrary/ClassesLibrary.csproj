@@ -149,7 +149,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductModelOperations.cs" />
     <Compile Include="ValidationClasses\BarNumberValidation.cs" />
     <Compile Include="ValidationClasses\IsNullIAddingItemValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

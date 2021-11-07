@@ -1,6 +1,5 @@
 ﻿using ClassesLibrary;
 using ClassesLibrary.ValidationClasses;
-using Dapper;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -9,10 +8,10 @@ namespace WareHouseApplication.Forms
 {
     public partial class AddItemFormcs : Form
     {
-        const string connectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
+        private const string connectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
+
         public AddItemFormcs(MainMenu objMainMenu)
         {
-            
             InitializeComponent();
             ObjMainMenu = objMainMenu;
         }
@@ -64,8 +63,6 @@ namespace WareHouseApplication.Forms
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
                 CenaSprzedTBox.Text, IloscProdTBox.Text, CenaZakupuTBox.Text);
 
-
-
             if (isNull == false)
             {
                 if (isCorrect)
@@ -81,19 +78,35 @@ namespace WareHouseApplication.Forms
                     }
                     else
                     {
-                        var objInsData = new ProductModelOperations(OpisProduktuTBox.Text, RodzajProdCBox.Text, NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaSprzedTBox.Text, IloscProdTBox.Text);
-                        
+                        var Type_Product = RodzajProdCBox.Text;
+                        var Bar_Number = NumerKreskowyTBox.Text;
+                        var Description = OpisProduktuTBox.Text;
+                        var Purchase_Method = MetodaKupnaCyfraCBox.Text;
+                        var Quantity = IloscProdTBox.Text;
+                        var OfferPrice = CenaSprzedTBox.Text;
 
-                        string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Descripton_Product,Purchase_Method,Quantity,Offer_Price) Values (@Type_Product1,@Bar_Number1,@Desctription_Method1,@Purchase_Method1,@Quantity1,@Offer_Price1);";
+                        string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice);";
                         using (var connection = new SqlConnection(connectionString))
                         {
-                            connection.Execute(insertSql);
-                            
+                            SqlConnection cnn = new SqlConnection(connectionString);
+                            SqlCommand cmd = new SqlCommand(insertSql, cnn);
+                            cmd.Parameters.AddWithValue("@Type_Product", Type_Product);
+                            cmd.Parameters.AddWithValue("@Bar_Number", Bar_Number);
+                            cmd.Parameters.AddWithValue("@Description", Description);
+                            cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
+                            cmd.Parameters.AddWithValue("@Quantity", Quantity);
+                            cmd.Parameters.AddWithValue("@OfferPrice", OfferPrice);
 
+                            cnn.Open();
+                            cmd.ExecuteNonQuery();
+                            cnn.Close();
 
+                            MessageBox.Show(
 
-
+                       "Pomyślnie dodano nowy produkt!", "Sukces!",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                        ClearingMenu();
                     }
                 }
                 else
@@ -161,8 +174,6 @@ namespace WareHouseApplication.Forms
                         "Jeśli chcesz sprawdzić dostępność produktu wypełni pole Numer_Kreskowy!", "Błąd!",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
             else
             {
@@ -171,7 +182,18 @@ namespace WareHouseApplication.Forms
                     "Jeśli chcesz sprawdzić dostepność produktu, wprowadź odpowiednie znaki!", "Błąd!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+        }
+        private void ClearingMenu()
+        {
+            CenaSprzedTBox.Clear();
+            CenaZakupuTBox.Clear();
+            IloscProdTBox.Clear();
+            MetodaKupnaCyfraCBox.SelectedIndex = 0;
+            MetodaKupnaWyrazCBox.SelectedIndex = 0;
+            OpisProduktuTBox.Clear();
+            RodzajProdCBox.SelectedIndex = 0;
+            
+
         }
     }
 }
