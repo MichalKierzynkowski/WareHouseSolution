@@ -60,9 +60,17 @@ namespace ClassesLibrary
 
         }
 
-       
+        public bool MoneyValidation(string buingPrice, string sellingPrice)
+        {
+            double number3 = 0;
+            
+           var  canConvert = double.TryParse(buingPrice, out number3);
+            if (canConvert == true)
+                return true;
+            else
+                return false;
 
 
-
+        }
     }
 }

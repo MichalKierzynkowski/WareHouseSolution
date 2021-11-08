@@ -62,6 +62,7 @@ namespace WareHouseApplication.Forms
             var isCorrect = rulesValidationObj.Validation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
                  IloscProdTBox.Text);
+            var isMoneyCorrect = rulesValidationObj.MoneyValidation(CenaZakupuTBox.Text, CenaSprzedTBox.Text);
 
             if (isNull == false)
             {
@@ -95,7 +96,7 @@ namespace WareHouseApplication.Forms
                             cmd.Parameters.AddWithValue("@Description", Description);
                             cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
                             cmd.Parameters.AddWithValue("@Quantity", Quantity);
-                            cmd.Parameters.AddWithValue("@OfferPrice", OfferPrice);
+                            cmd.Parameters.AddWithValue("@OfferPrice",Convert.ToDouble(OfferPrice));
 
                             cnn.Open();
                             cmd.ExecuteNonQuery();
