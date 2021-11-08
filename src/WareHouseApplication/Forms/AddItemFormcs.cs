@@ -54,14 +54,14 @@ namespace WareHouseApplication.Forms
                 IloscProdTBox.Text, CenaZakupuTBox.Text);
 
             var rulesValidationObj = new RulesValidationAddingItem(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaSprzedTBox.Text,
-                IloscProdTBox.Text, CenaZakupuTBox.Text);
+                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
+                IloscProdTBox.Text);
             var list = notNullValidationObj.list;
             var isNull = notNullValidationObj.isNullValidation(list);
 
             var isCorrect = rulesValidationObj.Validation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
                 NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
-                CenaSprzedTBox.Text, IloscProdTBox.Text, CenaZakupuTBox.Text);
+                 IloscProdTBox.Text);
 
             if (isNull == false)
             {
@@ -188,10 +188,13 @@ namespace WareHouseApplication.Forms
             CenaSprzedTBox.Clear();
             CenaZakupuTBox.Clear();
             IloscProdTBox.Clear();
-            MetodaKupnaCyfraCBox.SelectedIndex = 0;
-            MetodaKupnaWyrazCBox.SelectedIndex = 0;
+            MetodaKupnaCyfraCBox.Items.Clear();
+            MetodaKupnaWyrazCBox.Items.Clear();
             OpisProduktuTBox.Clear();
-            RodzajProdCBox.SelectedIndex = 0;
+            RodzajProdCBox.Items.Clear();
+            comboBox3.Items.Clear();
+            NumerKreskowyTBox.Clear();
+
             
 
         }

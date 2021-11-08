@@ -16,7 +16,7 @@ namespace ClassesLibrary
        public string BuyingPrice { get; set; }
         public string PriceSelling { get; set; }
         public string AmountOfProduct { get; set; }
-        public RulesValidationAddingItem(string ProductInfo,string ProductType,string BarNumber,string MethodOfBuying,string PriceSelling,string AmountOfProduct,string BuyingPrice)
+        public RulesValidationAddingItem(string ProductInfo,string ProductType,string BarNumber,string MethodOfBuying,string AmountOfProduct)
         {
             this.ProductInfo = ProductInfo;
             this.BarNumber = BarNumber;
@@ -25,7 +25,7 @@ namespace ClassesLibrary
             this.PriceSelling = PriceSelling;
             this.AmountOfProduct = AmountOfProduct;
             this.ProductType = ProductType;
-            Validation(ProductInfo, ProductType, BarNumber, MethodOfBuying, PriceSelling, AmountOfProduct,BuyingPrice);
+            Validation(ProductInfo, ProductType, BarNumber, MethodOfBuying, AmountOfProduct);
         }
 
         public RulesValidationAddingItem()
@@ -49,9 +49,9 @@ namespace ClassesLibrary
             }
         }
 
-        public bool Validation(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying,  string PriceSelling, string AmountOfProduct,string BuyingPrice)
+        public bool Validation(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying, string AmountOfProduct)
         {
-            if (ProductType.All(char.IsDigit) && BarNumber.All(char.IsDigit) && BuyingPrice.All(char.IsDigit) &&  MethodOfBuying.All(char.IsDigit) && PriceSelling.All(char.IsDigit) && AmountOfProduct.All(char.IsDigit)  )
+            if (ProductType.All(char.IsDigit) && BarNumber.All(char.IsDigit) &&  MethodOfBuying.All(char.IsDigit) && AmountOfProduct.All(char.IsDigit)  )
             {
                 return true;
             }
