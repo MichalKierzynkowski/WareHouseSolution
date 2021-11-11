@@ -65,7 +65,8 @@ namespace ClassesLibrary
             double number3 = 0;
             
            var  canConvert = double.TryParse(buingPrice, out number3);
-            if (canConvert == true)
+            var canConvert2 = double.TryParse(sellingPrice, out number3);
+            if (canConvert == true && canConvert2 == true)
                 return true;
             else
                 return false;

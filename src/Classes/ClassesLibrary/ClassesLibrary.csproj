@@ -149,6 +149,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SqlModels\PriceChanging.cs" />
+    <Compile Include="SqlModels\Product.cs" />
+    <Compile Include="SqlModels\Purchase.cs" />
+    <Compile Include="SqlModels\Returns.cs" />
+    <Compile Include="SqlModels\Sales.cs" />
+    <Compile Include="SqlModels\Users.cs" />
     <Compile Include="ValidationClasses\BarNumberValidation.cs" />
     <Compile Include="ValidationClasses\IsNullIAddingItemValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
