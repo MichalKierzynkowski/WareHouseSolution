@@ -34,7 +34,6 @@ namespace WareHouseApplication.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,7 +63,6 @@ namespace WareHouseApplication.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpisProdInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RodzajProdInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumerKreskInfo)).BeginInit();
@@ -79,10 +77,9 @@ namespace WareHouseApplication.Forms
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-1, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1014, 114);
+            this.panel1.Size = new System.Drawing.Size(1030, 114);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -106,17 +103,6 @@ namespace WareHouseApplication.Forms
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WareHouseApplication.Properties.Resources.icons8_close_window_48__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(909, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -358,8 +344,8 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaCyfraCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MetodaKupnaCyfraCBox.FormattingEnabled = true;
             this.MetodaKupnaCyfraCBox.Items.AddRange(new object[] {
-            "0",
-            "1"});
+            "1",
+            "2"});
             this.MetodaKupnaCyfraCBox.Location = new System.Drawing.Point(484, 423);
             this.MetodaKupnaCyfraCBox.Name = "MetodaKupnaCyfraCBox";
             this.MetodaKupnaCyfraCBox.Size = new System.Drawing.Size(52, 24);
@@ -514,14 +500,14 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AddItemFormcs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddItemFormcs";
+            this.Text = "Dodaj Produkt";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpisProdInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RodzajProdInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumerKreskInfo)).EndInit();
@@ -537,7 +523,6 @@ namespace WareHouseApplication.Forms
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

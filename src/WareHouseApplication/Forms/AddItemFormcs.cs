@@ -3,7 +3,6 @@ using ClassesLibrary.SqlModels;
 using ClassesLibrary.ValidationClasses;
 using Dapper;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -78,85 +77,30 @@ namespace WareHouseApplication.Forms
                         var exists = objBarNumbValid.Validation(NumerKreskowyTBox.Text);
                         if (exists == true)
                         {
-                            MessageBox.Show(
-                           "Błąd bazy danych!" + Environment.NewLine +
-                           "Baza zawiera już produkt o takim kodzie kreskowym!", "Błąd!",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            
+                            BarNumberDuplicateBox();
                         }
                         else
                         {
-                            var Type_Product = RodzajProdCBox.Text;
-                            var Bar_Number = NumerKreskowyTBox.Text;
-                            var Description = OpisProduktuTBox.Text;
-                            var Purchase_Method = MetodaKupnaCyfraCBox.Text;
-                            var Quantity = IloscProdTBox.Text;
-                            var OfferPrice = CenaSprzedTBox.Text;
-                            var BuyingPrice = CenaZakupuTBox.Text;
-
-                            string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice);";
-
-                            SqlConnection cnn = new SqlConnection(connectionString);
-                            SqlCommand cmd = new SqlCommand(insertSql, cnn);
-
-                            cmd.Parameters.AddWithValue("@Type_Product", Type_Product);
-                            cmd.Parameters.AddWithValue("@Bar_Number", Bar_Number);
-                            cmd.Parameters.AddWithValue("@Description", Description);
-                            cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
-                            cmd.Parameters.AddWithValue("@Quantity", Quantity);
-                            cmd.Parameters.AddWithValue("@OfferPrice", Convert.ToDouble(OfferPrice));
-                            cnn.Open();
-                            cmd.ExecuteNonQuery();
-                            cnn.Close();
-
-                            var Id_Product = TakingIdProduct(Bar_Number);
-                            
-                            SqlConnection cnn2 = new SqlConnection(connectionString);
-                            DateTime Date_Purchase = DateTime.Now;
-                            var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice)";
-                            SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
-                            cmdPurchase.Parameters.AddWithValue("@Id_Product", Id_Product);
-                            cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
-                            cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
-                            cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
-
-                            cnn2.Open();
-                            cmdPurchase.ExecuteNonQuery();
-                            cnn2.Close();
-
-                            MessageBox.Show(
-
-                       "Pomyślnie dodano nowy produkt!", "Sukces!",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
+                            CreatingProduct();
+                            CreatingPurchase();
+                            SuccessfullyProductAdded();
+                           
                             ClearingMenu();
                         }
-                       
                     }
                     else
                     {
-                        MessageBox.Show(
-                       "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                       "Pamiętaj, że cena musi być zdefiniowana z przecinkiem!", "Błąd!",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ErrorWithPriceBox();
                     }
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                        "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    FieldNotCorrectBox();
                 }
             }
             else
             {
-                MessageBox.Show(
-                    "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                    "Formularz zawiera puste pola!", "Błąd!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FieldNullBox();
             }
         }
 
@@ -222,8 +166,8 @@ namespace WareHouseApplication.Forms
         {
             CenaSprzedTBox.Clear();
             CenaZakupuTBox.Clear();
-            IloscProdTBox.Clear();   
-            OpisProduktuTBox.Clear();      
+            IloscProdTBox.Clear();
+            OpisProduktuTBox.Clear();
             NumerKreskowyTBox.Clear();
         }
 
@@ -235,12 +179,95 @@ namespace WareHouseApplication.Forms
                 con.Open();
                 int iBarNumber = Convert.ToInt32(BarNumber);
                 var car = con.QueryFirst<Product>(@"SELECT Id_Product FROM Product WHERE Bar_Number= @Bar_Number",
-                    new { Bar_Number=iBarNumber});
+                    new { Bar_Number = iBarNumber });
 
                 return car.Id_Product;
             }
         }
-    }
 
-    
+        private void CreatingProduct()
+        {
+            var Type_Product = RodzajProdCBox.Text;
+            var Bar_Number = NumerKreskowyTBox.Text;
+            var Description = OpisProduktuTBox.Text;
+            var Purchase_Method = MetodaKupnaCyfraCBox.Text;
+            var Quantity = IloscProdTBox.Text;
+            var OfferPrice = CenaSprzedTBox.Text;
+
+            string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice);";
+
+            SqlConnection cnn = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(insertSql, cnn);
+
+            cmd.Parameters.AddWithValue("@Type_Product", Type_Product);
+            cmd.Parameters.AddWithValue("@Bar_Number", Bar_Number);
+            cmd.Parameters.AddWithValue("@Description", Description);
+            cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
+            cmd.Parameters.AddWithValue("@Quantity", Quantity);
+            cmd.Parameters.AddWithValue("@OfferPrice", Convert.ToDouble(OfferPrice));
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
+        private void CreatingPurchase()
+        {
+            var Bar_Number = NumerKreskowyTBox.Text;
+            var Quantity = IloscProdTBox.Text;
+            var BuyingPrice = CenaZakupuTBox.Text;
+            var Id_Product = TakingIdProduct(Bar_Number);
+
+            SqlConnection cnn2 = new SqlConnection(connectionString);
+            DateTime Date_Purchase = DateTime.Now;
+            var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice)";
+            SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
+            cmdPurchase.Parameters.AddWithValue("@Id_Product", Id_Product);
+            cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
+            cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
+            cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
+
+            cnn2.Open();
+            cmdPurchase.ExecuteNonQuery();
+            cnn2.Close();
+        }
+
+        private void BarNumberDuplicateBox()
+        {
+            MessageBox.Show(
+                                      "Błąd bazy danych!" + Environment.NewLine +
+                                      "Baza zawiera już produkt o takim kodzie kreskowym!", "Błąd!",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void SuccessfullyProductAdded()
+        {
+            MessageBox.Show(
+
+                      "Pomyślnie dodano nowy produkt!", "Sukces!",
+                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void ErrorWithPriceBox()
+        {
+            MessageBox.Show(
+                      "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                      "Pamiętaj, że cena musi być zdefiniowana z przecinkiem!", "Błąd!",
+                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void FieldNullBox()
+        {
+            MessageBox.Show(
+                   "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                   "Formularz zawiera puste pola!", "Błąd!",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void FieldNotCorrectBox()
+        {
+            MessageBox.Show(
+                                   "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                                   "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+       
+    }
 }
