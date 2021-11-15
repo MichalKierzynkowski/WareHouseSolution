@@ -45,6 +45,18 @@ namespace ClassesLibrary
             }
         }
 
+        public bool ComboValidation(string comboBox)
+        {
+            if (comboBox == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public bool Validation(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying, string AmountOfProduct)
         {
             if (ProductType.All(char.IsDigit) && BarNumber.All(char.IsDigit) && MethodOfBuying.All(char.IsDigit) && AmountOfProduct.All(char.IsDigit))
@@ -69,5 +81,6 @@ namespace ClassesLibrary
 
 
         }
+        
     }
 }

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WareHouseApplication.Alert
@@ -58,9 +51,13 @@ namespace WareHouseApplication.Alert
             saveFileDialog.DefaultExt = ".xlsx";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
+
                 workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                MessageBoxSukces();
+                this.Hide();
             }
             app.Quit();
+
         }
 
         private void TekstowyButton_Click(object sender, EventArgs e)
@@ -71,19 +68,25 @@ namespace WareHouseApplication.Alert
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 TextWriter writer = new StreamWriter(saveFileDialog.FileName);
-                for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
                     for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
-                        writer.Write("\t"+dataGridView1.Rows[i].Cells[j].Value.ToString()+"\t"+"|");
+                        writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
                     }
                     writer.WriteLine("");
                     writer.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 }
                 writer.Close();
-                MessageBox.Show("Nice");
+                MessageBoxSukces();
+                this.Hide();
             }
+
         }
-        
+
+        private void MessageBoxSukces()
+        {
+            MessageBox.Show("Zapisano pomyślnie!", " Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
