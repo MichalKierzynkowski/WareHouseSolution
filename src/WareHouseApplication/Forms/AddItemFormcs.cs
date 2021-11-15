@@ -10,12 +10,11 @@ namespace WareHouseApplication.Forms
 {
     public partial class AddItemFormcs : Form
     {
-        private const string connectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
-
-        public AddItemFormcs(MainMenu objMainMenu)
+        public string connectionString { get; set; }
+        public AddItemFormcs(MainMenu objMainMenu, string connectionString)
         {
             InitializeComponent();
-
+            this.connectionString = connectionString;
             ObjMainMenu = objMainMenu;
         }
 
@@ -74,7 +73,7 @@ namespace WareHouseApplication.Forms
                     if (isMoneyCorrect)
                     {
                         var objBarNumbValid = new BarNumberValidation();
-                        var exists = objBarNumbValid.Validation(NumerKreskowyTBox.Text);
+                        var exists = objBarNumbValid.Validation(NumerKreskowyTBox.Text, connectionString);
                         if (exists == true)
                         {
                             BarNumberDuplicateBox();
@@ -84,7 +83,7 @@ namespace WareHouseApplication.Forms
                             CreatingProduct();
                             CreatingPurchase();
                             SuccessfullyProductAdded();
-                           
+
                             ClearingMenu();
                         }
                     }
@@ -130,7 +129,7 @@ namespace WareHouseApplication.Forms
                 if (isCorrect)
                 {
                     var objBarNumbValid = new BarNumberValidation();
-                    var exists = objBarNumbValid.Validation(bar_Number);
+                    var exists = objBarNumbValid.Validation(bar_Number, connectionString);
 
                     if (exists == true)
                     {
@@ -169,6 +168,8 @@ namespace WareHouseApplication.Forms
             IloscProdTBox.Clear();
             OpisProduktuTBox.Clear();
             NumerKreskowyTBox.Clear();
+            MetodaKupnaCyfraCBox.SelectedIndex = -1;
+            RodzajProdCBox.SelectedIndex = -1;
         }
 
         private int TakingIdProduct(string BarNumber)
@@ -268,6 +269,6 @@ namespace WareHouseApplication.Forms
                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-       
+
     }
 }

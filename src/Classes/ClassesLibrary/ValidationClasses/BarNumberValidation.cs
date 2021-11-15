@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Dapper;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
 
 namespace ClassesLibrary.ValidationClasses
 {
@@ -13,12 +9,12 @@ namespace ClassesLibrary.ValidationClasses
 
         public BarNumberValidation()
         {
-            
+
         }
 
-        public  bool Validation(string barNumber)
+        public bool Validation(string barNumber, string connectionString)
         {
-            string connectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
+
             using (var connection = new SqlConnection(connectionString))
             {
                 var exists = connection.Query<object>(
@@ -26,7 +22,7 @@ namespace ClassesLibrary.ValidationClasses
                  .Any();
 
                 connection.Close();
-                if (exists==true)
+                if (exists == true)
                 {
                     return true;
                 }

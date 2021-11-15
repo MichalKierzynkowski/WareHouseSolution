@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ClassesLibrary.SqlClasses;
+using System;
 using System.Windows.Forms;
 using WareHouseApplication.Forms;
 
@@ -16,13 +10,15 @@ namespace WareHouseApplication
         int mov;
         int movX;
         int movY;
+        public string connectionString { get; set; }
 
         public MainMenu ObjMainMenu { get; private set; }
-
+        public ReturnSqlConnection objReturnSql { get; set; }
         public MainMenu()
         {
             InitializeComponent();
-            
+            objReturnSql = new ReturnSqlConnection();
+            connectionString = objReturnSql.ReturnSqlPc();
         }
 
         private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,7 +36,7 @@ namespace WareHouseApplication
 
         private void dodajProduktToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obj = new AddItemFormcs(ObjMainMenu);
+            var obj = new AddItemFormcs(ObjMainMenu, connectionString);
             obj.Show();
 
         }
@@ -67,7 +63,7 @@ namespace WareHouseApplication
 
         private void wyświetlMagazynToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var obj = new ShowWareHouse(ObjMainMenu);
+            var obj = new ShowWareHouse(ObjMainMenu, connectionString);
             obj.Show();
         }
 
@@ -80,7 +76,7 @@ namespace WareHouseApplication
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mov==1)
+            if (mov == 1)
             {
                 this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
             }

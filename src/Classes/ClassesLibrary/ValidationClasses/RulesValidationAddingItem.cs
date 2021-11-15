@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ClassesLibrary.ValidationInterfaces;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassesLibrary.ValidationInterfaces;
 
 namespace ClassesLibrary
 {
-    public class RulesValidationAddingItem:IRulesValidationAddingItem
+    public class RulesValidationAddingItem : IRulesValidationAddingItem
     {
-        public string ProductInfo{ get; set; }
+        public string ProductInfo { get; set; }
         public string ProductType { get; set; }
         public string BarNumber { get; set; }
-        public string MethodOfBuying{ get; set; }
-       public string BuyingPrice { get; set; }
+        public string MethodOfBuying { get; set; }
+        public string BuyingPrice { get; set; }
         public string PriceSelling { get; set; }
         public string AmountOfProduct { get; set; }
-        public RulesValidationAddingItem(string ProductInfo,string ProductType,string BarNumber,string MethodOfBuying,string AmountOfProduct)
+        public RulesValidationAddingItem(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying, string AmountOfProduct)
         {
             this.ProductInfo = ProductInfo;
             this.BarNumber = BarNumber;
@@ -39,7 +35,7 @@ namespace ClassesLibrary
 
         public bool Validation(string bar_Number)
         {
-            if(bar_Number.All(char.IsDigit))
+            if (bar_Number.All(char.IsDigit))
             {
                 return true;
             }
@@ -51,7 +47,7 @@ namespace ClassesLibrary
 
         public bool Validation(string ProductInfo, string ProductType, string BarNumber, string MethodOfBuying, string AmountOfProduct)
         {
-            if (ProductType.All(char.IsDigit) && BarNumber.All(char.IsDigit) &&  MethodOfBuying.All(char.IsDigit) && AmountOfProduct.All(char.IsDigit)  )
+            if (ProductType.All(char.IsDigit) && BarNumber.All(char.IsDigit) && MethodOfBuying.All(char.IsDigit) && AmountOfProduct.All(char.IsDigit))
             {
                 return true;
             }
@@ -63,8 +59,8 @@ namespace ClassesLibrary
         public bool MoneyValidation(string buingPrice, string sellingPrice)
         {
             double number3 = 0;
-            
-           var  canConvert = double.TryParse(buingPrice, out number3);
+
+            var canConvert = double.TryParse(buingPrice, out number3);
             var canConvert2 = double.TryParse(sellingPrice, out number3);
             if (canConvert == true && canConvert2 == true)
                 return true;

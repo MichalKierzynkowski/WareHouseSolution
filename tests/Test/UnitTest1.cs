@@ -19,7 +19,7 @@ namespace Test
 
 
             //act
-            var validationObj = new IsNullIAddingItemValidation(fir, sec, thi, four, fiv, six,sev);
+            var validationObj = new IsNullIAddingItemValidation(fir, sec, thi, four, fiv, six, sev);
             var listToTest = validationObj.list;
 
 
@@ -43,12 +43,12 @@ namespace Test
 
             //act
             var validationObj = new RulesValidationAddingItem();
-                 
 
-            
+
+
             //assert
-           // Assert.True(validationObj.Validation(ProductInfo, ProductType, BarNumber,
-             //   MethodOfBuying, PriceSelling, AmountOfProduct,PriceBuing));
+            // Assert.True(validationObj.Validation(ProductInfo, ProductType, BarNumber,
+            //   MethodOfBuying, PriceSelling, AmountOfProduct,PriceBuing));
         }
     }
 }

@@ -149,6 +149,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SqlClassesInterfaces\IReturnSql.cs" />
+    <Compile Include="SqlClassesInterfaces\ReturnSqlConnection.cs" />
     <Compile Include="SqlModels\PriceChanging.cs" />
     <Compile Include="SqlModels\Product.cs" />
     <Compile Include="SqlModels\Purchase.cs" />

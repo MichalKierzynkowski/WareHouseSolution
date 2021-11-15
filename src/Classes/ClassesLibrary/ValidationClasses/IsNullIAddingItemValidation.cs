@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassesLibrary
 {
@@ -23,7 +19,7 @@ namespace ClassesLibrary
             list.Add(bar_Number);
         }
 
-        public IsNullIAddingItemValidation(string v1, string v2, string v3, string v4, string v5, string v6,string v7)
+        public IsNullIAddingItemValidation(string v1, string v2, string v3, string v4, string v5, string v6, string v7)
         {
             list = new List<string>();
             list.Clear();
@@ -34,15 +30,15 @@ namespace ClassesLibrary
             list.Add(v5);
             list.Add(v6);
             list.Add(v7);
-            
+
 
 
         }
 
 
-        public bool isNullValidation(List<string > listToCheck)
+        public bool isNullValidation(List<string> listToCheck)
         {
-            if (listToCheck.Any(x => x == string.Empty ))
+            if (listToCheck.Any(x => x == string.Empty))
             {
                 return true;
             }
@@ -51,11 +47,11 @@ namespace ClassesLibrary
             {
                 return false;
             }
-            
+
         }
 
 
 
-        
+
     }
 }
