@@ -18,7 +18,7 @@ namespace WareHouseApplication.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ObjMainMenu = objMainMenu;
             ShowAllProducts();
-          
+
 
 
         }
@@ -28,7 +28,7 @@ namespace WareHouseApplication.Forms
         private void ShowWareHouse_FormClosing(object sender, FormClosingEventArgs e)
         {
         }
-      
+
         private void ShowAllProducts()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -94,7 +94,7 @@ FROM      Product INNER JOIN
                 dataGridView1.Columns[0].Width = 75;
                 dataGridView1.Columns[1].Width = 150;
                 dataGridView1.Columns[2].Width = 75;
-              
+
                 //close connection
                 conn.Close();
             }
@@ -136,7 +136,17 @@ FROM      Product INNER JOIN
             CenaZakupuCBox.SelectedIndex = -1;
             CenaSprzedazCBox.SelectedIndex = -1;
             NumerKreskowyTBox.Clear();
-            
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var objAlert = new Alert.Alert(dataGridView1);
+            objAlert.Show();
+           // SavingProductsExcel();
+        }
+        private void SavingProductsExcel()
+        {
         }
     }
 }

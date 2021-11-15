@@ -38,7 +38,7 @@ namespace WareHouseApplication.Forms
             this.wareHouseDataSet = new WareHouseApplication.WareHouseDataSet();
             this.wareHouseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ResetButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ZapiszProduktyButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -132,17 +132,18 @@ namespace WareHouseApplication.Forms
             this.ResetButton.UseVisualStyleBackColor = false;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
-            // button3
+            // ZapiszProduktyButton
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(1308, 593);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 44);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Zapisz Produkty";
-            this.button3.UseVisualStyleBackColor = false;
+            this.ZapiszProduktyButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ZapiszProduktyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ZapiszProduktyButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ZapiszProduktyButton.Location = new System.Drawing.Point(1308, 593);
+            this.ZapiszProduktyButton.Name = "ZapiszProduktyButton";
+            this.ZapiszProduktyButton.Size = new System.Drawing.Size(177, 44);
+            this.ZapiszProduktyButton.TabIndex = 4;
+            this.ZapiszProduktyButton.Text = "Zapisz Produkty";
+            this.ZapiszProduktyButton.UseVisualStyleBackColor = false;
+            this.ZapiszProduktyButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // label2
             // 
@@ -427,7 +428,7 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.RodzajProdCBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.ZapiszProduktyButton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
@@ -458,7 +459,7 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.BindingSource wareHouseDataSetBindingSource;
         private WareHouseDataSet wareHouseDataSet;
         private System.Windows.Forms.Button ResetButton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ZapiszProduktyButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox3;
