@@ -9,6 +9,10 @@ namespace WareHouseApplication.Forms
 {
     public partial class ShowWareHouse : Form
     {
+
+       
+
+
         public ShowWareHouse(MainMenu objMainMenu, string connectionString)
         {
             InitializeComponent();
@@ -18,6 +22,7 @@ namespace WareHouseApplication.Forms
             ObjMainMenu = objMainMenu;
             DefaultFillingGridView();
             ObjValidationAddingItem = new RulesValidationAddingItem();
+           
         }
 
         public RulesValidationAddingItem ObjValidationAddingItem { get; set; }
@@ -25,9 +30,7 @@ namespace WareHouseApplication.Forms
 
         public MainMenu ObjMainMenu { get; }
 
-        private void ShowWareHouse_FormClosing(object sender, FormClosingEventArgs e)
-        {
-        }
+       
 
         private void ShowSpecificProducts(string query,string queryItem)
         {
@@ -246,11 +249,56 @@ FROM      Product INNER JOIN
 
             
                 string prodType = comboBox3.SelectedItem.ToString();
-                BindingSource bs = new BindingSource();
+            BindingSource bs = new BindingSource();
                 bs.DataSource = dataGridView1.DataSource;
                 bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
                 dataGridView1.DataSource = bs;
             
         }
+
+        private void RodzajProdCBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
+            comboBox3.SelectedIndex = selectedItemComboBox2;
+
+            
+
+            string prodType = comboBox3.SelectedItem.ToString();
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+            dataGridView1.DataSource = bs;
+
+        }
+
+        private void MetodaKupnaCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
+            MetodaKupnaWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
+
+            string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            bs.Filter = "Purchase_Method_Description like '%" + buyingMethod + "%'";
+            dataGridView1.DataSource = bs;
+
+        }
+
+        private void MetodaKupnaWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
+            MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
+
+            string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
+            dataGridView1.DataSource = bs;
+
+
+        }
+
+      
     }
 }
