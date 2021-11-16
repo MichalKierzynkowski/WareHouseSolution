@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,8 +13,10 @@ namespace WareHouseApplication.Forms
     public partial class ShowWareHouse : Form
     {
 
+        private string ProductTypeDescription;
+        private string BuyingMethodDescription;
        
-
+       
 
         public ShowWareHouse(MainMenu objMainMenu, string connectionString)
         {
@@ -22,7 +27,8 @@ namespace WareHouseApplication.Forms
             ObjMainMenu = objMainMenu;
             DefaultFillingGridView();
             ObjValidationAddingItem = new RulesValidationAddingItem();
-           
+            
+
         }
 
         public RulesValidationAddingItem ObjValidationAddingItem { get; set; }
@@ -103,7 +109,7 @@ namespace WareHouseApplication.Forms
         private void RodzajProdCBox_SelectedValueChanged(object sender, EventArgs e)
         {
             int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
-            comboBox3.SelectedIndex = selectedItemComboBox2;
+            RodzajProduktuWyrazCBox.SelectedIndex = selectedItemComboBox2;
 
            
 
@@ -138,6 +144,8 @@ namespace WareHouseApplication.Forms
         {
             ClearingOptions();
             DefaultFillingGridView();
+            ProductTypeDescription = string.Empty;
+            BuyingMethodDescription = string.Empty;
         }
 
         private void ClearingOptions()
@@ -175,7 +183,7 @@ FROM      Product INNER JOIN
                 var cmd = new SqlCommand(query, conn);
 
                 //Set the SqlDataAdapter object
-                var dAdapter = new SqlDataAdapter(cmd);
+               var dAdapter = new SqlDataAdapter(cmd);
 
                 //define dataset
                 var ds = new DataSet();
@@ -237,38 +245,54 @@ FROM      Product INNER JOIN
             var isBarNumberChecked = ObjValidationAddingItem.ComboValidation(NumerKreskowyTBox.Text);
             var isBuyingPriceChecked = ObjValidationAddingItem.ComboValidation(CenaZakupuCBox.Text);
             var isSellingPriceChecked = ObjValidationAddingItem.ComboValidation(CenaSprzedazCBox.Text);
-
-
+           
+           
 
         }
 
         private void comboBox3_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            int selectedItemComboBox3 = Convert.ToInt16(comboBox3.SelectedIndex);
+            int selectedItemComboBox3 = Convert.ToInt16(RodzajProduktuWyrazCBox.SelectedIndex);
             RodzajProdCBox.SelectedIndex = selectedItemComboBox3;
+             ProductTypeDescription = RodzajProduktuWyrazCBox.SelectedItem.ToString();
 
-            
-                string prodType = comboBox3.SelectedItem.ToString();
-            BindingSource bs = new BindingSource();
+            string prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
+                BindingSource bs = new BindingSource();
+                 var list = dataGridView1.DataSource;
+                   
                 bs.DataSource = dataGridView1.DataSource;
-                bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
-                dataGridView1.DataSource = bs;
+               // bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+               bs.Filter = GetFilter();
+                dataGridView1.DataSource = null;
+               
+            dataGridView1.DataSource = bs;
             
+            var list2 = dataGridView1.DataSource;
+
+
+
+
         }
 
         private void RodzajProdCBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
-            comboBox3.SelectedIndex = selectedItemComboBox2;
+            RodzajProduktuWyrazCBox.SelectedIndex = selectedItemComboBox2;
+            ProductTypeDescription = RodzajProduktuWyrazCBox.SelectedItem.ToString();
 
+            var list = dataGridView1.DataSource;
+
+            string prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
             
-
-            string prodType = comboBox3.SelectedItem.ToString();
-
             BindingSource bs = new BindingSource();
             bs.DataSource = dataGridView1.DataSource;
-            bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+
+            //bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+            //bs.Filter += " and Purchase_Method_Description = 'Faktura' ";
+            bs.Filter = GetFilter();
+
             dataGridView1.DataSource = bs;
+            var list2 = dataGridView1.DataSource;
 
         }
 
@@ -276,12 +300,23 @@ FROM      Product INNER JOIN
         {
             int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
             MetodaKupnaWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
+            var list = dataGridView1.DataSource;
 
+            BuyingMethodDescription = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             BindingSource bs = new BindingSource();
+            
             bs.DataSource = dataGridView1.DataSource;
-            bs.Filter = "Purchase_Method_Description like '%" + buyingMethod + "%'";
+
+
+            //bs.Filter = "Purchase_Method_Description like '%" + buyingMethod + "%'";
+            bs.Filter = GetFilter();
+            dataGridView1.DataSource = null;
+            dataGridView1.ResetBindings();
             dataGridView1.DataSource = bs;
+            var list2 = dataGridView1.DataSource;
+
+
 
         }
 
@@ -289,16 +324,42 @@ FROM      Product INNER JOIN
         {
             int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
             MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
-
+            BuyingMethodDescription = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-            bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
-            dataGridView1.DataSource = bs;
+            var list = dataGridView1.DataSource;
+           
 
+
+            bs.DataSource  = dataGridView1.DataSource;
+            dataGridView1.DataSource = null;
+
+            // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
+            bs.Filter = GetFilter();
+            dataGridView1.DataSource = null;
+            dataGridView1.ResetBindings();
+            dataGridView1.DataSource = bs;
+            var list2 = dataGridView1.DataSource;
 
         }
 
-      
+        private string GetFilter()
+        {
+            List<string> parts = new List<string>();
+            if (string.IsNullOrWhiteSpace(ProductTypeDescription)==false)
+            {
+                parts.Add($"Product_Type_Description like '%{ProductTypeDescription}%'");
+            }
+
+            if (string.IsNullOrWhiteSpace(BuyingMethodDescription)==false)
+            {
+                parts.Add($"Purchase_Method_Description like '%{BuyingMethodDescription}%'");
+            }
+             var stringResult = string.Join(" and ", parts);
+
+             return stringResult;
+
+        }
+        
     }
 }
