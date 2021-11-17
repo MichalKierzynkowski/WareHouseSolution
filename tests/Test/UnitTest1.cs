@@ -29,26 +29,21 @@ namespace Test
         }
 
 
+      
         [Fact]
-        public void RulesValidationAddingItem()
+        public void BarNumberValidation()
         {
-            //arange
-            var ProductInfo = "Test";
-            var ProductType = "12";
-            var BarNumber = "0123";
-            var MethodOfBuying = "1";
-            var PriceBuing = "25";
-            var PriceSelling = "35";
-            var AmountOfProduct = "12";
+            //arrange 
+            string barNumber = "123.";
 
             //act
-            var validationObj = new RulesValidationAddingItem();
-
-
-
+            var validatioObj = new RulesValidationAddingItem();
             //assert
-            // Assert.True(validationObj.Validation(ProductInfo, ProductType, BarNumber,
-            //   MethodOfBuying, PriceSelling, AmountOfProduct,PriceBuing));
+            
+            var isCorrect = validatioObj.ShowHouseBarNumberValidation(barNumber);
+
+            Assert.False(isCorrect);
+
         }
     }
 }

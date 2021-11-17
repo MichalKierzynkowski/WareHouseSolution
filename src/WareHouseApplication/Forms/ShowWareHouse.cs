@@ -1,12 +1,11 @@
-﻿using System;
+﻿using ClassesLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using ClassesLibrary;
 
 namespace WareHouseApplication.Forms
 {
@@ -15,8 +14,8 @@ namespace WareHouseApplication.Forms
 
         private string ProductTypeDescription;
         private string BuyingMethodDescription;
-       
-       
+        private string BarNumber;
+
 
         public ShowWareHouse(MainMenu objMainMenu, string connectionString)
         {
@@ -27,7 +26,7 @@ namespace WareHouseApplication.Forms
             ObjMainMenu = objMainMenu;
             DefaultFillingGridView();
             ObjValidationAddingItem = new RulesValidationAddingItem();
-            
+
 
         }
 
@@ -36,17 +35,17 @@ namespace WareHouseApplication.Forms
 
         public MainMenu ObjMainMenu { get; }
 
-       
 
-        private void ShowSpecificProducts(string query,string queryItem)
+
+        private void ShowSpecificProducts(string query, string queryItem)
         {
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
             using (var conn = new SqlConnection(connectionString))
             {
-               
 
-                
+
+
                 //define the SqlCommand object
                 var cmd = new SqlCommand(query, conn);
 
@@ -111,7 +110,7 @@ namespace WareHouseApplication.Forms
             int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
             RodzajProduktuWyrazCBox.SelectedIndex = selectedItemComboBox2;
 
-           
+
 
 
 
@@ -120,7 +119,7 @@ namespace WareHouseApplication.Forms
 
         private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
         {
-           
+
 
 
 
@@ -183,7 +182,7 @@ FROM      Product INNER JOIN
                 var cmd = new SqlCommand(query, conn);
 
                 //Set the SqlDataAdapter object
-               var dAdapter = new SqlDataAdapter(cmd);
+                var dAdapter = new SqlDataAdapter(cmd);
 
                 //define dataset
                 var ds = new DataSet();
@@ -240,13 +239,22 @@ FROM      Product INNER JOIN
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
-            var isTypeProdChecked = ObjValidationAddingItem.ComboValidation(RodzajProdCBox.Text);
-            var isMethodBuyingChecked = ObjValidationAddingItem.ComboValidation(MetodaKupnaCyfraCBox.Text);
-            var isBarNumberChecked = ObjValidationAddingItem.ComboValidation(NumerKreskowyTBox.Text);
-            var isBuyingPriceChecked = ObjValidationAddingItem.ComboValidation(CenaZakupuCBox.Text);
-            var isSellingPriceChecked = ObjValidationAddingItem.ComboValidation(CenaSprzedazCBox.Text);
-           
-           
+            BarNumber = NumerKreskowyTBox.Text.ToString();
+
+            bool isCorrect=ObjValidationAddingItem.ShowHouseBarNumberValidation(BarNumber);
+
+            if(isCorrect==false)
+            {
+                string message = "Pole Kod Kreskowy jest puste lub źle wypełnione!";
+                string title = "Błąd!";
+                MessageBox.Show(message, title,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                BarNumber = string.Empty;
+            }
+            else
+            {
+                
+
+            }
 
         }
 
@@ -254,19 +262,19 @@ FROM      Product INNER JOIN
         {
             int selectedItemComboBox3 = Convert.ToInt16(RodzajProduktuWyrazCBox.SelectedIndex);
             RodzajProdCBox.SelectedIndex = selectedItemComboBox3;
-             ProductTypeDescription = RodzajProduktuWyrazCBox.SelectedItem.ToString();
+            ProductTypeDescription = RodzajProduktuWyrazCBox.SelectedItem.ToString();
 
             string prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
-                BindingSource bs = new BindingSource();
-                 var list = dataGridView1.DataSource;
-                   
-                bs.DataSource = dataGridView1.DataSource;
-               // bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
-               bs.Filter = GetFilter();
-                dataGridView1.DataSource = null;
-               
+            BindingSource bs = new BindingSource();
+            var list = dataGridView1.DataSource;
+
+            bs.DataSource = dataGridView1.DataSource;
+            // bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+            bs.Filter = GetFilter();
+            dataGridView1.DataSource = null;
+
             dataGridView1.DataSource = bs;
-            
+
             var list2 = dataGridView1.DataSource;
 
 
@@ -283,16 +291,15 @@ FROM      Product INNER JOIN
             var list = dataGridView1.DataSource;
 
             string prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
-            
+
             BindingSource bs = new BindingSource();
             bs.DataSource = dataGridView1.DataSource;
 
-            //bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
-            //bs.Filter += " and Purchase_Method_Description = 'Faktura' ";
+           
             bs.Filter = GetFilter();
 
             dataGridView1.DataSource = bs;
-            var list2 = dataGridView1.DataSource;
+           
 
         }
 
@@ -305,7 +312,7 @@ FROM      Product INNER JOIN
             BuyingMethodDescription = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             BindingSource bs = new BindingSource();
-            
+
             bs.DataSource = dataGridView1.DataSource;
 
 
@@ -328,10 +335,10 @@ FROM      Product INNER JOIN
             string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             BindingSource bs = new BindingSource();
             var list = dataGridView1.DataSource;
-           
 
 
-            bs.DataSource  = dataGridView1.DataSource;
+
+            bs.DataSource = dataGridView1.DataSource;
             dataGridView1.DataSource = null;
 
             // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
@@ -346,20 +353,61 @@ FROM      Product INNER JOIN
         private string GetFilter()
         {
             List<string> parts = new List<string>();
-            if (string.IsNullOrWhiteSpace(ProductTypeDescription)==false)
+            if (string.IsNullOrWhiteSpace(ProductTypeDescription) == false)
             {
                 parts.Add($"Product_Type_Description like '%{ProductTypeDescription}%'");
             }
 
-            if (string.IsNullOrWhiteSpace(BuyingMethodDescription)==false)
+            if (string.IsNullOrWhiteSpace(BuyingMethodDescription) == false)
             {
                 parts.Add($"Purchase_Method_Description like '%{BuyingMethodDescription}%'");
             }
-             var stringResult = string.Join(" and ", parts);
 
-             return stringResult;
+
+
+
+
+
+
+            var stringResult = string.Join(" and ", parts);
+
+            return stringResult;
 
         }
-        
+
+        private void CenaZakupuCBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string CenaZakupu = CenaZakupuCBox.Text.ToString();
+            if (CenaZakupu == "Od najmniejszej do największej")
+            {
+                dataGridView1.Sort(dataGridView1.Columns[4], ListSortDirection.Ascending);
+            }
+            else
+             {
+                dataGridView1.Sort(dataGridView1.Columns[4], ListSortDirection.Descending);
+            }
+
+
+
+
+
+
+
+        }
+
+        private void CenaSprzedazCBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            string CenaSprzedazy =CenaSprzedazCBox.Text.ToString();
+            if (CenaSprzedazy == "Od najmniejszej do największej")
+            {
+                dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
+            }
+            else
+            {
+                dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Descending);
+            }
+
+        }
     }
 }

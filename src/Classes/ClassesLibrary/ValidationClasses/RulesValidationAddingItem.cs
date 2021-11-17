@@ -81,6 +81,20 @@ namespace ClassesLibrary
 
 
         }
-        
+        public bool ShowHouseBarNumberValidation(string barNumber)
+        {
+
+            if(string.IsNullOrEmpty(barNumber)==true)
+            {
+                return false;
+            }
+            else
+            {
+                return Validation(barNumber);
+            }
+
+
+
+        }
     }
 }
