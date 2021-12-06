@@ -384,8 +384,9 @@ FROM      Product INNER JOIN
             }
             if ( BarNumberInt !=null)
             {
+
+                parts.Add($"Bar_Number like '%{(BarNumberInt)}%'");
                
-                parts.Add($"Bar_Number like '%{BarNumberInt}%'");
             }
 
 
