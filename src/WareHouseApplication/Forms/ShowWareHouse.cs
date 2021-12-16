@@ -15,7 +15,7 @@ namespace WareHouseApplication.Forms
         private string ProductTypeDescription;
         private string BuyingMethodDescription;
         private string BarNumber;
-
+        private int BarNumberInt;
 
         public ShowWareHouse(MainMenu objMainMenu, string connectionString)
         {
@@ -239,6 +239,7 @@ FROM      Product INNER JOIN
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
+            /*
             BarNumber = NumerKreskowyTBox.Text.ToString();
 
             bool isCorrect=ObjValidationAddingItem.ShowHouseBarNumberValidation(BarNumber);
@@ -252,9 +253,27 @@ FROM      Product INNER JOIN
             }
             else
             {
-                
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dataGridView1.DataSource;
+
+
+                bs.Filter = GetFilter();
+
+                dataGridView1.DataSource = bs;
 
             }
+            */
+
+            BarNumberInt = Convert.ToInt16(NumerKreskowyTBox.Text);
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+
+
+            bs.Filter = GetFilter();
+
+            dataGridView1.DataSource = bs;
+
+
 
         }
 
@@ -352,6 +371,7 @@ FROM      Product INNER JOIN
 
         private string GetFilter()
         {
+
             List<string> parts = new List<string>();
             if (string.IsNullOrWhiteSpace(ProductTypeDescription) == false)
             {
@@ -362,7 +382,12 @@ FROM      Product INNER JOIN
             {
                 parts.Add($"Purchase_Method_Description like '%{BuyingMethodDescription}%'");
             }
+            if ( BarNumberInt !=null)
+            {
 
+                parts.Add($"Bar_Number like '%{(BarNumberInt)}%'");
+               
+            }
 
 
 
