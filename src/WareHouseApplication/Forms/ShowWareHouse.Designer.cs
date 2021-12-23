@@ -53,6 +53,8 @@ namespace WareHouseApplication.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.CenaZakupuCBox = new System.Windows.Forms.ComboBox();
             this.CenaSprzedazCBox = new System.Windows.Forms.ComboBox();
+            this.IsReturnedComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -66,7 +68,7 @@ namespace WareHouseApplication.Forms
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-5, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1967, 86);
             this.panel1.TabIndex = 0;
@@ -75,7 +77,7 @@ namespace WareHouseApplication.Forms
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(572, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(75, 75);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -101,12 +103,12 @@ namespace WareHouseApplication.Forms
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(18, 110);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(838, 527);
+            this.dataGridView1.Size = new System.Drawing.Size(887, 527);
             this.dataGridView1.TabIndex = 1;
             // 
             // wareHouseDataSet
@@ -124,7 +126,7 @@ namespace WareHouseApplication.Forms
             this.ResetButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ResetButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ResetButton.Location = new System.Drawing.Point(911, 593);
+            this.ResetButton.Location = new System.Drawing.Point(960, 593);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(151, 44);
             this.ResetButton.TabIndex = 2;
@@ -137,7 +139,7 @@ namespace WareHouseApplication.Forms
             this.ZapiszProduktyButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ZapiszProduktyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ZapiszProduktyButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ZapiszProduktyButton.Location = new System.Drawing.Point(1308, 593);
+            this.ZapiszProduktyButton.Location = new System.Drawing.Point(1330, 593);
             this.ZapiszProduktyButton.Name = "ZapiszProduktyButton";
             this.ZapiszProduktyButton.Size = new System.Drawing.Size(177, 44);
             this.ZapiszProduktyButton.TabIndex = 4;
@@ -163,7 +165,7 @@ namespace WareHouseApplication.Forms
             this.label3.AutoSize = true;
             this.label3.CausesValidation = false;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(905, 179);
+            this.label3.Location = new System.Drawing.Point(955, 184);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 30);
@@ -220,8 +222,8 @@ namespace WareHouseApplication.Forms
             "Zegarek",
             "Apaszka",
             "Perfumy"});
-            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(1180, 179);
-            this.RodzajProduktuWyrazCBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(1230, 184);
+            this.RodzajProduktuWyrazCBox.Margin = new System.Windows.Forms.Padding(2);
             this.RodzajProduktuWyrazCBox.Name = "RodzajProduktuWyrazCBox";
             this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(169, 21);
             this.RodzajProduktuWyrazCBox.TabIndex = 20;
@@ -277,8 +279,8 @@ namespace WareHouseApplication.Forms
             "42",
             "43",
             "55"});
-            this.RodzajProdCBox.Location = new System.Drawing.Point(1122, 179);
-            this.RodzajProdCBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RodzajProdCBox.Location = new System.Drawing.Point(1172, 184);
+            this.RodzajProdCBox.Margin = new System.Windows.Forms.Padding(2);
             this.RodzajProdCBox.Name = "RodzajProdCBox";
             this.RodzajProdCBox.Size = new System.Drawing.Size(40, 21);
             this.RodzajProdCBox.TabIndex = 19;
@@ -290,7 +292,7 @@ namespace WareHouseApplication.Forms
             this.SzukajButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.SzukajButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SzukajButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SzukajButton.Location = new System.Drawing.Point(1122, 593);
+            this.SzukajButton.Location = new System.Drawing.Point(1145, 593);
             this.SzukajButton.Name = "SzukajButton";
             this.SzukajButton.Size = new System.Drawing.Size(151, 44);
             this.SzukajButton.TabIndex = 21;
@@ -303,7 +305,7 @@ namespace WareHouseApplication.Forms
             this.label4.AutoSize = true;
             this.label4.CausesValidation = false;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(911, 250);
+            this.label4.Location = new System.Drawing.Point(961, 255);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(170, 30);
@@ -318,8 +320,8 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaCyfraCBox.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.MetodaKupnaCyfraCBox.Location = new System.Drawing.Point(1122, 250);
-            this.MetodaKupnaCyfraCBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MetodaKupnaCyfraCBox.Location = new System.Drawing.Point(1172, 255);
+            this.MetodaKupnaCyfraCBox.Margin = new System.Windows.Forms.Padding(2);
             this.MetodaKupnaCyfraCBox.Name = "MetodaKupnaCyfraCBox";
             this.MetodaKupnaCyfraCBox.Size = new System.Drawing.Size(40, 21);
             this.MetodaKupnaCyfraCBox.TabIndex = 24;
@@ -333,8 +335,8 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaWyrazCBox.Items.AddRange(new object[] {
             "Faktura",
             "Paragon"});
-            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(1180, 250);
-            this.MetodaKupnaWyrazCBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(1230, 255);
+            this.MetodaKupnaWyrazCBox.Margin = new System.Windows.Forms.Padding(2);
             this.MetodaKupnaWyrazCBox.Name = "MetodaKupnaWyrazCBox";
             this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(169, 21);
             this.MetodaKupnaWyrazCBox.TabIndex = 23;
@@ -346,7 +348,7 @@ namespace WareHouseApplication.Forms
             this.label5.AutoSize = true;
             this.label5.CausesValidation = false;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(911, 316);
+            this.label5.Location = new System.Drawing.Point(961, 321);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 30);
@@ -356,8 +358,8 @@ namespace WareHouseApplication.Forms
             // 
             // NumerKreskowyTBox
             // 
-            this.NumerKreskowyTBox.Location = new System.Drawing.Point(1122, 324);
-            this.NumerKreskowyTBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NumerKreskowyTBox.Location = new System.Drawing.Point(1172, 329);
+            this.NumerKreskowyTBox.Margin = new System.Windows.Forms.Padding(2);
             this.NumerKreskowyTBox.Multiline = true;
             this.NumerKreskowyTBox.Name = "NumerKreskowyTBox";
             this.NumerKreskowyTBox.Size = new System.Drawing.Size(227, 24);
@@ -368,7 +370,7 @@ namespace WareHouseApplication.Forms
             this.label6.AutoSize = true;
             this.label6.CausesValidation = false;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(911, 384);
+            this.label6.Location = new System.Drawing.Point(961, 389);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 30);
@@ -381,7 +383,7 @@ namespace WareHouseApplication.Forms
             this.label7.AutoSize = true;
             this.label7.CausesValidation = false;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(911, 447);
+            this.label7.Location = new System.Drawing.Point(961, 452);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(169, 30);
@@ -396,7 +398,7 @@ namespace WareHouseApplication.Forms
             this.CenaZakupuCBox.Items.AddRange(new object[] {
             "Od najmniejszej do największej",
             "Od najwiekszej do najmniejszej"});
-            this.CenaZakupuCBox.Location = new System.Drawing.Point(1122, 396);
+            this.CenaZakupuCBox.Location = new System.Drawing.Point(1172, 401);
             this.CenaZakupuCBox.Name = "CenaZakupuCBox";
             this.CenaZakupuCBox.Size = new System.Drawing.Size(227, 21);
             this.CenaZakupuCBox.TabIndex = 31;
@@ -409,18 +411,46 @@ namespace WareHouseApplication.Forms
             this.CenaSprzedazCBox.Items.AddRange(new object[] {
             "Od najmniejszej do największej",
             "Od najwiekszej do najmniejszej"});
-            this.CenaSprzedazCBox.Location = new System.Drawing.Point(1122, 458);
+            this.CenaSprzedazCBox.Location = new System.Drawing.Point(1172, 463);
             this.CenaSprzedazCBox.Name = "CenaSprzedazCBox";
             this.CenaSprzedazCBox.Size = new System.Drawing.Size(227, 21);
             this.CenaSprzedazCBox.TabIndex = 32;
             this.CenaSprzedazCBox.SelectionChangeCommitted += new System.EventHandler(this.CenaSprzedazCBox_SelectionChangeCommitted);
+            // 
+            // IsReturnedComboBox
+            // 
+            this.IsReturnedComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IsReturnedComboBox.FormattingEnabled = true;
+            this.IsReturnedComboBox.Items.AddRange(new object[] {
+            "Tak",
+            "Nie"});
+            this.IsReturnedComboBox.Location = new System.Drawing.Point(1172, 513);
+            this.IsReturnedComboBox.Name = "IsReturnedComboBox";
+            this.IsReturnedComboBox.Size = new System.Drawing.Size(227, 21);
+            this.IsReturnedComboBox.TabIndex = 34;
+            this.IsReturnedComboBox.SelectionChangeCommitted += new System.EventHandler(this.IsReturnedComboBox_SelectionChangeCommitted);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.CausesValidation = false;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(961, 503);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(177, 30);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Towar Zwrócony:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ShowWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1497, 689);
+            this.ClientSize = new System.Drawing.Size(1604, 689);
+            this.Controls.Add(this.IsReturnedComboBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.CenaSprzedazCBox);
             this.Controls.Add(this.CenaZakupuCBox);
             this.Controls.Add(this.label7);
@@ -440,7 +470,7 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "ShowWareHouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -480,5 +510,7 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox CenaZakupuCBox;
         private System.Windows.Forms.ComboBox CenaSprzedazCBox;
+        private System.Windows.Forms.ComboBox IsReturnedComboBox;
+        private System.Windows.Forms.Label label8;
     }
 }

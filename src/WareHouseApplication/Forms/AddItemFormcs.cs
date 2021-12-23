@@ -195,7 +195,7 @@ namespace WareHouseApplication.Forms
             var Quantity = IloscProdTBox.Text;
             var OfferPrice = CenaSprzedTBox.Text;
 
-            string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice);";
+            string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
 
             SqlConnection cnn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(insertSql, cnn);

@@ -17,6 +17,7 @@ namespace WareHouseApplication.Forms
         private string BuyingMethodDescription;
         
         private int? BarNumberInt;
+        private string IsReturning;
 
         public ShowWareHouse(MainMenu objMainMenu, string connectionString)
         {
@@ -156,6 +157,7 @@ namespace WareHouseApplication.Forms
             CenaZakupuCBox.SelectedIndex = -1;
             CenaSprzedazCBox.SelectedIndex = -1;
             NumerKreskowyTBox.Clear();
+            IsReturnedComboBox.SelectedIndex = -1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -173,7 +175,7 @@ namespace WareHouseApplication.Forms
             {
                 //retrieve the SQL Server instance version
                 var query =
-                    @"SELECT   Product.Bar_Number, Product.Description_Product, Product.Purchase_Method, Product.Quantity, Product.Offer_Price, Product_Type.Product_Type_Description, Purchase.Price, Purchase_Methods.Purchase_Method_Description
+                    @"SELECT   Product.Bar_Number,Product.IsReturned, Product.Description_Product, Product.Purchase_Method, Product.Quantity, Product.Offer_Price, Product_Type.Product_Type_Description, Purchase.Price, Purchase_Methods.Purchase_Method_Description
 FROM      Product INNER JOIN
                 Product_Type ON Product.Type_Product = Product_Type.Type_Product INNER JOIN
                 Purchase ON Product.Id_Product = Purchase.Id_Product INNER JOIN
@@ -195,7 +197,7 @@ FROM      Product INNER JOIN
                 //set DataGridView control to read-only
                 dataGridView1.ReadOnly = true;
                 dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.ColumnCount = 7;
+                dataGridView1.ColumnCount = 8;
                 dataGridView1.Columns[0].HeaderText = "Kod Kreskowy";
                 dataGridView1.Columns[0].DataPropertyName = "Bar_Number";
                 dataGridView1.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -218,6 +220,11 @@ FROM      Product INNER JOIN
                 dataGridView1.Columns[6].HeaderText = "Metoda Zakupu";
                 dataGridView1.Columns[6].DataPropertyName = "Purchase_Method_Description";
                 dataGridView1.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
+                dataGridView1.Columns[7].HeaderText = "Towar Zwrócony";
+                dataGridView1.Columns[7].DataPropertyName = "IsReturned";
+                dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.BackgroundColor = SystemColors.Control;
@@ -233,7 +240,7 @@ FROM      Product INNER JOIN
                 dataGridView1.Columns[0].Width = 75;
                 dataGridView1.Columns[1].Width = 150;
                 dataGridView1.Columns[2].Width = 75;
-
+                //dataGridView1.Columns[]
                 //close connection
                 conn.Close();
             }
@@ -375,7 +382,7 @@ FROM      Product INNER JOIN
             BuyingMethodDescription = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
             BindingSource bs = new BindingSource();
-            var list = dataGridView1.DataSource;
+          
 
 
 
@@ -387,7 +394,7 @@ FROM      Product INNER JOIN
             dataGridView1.DataSource = null;
             dataGridView1.ResetBindings();
             dataGridView1.DataSource = bs;
-            var list2 = dataGridView1.DataSource;
+           
 
         }
 
@@ -411,7 +418,10 @@ FROM      Product INNER JOIN
               
 
             }
-            
+            if (string.IsNullOrWhiteSpace(IsReturning)==false)
+            {
+                parts.Add($"IsReturned like '%{IsReturning}%'");
+            }
 
 
 
@@ -464,6 +474,23 @@ FROM      Product INNER JOIN
         private void WrongFormatMessageBox()
         {
             MessageBox.Show("Pole Kod Kreskowy zawiera niepoprawne znaki!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void IsReturnedComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            IsReturning = IsReturnedComboBox.SelectedItem.ToString();
+
+
+
+            bs.DataSource = dataGridView1.DataSource;
+            dataGridView1.DataSource = null;
+
+            // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
+            bs.Filter = GetFilter();
+            dataGridView1.DataSource = null;
+            dataGridView1.ResetBindings();
+            dataGridView1.DataSource = bs;
         }
     }
 }
