@@ -18,7 +18,7 @@ namespace WareHouseApplication
         {
             InitializeComponent();
             objReturnSql = new ReturnSqlConnection();
-            connectionString = objReturnSql.ReturnSqlPc();
+            connectionString = objReturnSql.ReturnSqlLaptop();
         }
 
         private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
