@@ -9,7 +9,6 @@ namespace ClassesLibrary
 
         public IsNullIAddingItemValidation()
         {
-
         }
 
         public IsNullIAddingItemValidation(string bar_Number)
@@ -30,11 +29,7 @@ namespace ClassesLibrary
             list.Add(v5);
             list.Add(v6);
             list.Add(v7);
-
-
-
         }
-
 
         public bool isNullValidation(List<string> listToCheck)
         {
@@ -47,11 +42,18 @@ namespace ClassesLibrary
             {
                 return false;
             }
-
         }
 
-
-
-
+        public bool CheckSingleString(string word)
+        {
+            if (string.IsNullOrEmpty(word))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

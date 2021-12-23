@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using ClassesLibrary.ValidationClasses;
 
 namespace WareHouseApplication.Forms
 {
@@ -14,8 +15,8 @@ namespace WareHouseApplication.Forms
 
         private string ProductTypeDescription;
         private string BuyingMethodDescription;
-        private string BarNumber;
-        private int BarNumberInt;
+        
+        private int? BarNumberInt;
 
         public ShowWareHouse(MainMenu objMainMenu, string connectionString)
         {
@@ -145,6 +146,7 @@ namespace WareHouseApplication.Forms
             DefaultFillingGridView();
             ProductTypeDescription = string.Empty;
             BuyingMethodDescription = string.Empty;
+            BarNumberInt = null;
         }
 
         private void ClearingOptions()
@@ -263,15 +265,35 @@ FROM      Product INNER JOIN
 
             }
             */
+            var validateObj = new IsNullIAddingItemValidation();
+            var rulesValidationObj = new RulesValidationAddingItem();
+            if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
+            {
+                MessageBoxFailure();
+            }
+            else
+            {
 
-            BarNumberInt = Convert.ToInt16(NumerKreskowyTBox.Text);
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
+                if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
+                {
+                    BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = dataGridView1.DataSource;
 
 
-            bs.Filter = GetFilter();
+                    bs.Filter = GetFilter();
 
-            dataGridView1.DataSource = bs;
+                    dataGridView1.DataSource = bs;
+                }
+                else
+                {
+                    WrongFormatMessageBox();
+                }
+
+
+               
+            }
+          
 
 
 
@@ -382,13 +404,14 @@ FROM      Product INNER JOIN
             {
                 parts.Add($"Purchase_Method_Description like '%{BuyingMethodDescription}%'");
             }
-            if ( BarNumberInt !=null)
+            if (BarNumberInt != null)
             {
 
-                parts.Add($"Bar_Number like '%{(BarNumberInt)}%'");
-               
-            }
+                parts.Add($"Bar_Number = {BarNumberInt}");
+              
 
+            }
+            
 
 
 
@@ -433,6 +456,14 @@ FROM      Product INNER JOIN
                 dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Descending);
             }
 
+        }
+        private void MessageBoxFailure()
+        {
+            MessageBox.Show("Nie wypełniono pola - Kod Kreskowy!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        private void WrongFormatMessageBox()
+        {
+            MessageBox.Show("Pole Kod Kreskowy zawiera niepoprawne znaki!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
