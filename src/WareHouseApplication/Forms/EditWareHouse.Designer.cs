@@ -31,6 +31,7 @@ namespace WareHouseApplication.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditWareHouse));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.MetodaKupnaCyfraCBox = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,6 @@ namespace WareHouseApplication.Forms
             this.RodzajProduktuWyrazCBox = new System.Windows.Forms.ComboBox();
             this.RodzajProdCBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.OpisProduktuTBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,11 +49,23 @@ namespace WareHouseApplication.Forms
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
-            this.AnulujButton = new System.Windows.Forms.Button();
+            this.SortingButton = new System.Windows.Forms.Button();
             this.DeletButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.NumerKreskowyTBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.MetodaZakupuCyfraCBox = new System.Windows.Forms.ComboBox();
+            this.MetodaZakupuWyrazCBox = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.RodzajProdSortowanieWyrazCBox = new System.Windows.Forms.ComboBox();
+            this.RodzajProdSortowanieCyfraCBox = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -66,8 +78,18 @@ namespace WareHouseApplication.Forms
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1233, 100);
+            this.panel1.Size = new System.Drawing.Size(1539, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(486, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -84,11 +106,11 @@ namespace WareHouseApplication.Forms
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 350);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 544);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1167, 339);
+            this.dataGridView1.Size = new System.Drawing.Size(1502, 339);
             this.dataGridView1.TabIndex = 1;
             // 
             // MetodaKupnaCyfraCBox
@@ -98,7 +120,7 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaCyfraCBox.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.MetodaKupnaCyfraCBox.Location = new System.Drawing.Point(261, 216);
+            this.MetodaKupnaCyfraCBox.Location = new System.Drawing.Point(261, 282);
             this.MetodaKupnaCyfraCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MetodaKupnaCyfraCBox.Name = "MetodaKupnaCyfraCBox";
             this.MetodaKupnaCyfraCBox.Size = new System.Drawing.Size(52, 24);
@@ -111,10 +133,10 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaWyrazCBox.Items.AddRange(new object[] {
             "Faktura",
             "Paragon"});
-            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(338, 216);
+            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(338, 282);
             this.MetodaKupnaWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MetodaKupnaWyrazCBox.Name = "MetodaKupnaWyrazCBox";
-            this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(202, 24);
+            this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(170, 24);
             this.MetodaKupnaWyrazCBox.TabIndex = 29;
             // 
             // label4
@@ -122,7 +144,7 @@ namespace WareHouseApplication.Forms
             this.label4.AutoSize = true;
             this.label4.CausesValidation = false;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(20, 216);
+            this.label4.Location = new System.Drawing.Point(20, 282);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(195, 32);
             this.label4.TabIndex = 28;
@@ -178,10 +200,10 @@ namespace WareHouseApplication.Forms
             "Zegarek",
             "Apaszka",
             "Perfumy"});
-            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(338, 145);
+            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(338, 211);
             this.RodzajProduktuWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RodzajProduktuWyrazCBox.Name = "RodzajProduktuWyrazCBox";
-            this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(202, 24);
+            this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(170, 24);
             this.RodzajProduktuWyrazCBox.TabIndex = 27;
             // 
             // RodzajProdCBox
@@ -233,7 +255,7 @@ namespace WareHouseApplication.Forms
             "42",
             "43",
             "55"});
-            this.RodzajProdCBox.Location = new System.Drawing.Point(261, 145);
+            this.RodzajProdCBox.Location = new System.Drawing.Point(261, 211);
             this.RodzajProdCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RodzajProdCBox.Name = "RodzajProdCBox";
             this.RodzajProdCBox.Size = new System.Drawing.Size(52, 24);
@@ -244,36 +266,26 @@ namespace WareHouseApplication.Forms
             this.label3.AutoSize = true;
             this.label3.CausesValidation = false;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(20, 145);
+            this.label3.Location = new System.Drawing.Point(20, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(201, 32);
             this.label3.TabIndex = 25;
             this.label3.Text = "Rodzaj Produktu:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(486, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // OpisProduktuTBox
             // 
-            this.OpisProduktuTBox.Location = new System.Drawing.Point(261, 278);
+            this.OpisProduktuTBox.Location = new System.Drawing.Point(261, 344);
             this.OpisProduktuTBox.Multiline = true;
             this.OpisProduktuTBox.Name = "OpisProduktuTBox";
-            this.OpisProduktuTBox.Size = new System.Drawing.Size(279, 25);
+            this.OpisProduktuTBox.Size = new System.Drawing.Size(247, 25);
             this.OpisProduktuTBox.TabIndex = 32;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(20, 278);
+            this.label2.Location = new System.Drawing.Point(20, 344);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 32);
             this.label2.TabIndex = 31;
@@ -283,7 +295,7 @@ namespace WareHouseApplication.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(779, 145);
+            this.label5.Location = new System.Drawing.Point(592, 211);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 32);
             this.label5.TabIndex = 33;
@@ -291,16 +303,16 @@ namespace WareHouseApplication.Forms
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(949, 156);
+            this.numericUpDown2.Location = new System.Drawing.Point(762, 213);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(156, 22);
+            this.numericUpDown2.Size = new System.Drawing.Size(112, 22);
             this.numericUpDown2.TabIndex = 36;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(732, 217);
+            this.label6.Location = new System.Drawing.Point(545, 279);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(165, 32);
             this.label6.TabIndex = 35;
@@ -308,23 +320,23 @@ namespace WareHouseApplication.Forms
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(949, 227);
+            this.numericUpDown1.Location = new System.Drawing.Point(762, 292);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(156, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(112, 22);
             this.numericUpDown1.TabIndex = 37;
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(949, 288);
+            this.numericUpDown3.Location = new System.Drawing.Point(762, 347);
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(156, 22);
+            this.numericUpDown3.Size = new System.Drawing.Size(112, 22);
             this.numericUpDown3.TabIndex = 39;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(732, 278);
+            this.label7.Location = new System.Drawing.Point(545, 344);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(193, 32);
             this.label7.TabIndex = 38;
@@ -332,39 +344,282 @@ namespace WareHouseApplication.Forms
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(512, 737);
+            this.EditButton.Location = new System.Drawing.Point(324, 437);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(141, 61);
             this.EditButton.TabIndex = 42;
             this.EditButton.Text = "Edytuj";
             this.EditButton.UseVisualStyleBackColor = true;
             // 
-            // AnulujButton
+            // SortingButton
             // 
-            this.AnulujButton.Location = new System.Drawing.Point(365, 737);
-            this.AnulujButton.Name = "AnulujButton";
-            this.AnulujButton.Size = new System.Drawing.Size(141, 61);
-            this.AnulujButton.TabIndex = 41;
-            this.AnulujButton.Text = "Anuluj";
-            this.AnulujButton.UseVisualStyleBackColor = true;
+            this.SortingButton.Location = new System.Drawing.Point(1355, 437);
+            this.SortingButton.Name = "SortingButton";
+            this.SortingButton.Size = new System.Drawing.Size(141, 61);
+            this.SortingButton.TabIndex = 41;
+            this.SortingButton.Text = "Sortuj";
+            this.SortingButton.UseVisualStyleBackColor = true;
+            this.SortingButton.Click += new System.EventHandler(this.SortingButton_Click);
             // 
             // DeletButton
             // 
-            this.DeletButton.Location = new System.Drawing.Point(659, 737);
+            this.DeletButton.Location = new System.Drawing.Point(471, 437);
             this.DeletButton.Name = "DeletButton";
             this.DeletButton.Size = new System.Drawing.Size(141, 61);
             this.DeletButton.TabIndex = 40;
             this.DeletButton.Text = "Usuń";
             this.DeletButton.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.CausesValidation = false;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(373, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(198, 41);
+            this.label8.TabIndex = 43;
+            this.label8.Text = "Opcje Edycji:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.CausesValidation = false;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(1135, 131);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(276, 41);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Opcje Sortowania:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NumerKreskowyTBox
+            // 
+            this.NumerKreskowyTBox.Location = new System.Drawing.Point(1232, 347);
+            this.NumerKreskowyTBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NumerKreskowyTBox.Multiline = true;
+            this.NumerKreskowyTBox.Name = "NumerKreskowyTBox";
+            this.NumerKreskowyTBox.Size = new System.Drawing.Size(264, 29);
+            this.NumerKreskowyTBox.TabIndex = 52;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.CausesValidation = false;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(988, 344);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(175, 32);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "Kod Kreskowy:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MetodaZakupuCyfraCBox
+            // 
+            this.MetodaZakupuCyfraCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MetodaZakupuCyfraCBox.FormattingEnabled = true;
+            this.MetodaZakupuCyfraCBox.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.MetodaZakupuCyfraCBox.Location = new System.Drawing.Point(1232, 283);
+            this.MetodaZakupuCyfraCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MetodaZakupuCyfraCBox.Name = "MetodaZakupuCyfraCBox";
+            this.MetodaZakupuCyfraCBox.Size = new System.Drawing.Size(51, 24);
+            this.MetodaZakupuCyfraCBox.TabIndex = 50;
+            this.MetodaZakupuCyfraCBox.SelectionChangeCommitted += new System.EventHandler(this.MetodaZakupuCyfraCBox_SelectionChangeCommitted);
+            this.MetodaZakupuCyfraCBox.SelectedValueChanged += new System.EventHandler(this.MetodaZakupuCyfraCBox_SelectedValueChanged);
+            // 
+            // MetodaZakupuWyrazCBox
+            // 
+            this.MetodaZakupuWyrazCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MetodaZakupuWyrazCBox.FormattingEnabled = true;
+            this.MetodaZakupuWyrazCBox.Items.AddRange(new object[] {
+            "Faktura",
+            "Paragon"});
+            this.MetodaZakupuWyrazCBox.Location = new System.Drawing.Point(1318, 288);
+            this.MetodaZakupuWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MetodaZakupuWyrazCBox.Name = "MetodaZakupuWyrazCBox";
+            this.MetodaZakupuWyrazCBox.Size = new System.Drawing.Size(178, 24);
+            this.MetodaZakupuWyrazCBox.TabIndex = 49;
+            this.MetodaZakupuWyrazCBox.SelectionChangeCommitted += new System.EventHandler(this.MetodaZakupuWyrazCBox_SelectionChangeCommitted);
+            this.MetodaZakupuWyrazCBox.SelectedValueChanged += new System.EventHandler(this.MetodaZakupuWyrazCBox_SelectedValueChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.CausesValidation = false;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(988, 280);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(195, 32);
+            this.label11.TabIndex = 48;
+            this.label11.Text = "Metoda Zakupu:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RodzajProdSortowanieWyrazCBox
+            // 
+            this.RodzajProdSortowanieWyrazCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RodzajProdSortowanieWyrazCBox.FormattingEnabled = true;
+            this.RodzajProdSortowanieWyrazCBox.Items.AddRange(new object[] {
+            "Bluzka",
+            "Bluza",
+            "Spodnie",
+            "Dres",
+            "Sukienka",
+            "Sweter",
+            "Spódnica",
+            "Spodenki",
+            "Kurtka",
+            "Body",
+            "Buty",
+            "Czapka",
+            "Gumka do Włosów",
+            "Kamizelka",
+            "Klapki",
+            "Kombinezon",
+            "Komin/Szalik",
+            "Komplet Odzieży",
+            "Koszula",
+            "Koszulka",
+            "Leginsy",
+            "Marynarka/Żakiet",
+            "Opaska",
+            "Plecak",
+            "Płaszcz",
+            "Rękawiczki",
+            "Szalik",
+            "T_Shirt",
+            "Top",
+            "Torebka",
+            "Tunika",
+            "Bransoletka",
+            "Broszka",
+            "Kolczyki",
+            "Naszyjnik",
+            "Pierścionki",
+            "Komplet Biżuterii",
+            "Okulary",
+            "Pasek",
+            "Brelok",
+            "Pudełko",
+            "Zegarek",
+            "Apaszka",
+            "Perfumy"});
+            this.RodzajProdSortowanieWyrazCBox.Location = new System.Drawing.Point(1318, 211);
+            this.RodzajProdSortowanieWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RodzajProdSortowanieWyrazCBox.Name = "RodzajProdSortowanieWyrazCBox";
+            this.RodzajProdSortowanieWyrazCBox.Size = new System.Drawing.Size(178, 24);
+            this.RodzajProdSortowanieWyrazCBox.TabIndex = 47;
+            this.RodzajProdSortowanieWyrazCBox.SelectionChangeCommitted += new System.EventHandler(this.RodzajProdSortowanieWyrazCBox_SelectionChangeCommitted);
+            // 
+            // RodzajProdSortowanieCyfraCBox
+            // 
+            this.RodzajProdSortowanieCyfraCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RodzajProdSortowanieCyfraCBox.FormattingEnabled = true;
+            this.RodzajProdSortowanieCyfraCBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "55"});
+            this.RodzajProdSortowanieCyfraCBox.Location = new System.Drawing.Point(1232, 211);
+            this.RodzajProdSortowanieCyfraCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RodzajProdSortowanieCyfraCBox.Name = "RodzajProdSortowanieCyfraCBox";
+            this.RodzajProdSortowanieCyfraCBox.Size = new System.Drawing.Size(51, 24);
+            this.RodzajProdSortowanieCyfraCBox.TabIndex = 46;
+            this.RodzajProdSortowanieCyfraCBox.SelectionChangeCommitted += new System.EventHandler(this.RodzajProdSortowanieCyfraCBox_SelectionChangeCommitted);
+            this.RodzajProdSortowanieCyfraCBox.SelectedValueChanged += new System.EventHandler(this.RodzajProdSortowanieCyfraCBox_SelectedValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.CausesValidation = false;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(988, 211);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(201, 32);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Rodzaj Produktu:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Location = new System.Drawing.Point(933, 136);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 362);
+            this.panel2.TabIndex = 53;
+            // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(1208, 437);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(141, 61);
+            this.ResetButton.TabIndex = 54;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // EditWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1220, 858);
+            this.ClientSize = new System.Drawing.Size(1540, 954);
+            this.Controls.Add(this.ResetButton);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.NumerKreskowyTBox);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.MetodaZakupuCyfraCBox);
+            this.Controls.Add(this.MetodaZakupuWyrazCBox);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.RodzajProdSortowanieWyrazCBox);
+            this.Controls.Add(this.RodzajProdSortowanieCyfraCBox);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.EditButton);
-            this.Controls.Add(this.AnulujButton);
+            this.Controls.Add(this.SortingButton);
             this.Controls.Add(this.DeletButton);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.label7);
@@ -384,11 +639,12 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "EditWareHouse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditWareHouse";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
@@ -418,7 +674,19 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.Button AnulujButton;
+        private System.Windows.Forms.Button SortingButton;
         private System.Windows.Forms.Button DeletButton;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox NumerKreskowyTBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox MetodaZakupuCyfraCBox;
+        private System.Windows.Forms.ComboBox MetodaZakupuWyrazCBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox RodzajProdSortowanieWyrazCBox;
+        private System.Windows.Forms.ComboBox RodzajProdSortowanieCyfraCBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button ResetButton;
     }
 }

@@ -95,7 +95,8 @@ namespace WareHouseApplication
 
         private void edycjaMagazynuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var obj = new EditWareHouse(connectionString);
+            obj.Show();
         }
     }
 }

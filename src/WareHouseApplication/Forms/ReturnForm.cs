@@ -20,5 +20,8 @@ namespace WareHouseApplication.Forms
             ConnectionString = connectionString;
           
         }
+
+
+
     }
 }

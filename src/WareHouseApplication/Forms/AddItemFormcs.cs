@@ -217,15 +217,17 @@ namespace WareHouseApplication.Forms
             var Quantity = IloscProdTBox.Text;
             var BuyingPrice = CenaZakupuTBox.Text;
             var Id_Product = TakingIdProduct(Bar_Number);
-
+            string From_Product_Create = "Tak";
             SqlConnection cnn2 = new SqlConnection(connectionString);
             DateTime Date_Purchase = DateTime.Now;
-            var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice)";
+            var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
             SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
             cmdPurchase.Parameters.AddWithValue("@Id_Product", Id_Product);
             cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
             cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
             cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
+            cmdPurchase.Parameters.AddWithValue("@From_Product_Create",From_Product_Create);
+
 
             cnn2.Open();
             cmdPurchase.ExecuteNonQuery();

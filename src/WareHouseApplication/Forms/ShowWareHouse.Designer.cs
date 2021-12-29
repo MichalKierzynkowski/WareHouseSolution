@@ -32,9 +32,9 @@ namespace WareHouseApplication.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowWareHouse));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.wareHouseDataSet = new WareHouseApplication.WareHouseDataSet();
             this.wareHouseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ResetButton = new System.Windows.Forms.Button();
             this.ZapiszProduktyButton = new System.Windows.Forms.Button();
@@ -54,12 +54,10 @@ namespace WareHouseApplication.Forms
             this.CenaSprzedazCBox = new System.Windows.Forms.ComboBox();
             this.IsReturnedComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wareHouseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wareHouseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wareHouseDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +70,17 @@ namespace WareHouseApplication.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2623, 106);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(761, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -99,23 +108,13 @@ namespace WareHouseApplication.Forms
             this.dataGridView1.Size = new System.Drawing.Size(1183, 649);
             this.dataGridView1.TabIndex = 1;
             // 
-            // wareHouseDataSet
-            // 
-            this.wareHouseDataSet.DataSetName = "WareHouseDataSet";
-            this.wareHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // wareHouseDataSetBindingSource
-            // 
-            this.wareHouseDataSetBindingSource.DataSource = this.wareHouseDataSet;
-            this.wareHouseDataSetBindingSource.Position = 0;
-            // 
             // ResetButton
             // 
             this.ResetButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ResetButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ResetButton.Location = new System.Drawing.Point(1280, 730);
-            this.ResetButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(4);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(201, 54);
             this.ResetButton.TabIndex = 2;
@@ -129,7 +128,7 @@ namespace WareHouseApplication.Forms
             this.ZapiszProduktyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ZapiszProduktyButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ZapiszProduktyButton.Location = new System.Drawing.Point(1773, 730);
-            this.ZapiszProduktyButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ZapiszProduktyButton.Margin = new System.Windows.Forms.Padding(4);
             this.ZapiszProduktyButton.Name = "ZapiszProduktyButton";
             this.ZapiszProduktyButton.Size = new System.Drawing.Size(236, 54);
             this.ZapiszProduktyButton.TabIndex = 4;
@@ -281,7 +280,7 @@ namespace WareHouseApplication.Forms
             this.SzukajButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SzukajButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SzukajButton.Location = new System.Drawing.Point(1527, 730);
-            this.SzukajButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SzukajButton.Margin = new System.Windows.Forms.Padding(4);
             this.SzukajButton.Name = "SzukajButton";
             this.SzukajButton.Size = new System.Drawing.Size(201, 54);
             this.SzukajButton.TabIndex = 21;
@@ -384,7 +383,7 @@ namespace WareHouseApplication.Forms
             "Od najmniejszej do największej",
             "Od najwiekszej do najmniejszej"});
             this.CenaZakupuCBox.Location = new System.Drawing.Point(1563, 494);
-            this.CenaZakupuCBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CenaZakupuCBox.Margin = new System.Windows.Forms.Padding(4);
             this.CenaZakupuCBox.Name = "CenaZakupuCBox";
             this.CenaZakupuCBox.Size = new System.Drawing.Size(301, 24);
             this.CenaZakupuCBox.TabIndex = 31;
@@ -398,7 +397,7 @@ namespace WareHouseApplication.Forms
             "Od najmniejszej do największej",
             "Od najwiekszej do najmniejszej"});
             this.CenaSprzedazCBox.Location = new System.Drawing.Point(1563, 570);
-            this.CenaSprzedazCBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CenaSprzedazCBox.Margin = new System.Windows.Forms.Padding(4);
             this.CenaSprzedazCBox.Name = "CenaSprzedazCBox";
             this.CenaSprzedazCBox.Size = new System.Drawing.Size(301, 24);
             this.CenaSprzedazCBox.TabIndex = 32;
@@ -412,7 +411,7 @@ namespace WareHouseApplication.Forms
             "Tak",
             "Nie"});
             this.IsReturnedComboBox.Location = new System.Drawing.Point(1563, 631);
-            this.IsReturnedComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IsReturnedComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.IsReturnedComboBox.Name = "IsReturnedComboBox";
             this.IsReturnedComboBox.Size = new System.Drawing.Size(301, 24);
             this.IsReturnedComboBox.TabIndex = 34;
@@ -429,17 +428,6 @@ namespace WareHouseApplication.Forms
             this.label8.TabIndex = 33;
             this.label8.Text = "Towar Zwrócony:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(761, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // ShowWareHouse
             // 
@@ -475,10 +463,9 @@ namespace WareHouseApplication.Forms
             this.Text = "Magazyn";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wareHouseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wareHouseDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wareHouseDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,7 +478,7 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource wareHouseDataSetBindingSource;
-        private WareHouseDataSet wareHouseDataSet;
+      
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button ZapiszProduktyButton;
         private System.Windows.Forms.Label label2;
