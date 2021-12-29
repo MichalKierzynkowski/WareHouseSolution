@@ -34,11 +34,9 @@ namespace WareHouseApplication.Forms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MetodaKupnaCyfraCBox = new System.Windows.Forms.ComboBox();
             this.MetodaKupnaWyrazCBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.RodzajProduktuWyrazCBox = new System.Windows.Forms.ComboBox();
-            this.RodzajProdCBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.OpisProduktuTBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,6 +61,7 @@ namespace WareHouseApplication.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ResetButton = new System.Windows.Forms.Button();
+            this.SaveChangesButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -114,19 +113,6 @@ namespace WareHouseApplication.Forms
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // MetodaKupnaCyfraCBox
-            // 
-            this.MetodaKupnaCyfraCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MetodaKupnaCyfraCBox.FormattingEnabled = true;
-            this.MetodaKupnaCyfraCBox.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.MetodaKupnaCyfraCBox.Location = new System.Drawing.Point(261, 282);
-            this.MetodaKupnaCyfraCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MetodaKupnaCyfraCBox.Name = "MetodaKupnaCyfraCBox";
-            this.MetodaKupnaCyfraCBox.Size = new System.Drawing.Size(52, 24);
-            this.MetodaKupnaCyfraCBox.TabIndex = 30;
-            // 
             // MetodaKupnaWyrazCBox
             // 
             this.MetodaKupnaWyrazCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -134,10 +120,10 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaWyrazCBox.Items.AddRange(new object[] {
             "Faktura",
             "Paragon"});
-            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(338, 282);
+            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(261, 282);
             this.MetodaKupnaWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MetodaKupnaWyrazCBox.Name = "MetodaKupnaWyrazCBox";
-            this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(170, 24);
+            this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(247, 24);
             this.MetodaKupnaWyrazCBox.TabIndex = 29;
             // 
             // label4
@@ -201,66 +187,11 @@ namespace WareHouseApplication.Forms
             "Zegarek",
             "Apaszka",
             "Perfumy"});
-            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(338, 211);
+            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(261, 211);
             this.RodzajProduktuWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RodzajProduktuWyrazCBox.Name = "RodzajProduktuWyrazCBox";
-            this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(170, 24);
+            this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(247, 24);
             this.RodzajProduktuWyrazCBox.TabIndex = 27;
-            // 
-            // RodzajProdCBox
-            // 
-            this.RodzajProdCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RodzajProdCBox.FormattingEnabled = true;
-            this.RodzajProdCBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "55"});
-            this.RodzajProdCBox.Location = new System.Drawing.Point(261, 211);
-            this.RodzajProdCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.RodzajProdCBox.Name = "RodzajProdCBox";
-            this.RodzajProdCBox.Size = new System.Drawing.Size(52, 24);
-            this.RodzajProdCBox.TabIndex = 26;
             // 
             // label3
             // 
@@ -327,6 +258,11 @@ namespace WareHouseApplication.Forms
             // BuyPriceNumeric
             // 
             this.BuyPriceNumeric.Location = new System.Drawing.Point(762, 292);
+            this.BuyPriceNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.BuyPriceNumeric.Name = "BuyPriceNumeric";
             this.BuyPriceNumeric.Size = new System.Drawing.Size(112, 22);
             this.BuyPriceNumeric.TabIndex = 37;
@@ -334,6 +270,11 @@ namespace WareHouseApplication.Forms
             // SellPriceNumeric
             // 
             this.SellPriceNumeric.Location = new System.Drawing.Point(762, 347);
+            this.SellPriceNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.SellPriceNumeric.Name = "SellPriceNumeric";
             this.SellPriceNumeric.Size = new System.Drawing.Size(112, 22);
             this.SellPriceNumeric.TabIndex = 39;
@@ -356,6 +297,7 @@ namespace WareHouseApplication.Forms
             this.EditButton.TabIndex = 42;
             this.EditButton.Text = "Edytuj";
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // SortingButton
             // 
@@ -369,7 +311,7 @@ namespace WareHouseApplication.Forms
             // 
             // DeletButton
             // 
-            this.DeletButton.Location = new System.Drawing.Point(471, 437);
+            this.DeletButton.Location = new System.Drawing.Point(177, 437);
             this.DeletButton.Name = "DeletButton";
             this.DeletButton.Size = new System.Drawing.Size(141, 61);
             this.DeletButton.TabIndex = 40;
@@ -606,12 +548,23 @@ namespace WareHouseApplication.Forms
             this.ResetButton.UseVisualStyleBackColor = true;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
+            // SaveChangesButton
+            // 
+            this.SaveChangesButton.Location = new System.Drawing.Point(471, 437);
+            this.SaveChangesButton.Name = "SaveChangesButton";
+            this.SaveChangesButton.Size = new System.Drawing.Size(141, 61);
+            this.SaveChangesButton.TabIndex = 55;
+            this.SaveChangesButton.Text = "Zatwierdź Zmiany";
+            this.SaveChangesButton.UseVisualStyleBackColor = true;
+            this.SaveChangesButton.Click += new System.EventHandler(this.SaveChangesButton_Click);
+            // 
             // EditWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1540, 954);
+            this.Controls.Add(this.SaveChangesButton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.NumerKreskowyTBox);
@@ -635,11 +588,9 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.label5);
             this.Controls.Add(this.OpisProduktuTBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.MetodaKupnaCyfraCBox);
             this.Controls.Add(this.MetodaKupnaWyrazCBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.RodzajProduktuWyrazCBox);
-            this.Controls.Add(this.RodzajProdCBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
@@ -665,11 +616,9 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox MetodaKupnaCyfraCBox;
         private System.Windows.Forms.ComboBox MetodaKupnaWyrazCBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox RodzajProduktuWyrazCBox;
-        private System.Windows.Forms.ComboBox RodzajProdCBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox OpisProduktuTBox;
         private System.Windows.Forms.Label label2;
@@ -694,5 +643,6 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button ResetButton;
+        private System.Windows.Forms.Button SaveChangesButton;
     }
 }

@@ -17,8 +17,11 @@ namespace WareHouseApplication.Forms
         public string ConnectionString { get; set; }
         private string ProductTypeDescription;
         private string BuyingMethodDescription;
-
+        private SqlDataAdapter DAdapter { get; set; }
+        private DataSet Ds { get; set; }
+        private SqlCommand Cmd { get; set; }
         private int? BarNumberInt;
+        private int SelectedRow { get; set; }
         public EditWareHouse(string connectionString)
         {
             InitializeComponent();
@@ -42,16 +45,16 @@ namespace WareHouseApplication.Forms
 
 
                 //define the SqlCommand object
-                var cmd = new SqlCommand(query, conn);
+                Cmd = new SqlCommand(query, conn);
 
                 //Set the SqlDataAdapter object
-                var dAdapter = new SqlDataAdapter(cmd);
+                 DAdapter = new SqlDataAdapter(Cmd);
 
                 //define dataset
-                var ds = new DataSet();
+                Ds = new DataSet();
 
                 //fill dataset with query results
-                dAdapter.Fill(ds);
+                DAdapter.Fill(Ds);
 
                 //set DataGridView control to read-only
                 dataGridView1.ReadOnly = true;
@@ -90,7 +93,7 @@ namespace WareHouseApplication.Forms
                 dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 //set the DataGridView control's data source/data table
-                dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.DataSource = Ds.Tables[0];
                 dataGridView1.AllowUserToResizeColumns = false;
                 dataGridView1.AllowUserToResizeRows = false;
                 
@@ -221,21 +224,18 @@ namespace WareHouseApplication.Forms
 
         private void RodzajProdSortowanieCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
-            RodzajProduktuWyrazCBox.SelectedIndex = selectedItemComboBox2;
+           
 
         }
 
         private void MetodaZakupuCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
-            MetodaKupnaWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
+            
         }
 
         private void MetodaZakupuWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
-            MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
+          
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
@@ -295,13 +295,17 @@ namespace WareHouseApplication.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int selectedRowIndex = e.RowIndex;
-            if (selectedRowIndex>=0)
+            SelectedRow = e.RowIndex;
+            if (SelectedRow>=0)
             {
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+                DataGridViewRow selectedRow = dataGridView1.Rows[SelectedRow];
                 OpisProduktuTBox.Text = selectedRow.Cells[0].Value.ToString();
 
                 AmountNumeric.Value = Convert.ToDecimal(selectedRow.Cells[3].Value.ToString());
+                BuyPriceNumeric.Value = Convert.ToDecimal(selectedRow.Cells[4].Value.ToString());
+                SellPriceNumeric.Value = Convert.ToDecimal(selectedRow.Cells[5].Value.ToString());
+                RodzajProduktuWyrazCBox.SelectedItem = selectedRow.Cells[1].Value.ToString();
+                MetodaKupnaWyrazCBox.SelectedItem = selectedRow.Cells[2].Value.ToString();
             }
             else
             {
@@ -316,5 +320,41 @@ namespace WareHouseApplication.Forms
         {
             MessageBox.Show("Zły obszar!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            if (SelectedRow>=0)
+            {
+                DataGridViewRow newDataRow = dataGridView1.Rows[SelectedRow];
+                newDataRow.Cells[0].Value = OpisProduktuTBox.Text;
+                newDataRow.Cells[1].Value = RodzajProduktuWyrazCBox.Text;
+                newDataRow.Cells[2].Value = MetodaKupnaWyrazCBox.Text;
+                newDataRow.Cells[3].Value = AmountNumeric.Value;
+                newDataRow.Cells[4].Value = BuyPriceNumeric.Value;
+                newDataRow.Cells[5].Value = SellPriceNumeric.Value;
+
+            }
+            else
+            {
+                WrongRowSelected();
+            }
+
+           
+        }
+
+        private void SaveChangesButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny edycji?", "Wyjście!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+               
+            }
+            
+        }
+        private void SuccessfullyChangesCommit()
+        {
+            MessageBox.Show("Edycja przeprowadzona pomyślnie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
     }
 }
