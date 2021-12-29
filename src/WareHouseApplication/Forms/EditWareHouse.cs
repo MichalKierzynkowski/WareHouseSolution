@@ -98,7 +98,8 @@ namespace WareHouseApplication.Forms
                 dataGridView1.Columns[4].Width = 100;
                 dataGridView1.Columns[5].Width = 130;
                 dataGridView1.Columns[6].Width = 100;
-                
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.MultiSelect = false;
                 //dataGridView1.Columns[]
                 //close connection
                 conn.Close();
@@ -290,6 +291,30 @@ namespace WareHouseApplication.Forms
         private void WrongFormatMessageBox()
         {
             MessageBox.Show("Pole Kod Kreskowy zawiera niepoprawne znaki!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedRowIndex = e.RowIndex;
+            if (selectedRowIndex>=0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+                OpisProduktuTBox.Text = selectedRow.Cells[0].Value.ToString();
+
+                AmountNumeric.Value = Convert.ToDecimal(selectedRow.Cells[3].Value.ToString());
+            }
+            else
+            {
+                WrongRowSelected();
+            }
+           
+          
+           
+
+        }
+        private void WrongRowSelected()
+        {
+            MessageBox.Show("Zły obszar!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

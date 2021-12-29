@@ -43,10 +43,10 @@ namespace WareHouseApplication.Forms
             this.OpisProduktuTBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.AmountNumeric = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.BuyPriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.SellPriceNumeric = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
             this.SortingButton = new System.Windows.Forms.Button();
@@ -66,9 +66,9 @@ namespace WareHouseApplication.Forms
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BuyPriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -112,6 +112,7 @@ namespace WareHouseApplication.Forms
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1502, 339);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // MetodaKupnaCyfraCBox
             // 
@@ -301,12 +302,17 @@ namespace WareHouseApplication.Forms
             this.label5.TabIndex = 33;
             this.label5.Text = "Ilość:";
             // 
-            // numericUpDown2
+            // AmountNumeric
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(762, 213);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(112, 22);
-            this.numericUpDown2.TabIndex = 36;
+            this.AmountNumeric.Location = new System.Drawing.Point(762, 213);
+            this.AmountNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.AmountNumeric.Name = "AmountNumeric";
+            this.AmountNumeric.Size = new System.Drawing.Size(112, 22);
+            this.AmountNumeric.TabIndex = 36;
             // 
             // label6
             // 
@@ -318,19 +324,19 @@ namespace WareHouseApplication.Forms
             this.label6.TabIndex = 35;
             this.label6.Text = "Cena Zakupu:";
             // 
-            // numericUpDown1
+            // BuyPriceNumeric
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(762, 292);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(112, 22);
-            this.numericUpDown1.TabIndex = 37;
+            this.BuyPriceNumeric.Location = new System.Drawing.Point(762, 292);
+            this.BuyPriceNumeric.Name = "BuyPriceNumeric";
+            this.BuyPriceNumeric.Size = new System.Drawing.Size(112, 22);
+            this.BuyPriceNumeric.TabIndex = 37;
             // 
-            // numericUpDown3
+            // SellPriceNumeric
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(762, 347);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(112, 22);
-            this.numericUpDown3.TabIndex = 39;
+            this.SellPriceNumeric.Location = new System.Drawing.Point(762, 347);
+            this.SellPriceNumeric.Name = "SellPriceNumeric";
+            this.SellPriceNumeric.Size = new System.Drawing.Size(112, 22);
+            this.SellPriceNumeric.TabIndex = 39;
             // 
             // label7
             // 
@@ -621,10 +627,10 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.SortingButton);
             this.Controls.Add(this.DeletButton);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.SellPriceNumeric);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.BuyPriceNumeric);
+            this.Controls.Add(this.AmountNumeric);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.OpisProduktuTBox);
@@ -645,9 +651,9 @@ namespace WareHouseApplication.Forms
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BuyPriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -668,10 +674,10 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.TextBox OpisProduktuTBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown AmountNumeric;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown BuyPriceNumeric;
+        private System.Windows.Forms.NumericUpDown SellPriceNumeric;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button SortingButton;
