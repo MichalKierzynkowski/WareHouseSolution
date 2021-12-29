@@ -12,9 +12,13 @@ namespace WareHouseApplication.Forms
 {
     public partial class ReturnForm : Form
     {
-        public ReturnForm()
+        public string ConnectionString { get; set; }
+      
+        public ReturnForm(string connectionString)
         {
             InitializeComponent();
+            ConnectionString = connectionString;
+          
         }
     }
 }

@@ -161,6 +161,12 @@
     <Compile Include="Forms\AddItemFormcs.Designer.cs">
       <DependentUpon>AddItemFormcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditWareHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditWareHouse.Designer.cs">
+      <DependentUpon>EditWareHouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     </Compile>
     <Compile Include="Forms\ReturnForm.Designer.cs">
       <DependentUpon>ReturnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SellingItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SellingItem.Designer.cs">
+      <DependentUpon>SellingItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ShowWareHouse.cs">
       <SubType>Form</SubType>
@@ -192,11 +204,17 @@
     <EmbeddedResource Include="Forms\AddItemFormcs.resx">
       <DependentUpon>AddItemFormcs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditWareHouse.resx">
+      <DependentUpon>EditWareHouse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReturnForm.resx">
       <DependentUpon>ReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SellingItem.resx">
+      <DependentUpon>SellingItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ShowWareHouse.resx">
       <DependentUpon>ShowWareHouse.cs</DependentUpon>

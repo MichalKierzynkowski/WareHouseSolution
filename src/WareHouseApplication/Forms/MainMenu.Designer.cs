@@ -92,7 +92,7 @@ namespace WareHouseApplication
             this.informacjeOWersjiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("informacjeOWersjiToolStripMenuItem.Image")));
             this.informacjeOWersjiToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.informacjeOWersjiToolStripMenuItem.Name = "informacjeOWersjiToolStripMenuItem";
-            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(223, 32);
+            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.informacjeOWersjiToolStripMenuItem.Text = "Informacje o wersji";
             // 
             // ustawieniaToolStripMenuItem
@@ -100,7 +100,7 @@ namespace WareHouseApplication
             this.ustawieniaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ustawieniaToolStripMenuItem.Image")));
             this.ustawieniaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(223, 32);
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             // 
             // pomocToolStripMenuItem
@@ -108,7 +108,7 @@ namespace WareHouseApplication
             this.pomocToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pomocToolStripMenuItem.Image")));
             this.pomocToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
-            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(223, 32);
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.pomocToolStripMenuItem.Text = "Pomoc";
             // 
             // magazynToolStripMenuItem
@@ -129,7 +129,7 @@ namespace WareHouseApplication
             this.dodajProduktToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("dodajProduktToolStripMenuItem.Image")));
             this.dodajProduktToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dodajProduktToolStripMenuItem.Name = "dodajProduktToolStripMenuItem";
-            this.dodajProduktToolStripMenuItem.Size = new System.Drawing.Size(220, 32);
+            this.dodajProduktToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.dodajProduktToolStripMenuItem.Text = "Dodaj Produkt";
             this.dodajProduktToolStripMenuItem.Click += new System.EventHandler(this.dodajProduktToolStripMenuItem_Click);
             // 
@@ -137,15 +137,16 @@ namespace WareHouseApplication
             // 
             this.zwróćProduktToolStripMenuItem.Image = global::WareHouseApplication.Properties.Resources.icons8_left_2_25;
             this.zwróćProduktToolStripMenuItem.Name = "zwróćProduktToolStripMenuItem";
-            this.zwróćProduktToolStripMenuItem.Size = new System.Drawing.Size(220, 32);
+            this.zwróćProduktToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.zwróćProduktToolStripMenuItem.Text = "Zwrot Produktu";
+            this.zwróćProduktToolStripMenuItem.Click += new System.EventHandler(this.zwróćProduktToolStripMenuItem_Click);
             // 
             // wyświetlMagazynToolStripMenuItem
             // 
             this.wyświetlMagazynToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("wyświetlMagazynToolStripMenuItem.Image")));
             this.wyświetlMagazynToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.wyświetlMagazynToolStripMenuItem.Name = "wyświetlMagazynToolStripMenuItem";
-            this.wyświetlMagazynToolStripMenuItem.Size = new System.Drawing.Size(220, 32);
+            this.wyświetlMagazynToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.wyświetlMagazynToolStripMenuItem.Text = "Wyświetl Magazyn";
             this.wyświetlMagazynToolStripMenuItem.Click += new System.EventHandler(this.wyświetlMagazynToolStripMenuItem_Click);
             // 
@@ -154,8 +155,9 @@ namespace WareHouseApplication
             this.edycjaMagazynuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("edycjaMagazynuToolStripMenuItem.Image")));
             this.edycjaMagazynuToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.edycjaMagazynuToolStripMenuItem.Name = "edycjaMagazynuToolStripMenuItem";
-            this.edycjaMagazynuToolStripMenuItem.Size = new System.Drawing.Size(220, 32);
+            this.edycjaMagazynuToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.edycjaMagazynuToolStripMenuItem.Text = "Edycja Magazynu";
+            this.edycjaMagazynuToolStripMenuItem.Click += new System.EventHandler(this.edycjaMagazynuToolStripMenuItem_Click);
             // 
             // zakupyToolStripMenuItem
             // 
@@ -173,7 +175,7 @@ namespace WareHouseApplication
             this.dodajZakupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("dodajZakupToolStripMenuItem.Image")));
             this.dodajZakupToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dodajZakupToolStripMenuItem.Name = "dodajZakupToolStripMenuItem";
-            this.dodajZakupToolStripMenuItem.Size = new System.Drawing.Size(198, 32);
+            this.dodajZakupToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.dodajZakupToolStripMenuItem.Text = "Dodaj Zakup";
             // 
             // zobaczZakupyToolStripMenuItem
@@ -181,7 +183,7 @@ namespace WareHouseApplication
             this.zobaczZakupyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zobaczZakupyToolStripMenuItem.Image")));
             this.zobaczZakupyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.zobaczZakupyToolStripMenuItem.Name = "zobaczZakupyToolStripMenuItem";
-            this.zobaczZakupyToolStripMenuItem.Size = new System.Drawing.Size(198, 32);
+            this.zobaczZakupyToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
             this.zobaczZakupyToolStripMenuItem.Text = "Zobacz Zakupy";
             // 
             // sprzedażToolStripMenuItem

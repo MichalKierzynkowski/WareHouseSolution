@@ -18,7 +18,7 @@ namespace WareHouseApplication
         {
             InitializeComponent();
             objReturnSql = new ReturnSqlConnection();
-            connectionString = objReturnSql.ReturnSqlLaptop();
+            connectionString = objReturnSql.ReturnSqlPc();
         }
 
         private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,6 +85,17 @@ namespace WareHouseApplication
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             mov = 0;
+        }
+
+        private void zwróćProduktToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var obj = new ReturnForm(connectionString);
+            obj.Show();
+        }
+
+        private void edycjaMagazynuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
