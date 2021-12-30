@@ -386,7 +386,12 @@ namespace WareHouseApplication.Forms
 
                         cmd6.Parameters.AddWithValue("@Id_Product", idProduct);
                         cmd6.ExecuteNonQuery();
+                    //////////////////
+                    /// Update Cena Zakupu
                     
+
+
+
 
 
                     cnn.Close();

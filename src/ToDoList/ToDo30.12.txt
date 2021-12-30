@@ -1,0 +1,1 @@
+Pamietaj zeby ogarnac dodawanie zmiany ceny sprzedazowej oraz zmiany ceny zakupowej. Update Cena Zakupu!
