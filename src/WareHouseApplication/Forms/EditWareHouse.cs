@@ -386,19 +386,20 @@ namespace WareHouseApplication.Forms
 
         public int ReturBarNumber(int productBarNumber)
         {
-            string selectSql = @"select Purchase.Id_Product
-            from Product
-            Inner Join Purchase On Product.Id_Product = Purchase.Id_Product  where Product.Bar_Number =@Product.Bar_Number";
+            string sqlReturnId = @"select Id_Product from Product where Bar_Number=@productBarNumber";
+
             using (var con = new SqlConnection(ConnectionString))
             {
                 con.Open();
 
                
+                var product = con.Query<Product>(sqlReturnId,
+                    new { productBarNumber }).FirstOrDefault();
                
 
-
-                return 3;
+                return product.Id_Product;
             }
+
 
 
         }
