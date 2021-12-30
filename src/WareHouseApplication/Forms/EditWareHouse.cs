@@ -354,13 +354,16 @@ namespace WareHouseApplication.Forms
         {
             string updateDescription =
                 "Update Product set Description_Product=@Description_Product where Bar_Number=@Bar_Number";
-            string updateProductType = "Update Product ";
+            string updateProductType = "Update Product set Type_Product=@Type_Product where Bar_Number=@Bar_Number";
             DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny edycji?", "Wyjście!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
                 for (int i = 0; i <=dataGridView1.Rows.Count-1; i++)
                 {
+                    int idProduct = ReturIdProduct((int)dataGridView1.Rows[i].Cells[6].Value);
+                    int productTypeId = ReturnNumberOfProductType((string)dataGridView1.Rows[i].Cells[1].Value);
+
                     SqlConnection cnn = new SqlConnection(ConnectionString);
                     ////////////////update kolumny Description
                     SqlCommand cmd2 = new SqlCommand(updateDescription,cnn);
@@ -369,14 +372,18 @@ namespace WareHouseApplication.Forms
                     cnn.Open();
                     cmd2.ExecuteNonQuery();
                     cnn.Close();
+
                     //////////////////////////////////////
                     ////////////Update kolumny Rodzaj Produktu
-                    int barNumberId =ReturBarNumber((int)dataGridView1.Rows[i].Cells[6].Value);
-                    int productTypeId = ReturnNumberOfProductType((string)dataGridView1.Rows[i].Cells[1].Value);
-
-
-
-
+                  
+                    SqlCommand cmd3 = new SqlCommand(updateProductType, cnn);
+                    cnn.Open();
+                    cmd3.Parameters.AddWithValue("@Type_Product", productTypeId);
+                    cmd3.Parameters.AddWithValue("@Bar_Number", dataGridView1.Rows[i].Cells[6].Value);
+                    cmd3.ExecuteNonQuery();
+                    cnn.Close();
+                    //////////////////////////////////////////////////////////////////////////
+                    //////////////Update Kolumny Metoda Zakupu
 
                 }
                 SuccessfullyChangesCommit();
@@ -390,7 +397,7 @@ namespace WareHouseApplication.Forms
             MessageBox.Show("Edycja przeprowadzona pomyślnie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public int ReturBarNumber(int productBarNumber)
+        public int ReturIdProduct(int productBarNumber)
         {
             string sqlReturnId = @"select Id_Product from Product where Bar_Number=@productBarNumber";
 
@@ -420,13 +427,15 @@ namespace WareHouseApplication.Forms
                 con.Open();
 
 
-                var purchase = con.Query<Purchase>(sqlReturnId,
+                var purchase = con.Query<Product_Type>(sqlReturnId,
                     new { productType }).FirstOrDefault();
 
 
-                return product
+                return purchase.Type_Product;
             }
 
         }
+
+        
     }
 }
