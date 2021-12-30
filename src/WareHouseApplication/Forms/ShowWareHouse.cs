@@ -492,5 +492,18 @@ FROM      Product INNER JOIN
             dataGridView1.ResetBindings();
             dataGridView1.DataSource = bs;
         }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string Ilosc= CenaZakupuCBox.Text.ToString();
+            if (Ilosc == "Od najmniejszej do największej")
+            {
+                dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
+            }
+            else
+            {
+                dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
+            }
+        }
     }
 }
