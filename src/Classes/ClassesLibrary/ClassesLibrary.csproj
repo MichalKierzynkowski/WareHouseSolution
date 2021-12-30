@@ -153,6 +153,7 @@
     <Compile Include="SqlClassesInterfaces\ReturnSqlConnection.cs" />
     <Compile Include="SqlModels\PriceChanging.cs" />
     <Compile Include="SqlModels\Product.cs" />
+    <Compile Include="SqlModels\Product_Type.cs" />
     <Compile Include="SqlModels\Purchase.cs" />
     <Compile Include="SqlModels\Returns.cs" />
     <Compile Include="SqlModels\Sales.cs" />

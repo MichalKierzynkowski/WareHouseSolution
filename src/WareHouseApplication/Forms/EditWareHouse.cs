@@ -328,6 +328,9 @@ namespace WareHouseApplication.Forms
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+
+
+
             if (SelectedRow>=0)
             {
                 DataGridViewRow newDataRow = dataGridView1.Rows[SelectedRow];
@@ -351,7 +354,7 @@ namespace WareHouseApplication.Forms
         {
             string updateDescription =
                 "Update Product set Description_Product=@Description_Product where Bar_Number=@Bar_Number";
-           // string updateProductType = "Update Product ";
+            string updateProductType = "Update Product ";
             DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny edycji?", "Wyjście!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -368,7 +371,10 @@ namespace WareHouseApplication.Forms
                     cnn.Close();
                     //////////////////////////////////////
                     ////////////Update kolumny Rodzaj Produktu
-                    ReturBarNumber((int)dataGridView1.Rows[i].Cells[6].Value);
+                    int barNumberId =ReturBarNumber((int)dataGridView1.Rows[i].Cells[6].Value);
+                    int productTypeId = ReturnNumberOfProductType((string)dataGridView1.Rows[i].Cells[1].Value);
+
+
 
 
 
@@ -401,6 +407,25 @@ namespace WareHouseApplication.Forms
             }
 
 
+
+        }
+
+        public int ReturnNumberOfProductType(string productType )
+        {
+
+            string sqlReturnId = @"select Type_Product from Product_Type where Product_Type_Description=@productType";
+
+            using (var con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+
+                var purchase = con.Query<Purchase>(sqlReturnId,
+                    new { productType }).FirstOrDefault();
+
+
+                return product
+            }
 
         }
     }
