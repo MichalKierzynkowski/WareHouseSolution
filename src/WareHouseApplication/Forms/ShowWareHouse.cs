@@ -158,6 +158,7 @@ namespace WareHouseApplication.Forms
             CenaSprzedazCBox.SelectedIndex = -1;
             NumerKreskowyTBox.Clear();
             IsReturnedComboBox.SelectedIndex = -1;
+            comboBox1.SelectedIndex = -1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -495,7 +496,7 @@ FROM      Product INNER JOIN
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string Ilosc= CenaZakupuCBox.Text.ToString();
+            string Ilosc= comboBox1.Text.ToString();
             if (Ilosc == "Od najmniejszej do największej")
             {
                 dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
