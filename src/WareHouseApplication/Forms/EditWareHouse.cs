@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassesLibrary;
+using ClassesLibrary.SqlModels;
+using Dapper;
+using Dapper.Transaction;
+using Microsoft.EntityFrameworkCore.Update;
 
 namespace WareHouseApplication.Forms
 {
@@ -37,11 +41,12 @@ namespace WareHouseApplication.Forms
             {
                 //retrieve the SQL Server instance version
                 var query =
-                    @"SELECT Product.Description_Product, Purchase_Methods.Purchase_Method_Description, Product.Quantity, Product.Offer_Price, Purchase.Price, Product_Type.Product_Type_Description,Product.Bar_Number
+                    @"SELECT Product.Description_Product, Purchase_Methods.Purchase_Method_Description, Product.Quantity, Product.Offer_Price, Purchase.Price, Product_Type.Product_Type_Description,Product.Bar_Number 
                     FROM     Product INNER JOIN
                   Product_Type ON Product.Type_Product = Product_Type.Type_Product INNER JOIN
                   Purchase ON Product.Id_Product = Purchase.Id_Product INNER JOIN
-                  Purchase_Methods ON Product.Purchase_Method = Purchase_Methods.Purchase_Method";
+                  Purchase_Methods ON Product.Purchase_Method = Purchase_Methods.Purchase_Method
+				  where Purchase.From_Product_Create='Tak'";
 
 
                 //define the SqlCommand object
@@ -344,10 +349,33 @@ namespace WareHouseApplication.Forms
 
         private void SaveChangesButton_Click(object sender, EventArgs e)
         {
+            string updateDescription =
+                "Update Product set Description_Product=@Description_Product where Bar_Number=@Bar_Number";
+           // string updateProductType = "Update Product ";
             DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny edycji?", "Wyjście!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-               
+
+                for (int i = 0; i <=dataGridView1.Rows.Count-1; i++)
+                {
+                    SqlConnection cnn = new SqlConnection(ConnectionString);
+                    ////////////////update kolumny Description
+                    SqlCommand cmd2 = new SqlCommand(updateDescription,cnn);
+                    cmd2.Parameters.AddWithValue("@Description_Product", dataGridView1.Rows[i].Cells[0].Value);
+                    cmd2.Parameters.AddWithValue("@Bar_Number", dataGridView1.Rows[i].Cells[6].Value);
+                    cnn.Open();
+                    cmd2.ExecuteNonQuery();
+                    cnn.Close();
+                    //////////////////////////////////////
+                    ////////////Update kolumny Rodzaj Produktu
+                    ReturBarNumber((int)dataGridView1.Rows[i].Cells[6].Value);
+
+
+
+                }
+                SuccessfullyChangesCommit();
+                DefaultFillingGridView();
+                ResetSortingFields();
             }
             
         }
@@ -356,5 +384,23 @@ namespace WareHouseApplication.Forms
             MessageBox.Show("Edycja przeprowadzona pomyślnie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public int ReturBarNumber(int productBarNumber)
+        {
+            string selectSql = @"select Purchase.Id_Product
+            from Product
+            Inner Join Purchase On Product.Id_Product = Purchase.Id_Product  where Product.Bar_Number =@Product.Bar_Number";
+            using (var con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+               
+               
+
+
+                return 3;
+            }
+
+
+        }
     }
 }
