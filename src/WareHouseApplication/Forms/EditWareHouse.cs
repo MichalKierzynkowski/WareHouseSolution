@@ -363,7 +363,7 @@ namespace WareHouseApplication.Forms
                 {
                     int idProduct = ReturIdProduct((int)dataGridView1.Rows[i].Cells[6].Value);
                     int productTypeId = ReturnNumberOfProductType((string)dataGridView1.Rows[i].Cells[1].Value);
-
+                    int buyMethodId = ReturnBuyMethodId((string)dataGridView1.Rows[i].Cells[2].Value);
                     SqlConnection cnn = new SqlConnection(ConnectionString);
                     ////////////////update kolumny Description
                     SqlCommand cmd2 = new SqlCommand(updateDescription,cnn);
@@ -384,6 +384,11 @@ namespace WareHouseApplication.Forms
                     cnn.Close();
                     //////////////////////////////////////////////////////////////////////////
                     //////////////Update Kolumny Metoda Zakupu
+                   
+
+
+
+
 
                 }
                 SuccessfullyChangesCommit();
@@ -392,6 +397,25 @@ namespace WareHouseApplication.Forms
             }
             
         }
+
+        private int ReturnBuyMethodId(string buyMethod)
+        {
+            string sqlReturnId = @"select Purchase_Method from Purchase_Methods where Purchase_Method_Description=@buyMethod";
+
+            using (var con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+
+                var product = con.Query<Product>(sqlReturnId,
+                    new { productBarNumber }).FirstOrDefault();
+
+
+                return product.Id_Product;
+            }
+
+        }
+
         private void SuccessfullyChangesCommit()
         {
             MessageBox.Show("Edycja przeprowadzona pomyślnie!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);

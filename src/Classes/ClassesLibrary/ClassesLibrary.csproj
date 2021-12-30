@@ -155,6 +155,7 @@
     <Compile Include="SqlModels\Product.cs" />
     <Compile Include="SqlModels\Product_Type.cs" />
     <Compile Include="SqlModels\Purchase.cs" />
+    <Compile Include="SqlModels\Purchase_Methods.cs" />
     <Compile Include="SqlModels\Returns.cs" />
     <Compile Include="SqlModels\Sales.cs" />
     <Compile Include="SqlModels\Users.cs" />
