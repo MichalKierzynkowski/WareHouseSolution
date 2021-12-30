@@ -31,6 +31,9 @@ namespace WareHouseApplication.Forms
             InitializeComponent();
             ConnectionString = connectionString;
             DefaultFillingGridView();
+            EditButton.Enabled = false;
+            SaveChangesButton.Enabled = false;
+            DeletButton.Enabled = false;
         }
 
         private void DefaultFillingGridView()
@@ -303,6 +306,9 @@ namespace WareHouseApplication.Forms
             SelectedRow = e.RowIndex;
             if (SelectedRow>=0)
             {
+                DeletButton.Enabled = true;
+                EditButton.Enabled = true;
+                SaveChangesButton.Enabled = true;
                 DataGridViewRow selectedRow = dataGridView1.Rows[SelectedRow];
                 OpisProduktuTBox.Text = selectedRow.Cells[0].Value.ToString();
 
@@ -355,6 +361,11 @@ namespace WareHouseApplication.Forms
             string updateDescription =
                 "Update Product set Description_Product=@Description_Product where Bar_Number=@Bar_Number";
             string updateProductType = "Update Product set Type_Product=@Type_Product where Bar_Number=@Bar_Number";
+            string updateBuyMethod = "Update Product set Purchase_Method=@Purchase_Method where Bar_Number=@Bar_Number ";
+            string updateAmountProduct="Update Product set Quantity=@Quantity where Bar_Number=@Bar_Number";
+            string updateAmountPurchase = "Update Purchase set Amount=@Amount where Id_Product =@idProduct and From_Product_Create ='Tak'";
+
+
             DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny edycji?", "Wyjście!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -364,6 +375,7 @@ namespace WareHouseApplication.Forms
                     int idProduct = ReturIdProduct((int)dataGridView1.Rows[i].Cells[6].Value);
                     int productTypeId = ReturnNumberOfProductType((string)dataGridView1.Rows[i].Cells[1].Value);
                     int buyMethodId = ReturnBuyMethodId((string)dataGridView1.Rows[i].Cells[2].Value);
+
                     SqlConnection cnn = new SqlConnection(ConnectionString);
                     ////////////////update kolumny Description
                     SqlCommand cmd2 = new SqlCommand(updateDescription,cnn);
@@ -384,10 +396,29 @@ namespace WareHouseApplication.Forms
                     cnn.Close();
                     //////////////////////////////////////////////////////////////////////////
                     //////////////Update Kolumny Metoda Zakupu
-                   
+                    SqlCommand cmd4 = new SqlCommand(updateBuyMethod, cnn);
+                    cnn.Open();
+                    cmd4.Parameters.AddWithValue("@Purchase_Method", buyMethodId);
+                    cmd4.Parameters.AddWithValue("@Bar_Number", dataGridView1.Rows[i].Cells[6].Value);
+                    cmd4.ExecuteNonQuery();
+                    cnn.Close();
+                    /////////////////////////////////////////////////
+                    //////////////Update Ilosc
+                    SqlCommand cmd5 = new SqlCommand(updateAmountProduct, cnn);
+                    SqlCommand cmd6 = new SqlCommand(updateAmountPurchase, cnn);
+                    cnn.Open();
+                    cmd5.Parameters.AddWithValue("@Quantity", (int)AmountNumeric.Value);
+                    cmd5.Parameters.AddWithValue("@Bar_Number", dataGridView1.Rows[i].Cells[6].Value);
+                    cmd5.ExecuteNonQuery();
+                    cmd6.Parameters.AddWithValue("@Amount", (int)AmountNumeric.Value);
+                    cmd6.Parameters.AddWithValue("@Bar_Number", dataGridView1.Rows[i].Cells[6].Value);
+                    cmd6.ExecuteNonQuery();
 
 
 
+
+
+                    cnn.Close();
 
 
                 }
@@ -407,11 +438,11 @@ namespace WareHouseApplication.Forms
                 con.Open();
 
 
-                var product = con.Query<Product>(sqlReturnId,
-                    new { productBarNumber }).FirstOrDefault();
+                var purchaseMethods = con.Query<Purchase_Methods>(sqlReturnId,
+                    new { buyMethod }).FirstOrDefault();
 
 
-                return product.Id_Product;
+                return purchaseMethods.Purchase_Method;
             }
 
         }
