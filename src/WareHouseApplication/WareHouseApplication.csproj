@@ -158,16 +158,16 @@
     <Compile Include="Alert\Alert.Designer.cs">
       <DependentUpon>Alert.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddItemFormcs.cs">
+    <Compile Include="Forms\Magazyn\AddItemFormcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddItemFormcs.Designer.cs">
+    <Compile Include="Forms\Magazyn\AddItemFormcs.Designer.cs">
       <DependentUpon>AddItemFormcs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditWareHouse.cs">
+    <Compile Include="Forms\Magazyn\EditWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditWareHouse.Designer.cs">
+    <Compile Include="Forms\Magazyn\EditWareHouse.Designer.cs">
       <DependentUpon>EditWareHouse.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainMenu.cs">
@@ -176,11 +176,17 @@
     <Compile Include="Forms\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReturnForm.cs">
+    <Compile Include="Forms\Magazyn\ReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReturnForm.Designer.cs">
+    <Compile Include="Forms\Magazyn\ReturnForm.Designer.cs">
       <DependentUpon>ReturnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Program\VersionInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Program\VersionInformation.Designer.cs">
+      <DependentUpon>VersionInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SellingItem.cs">
       <SubType>Form</SubType>
@@ -188,10 +194,10 @@
     <Compile Include="Forms\SellingItem.Designer.cs">
       <DependentUpon>SellingItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ShowWareHouse.cs">
+    <Compile Include="Forms\Magazyn\ShowWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ShowWareHouse.Designer.cs">
+    <Compile Include="Forms\Magazyn\ShowWareHouse.Designer.cs">
       <DependentUpon>ShowWareHouse.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -204,22 +210,25 @@
     <EmbeddedResource Include="Alert\Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddItemFormcs.resx">
+    <EmbeddedResource Include="Forms\Magazyn\AddItemFormcs.resx">
       <DependentUpon>AddItemFormcs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditWareHouse.resx">
+    <EmbeddedResource Include="Forms\Magazyn\EditWareHouse.resx">
       <DependentUpon>EditWareHouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReturnForm.resx">
+    <EmbeddedResource Include="Forms\Magazyn\ReturnForm.resx">
       <DependentUpon>ReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Program\VersionInformation.resx">
+      <DependentUpon>VersionInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SellingItem.resx">
       <DependentUpon>SellingItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ShowWareHouse.resx">
+    <EmbeddedResource Include="Forms\Magazyn\ShowWareHouse.resx">
       <DependentUpon>ShowWareHouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -304,6 +313,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

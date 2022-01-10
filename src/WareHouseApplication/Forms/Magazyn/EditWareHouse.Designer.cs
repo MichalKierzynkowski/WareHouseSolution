@@ -317,6 +317,7 @@ namespace WareHouseApplication.Forms
             this.DeletButton.TabIndex = 40;
             this.DeletButton.Text = "Usuń";
             this.DeletButton.UseVisualStyleBackColor = true;
+            this.DeletButton.Click += new System.EventHandler(this.DeletButton_Click);
             // 
             // label8
             // 

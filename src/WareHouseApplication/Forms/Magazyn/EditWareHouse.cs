@@ -32,6 +32,7 @@ namespace WareHouseApplication.Forms
         private DataSet Ds { get; set; }
         private SqlCommand Cmd { get; set; }
         private int SelectedRow { get; set; }
+        private int? SelecterBarNumber { get; set; }
 
         private void DefaultFillingGridView()
         {
@@ -294,6 +295,7 @@ namespace WareHouseApplication.Forms
                 SellPriceNumeric.Value = Convert.ToDecimal(selectedRow.Cells[5].Value.ToString());
                 RodzajProduktuWyrazCBox.SelectedItem = selectedRow.Cells[1].Value.ToString();
                 MetodaKupnaWyrazCBox.SelectedItem = selectedRow.Cells[2].Value.ToString();
+                SelecterBarNumber = Convert.ToInt32(selectedRow.Cells[6].Value.ToString());
             }
             else
             {
@@ -375,23 +377,19 @@ namespace WareHouseApplication.Forms
                     var cmd5 = new SqlCommand(updateAmountProduct, cnn);
                     var cmd6 = new SqlCommand(updateAmountPurchase, cnn);
                     cnn.Open();
-                   
-                        cmd5.Parameters.AddWithValue("@Quantity", dataGridView1.Rows[i].Cells[3].Value);
-                        cmd5.Parameters.AddWithValue("@Bar_Number", dataGridView1.Rows[i].Cells[6].Value);
+
+                    cmd5.Parameters.AddWithValue("@Quantity", dataGridView1.Rows[i].Cells[3].Value);
+                    cmd5.Parameters.AddWithValue("@Bar_Number", dataGridView1.Rows[i].Cells[6].Value);
 
 
-                        cmd5.ExecuteNonQuery();
+                    cmd5.ExecuteNonQuery();
 
-                        cmd6.Parameters.AddWithValue("@Amount", dataGridView1.Rows[i].Cells[3].Value);
+                    cmd6.Parameters.AddWithValue("@Amount", dataGridView1.Rows[i].Cells[3].Value);
 
-                        cmd6.Parameters.AddWithValue("@Id_Product", idProduct);
-                        cmd6.ExecuteNonQuery();
+                    cmd6.Parameters.AddWithValue("@Id_Product", idProduct);
+                    cmd6.ExecuteNonQuery();
                     //////////////////
                     /// Update Cena Zakupu
-                    
-
-
-
 
 
                     cnn.Close();
@@ -459,6 +457,33 @@ namespace WareHouseApplication.Forms
 
                 return purchase.Type_Product;
             }
+        }
+
+        public void SuccesfullyDeleteProductInfo()
+        {
+            MessageBox.Show(
+                "Pomyślnie usunięto produkt!", "Sukces!",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void DeletButton_Click(object sender, EventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Czy jesteś pewny że chcesz usunąć rekord?", "Usuwanie!",
+                MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+                using (var connection = new SqlConnection(ConnectionString))
+                {
+                    var idToDelete = connection
+                        .Query<int>(@"Select Id_Product from Product where Bar_Number=@SelecterBarNumber",
+                            new {SelecterBarNumber}).FirstOrDefault();
+
+                    connection.Execute(
+                        "delete from Purchase where Id_Product = @idToDelete and From_Product_Create = 'Tak'",
+                        new {idToDelete});
+                    connection.Execute("delete from Product where Bar_Number=@SelecterBarNumber", new {SelecterBarNumber});
+                    DefaultFillingGridView();
+                    SuccesfullyDeleteProductInfo();
+                }
         }
     }
 }
