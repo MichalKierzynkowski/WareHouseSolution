@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using WareHouseApplication.Forms;
+using WareHouseApplication.Forms.Program;
 
 namespace WareHouseApplication
 {
@@ -96,6 +97,12 @@ namespace WareHouseApplication
         private void edycjaMagazynuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var obj = new EditWareHouse(connectionString);
+            obj.Show();
+        }
+
+        private void informacjeOWersjiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var obj = new VersionInformation();
             obj.Show();
         }
     }
