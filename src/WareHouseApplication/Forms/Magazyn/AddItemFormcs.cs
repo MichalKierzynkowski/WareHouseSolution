@@ -115,7 +115,7 @@ namespace WareHouseApplication.Forms
             MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
         }
 
-        private void DostepnoscButton_Click(object sender, EventArgs e)
+        public void DostepnoscButton_Click(object sender, EventArgs e)
         {
             string bar_Number = NumerKreskowyTBox.Text;
             var notNullValidationObj = new IsNullIAddingItemValidation(bar_Number);

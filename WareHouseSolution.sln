@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLBACKUP", "SQLBACKUP", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WareHouseApplication.Data", "src\WareHouseAppliation.Data\WareHouseApplication.Data\WareHouseApplication.Data.csproj", "{0709DBB9-57B2-4661-A12B-CD1BAEBC4339}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WareHouseApplicationTests", "src\WareHouseApplicationTests\WareHouseApplicationTests.csproj", "{DCB91E1D-8096-48A2-B1B7-3FD8338523C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0709DBB9-57B2-4661-A12B-CD1BAEBC4339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0709DBB9-57B2-4661-A12B-CD1BAEBC4339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0709DBB9-57B2-4661-A12B-CD1BAEBC4339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB91E1D-8096-48A2-B1B7-3FD8338523C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB91E1D-8096-48A2-B1B7-3FD8338523C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB91E1D-8096-48A2-B1B7-3FD8338523C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB91E1D-8096-48A2-B1B7-3FD8338523C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
