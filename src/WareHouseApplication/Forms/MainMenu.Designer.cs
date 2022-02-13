@@ -49,7 +49,6 @@ namespace WareHouseApplication
             this.edytujArchwiumSprzedażyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.użytkownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wyjścieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -92,7 +91,7 @@ namespace WareHouseApplication
             this.informacjeOWersjiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("informacjeOWersjiToolStripMenuItem.Image")));
             this.informacjeOWersjiToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.informacjeOWersjiToolStripMenuItem.Name = "informacjeOWersjiToolStripMenuItem";
-            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
+            this.informacjeOWersjiToolStripMenuItem.Size = new System.Drawing.Size(223, 32);
             this.informacjeOWersjiToolStripMenuItem.Text = "Informacje o wersji";
             this.informacjeOWersjiToolStripMenuItem.Click += new System.EventHandler(this.informacjeOWersjiToolStripMenuItem_Click);
             // 
@@ -101,7 +100,7 @@ namespace WareHouseApplication
             this.ustawieniaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ustawieniaToolStripMenuItem.Image")));
             this.ustawieniaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(223, 32);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             // 
             // pomocToolStripMenuItem
@@ -109,7 +108,7 @@ namespace WareHouseApplication
             this.pomocToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pomocToolStripMenuItem.Image")));
             this.pomocToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
-            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(229, 32);
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(223, 32);
             this.pomocToolStripMenuItem.Text = "Pomoc";
             // 
             // magazynToolStripMenuItem
@@ -239,28 +238,13 @@ namespace WareHouseApplication
             this.wyjścieToolStripMenuItem.Text = "Wyjście";
             this.wyjścieToolStripMenuItem.Click += new System.EventHandler(this.wyjścieToolStripMenuItem_Click);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.56F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.44F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 68);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1667, 12);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 73);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 61);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1667, 956);
+            this.pictureBox1.Size = new System.Drawing.Size(1667, 1225);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -272,7 +256,8 @@ namespace WareHouseApplication
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1586, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(1586, 15);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 40);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -282,11 +267,10 @@ namespace WareHouseApplication
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1667, 1030);
+            this.ClientSize = new System.Drawing.Size(1667, 1288);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -313,7 +297,6 @@ namespace WareHouseApplication
         private System.Windows.Forms.ToolStripMenuItem sprzedażToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wyjścieToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem informacjeOWersjiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajProduktToolStripMenuItem;

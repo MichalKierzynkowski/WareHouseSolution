@@ -42,7 +42,7 @@ namespace WareHouseApplication.Forms
             {
                 //retrieve the SQL Server instance version
                 var query =
-                    @"SELECT Product.Description_Product, Purchase_Methods.Purchase_Method_Description, Product.Quantity, Product.Offer_Price, Purchase.Price, Product_Type.Product_Type_Description,Product.Bar_Number 
+                    @"SELECT Product.Description_Product, Purchase_Methods.Purchase_Method_Description, Product.Quantity, Product.Offer_Price, Purchase.Price, Product_Type.Product_Type_Description,Product.Bar_Number,Product. IsReturned
                     FROM     Product INNER JOIN
                   Product_Type ON Product.Type_Product = Product_Type.Type_Product INNER JOIN
                   Purchase ON Product.Id_Product = Purchase.Id_Product INNER JOIN
@@ -65,7 +65,7 @@ namespace WareHouseApplication.Forms
                 //set DataGridView control to read-only
                 dataGridView1.ReadOnly = true;
                 dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.ColumnCount = 7;
+                dataGridView1.ColumnCount = 8;
                 dataGridView1.Columns[0].HeaderText = "Opis";
                 dataGridView1.Columns[0].DataPropertyName = "Description_Product";
                 dataGridView1.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -87,7 +87,9 @@ namespace WareHouseApplication.Forms
                 dataGridView1.Columns[6].HeaderText = "Kod Kreskowy";
                 dataGridView1.Columns[6].DataPropertyName = "Bar_Number";
                 dataGridView1.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
-
+                dataGridView1.Columns[7].HeaderText = "Towar Zwrócony";
+                dataGridView1.Columns[7].DataPropertyName = "IsReturned";
+                dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.AllowUserToAddRows = false;
@@ -106,6 +108,7 @@ namespace WareHouseApplication.Forms
                 dataGridView1.Columns[4].Width = 100;
                 dataGridView1.Columns[5].Width = 130;
                 dataGridView1.Columns[6].Width = 100;
+                dataGridView1.Columns[7].Width = 130;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.MultiSelect = false;
                 //dataGridView1.Columns[]
