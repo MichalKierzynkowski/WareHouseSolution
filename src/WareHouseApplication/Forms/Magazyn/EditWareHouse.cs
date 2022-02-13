@@ -410,7 +410,7 @@ namespace WareHouseApplication.Forms
             {
                 con.Open();
 
-
+                //
                 var purchaseMethods = con.Query<Purchase_Methods>(sqlReturnId,
                     new {buyMethod}).FirstOrDefault();
 
