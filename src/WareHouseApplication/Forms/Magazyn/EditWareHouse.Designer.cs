@@ -76,14 +76,16 @@ namespace WareHouseApplication.Forms
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1539, 100);
+            this.panel1.Size = new System.Drawing.Size(1539, 125);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(486, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(486, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(75, 75);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -94,10 +96,10 @@ namespace WareHouseApplication.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.CausesValidation = false;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(590, 21);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(590, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 51);
+            this.label1.Size = new System.Drawing.Size(300, 50);
             this.label1.TabIndex = 5;
             this.label1.Text = "Edytuj Magazyn";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,13 +107,15 @@ namespace WareHouseApplication.Forms
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 544);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 680);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1502, 339);
+            this.dataGridView1.Size = new System.Drawing.Size(1502, 424);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+           
             // 
             // MetodaKupnaWyrazCBox
             // 
@@ -120,20 +124,20 @@ namespace WareHouseApplication.Forms
             this.MetodaKupnaWyrazCBox.Items.AddRange(new object[] {
             "Faktura",
             "Paragon"});
-            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(261, 282);
+            this.MetodaKupnaWyrazCBox.Location = new System.Drawing.Point(261, 352);
             this.MetodaKupnaWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MetodaKupnaWyrazCBox.Name = "MetodaKupnaWyrazCBox";
-            this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(247, 24);
+            this.MetodaKupnaWyrazCBox.Size = new System.Drawing.Size(247, 28);
             this.MetodaKupnaWyrazCBox.TabIndex = 29;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.CausesValidation = false;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(20, 282);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(20, 352);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(195, 32);
+            this.label4.Size = new System.Drawing.Size(194, 32);
             this.label4.TabIndex = 28;
             this.label4.Text = "Metoda Zakupu:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,113 +191,118 @@ namespace WareHouseApplication.Forms
             "Zegarek",
             "Apaszka",
             "Perfumy"});
-            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(261, 211);
+            this.RodzajProduktuWyrazCBox.Location = new System.Drawing.Point(261, 264);
             this.RodzajProduktuWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RodzajProduktuWyrazCBox.Name = "RodzajProduktuWyrazCBox";
-            this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(247, 24);
+            this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(247, 28);
             this.RodzajProduktuWyrazCBox.TabIndex = 27;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.CausesValidation = false;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(20, 211);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(20, 264);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 32);
+            this.label3.Size = new System.Drawing.Size(200, 32);
             this.label3.TabIndex = 25;
             this.label3.Text = "Rodzaj Produktu:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OpisProduktuTBox
             // 
-            this.OpisProduktuTBox.Location = new System.Drawing.Point(261, 344);
+            this.OpisProduktuTBox.Location = new System.Drawing.Point(261, 430);
+            this.OpisProduktuTBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OpisProduktuTBox.Multiline = true;
             this.OpisProduktuTBox.Name = "OpisProduktuTBox";
-            this.OpisProduktuTBox.Size = new System.Drawing.Size(247, 25);
+            this.OpisProduktuTBox.Size = new System.Drawing.Size(247, 30);
             this.OpisProduktuTBox.TabIndex = 32;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(20, 344);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(20, 430);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 32);
+            this.label2.Size = new System.Drawing.Size(170, 32);
             this.label2.TabIndex = 31;
             this.label2.Text = "Opis Produktu";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(592, 211);
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(592, 264);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 32);
+            this.label5.Size = new System.Drawing.Size(68, 32);
             this.label5.TabIndex = 33;
             this.label5.Text = "Ilość:";
             // 
             // AmountNumeric
             // 
-            this.AmountNumeric.Location = new System.Drawing.Point(762, 213);
+            this.AmountNumeric.Location = new System.Drawing.Point(762, 266);
+            this.AmountNumeric.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AmountNumeric.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.AmountNumeric.Name = "AmountNumeric";
-            this.AmountNumeric.Size = new System.Drawing.Size(112, 22);
+            this.AmountNumeric.Size = new System.Drawing.Size(112, 27);
             this.AmountNumeric.TabIndex = 36;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(545, 279);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(545, 349);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 32);
+            this.label6.Size = new System.Drawing.Size(164, 32);
             this.label6.TabIndex = 35;
             this.label6.Text = "Cena Zakupu:";
             // 
             // BuyPriceNumeric
             // 
-            this.BuyPriceNumeric.Location = new System.Drawing.Point(762, 292);
+            this.BuyPriceNumeric.Location = new System.Drawing.Point(762, 365);
+            this.BuyPriceNumeric.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BuyPriceNumeric.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.BuyPriceNumeric.Name = "BuyPriceNumeric";
-            this.BuyPriceNumeric.Size = new System.Drawing.Size(112, 22);
+            this.BuyPriceNumeric.Size = new System.Drawing.Size(112, 27);
             this.BuyPriceNumeric.TabIndex = 37;
             // 
             // SellPriceNumeric
             // 
-            this.SellPriceNumeric.Location = new System.Drawing.Point(762, 347);
+            this.SellPriceNumeric.Location = new System.Drawing.Point(762, 434);
+            this.SellPriceNumeric.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SellPriceNumeric.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.SellPriceNumeric.Name = "SellPriceNumeric";
-            this.SellPriceNumeric.Size = new System.Drawing.Size(112, 22);
+            this.SellPriceNumeric.Size = new System.Drawing.Size(112, 27);
             this.SellPriceNumeric.TabIndex = 39;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(545, 344);
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(545, 430);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(193, 32);
+            this.label7.Size = new System.Drawing.Size(192, 32);
             this.label7.TabIndex = 38;
             this.label7.Text = "Cena Sprzedaży:";
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(324, 437);
+            this.EditButton.Location = new System.Drawing.Point(324, 546);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(141, 61);
+            this.EditButton.Size = new System.Drawing.Size(141, 76);
             this.EditButton.TabIndex = 42;
             this.EditButton.Text = "Edytuj";
             this.EditButton.UseVisualStyleBackColor = true;
@@ -301,9 +310,10 @@ namespace WareHouseApplication.Forms
             // 
             // SortingButton
             // 
-            this.SortingButton.Location = new System.Drawing.Point(1355, 437);
+            this.SortingButton.Location = new System.Drawing.Point(1355, 546);
+            this.SortingButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SortingButton.Name = "SortingButton";
-            this.SortingButton.Size = new System.Drawing.Size(141, 61);
+            this.SortingButton.Size = new System.Drawing.Size(141, 76);
             this.SortingButton.TabIndex = 41;
             this.SortingButton.Text = "Sortuj";
             this.SortingButton.UseVisualStyleBackColor = true;
@@ -311,9 +321,10 @@ namespace WareHouseApplication.Forms
             // 
             // DeletButton
             // 
-            this.DeletButton.Location = new System.Drawing.Point(177, 437);
+            this.DeletButton.Location = new System.Drawing.Point(177, 546);
+            this.DeletButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DeletButton.Name = "DeletButton";
-            this.DeletButton.Size = new System.Drawing.Size(141, 61);
+            this.DeletButton.Size = new System.Drawing.Size(141, 76);
             this.DeletButton.TabIndex = 40;
             this.DeletButton.Text = "Usuń";
             this.DeletButton.UseVisualStyleBackColor = true;
@@ -323,8 +334,8 @@ namespace WareHouseApplication.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.CausesValidation = false;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(373, 122);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(373, 152);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(198, 41);
             this.label8.TabIndex = 43;
@@ -335,8 +346,8 @@ namespace WareHouseApplication.Forms
             // 
             this.label9.AutoSize = true;
             this.label9.CausesValidation = false;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(1135, 131);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(1135, 164);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(276, 41);
             this.label9.TabIndex = 44;
@@ -345,21 +356,21 @@ namespace WareHouseApplication.Forms
             // 
             // NumerKreskowyTBox
             // 
-            this.NumerKreskowyTBox.Location = new System.Drawing.Point(1232, 347);
+            this.NumerKreskowyTBox.Location = new System.Drawing.Point(1232, 434);
             this.NumerKreskowyTBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NumerKreskowyTBox.Multiline = true;
             this.NumerKreskowyTBox.Name = "NumerKreskowyTBox";
-            this.NumerKreskowyTBox.Size = new System.Drawing.Size(264, 29);
+            this.NumerKreskowyTBox.Size = new System.Drawing.Size(264, 35);
             this.NumerKreskowyTBox.TabIndex = 52;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.CausesValidation = false;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(988, 344);
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(988, 430);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(175, 32);
+            this.label10.Size = new System.Drawing.Size(174, 32);
             this.label10.TabIndex = 51;
             this.label10.Text = "Kod Kreskowy:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -371,10 +382,10 @@ namespace WareHouseApplication.Forms
             this.MetodaZakupuCyfraCBox.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.MetodaZakupuCyfraCBox.Location = new System.Drawing.Point(1232, 283);
+            this.MetodaZakupuCyfraCBox.Location = new System.Drawing.Point(1232, 354);
             this.MetodaZakupuCyfraCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MetodaZakupuCyfraCBox.Name = "MetodaZakupuCyfraCBox";
-            this.MetodaZakupuCyfraCBox.Size = new System.Drawing.Size(51, 24);
+            this.MetodaZakupuCyfraCBox.Size = new System.Drawing.Size(51, 28);
             this.MetodaZakupuCyfraCBox.TabIndex = 50;
             this.MetodaZakupuCyfraCBox.SelectionChangeCommitted += new System.EventHandler(this.MetodaZakupuCyfraCBox_SelectionChangeCommitted);
             this.MetodaZakupuCyfraCBox.SelectedValueChanged += new System.EventHandler(this.MetodaZakupuCyfraCBox_SelectedValueChanged);
@@ -386,10 +397,10 @@ namespace WareHouseApplication.Forms
             this.MetodaZakupuWyrazCBox.Items.AddRange(new object[] {
             "Faktura",
             "Paragon"});
-            this.MetodaZakupuWyrazCBox.Location = new System.Drawing.Point(1318, 288);
+            this.MetodaZakupuWyrazCBox.Location = new System.Drawing.Point(1318, 360);
             this.MetodaZakupuWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MetodaZakupuWyrazCBox.Name = "MetodaZakupuWyrazCBox";
-            this.MetodaZakupuWyrazCBox.Size = new System.Drawing.Size(178, 24);
+            this.MetodaZakupuWyrazCBox.Size = new System.Drawing.Size(178, 28);
             this.MetodaZakupuWyrazCBox.TabIndex = 49;
             this.MetodaZakupuWyrazCBox.SelectionChangeCommitted += new System.EventHandler(this.MetodaZakupuWyrazCBox_SelectionChangeCommitted);
             this.MetodaZakupuWyrazCBox.SelectedValueChanged += new System.EventHandler(this.MetodaZakupuWyrazCBox_SelectedValueChanged);
@@ -398,10 +409,10 @@ namespace WareHouseApplication.Forms
             // 
             this.label11.AutoSize = true;
             this.label11.CausesValidation = false;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(988, 280);
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(988, 350);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(195, 32);
+            this.label11.Size = new System.Drawing.Size(194, 32);
             this.label11.TabIndex = 48;
             this.label11.Text = "Metoda Zakupu:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -455,10 +466,10 @@ namespace WareHouseApplication.Forms
             "Zegarek",
             "Apaszka",
             "Perfumy"});
-            this.RodzajProdSortowanieWyrazCBox.Location = new System.Drawing.Point(1318, 211);
+            this.RodzajProdSortowanieWyrazCBox.Location = new System.Drawing.Point(1318, 264);
             this.RodzajProdSortowanieWyrazCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RodzajProdSortowanieWyrazCBox.Name = "RodzajProdSortowanieWyrazCBox";
-            this.RodzajProdSortowanieWyrazCBox.Size = new System.Drawing.Size(178, 24);
+            this.RodzajProdSortowanieWyrazCBox.Size = new System.Drawing.Size(178, 28);
             this.RodzajProdSortowanieWyrazCBox.TabIndex = 47;
             this.RodzajProdSortowanieWyrazCBox.SelectionChangeCommitted += new System.EventHandler(this.RodzajProdSortowanieWyrazCBox_SelectionChangeCommitted);
             // 
@@ -511,10 +522,10 @@ namespace WareHouseApplication.Forms
             "42",
             "43",
             "55"});
-            this.RodzajProdSortowanieCyfraCBox.Location = new System.Drawing.Point(1232, 211);
+            this.RodzajProdSortowanieCyfraCBox.Location = new System.Drawing.Point(1232, 264);
             this.RodzajProdSortowanieCyfraCBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RodzajProdSortowanieCyfraCBox.Name = "RodzajProdSortowanieCyfraCBox";
-            this.RodzajProdSortowanieCyfraCBox.Size = new System.Drawing.Size(51, 24);
+            this.RodzajProdSortowanieCyfraCBox.Size = new System.Drawing.Size(51, 28);
             this.RodzajProdSortowanieCyfraCBox.TabIndex = 46;
             this.RodzajProdSortowanieCyfraCBox.SelectionChangeCommitted += new System.EventHandler(this.RodzajProdSortowanieCyfraCBox_SelectionChangeCommitted);
             this.RodzajProdSortowanieCyfraCBox.SelectedValueChanged += new System.EventHandler(this.RodzajProdSortowanieCyfraCBox_SelectedValueChanged);
@@ -523,10 +534,10 @@ namespace WareHouseApplication.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.CausesValidation = false;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(988, 211);
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(988, 264);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(201, 32);
+            this.label12.Size = new System.Drawing.Size(200, 32);
             this.label12.TabIndex = 45;
             this.label12.Text = "Rodzaj Produktu:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -534,16 +545,18 @@ namespace WareHouseApplication.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(933, 136);
+            this.panel2.Location = new System.Drawing.Point(933, 170);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 362);
+            this.panel2.Size = new System.Drawing.Size(10, 452);
             this.panel2.TabIndex = 53;
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(1208, 437);
+            this.ResetButton.Location = new System.Drawing.Point(1208, 546);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(141, 61);
+            this.ResetButton.Size = new System.Drawing.Size(141, 76);
             this.ResetButton.TabIndex = 54;
             this.ResetButton.Text = "Reset";
             this.ResetButton.UseVisualStyleBackColor = true;
@@ -551,9 +564,10 @@ namespace WareHouseApplication.Forms
             // 
             // SaveChangesButton
             // 
-            this.SaveChangesButton.Location = new System.Drawing.Point(471, 437);
+            this.SaveChangesButton.Location = new System.Drawing.Point(471, 546);
+            this.SaveChangesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SaveChangesButton.Name = "SaveChangesButton";
-            this.SaveChangesButton.Size = new System.Drawing.Size(141, 61);
+            this.SaveChangesButton.Size = new System.Drawing.Size(141, 76);
             this.SaveChangesButton.TabIndex = 55;
             this.SaveChangesButton.Text = "Zatwierdź Zmiany";
             this.SaveChangesButton.UseVisualStyleBackColor = true;
@@ -561,10 +575,10 @@ namespace WareHouseApplication.Forms
             // 
             // EditWareHouse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1540, 954);
+            this.ClientSize = new System.Drawing.Size(1540, 1192);
             this.Controls.Add(this.SaveChangesButton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.panel2);
@@ -595,6 +609,7 @@ namespace WareHouseApplication.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "EditWareHouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

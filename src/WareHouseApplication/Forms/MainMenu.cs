@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using WareHouseApplication.Forms;
 using WareHouseApplication.Forms.Program;
+using WareHouseApplication.Forms.Sale;
 
 namespace WareHouseApplication
 {
@@ -103,6 +104,12 @@ namespace WareHouseApplication
         private void informacjeOWersjiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var obj = new VersionInformation();
+            obj.Show();
+        }
+
+        private void sprzedajPrzedmiotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var obj = new AddSale(connectionString);
             obj.Show();
         }
     }

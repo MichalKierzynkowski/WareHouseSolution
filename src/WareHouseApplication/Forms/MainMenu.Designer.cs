@@ -205,6 +205,7 @@ namespace WareHouseApplication
             this.sprzedajPrzedmiotToolStripMenuItem.Name = "sprzedajPrzedmiotToolStripMenuItem";
             this.sprzedajPrzedmiotToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
             this.sprzedajPrzedmiotToolStripMenuItem.Text = "Sprzedaj Przedmiot";
+            this.sprzedajPrzedmiotToolStripMenuItem.Click += new System.EventHandler(this.sprzedajPrzedmiotToolStripMenuItem_Click);
             // 
             // archiwumSprzedażyToolStripMenuItem
             // 

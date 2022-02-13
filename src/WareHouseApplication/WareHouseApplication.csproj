@@ -89,7 +89,4 @@
   <ItemGroup>
     <Content Include="appsettings.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\NewFolder\" />
-  </ItemGroup>
 </Project>
