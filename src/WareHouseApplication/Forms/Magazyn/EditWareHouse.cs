@@ -309,7 +309,7 @@ namespace WareHouseApplication.Forms
         }
 
         private void EditButton_Click(object sender, EventArgs e)
-        {
+        {//
             if (SelectedRow >= 0)
             {
                 var newDataRow = dataGridView1.Rows[SelectedRow];
