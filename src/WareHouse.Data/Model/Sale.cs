@@ -14,7 +14,7 @@ namespace WareHouse.Data.Model
         public DateTime DateSales { get; set; }
         public double Profit { get; set; }
         public int IdProduct { get; set; }
-
+        public double BasePrice { get; set; }
         public virtual Product IdProductNavigation { get; set; } = null!;
         public virtual ICollection<Return> Returns { get; set; }
     }

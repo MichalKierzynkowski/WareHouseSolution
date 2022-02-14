@@ -484,7 +484,7 @@
             // 
             // SellItemButton
             // 
-            this.SellItemButton.Location = new System.Drawing.Point(1064, 879);
+            this.SellItemButton.Location = new System.Drawing.Point(1229, 879);
             this.SellItemButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SellItemButton.Name = "SellItemButton";
             this.SellItemButton.Size = new System.Drawing.Size(141, 76);
@@ -494,7 +494,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1220, 879);
+            this.button2.Location = new System.Drawing.Point(1082, 879);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 76);
