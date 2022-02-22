@@ -7,13 +7,15 @@ namespace ClassesLibrary.SqlModels
     {
 
 
-        public int Id_Product { get; set; }
-        public int Type_Product { get; set; }
-        public int Bar_Number { get; set; }
-        public string Description_Product { get; set; }
-        public int Purchase_Method { get; set; }
+        public int IdProduct { get; set; }
+        public int IdTypeProduct { get; set; }
+        public int BarNumber { get; set; }
+        public string DescriptionProduct { get; set; }
+        public int IdPurchaseMethod { get; set; }
         public int Quantity { get; set; }
         public double Offer_Price { get; set; }
+        public string IsReturned { get; set; }
 
+        
     }
 }

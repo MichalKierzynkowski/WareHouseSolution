@@ -51,6 +51,14 @@ namespace WareHouseApplication.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            var product = new Product
+            {
+                Description_Product = ProductDescriptionTBox.Text,Type_Product = Convert.ToInt32(ProductTypeDigitCBox.Text),
+                Bar_Number = Convert.ToInt32(BarNumberTBox.Text),Offer_Price = Convert.ToInt32(SellPriceTBox.Text),
+
+            };
+            
             var notNullValidationObj = new IsNullIAddingItemValidation(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
                 BarNumberTBox.Text, BuyMethodDigitCBox.Text, SellPriceTBox.Text,
                 AmountOfProductTBox.Text, BuyPriceTBox.Text);
