@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLBACKUP", "SQLBACKUP", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WareHouse.Data", "src\WareHouse.Data\WareHouse.Data.csproj", "{BD0E1B46-7763-4EE9-ADC8-2F2CF0C6CF73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WareHouseApplicationTests", "src\WareHouseApplicationTests\WareHouseApplicationTests.csproj", "{17409BFC-073A-4EE0-8DC7-93E2CFE8D8BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WareHouseApplicationTests", "src\WareHouseApplicationTests\WareHouseApplicationTests.csproj", "{17409BFC-073A-4EE0-8DC7-93E2CFE8D8BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +48,7 @@ Global
 		{853A9F9F-9E68-496C-B407-7FDCC050C4DC} = {E08EF173-0571-49F7-AA33-5898856434A7}
 		{1AE2FA3F-FBD4-4721-8E12-61D1F0AA29D8} = {E08EF173-0571-49F7-AA33-5898856434A7}
 		{BD0E1B46-7763-4EE9-ADC8-2F2CF0C6CF73} = {E08EF173-0571-49F7-AA33-5898856434A7}
+		{17409BFC-073A-4EE0-8DC7-93E2CFE8D8BD} = {BFA2086F-9C28-4C12-B18B-09B375ED039E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {912E436E-CBAF-4FAF-95F5-A76E698B1038}
