@@ -39,32 +39,32 @@ namespace WareHouseApplication.Forms
 
         private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
-            comboBox3.SelectedIndex = selectedItemComboBox2;
+            int selectedItemComboBox2 = Convert.ToInt16(ProductTypeDigitCBox.SelectedIndex);
+            ProductTypeWordCBox.SelectedIndex = selectedItemComboBox2;
         }
 
         private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemComboBox3 = Convert.ToInt16(comboBox3.SelectedIndex);
-            RodzajProdCBox.SelectedIndex = selectedItemComboBox3;
+            int selectedItemComboBox3 = Convert.ToInt16(ProductTypeWordCBox.SelectedIndex);
+            ProductTypeDigitCBox.SelectedIndex = selectedItemComboBox3;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var notNullValidationObj = new IsNullIAddingItemValidation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text, CenaSprzedTBox.Text,
-                IloscProdTBox.Text, CenaZakupuTBox.Text);
+            var notNullValidationObj = new IsNullIAddingItemValidation(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
+                BarNumberTBox.Text, BuyMethodDigitCBox.Text, SellPriceTBox.Text,
+                AmountOfProductTBox.Text, BuyPriceTBox.Text);
 
-            var rulesValidationObj = new RulesValidationAddingItem(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
-                IloscProdTBox.Text);
+            var rulesValidationObj = new RulesValidationAddingItem(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
+                BarNumberTBox.Text, BuyMethodDigitCBox.Text,
+                AmountOfProductTBox.Text);
             var list = notNullValidationObj.list;
             var isNull = notNullValidationObj.isNullValidation(list);
 
-            var isCorrect = rulesValidationObj.Validation(OpisProduktuTBox.Text, RodzajProdCBox.Text,
-                NumerKreskowyTBox.Text, MetodaKupnaCyfraCBox.Text,
-                 IloscProdTBox.Text);
-            var isMoneyCorrect = rulesValidationObj.MoneyValidation(CenaZakupuTBox.Text, CenaSprzedTBox.Text);
+            var isCorrect = rulesValidationObj.Validation(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
+                BarNumberTBox.Text, BuyMethodDigitCBox.Text,
+                 AmountOfProductTBox.Text);
+            var isMoneyCorrect = rulesValidationObj.MoneyValidation(BuyPriceTBox.Text, SellPriceTBox.Text);
 
             if (isNull == false)
             {
@@ -73,7 +73,7 @@ namespace WareHouseApplication.Forms
                     if (isMoneyCorrect)
                     {
                         var objBarNumbValid = new BarNumberValidation();
-                        var exists = objBarNumbValid.Validation(NumerKreskowyTBox.Text, connectionString);
+                        var exists = objBarNumbValid.Validation(BarNumberTBox.Text, connectionString);
                         if (exists == true)
                         {
                             BarNumberDuplicateBox();
@@ -105,19 +105,19 @@ namespace WareHouseApplication.Forms
 
         private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
-            MetodaKupnaWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
+            int selectedItemMetodaKupnaCyfra = Convert.ToInt16(BuyMethodDigitCBox.SelectedIndex);
+            BuyMethodWordCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
         }
 
         private void MetodaKupnaWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
-            MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
+            int selectedItemMetodaKupnaWyraz = Convert.ToInt16(BuyMethodWordCBox.SelectedIndex);
+            BuyMethodDigitCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
         }
 
         public void DostepnoscButton_Click(object sender, EventArgs e)
         {
-            string bar_Number = NumerKreskowyTBox.Text;
+            string bar_Number = BarNumberTBox.Text;
             var notNullValidationObj = new IsNullIAddingItemValidation(bar_Number);
             var list = notNullValidationObj.list;
             var isNull = notNullValidationObj.isNullValidation(list);
@@ -163,13 +163,13 @@ namespace WareHouseApplication.Forms
 
         private void ClearingMenu()
         {
-            CenaSprzedTBox.Clear();
-            CenaZakupuTBox.Clear();
-            IloscProdTBox.Clear();
-            OpisProduktuTBox.Clear();
-            NumerKreskowyTBox.Clear();
-            MetodaKupnaCyfraCBox.SelectedIndex = -1;
-            RodzajProdCBox.SelectedIndex = -1;
+            SellPriceTBox.Clear();
+            BuyPriceTBox.Clear();
+            AmountOfProductTBox.Clear();
+            ProductDescriptionTBox.Clear();
+            BarNumberTBox.Clear();
+            BuyMethodDigitCBox.SelectedIndex = -1;
+            ProductTypeDigitCBox.SelectedIndex = -1;
         }
 
         private int TakingIdProduct(string BarNumber)
@@ -188,12 +188,12 @@ namespace WareHouseApplication.Forms
 
         private void CreatingProduct()
         {
-            var Type_Product = RodzajProdCBox.Text;
-            var Bar_Number = NumerKreskowyTBox.Text;
-            var Description = OpisProduktuTBox.Text;
-            var Purchase_Method = MetodaKupnaCyfraCBox.Text;
-            var Quantity = IloscProdTBox.Text;
-            var OfferPrice = CenaSprzedTBox.Text;
+            var Type_Product = ProductTypeDigitCBox.Text;
+            var Bar_Number = BarNumberTBox.Text;
+            var Description = ProductDescriptionTBox.Text;
+            var Purchase_Method = BuyMethodDigitCBox.Text;
+            var Quantity = AmountOfProductTBox.Text;
+            var OfferPrice = SellPriceTBox.Text;
 
             string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
 
@@ -213,9 +213,9 @@ namespace WareHouseApplication.Forms
 
         private void CreatingPurchase()
         {
-            var Bar_Number = NumerKreskowyTBox.Text;
-            var Quantity = IloscProdTBox.Text;
-            var BuyingPrice = CenaZakupuTBox.Text;
+            var Bar_Number = BarNumberTBox.Text;
+            var Quantity = AmountOfProductTBox.Text;
+            var BuyingPrice = BuyPriceTBox.Text;
             var Id_Product = TakingIdProduct(Bar_Number);
             string From_Product_Create = "Tak";
             SqlConnection cnn2 = new SqlConnection(connectionString);
