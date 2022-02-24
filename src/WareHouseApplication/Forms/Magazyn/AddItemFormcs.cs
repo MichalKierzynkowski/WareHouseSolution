@@ -1,6 +1,6 @@
 ﻿using ClassesLibrary;
 using ClassesLibrary.SqlModels;
-using ClassesLibrary.ValidationClasses;
+usin
 using Dapper;
 using System;
 using System.Collections;
@@ -58,10 +58,9 @@ namespace WareHouseApplication.Forms
             ProductTypeDigitCBox.SelectedIndex = selectedItemComboBox3;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddProduct_Click(object sender, EventArgs e)
         {
             
-
             var product = new Product()
             {
                 DescriptionProduct = ProductDescriptionTBox.Text,
