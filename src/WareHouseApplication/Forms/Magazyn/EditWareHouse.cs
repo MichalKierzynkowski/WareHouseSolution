@@ -428,7 +428,7 @@ namespace WareHouseApplication.Forms
                 MessageBoxIcon.Information);
         }
 
-        public int ReturIdProduct(int productBarNumber)
+        public int ReturIdProduct(int? productBarNumber)
         {
             var sqlReturnId = @"select Id_Product from Product where Bar_Number=@productBarNumber";
 
@@ -441,7 +441,7 @@ namespace WareHouseApplication.Forms
                     new {productBarNumber}).FirstOrDefault();
 
 
-                return product.Id_Product;
+                return (int)product.IdProduct;
             }
         }
 

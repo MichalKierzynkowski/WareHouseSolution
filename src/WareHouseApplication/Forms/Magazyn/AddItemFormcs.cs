@@ -3,9 +3,17 @@ using ClassesLibrary.SqlModels;
 using ClassesLibrary.ValidationClasses;
 using Dapper;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
+using System.DirectoryServices.Protocols;
 using System.Windows.Forms;
+using ClassesLibrary.AddItemClasses.Validation;
 using Microsoft.EntityFrameworkCore;
+using FluentValidation;
+using FluentValidation.Results;
+using Microsoft.VisualBasic;
 
 namespace WareHouseApplication.Forms
 {
@@ -52,70 +60,38 @@ namespace WareHouseApplication.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
 
-            var product = new Product
+            var product = new Product()
             {
-                DescriptionProduct = ProductDescriptionTBox.Text,IdTypeProduct = Convert.ToInt32(ProductTypeDigitCBox.Text),
-                BarNumber = Convert.ToInt32(BarNumberTBox.Text),Offer_Price = Convert.ToInt32(SellPriceTBox.Text),IsReturned = "Nie",
+                DescriptionProduct = ProductDescriptionTBox.Text,
+                IdTypeProduct = ProductTypeDigitCBox.Text,
+                BarNumber =BarNumberTBox.Text, Offer_Price = SellPriceTBox.Text,
+                IsReturned = "Nie",Quantity = AmountOfProductTBox.Text,IdPurchaseMethod = BuyMethodDigitCBox.Text
 
             };
-            var validateProduct = new ClassesLibrary.AddItemClasses.Validation.Validate(product);
 
 
 
-
-
-
-            var notNullValidationObj = new IsNullIAddingItemValidation(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
-                BarNumberTBox.Text, BuyMethodDigitCBox.Text, SellPriceTBox.Text,
-                AmountOfProductTBox.Text, BuyPriceTBox.Text);
-
-            var rulesValidationObj = new RulesValidationAddingItem(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
-                BarNumberTBox.Text, BuyMethodDigitCBox.Text,
-                AmountOfProductTBox.Text);
-            var list = notNullValidationObj.list;
-            var isNull = notNullValidationObj.isNullValidation(list);
-
-            var isCorrect = rulesValidationObj.Validation(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
-                BarNumberTBox.Text, BuyMethodDigitCBox.Text,
-                 AmountOfProductTBox.Text);
-            var isMoneyCorrect = rulesValidationObj.MoneyValidation(BuyPriceTBox.Text, SellPriceTBox.Text);
-
-            if (isNull == false)
+            AddProductValidate addProductValidate = new AddProductValidate();
+            var result = addProductValidate.Validate(product);
+            IList<ValidationFailure> failures = result.Errors;
+            if (!result.IsValid)
             {
-                if (isCorrect)
+                foreach (var failure in failures)
                 {
-                    if (isMoneyCorrect)
-                    {
-                        var objBarNumbValid = new BarNumberValidation();
-                        var exists = objBarNumbValid.Validation(BarNumberTBox.Text, connectionString);
-                        if (exists == true)
-                        {
-                            BarNumberDuplicateBox();
-                        }
-                        else
-                        {
-                            CreatingProduct();
-                            CreatingPurchase();
-                            SuccessfullyProductAdded();
+                    MessageBox.Show(failure.ErrorMessage,"Message",MessageBoxButtons.OK);
+                }  
+            }
 
-                            ClearingMenu();
-                        }
-                    }
-                    else
-                    {
-                        ErrorWithPriceBox();
-                    }
-                }
-                else
-                {
-                    FieldNotCorrectBox();
-                }
-            }
-            else
-            {
-                FieldNullBox();
-            }
+
+
+
+
+
+
+
+
         }
 
         private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
@@ -197,7 +173,7 @@ namespace WareHouseApplication.Forms
                 var car = con.QueryFirst<Product>(@"SELECT Id_Product FROM Product WHERE Bar_Number= @Bar_Number",
                     new { Bar_Number = iBarNumber });
 
-                return car.Id_Product;
+                return (int)car.IdProduct;
             }
         }
 
