@@ -33,4 +33,7 @@
   <ItemGroup>
     <Content Include="appsettings.json" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WareHouse.Data\WareHouse.Data.csproj" />
+  </ItemGroup>
 </Project>

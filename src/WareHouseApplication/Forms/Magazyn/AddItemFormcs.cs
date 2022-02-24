@@ -5,6 +5,7 @@ using Dapper;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace WareHouseApplication.Forms
 {
@@ -54,11 +55,17 @@ namespace WareHouseApplication.Forms
 
             var product = new Product
             {
-                Description_Product = ProductDescriptionTBox.Text,Type_Product = Convert.ToInt32(ProductTypeDigitCBox.Text),
-                Bar_Number = Convert.ToInt32(BarNumberTBox.Text),Offer_Price = Convert.ToInt32(SellPriceTBox.Text),
+                DescriptionProduct = ProductDescriptionTBox.Text,IdTypeProduct = Convert.ToInt32(ProductTypeDigitCBox.Text),
+                BarNumber = Convert.ToInt32(BarNumberTBox.Text),Offer_Price = Convert.ToInt32(SellPriceTBox.Text),IsReturned = "Nie",
 
             };
-            
+            var validateProduct = new ClassesLibrary.AddItemClasses.Validation.Validate(product);
+
+
+
+
+
+
             var notNullValidationObj = new IsNullIAddingItemValidation(ProductDescriptionTBox.Text, ProductTypeDigitCBox.Text,
                 BarNumberTBox.Text, BuyMethodDigitCBox.Text, SellPriceTBox.Text,
                 AmountOfProductTBox.Text, BuyPriceTBox.Text);
