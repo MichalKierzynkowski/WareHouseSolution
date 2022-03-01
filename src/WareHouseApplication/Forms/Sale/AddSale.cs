@@ -10,37 +10,37 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassesLibrary;
 
-namespace WareHouseApplication.Forms.Sale
+namespace WareHouseApplication.Forms.Sale;
+
+public partial class AddSale : Form
 {
-    public partial class AddSale : Form
+    private SqlDataAdapter DAdapter { get; set; }
+    private DataSet Ds { get; set; }
+    private SqlCommand Cmd { get; set; }
+    public string ConnectionString { get; }
+    private int? BarNumberInt;
+    private string BuyingMethodDescription;
+    private string ProductTypeDescription;
+    private int SelectedRow { get; set; }
+    private int? SelecterBarNumber { get; set; }
+
+    public AddSale(string connectionString)
     {
-        private SqlDataAdapter DAdapter { get; set; }
-        private DataSet Ds { get; set; }
-        private SqlCommand Cmd { get; set; }
-        public string ConnectionString { get; }
-        private int? BarNumberInt;
-        private string BuyingMethodDescription;
-        private string ProductTypeDescription;
-        private int SelectedRow { get; set; }
-        private int? SelecterBarNumber { get; set; }
+        InitializeComponent();
+        ConnectionString = connectionString;
+        DefaultFillingGridView();
+        SellItemButton.Enabled = false; 
 
-        public AddSale(string connectionString)
+    }
+    private void DefaultFillingGridView()
+    {
+        dataGridView1.DataSource = null;
+        dataGridView1.Rows.Clear();
+        using (var conn = new SqlConnection(ConnectionString))
         {
-            InitializeComponent();
-            ConnectionString = connectionString;
-            DefaultFillingGridView();
-            SellItemButton.Enabled = false; 
-
-        }
-        private void DefaultFillingGridView()
-        {
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            using (var conn = new SqlConnection(ConnectionString))
-            {
-                //retrieve the SQL Server instance version
-                var query =
-                    @"SELECT Product.Description_Product, Purchase_Methods.Purchase_Method_Description, Product.Quantity, Product.Offer_Price, Purchase.Price, Product_Type.Product_Type_Description,Product.Bar_Number,Product. IsReturned
+            //retrieve the SQL Server instance version
+            var query =
+                @"SELECT Product.Description_Product, Purchase_Methods.Purchase_Method_Description, Product.Quantity, Product.Offer_Price, Purchase.Price, Product_Type.Product_Type_Description,Product.Bar_Number,Product. IsReturned
                     FROM     Product INNER JOIN
                   Product_Type ON Product.Type_Product = Product_Type.Type_Product INNER JOIN
                   Purchase ON Product.Id_Product = Purchase.Id_Product INNER JOIN
@@ -48,250 +48,249 @@ namespace WareHouseApplication.Forms.Sale
 				  where Purchase.From_Product_Create='Tak'";
 
 
-                //define the SqlCommand object
-                Cmd = new SqlCommand(query, conn);
+            //define the SqlCommand object
+            Cmd = new SqlCommand(query, conn);
 
-                //Set the SqlDataAdapter object
-                DAdapter = new SqlDataAdapter(Cmd);
+            //Set the SqlDataAdapter object
+            DAdapter = new SqlDataAdapter(Cmd);
 
-                //define dataset
-                Ds = new DataSet();
+            //define dataset
+            Ds = new DataSet();
 
-                //fill dataset with query results
-                DAdapter.Fill(Ds);
+            //fill dataset with query results
+            DAdapter.Fill(Ds);
 
-                //set DataGridView control to read-only
-                dataGridView1.ReadOnly = true;
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.ColumnCount = 8;
-                dataGridView1.Columns[0].HeaderText = "Opis";
-                dataGridView1.Columns[0].DataPropertyName = "Description_Product";
-                dataGridView1.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dataGridView1.Columns[1].HeaderText = "Rodzaj Produktu";
-                dataGridView1.Columns[1].DataPropertyName = "Product_Type_Description";
-                dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dataGridView1.Columns[2].HeaderText = "Metoda Zakupu";
-                dataGridView1.Columns[2].DataPropertyName = "Purchase_Method_Description";
-                dataGridView1.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dataGridView1.Columns[3].HeaderText = "Ilość";
-                dataGridView1.Columns[3].DataPropertyName = "Quantity";
-                dataGridView1.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dataGridView1.Columns[4].HeaderText = "Cena zakupu";
-                dataGridView1.Columns[4].DataPropertyName = "Price";
-                dataGridView1.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dataGridView1.Columns[5].HeaderText = "Cena sprzedaży";
-                dataGridView1.Columns[5].DataPropertyName = "Offer_Price";
-                dataGridView1.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dataGridView1.Columns[6].HeaderText = "Kod Kreskowy";
-                dataGridView1.Columns[6].DataPropertyName = "Bar_Number";
-                dataGridView1.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
-                dataGridView1.Columns[7].HeaderText = "Towar Zwrócony";
-                dataGridView1.Columns[7].DataPropertyName = "IsReturned";
-                dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //set DataGridView control to read-only
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.ColumnCount = 8;
+            dataGridView1.Columns[0].HeaderText = "Opis";
+            dataGridView1.Columns[0].DataPropertyName = "Description_Product";
+            dataGridView1.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView1.Columns[1].HeaderText = "Rodzaj Produktu";
+            dataGridView1.Columns[1].DataPropertyName = "Product_Type_Description";
+            dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView1.Columns[2].HeaderText = "Metoda Zakupu";
+            dataGridView1.Columns[2].DataPropertyName = "Purchase_Method_Description";
+            dataGridView1.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView1.Columns[3].HeaderText = "Ilość";
+            dataGridView1.Columns[3].DataPropertyName = "Quantity";
+            dataGridView1.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView1.Columns[4].HeaderText = "Cena zakupu";
+            dataGridView1.Columns[4].DataPropertyName = "Price";
+            dataGridView1.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView1.Columns[5].HeaderText = "Cena sprzedaży";
+            dataGridView1.Columns[5].DataPropertyName = "Offer_Price";
+            dataGridView1.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView1.Columns[6].HeaderText = "Kod Kreskowy";
+            dataGridView1.Columns[6].DataPropertyName = "Bar_Number";
+            dataGridView1.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridView1.Columns[7].HeaderText = "Towar Zwrócony";
+            dataGridView1.Columns[7].DataPropertyName = "IsReturned";
+            dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AllowUserToAddRows = false;
-                dataGridView1.BackgroundColor = SystemColors.Control;
-                dataGridView1.RowHeadersVisible = false;
-                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Bold);
-                dataGridView1.RowsDefaultCellStyle.Font = new Font("Arial", 7);
-                dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                //set the DataGridView control's data source/data table
-                dataGridView1.DataSource = Ds.Tables[0];
-                dataGridView1.AllowUserToResizeColumns = false;
-                dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.BackgroundColor = SystemColors.Control;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Bold);
+            dataGridView1.RowsDefaultCellStyle.Font = new Font("Arial", 7);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //set the DataGridView control's data source/data table
+            dataGridView1.DataSource = Ds.Tables[0];
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
 
-                dataGridView1.Columns[3].Width = 70;
-                dataGridView1.Columns[4].Width = 100;
-                dataGridView1.Columns[5].Width = 130;
-                dataGridView1.Columns[6].Width = 100;
-                dataGridView1.Columns[7].Width = 130;
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dataGridView1.MultiSelect = false;
-                //dataGridView1.Columns[]
-                //close connection
-                conn.Close();
-            }
+            dataGridView1.Columns[3].Width = 70;
+            dataGridView1.Columns[4].Width = 100;
+            dataGridView1.Columns[5].Width = 130;
+            dataGridView1.Columns[6].Width = 100;
+            dataGridView1.Columns[7].Width = 130;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+            //dataGridView1.Columns[]
+            //close connection
+            conn.Close();
         }
-        public void ResetSortingFields()
-        {
-            RodzajProdSortowanieCyfraCBox.SelectedIndex = -1;
-            RodzajProdSortowanieWyrazCBox.SelectedIndex = -1;
-            MetodaZakupuCyfraCBox.SelectedIndex = -1;
-            MetodaZakupuWyrazCBox.SelectedIndex = -1;
-            NumerKreskowyTBox.Clear();
-        }
-        private void ResetButton_Click(object sender, EventArgs e)
-        {
-            DefaultFillingGridView();
-            ResetSortingFields();
-        }
+    }
+    public void ResetSortingFields()
+    {
+        RodzajProdSortowanieCyfraCBox.SelectedIndex = -1;
+        RodzajProdSortowanieWyrazCBox.SelectedIndex = -1;
+        MetodaZakupuCyfraCBox.SelectedIndex = -1;
+        MetodaZakupuWyrazCBox.SelectedIndex = -1;
+        NumerKreskowyTBox.Clear();
+    }
+    private void ResetButton_Click(object sender, EventArgs e)
+    {
+        DefaultFillingGridView();
+        ResetSortingFields();
+    }
 
-        private void SortingButton_Click(object sender, EventArgs e)
+    private void SortingButton_Click(object sender, EventArgs e)
+    {
+        var validateObj = new IsNullIAddingItemValidation();
+        var rulesValidationObj = new RulesValidationAddingItem();
+        if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
         {
-            var validateObj = new IsNullIAddingItemValidation();
-            var rulesValidationObj = new RulesValidationAddingItem();
-            if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
+            MessageBoxFailure();
+        }
+        else
+        {
+            if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
             {
-                MessageBoxFailure();
+                BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
+                var bs = new BindingSource();
+                bs.DataSource = dataGridView1.DataSource;
+
+
+                bs.Filter = GetFilter();
+
+                dataGridView1.DataSource = bs;
             }
             else
             {
-                if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
-                {
-                    BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
-                    var bs = new BindingSource();
-                    bs.DataSource = dataGridView1.DataSource;
-
-
-                    bs.Filter = GetFilter();
-
-                    dataGridView1.DataSource = bs;
-                }
-                else
-                {
-                    WrongFormatMessageBox();
-                }
+                WrongFormatMessageBox();
             }
         }
-        private void MessageBoxFailure()
-        {
-            MessageBox.Show("Nie wypełniono pola - Kod Kreskowy!", " Błąd", MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-        }
+    }
+    private void MessageBoxFailure()
+    {
+        MessageBox.Show("Nie wypełniono pola - Kod Kreskowy!", " Błąd", MessageBoxButtons.OK,
+            MessageBoxIcon.Warning);
+    }
 
-        private void WrongFormatMessageBox()
-        {
-            MessageBox.Show("Pole Kod Kreskowy zawiera niepoprawne znaki!", " Błąd", MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-        }
-        private string GetFilter()
-        {
-            var parts = new List<string>();
-            if (string.IsNullOrWhiteSpace(ProductTypeDescription) == false)
-                parts.Add($"Product_Type_Description like '%{ProductTypeDescription}%'");
+    private void WrongFormatMessageBox()
+    {
+        MessageBox.Show("Pole Kod Kreskowy zawiera niepoprawne znaki!", " Błąd", MessageBoxButtons.OK,
+            MessageBoxIcon.Warning);
+    }
+    private string GetFilter()
+    {
+        var parts = new List<string>();
+        if (string.IsNullOrWhiteSpace(ProductTypeDescription) == false)
+            parts.Add($"Product_Type_Description like '%{ProductTypeDescription}%'");
 
-            if (string.IsNullOrWhiteSpace(BuyingMethodDescription) == false)
-                parts.Add($"Purchase_Method_Description like '%{BuyingMethodDescription}%'");
-            if (BarNumberInt != null) parts.Add($"Bar_Number = {BarNumberInt}");
-
-
-            var stringResult = string.Join(" and ", parts);
-
-            return stringResult;
-        }
-
-        private void RodzajProdSortowanieCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            int selectedItemComboBox2 = Convert.ToInt16(RodzajProdSortowanieCyfraCBox.SelectedIndex);
-            RodzajProdSortowanieWyrazCBox.SelectedIndex = selectedItemComboBox2;
-            ProductTypeDescription = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
-
-            var list = dataGridView1.DataSource;
-
-            var prodType = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
-
-            var bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
+        if (string.IsNullOrWhiteSpace(BuyingMethodDescription) == false)
+            parts.Add($"Purchase_Method_Description like '%{BuyingMethodDescription}%'");
+        if (BarNumberInt != null) parts.Add($"Bar_Number = {BarNumberInt}");
 
 
-            bs.Filter = GetFilter();
+        var stringResult = string.Join(" and ", parts);
 
-            dataGridView1.DataSource = bs;
-        }
+        return stringResult;
+    }
 
-        private void RodzajProdSortowanieWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            int selectedItemComboBox3 = Convert.ToInt16(RodzajProdSortowanieWyrazCBox.SelectedIndex);
-            RodzajProdSortowanieCyfraCBox.SelectedIndex = selectedItemComboBox3;
-            ProductTypeDescription = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
+    private void RodzajProdSortowanieCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
+    {
+        int selectedItemComboBox2 = Convert.ToInt16(RodzajProdSortowanieCyfraCBox.SelectedIndex);
+        RodzajProdSortowanieWyrazCBox.SelectedIndex = selectedItemComboBox2;
+        ProductTypeDescription = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
 
-            var prodType = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
-            var bs = new BindingSource();
-            var list = dataGridView1.DataSource;
+        var list = dataGridView1.DataSource;
 
-            bs.DataSource = dataGridView1.DataSource;
-            // bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
-            bs.Filter = GetFilter();
-            dataGridView1.DataSource = null;
+        var prodType = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
 
-            dataGridView1.DataSource = bs;
+        var bs = new BindingSource();
+        bs.DataSource = dataGridView1.DataSource;
+
+
+        bs.Filter = GetFilter();
+
+        dataGridView1.DataSource = bs;
+    }
+
+    private void RodzajProdSortowanieWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
+    {
+        int selectedItemComboBox3 = Convert.ToInt16(RodzajProdSortowanieWyrazCBox.SelectedIndex);
+        RodzajProdSortowanieCyfraCBox.SelectedIndex = selectedItemComboBox3;
+        ProductTypeDescription = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
+
+        var prodType = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
+        var bs = new BindingSource();
+        var list = dataGridView1.DataSource;
+
+        bs.DataSource = dataGridView1.DataSource;
+        // bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+        bs.Filter = GetFilter();
+        dataGridView1.DataSource = null;
+
+        dataGridView1.DataSource = bs;
 
             
-        }
+    }
 
-        private void MetodaZakupuCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
+    private void MetodaZakupuCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
+    {
+        int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaZakupuCyfraCBox.SelectedIndex);
+        MetodaZakupuWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
+        var list = dataGridView1.DataSource;
+
+        BuyingMethodDescription = MetodaZakupuWyrazCBox.SelectedItem.ToString();
+        var buyingMethod = MetodaZakupuWyrazCBox.SelectedItem.ToString();
+        var bs = new BindingSource();
+
+        bs.DataSource = dataGridView1.DataSource;
+
+
+        //bs.Filter = "Purchase_Method_Description like '%" + buyingMethod + "%'";
+        bs.Filter = GetFilter();
+        dataGridView1.DataSource = null;
+        dataGridView1.ResetBindings();
+        dataGridView1.DataSource = bs;
+        var list2 = dataGridView1.DataSource;
+    }
+
+    private void MetodaZakupuWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
+    {
+        int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaZakupuWyrazCBox.SelectedIndex);
+        MetodaZakupuCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
+        BuyingMethodDescription = MetodaZakupuWyrazCBox.SelectedItem.ToString();
+        var buyingMethod = MetodaZakupuWyrazCBox.SelectedItem.ToString();
+        var bs = new BindingSource();
+
+
+        bs.DataSource = dataGridView1.DataSource;
+        dataGridView1.DataSource = null;
+
+        // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
+        bs.Filter = GetFilter();
+        dataGridView1.DataSource = null;
+        dataGridView1.ResetBindings();
+        dataGridView1.DataSource = bs;
+    }
+
+    private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+        SelectedRow = e.RowIndex;
+        if (SelectedRow >= 0)
         {
-            int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaZakupuCyfraCBox.SelectedIndex);
-            MetodaZakupuWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
-            var list = dataGridView1.DataSource;
-
-            BuyingMethodDescription = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-            var buyingMethod = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-            var bs = new BindingSource();
-
-            bs.DataSource = dataGridView1.DataSource;
-
-
-            //bs.Filter = "Purchase_Method_Description like '%" + buyingMethod + "%'";
-            bs.Filter = GetFilter();
-            dataGridView1.DataSource = null;
-            dataGridView1.ResetBindings();
-            dataGridView1.DataSource = bs;
-            var list2 = dataGridView1.DataSource;
-        }
-
-        private void MetodaZakupuWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaZakupuWyrazCBox.SelectedIndex);
-            MetodaZakupuCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
-            BuyingMethodDescription = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-            var buyingMethod = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-            var bs = new BindingSource();
-
-
-            bs.DataSource = dataGridView1.DataSource;
-            dataGridView1.DataSource = null;
-
-            // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
-            bs.Filter = GetFilter();
-            dataGridView1.DataSource = null;
-            dataGridView1.ResetBindings();
-            dataGridView1.DataSource = bs;
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            SelectedRow = e.RowIndex;
-            if (SelectedRow >= 0)
-            {
-                SellItemButton.Enabled = true;
+            SellItemButton.Enabled = true;
                
-                var selectedRow = dataGridView1.Rows[SelectedRow];
-                OpisProduktuTBox.Text = selectedRow.Cells[0].Value.ToString();
+            var selectedRow = dataGridView1.Rows[SelectedRow];
+            OpisProduktuTBox.Text = selectedRow.Cells[0].Value.ToString();
 
                 
-                BuyPriceBox.Text = selectedRow.Cells[4].Value.ToString();
-                SellPriceBox.Text =selectedRow.Cells[5].Value.ToString();
-                RodzajProduktuWyrazCBox.SelectedItem = selectedRow.Cells[1].Value.ToString();
+            BuyPriceBox.Text = selectedRow.Cells[4].Value.ToString();
+            SellPriceBox.Text =selectedRow.Cells[5].Value.ToString();
+            RodzajProduktuWyrazCBox.SelectedItem = selectedRow.Cells[1].Value.ToString();
                
-                SelecterBarNumber = Convert.ToInt32(selectedRow.Cells[6].Value.ToString());
-            }
-            else
-            {
-                WrongRowSelected();
-            }
-
+            SelecterBarNumber = Convert.ToInt32(selectedRow.Cells[6].Value.ToString());
         }
-        private void WrongRowSelected()
+        else
         {
-            MessageBox.Show("Zły obszar!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            WrongRowSelected();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
+    }
+    private void WrongRowSelected()
+    {
+        MessageBox.Show("Zły obszar!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+        this.Hide();
     }
 }

@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WareHouseApplication.Forms.Program
+namespace WareHouseApplication.Forms.Program;
+
+public partial class VersionInformation : Form
 {
-    public partial class VersionInformation : Form
+    public VersionInformation()
     {
-        public VersionInformation()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

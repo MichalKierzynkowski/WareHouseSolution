@@ -1,5 +1,5 @@
 ﻿
-namespace WareHouseApplication.Forms
+namespace WareHouseApplication.Forms.Magazyn
 {
     partial class ReturnForm
     {

@@ -1,266 +1,261 @@
-﻿using ClassesLibrary;
-using ClassesLibrary.SqlModels;
-usin
-using Dapper;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.Data.SqlClient;
-using System.DirectoryServices.Protocols;
 using System.Windows.Forms;
 using ClassesLibrary.AddItemClasses.Validation;
-using Microsoft.EntityFrameworkCore;
-using FluentValidation;
-using FluentValidation.Results;
-using Microsoft.VisualBasic;
+using Dapper;
+using WareHouse.Data.SqlModels;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
-namespace WareHouseApplication.Forms
+namespace WareHouseApplication.Forms.Magazyn;
+
+public partial class AddItemFormcs : Form
 {
-    public partial class AddItemFormcs : Form
+    public string connectionString { get; set; }
+    public AddItemFormcs(MainMenu objMainMenu, string connectionString)
     {
-        public string connectionString { get; set; }
-        public AddItemFormcs(MainMenu objMainMenu, string connectionString)
-        {
-            InitializeComponent();
-            this.connectionString = connectionString;
-            ObjMainMenu = objMainMenu;
-        }
+        InitializeComponent();
+        this.connectionString = connectionString;
+        ObjMainMenu = objMainMenu;
+    }
 
-        public MainMenu ObjMainMenu { get; }
+    public MainMenu ObjMainMenu { get; }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            var dialogResult =
-                MessageBox.Show("Czy chcesz wrócić do głównego Menu? Wszystkie nie zapisane dane zostaną stracone!",
-                    "Wyjście!", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes) Hide();
-        }
+    private void pictureBox1_Click(object sender, EventArgs e)
+    {
+        var dialogResult =
+            MessageBox.Show("Czy chcesz wrócić do głównego Menu? Wszystkie nie zapisane dane zostaną stracone!",
+                "Wyjście!", MessageBoxButtons.YesNo);
+        if (dialogResult == DialogResult.Yes) Hide();
+    }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var dialogResult =
-                MessageBox.Show(
-                    "Czy chcesz wrócić do głównego Menu?" + Environment.NewLine +
-                    " Wszystkie nie zapisane dane zostaną stracone!", "Wyjście!", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes) Hide();
-        }
+    private void button2_Click(object sender, EventArgs e)
+    {
+        var dialogResult =
+            MessageBox.Show(
+                "Czy chcesz wrócić do głównego Menu?" + Environment.NewLine +
+                " Wszystkie nie zapisane dane zostaną stracone!", "Wyjście!", MessageBoxButtons.YesNo);
+        if (dialogResult == DialogResult.Yes) Hide();
+    }
 
-        private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
-        {
-            int selectedItemComboBox2 = Convert.ToInt16(ProductTypeDigitCBox.SelectedIndex);
-            ProductTypeWordCBox.SelectedIndex = selectedItemComboBox2;
-        }
+    private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
+    {
+        int selectedItemComboBox2 = Convert.ToInt16(ProductTypeDigitCBox.SelectedIndex);
+        ProductTypeWordCBox.SelectedIndex = selectedItemComboBox2;
+    }
 
-        private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
-        {
-            int selectedItemComboBox3 = Convert.ToInt16(ProductTypeWordCBox.SelectedIndex);
-            ProductTypeDigitCBox.SelectedIndex = selectedItemComboBox3;
-        }
+    private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
+    {
+        int selectedItemComboBox3 = Convert.ToInt16(ProductTypeWordCBox.SelectedIndex);
+        ProductTypeDigitCBox.SelectedIndex = selectedItemComboBox3;
+    }
 
-        private void AddProduct_Click(object sender, EventArgs e)
+       
+
+    private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
+    {
+        int selectedItemMetodaKupnaCyfra = Convert.ToInt16(BuyMethodDigitCBox.SelectedIndex);
+        BuyMethodWordCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
+    }
+
+    private void MetodaKupnaWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
+    {
+        int selectedItemMetodaKupnaWyraz = Convert.ToInt16(BuyMethodWordCBox.SelectedIndex);
+        BuyMethodDigitCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
+    }
+
+    public void DostepnoscButton_Click(object sender, EventArgs e)
+    {
+        string bar_Number = BarNumberTBox.Text;
+        var notNullValidationObj = new IsNullIAddingItemValidation(bar_Number);
+        var list = notNullValidationObj.list;
+        var isNull = notNullValidationObj.isNullValidation(list);
+        var rulesValidationObj = new RulesValidationAddingItem(bar_Number);
+        var isCorrect = rulesValidationObj.Validation(bar_Number);
+
+        if (isNull == false)
         {
-            
-            var product = new Product()
+            if (isCorrect)
             {
-                DescriptionProduct = ProductDescriptionTBox.Text,
-                IdTypeProduct = ProductTypeDigitCBox.Text,
-                BarNumber =BarNumberTBox.Text, Offer_Price = SellPriceTBox.Text,
-                IsReturned = "Nie",Quantity = AmountOfProductTBox.Text,IdPurchaseMethod = BuyMethodDigitCBox.Text
+                var objBarNumbValid = new BarNumberValidation();
+                var exists = objBarNumbValid.Validation(bar_Number, connectionString);
 
-            };
-
-
-
-            AddProductValidate addProductValidate = new AddProductValidate();
-            var result = addProductValidate.Validate(product);
-            IList<ValidationFailure> failures = result.Errors;
-            if (!result.IsValid)
-            {
-                foreach (var failure in failures)
+                if (exists == true)
                 {
-                    MessageBox.Show(failure.ErrorMessage,"Message",MessageBoxButtons.OK);
-                }  
-            }
-
-
-
-
-
-
-
-
-
-        }
-
-        private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            int selectedItemMetodaKupnaCyfra = Convert.ToInt16(BuyMethodDigitCBox.SelectedIndex);
-            BuyMethodWordCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
-        }
-
-        private void MetodaKupnaWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            int selectedItemMetodaKupnaWyraz = Convert.ToInt16(BuyMethodWordCBox.SelectedIndex);
-            BuyMethodDigitCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
-        }
-
-        public void DostepnoscButton_Click(object sender, EventArgs e)
-        {
-            string bar_Number = BarNumberTBox.Text;
-            var notNullValidationObj = new IsNullIAddingItemValidation(bar_Number);
-            var list = notNullValidationObj.list;
-            var isNull = notNullValidationObj.isNullValidation(list);
-            var rulesValidationObj = new RulesValidationAddingItem(bar_Number);
-            var isCorrect = rulesValidationObj.Validation(bar_Number);
-
-            if (isNull == false)
-            {
-                if (isCorrect)
-                {
-                    var objBarNumbValid = new BarNumberValidation();
-                    var exists = objBarNumbValid.Validation(bar_Number, connectionString);
-
-                    if (exists == true)
-                    {
-                        string message = "Instnieje w bazie taki produkt!";
-                        string title = "Informacja";
-                        MessageBox.Show(message, title);
-                    }
-                    else
-                    {
-                        string message = "Nie istnieje w bazie taki produkt!";
-                        string title = "Informacja";
-                        MessageBox.Show(message, title);
-                    }
+                    string message = "Instnieje w bazie taki produkt!";
+                    string title = "Informacja";
+                    MessageBox.Show(message, title);
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                        "Jeśli chcesz sprawdzić dostępność produktu wypełni pole Numer_Kreskowy!", "Błąd!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string message = "Nie istnieje w bazie taki produkt!";
+                    string title = "Informacja";
+                    MessageBox.Show(message, title);
                 }
             }
             else
             {
                 MessageBox.Show(
                     "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                    "Jeśli chcesz sprawdzić dostepność produktu, wprowadź odpowiednie znaki!", "Błąd!",
+                    "Jeśli chcesz sprawdzić dostępność produktu wypełni pole Numer_Kreskowy!", "Błąd!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void ClearingMenu()
+        else
         {
-            SellPriceTBox.Clear();
-            BuyPriceTBox.Clear();
-            AmountOfProductTBox.Clear();
-            ProductDescriptionTBox.Clear();
-            BarNumberTBox.Clear();
-            BuyMethodDigitCBox.SelectedIndex = -1;
-            ProductTypeDigitCBox.SelectedIndex = -1;
+            MessageBox.Show(
+                "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+                "Jeśli chcesz sprawdzić dostepność produktu, wprowadź odpowiednie znaki!", "Błąd!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
 
-        private int TakingIdProduct(string BarNumber)
+    private void ClearingMenu()
+    {
+        SellPriceTBox.Clear();
+        BuyPriceTBox.Clear();
+        AmountOfProductTBox.Clear();
+        ProductDescriptionTBox.Clear();
+        BarNumberTBox.Clear();
+        BuyMethodDigitCBox.SelectedIndex = -1;
+        ProductTypeDigitCBox.SelectedIndex = -1;
+    }
 
+    private int TakingIdProduct(string BarNumber)
+
+    {
+        using (var con = new SqlConnection(connectionString))
         {
-            using (var con = new SqlConnection(connectionString))
+            con.Open();
+            int iBarNumber = Convert.ToInt32(BarNumber);
+            var car = con.QueryFirst<Product>(@"SELECT Id_Product FROM Product WHERE Bar_Number= @Bar_Number",
+                new { Bar_Number = iBarNumber });
+
+            return (int)car.IdProduct;
+        }
+    }
+
+    private void CreatingProduct()
+    {
+        var Type_Product = ProductTypeDigitCBox.Text;
+        var Bar_Number = BarNumberTBox.Text;
+        var Description = ProductDescriptionTBox.Text;
+        var Purchase_Method = BuyMethodDigitCBox.Text;
+        var Quantity = AmountOfProductTBox.Text;
+        var OfferPrice = SellPriceTBox.Text;
+
+        string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
+
+        SqlConnection cnn = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(insertSql, cnn);
+
+        cmd.Parameters.AddWithValue("@Type_Product", Type_Product);
+        cmd.Parameters.AddWithValue("@Bar_Number", Bar_Number);
+        cmd.Parameters.AddWithValue("@Description", Description);
+        cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
+        cmd.Parameters.AddWithValue("@Quantity", Quantity);
+        cmd.Parameters.AddWithValue("@OfferPrice", Convert.ToDouble(OfferPrice));
+        cnn.Open();
+        cmd.ExecuteNonQuery();
+        cnn.Close();
+    }
+
+    private void CreatingPurchase()
+    {
+        var Bar_Number = BarNumberTBox.Text;
+        var Quantity = AmountOfProductTBox.Text;
+        var BuyingPrice = BuyPriceTBox.Text;
+        var Id_Product = TakingIdProduct(Bar_Number);
+        string From_Product_Create = "Tak";
+        SqlConnection cnn2 = new SqlConnection(connectionString);
+        DateTime Date_Purchase = DateTime.Now;
+        var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
+        SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
+        cmdPurchase.Parameters.AddWithValue("@Id_Product", Id_Product);
+        cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
+        cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
+        cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
+        cmdPurchase.Parameters.AddWithValue("@From_Product_Create",From_Product_Create);
+
+
+        cnn2.Open();
+        cmdPurchase.ExecuteNonQuery();
+        cnn2.Close();
+    }
+
+    private void BarNumberDuplicateBox()
+    {
+        MessageBox.Show(
+            "Błąd bazy danych!" + Environment.NewLine +
+            "Baza zawiera już produkt o takim kodzie kreskowym!", "Błąd!",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+
+    private void SuccessfullyProductAdded()
+    {
+        MessageBox.Show(
+
+            "Pomyślnie dodano nowy produkt!", "Sukces!",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+    private void ErrorWithPriceBox()
+    {
+        MessageBox.Show(
+            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+            "Pamiętaj, że cena musi być zdefiniowana z przecinkiem!", "Błąd!",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+    private void FieldNullBox()
+    {
+        MessageBox.Show(
+            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+            "Formularz zawiera puste pola!", "Błąd!",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+    private void FieldNotCorrectBox()
+    {
+        MessageBox.Show(
+            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
+            "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+
+    private void AddProductButton_Click(object sender, EventArgs e)
+    {
+        var product = new Product()
+        {
+            DescriptionProduct = ProductDescriptionTBox.Text,
+            IdTypeProduct = ProductTypeDigitCBox.Text,
+            BarNumber = BarNumberTBox.Text,
+            Offer_Price = SellPriceTBox.Text,
+            IsReturned = "Nie",
+            Quantity = AmountOfProductTBox.Text,
+            IdPurchaseMethod = BuyMethodDigitCBox.Text
+
+        };
+
+
+        var result = ValidateAddProduct(product);
+        if (!result.IsValid)
+        {
+            foreach (var failure in result.Errors)
             {
-                con.Open();
-                int iBarNumber = Convert.ToInt32(BarNumber);
-                var car = con.QueryFirst<Product>(@"SELECT Id_Product FROM Product WHERE Bar_Number= @Bar_Number",
-                    new { Bar_Number = iBarNumber });
-
-                return (int)car.IdProduct;
+                MessageBox.Show(failure.ErrorMessage, "Message", MessageBoxButtons.OK);
             }
-        }
 
-        private void CreatingProduct()
+        }
+        else
         {
-            var Type_Product = ProductTypeDigitCBox.Text;
-            var Bar_Number = BarNumberTBox.Text;
-            var Description = ProductDescriptionTBox.Text;
-            var Purchase_Method = BuyMethodDigitCBox.Text;
-            var Quantity = AmountOfProductTBox.Text;
-            var OfferPrice = SellPriceTBox.Text;
-
-            string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
-
-            SqlConnection cnn = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(insertSql, cnn);
-
-            cmd.Parameters.AddWithValue("@Type_Product", Type_Product);
-            cmd.Parameters.AddWithValue("@Bar_Number", Bar_Number);
-            cmd.Parameters.AddWithValue("@Description", Description);
-            cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
-            cmd.Parameters.AddWithValue("@Quantity", Quantity);
-            cmd.Parameters.AddWithValue("@OfferPrice", Convert.ToDouble(OfferPrice));
-            cnn.Open();
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+                
         }
 
-        private void CreatingPurchase()
-        {
-            var Bar_Number = BarNumberTBox.Text;
-            var Quantity = AmountOfProductTBox.Text;
-            var BuyingPrice = BuyPriceTBox.Text;
-            var Id_Product = TakingIdProduct(Bar_Number);
-            string From_Product_Create = "Tak";
-            SqlConnection cnn2 = new SqlConnection(connectionString);
-            DateTime Date_Purchase = DateTime.Now;
-            var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
-            SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
-            cmdPurchase.Parameters.AddWithValue("@Id_Product", Id_Product);
-            cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
-            cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
-            cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
-            cmdPurchase.Parameters.AddWithValue("@From_Product_Create",From_Product_Create);
 
+    }
 
-            cnn2.Open();
-            cmdPurchase.ExecuteNonQuery();
-            cnn2.Close();
-        }
-
-        private void BarNumberDuplicateBox()
-        {
-            MessageBox.Show(
-                                      "Błąd bazy danych!" + Environment.NewLine +
-                                      "Baza zawiera już produkt o takim kodzie kreskowym!", "Błąd!",
-                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void SuccessfullyProductAdded()
-        {
-            MessageBox.Show(
-
-                      "Pomyślnie dodano nowy produkt!", "Sukces!",
-                      MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        private void ErrorWithPriceBox()
-        {
-            MessageBox.Show(
-                      "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                      "Pamiętaj, że cena musi być zdefiniowana z przecinkiem!", "Błąd!",
-                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void FieldNullBox()
-        {
-            MessageBox.Show(
-                   "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                   "Formularz zawiera puste pola!", "Błąd!",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void FieldNotCorrectBox()
-        {
-            MessageBox.Show(
-                                   "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-                                   "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
+    private  ValidationResult ValidateAddProduct(Product product)
+    {
+        AddProductValidate addProductValidate = new AddProductValidate();
+        var result = addProductValidate.Validate(product);
+        return result;
 
     }
 }

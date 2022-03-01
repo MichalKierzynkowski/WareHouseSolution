@@ -1,5 +1,5 @@
 ﻿
-namespace WareHouseApplication.Forms
+namespace WareHouseApplication.Forms.Magazyn
 {
     partial class AddItemFormcs
     {
@@ -199,7 +199,7 @@ namespace WareHouseApplication.Forms
             this.AddProductButton.TabIndex = 13;
             this.AddProductButton.Text = "Dodaj Produkt";
             this.AddProductButton.UseVisualStyleBackColor = true;
-            this.AddProductButton.Click += new System.EventHandler(this.button1_Click);
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // CancelButton
             // 

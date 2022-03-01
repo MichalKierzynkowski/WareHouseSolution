@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WareHouseApplication.Forms
+namespace WareHouseApplication.Forms;
+
+public partial class SellingItem : Form
 {
-    public partial class SellingItem : Form
+    public SellingItem()
     {
-        public SellingItem()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
