@@ -13,29 +13,23 @@ namespace ClassesLibrary.AddItemClasses.Validation
     {
         public BarNumberExistingValidation(string barNumber)
         {
-            barNumber = BarNumber;
+            BarNumber = barNumber;
         }
         public string BarNumber { get; set; }
-        public string ConnectionString { get; set; } = ConfigurationManager.ConnectionStrings["MichalPC"].ConnectionString;
 
-        public bool IsGivenBarNumberNotExist( )
+        public string ConnectionString { get; set; } =
+            "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS;Initial Catalog=WareHouse;User ID =DESKTOP-DQ7DARP\\Michal; Integrated Security=SSPI;Persist Security Info=False;Encrypt=True;TrustServerCertificate=True;";
+        public bool IsGivenBarNumberExist( )
         {
 
             using (var connection = new SqlConnection(ConnectionString))
             {
                 var exists = connection.Query<object>(
-                        "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE Bar_Number = @barNumber)", new { BarNumber })
+                        "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE BarNumber = @barNumber)", new { BarNumber })
                     .Any();
 
                 connection.Close();
-                if (exists == true)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return exists;
 
 
             }
