@@ -25,12 +25,12 @@ public partial class ShowWareHouse : Form
         AutoScaleMode = AutoScaleMode.Font;
         ObjMainMenu = objMainMenu;
         DefaultFillingGridView();
-        ObjValidationAddingItem = new RulesValidationAddingItem();
+       // ObjValidationAddingItem = new RulesValidationAddingItem();
 
 
     }
 
-    public RulesValidationAddingItem ObjValidationAddingItem { get; set; }
+    
     public string connectionString { get; set; }
 
     public MainMenu ObjMainMenu { get; }
@@ -271,34 +271,34 @@ FROM      Product INNER JOIN
 
         }
         */
-        var validateObj = new IsNullIAddingItemValidation();
-        var rulesValidationObj = new RulesValidationAddingItem();
-        if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
-        {
-            MessageBoxFailure();
-        }
-        else
-        {
+        //var validateObj = new IsNullIAddingItemValidation();
+        //var rulesValidationObj = new RulesValidationAddingItem();
+        //if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
+        //{
+        //    MessageBoxFailure();
+        //}
+        //else
+        //{
 
-            if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
-            {
-                BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
-                BindingSource bs = new BindingSource();
-                bs.DataSource = dataGridView1.DataSource;
+        //    if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
+        //    {
+        //        BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
+        //        BindingSource bs = new BindingSource();
+        //        bs.DataSource = dataGridView1.DataSource;
 
 
-                bs.Filter = GetFilter();
+        //        bs.Filter = GetFilter();
 
-                dataGridView1.DataSource = bs;
-            }
-            else
-            {
-                WrongFormatMessageBox();
-            }
+        //        dataGridView1.DataSource = bs;
+        //    }
+        //    else
+        //    {
+        //        WrongFormatMessageBox();
+        //    }
 
 
                
-        }
+        //}
           
 
 

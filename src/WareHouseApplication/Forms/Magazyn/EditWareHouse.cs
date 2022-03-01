@@ -243,30 +243,30 @@ public partial class EditWareHouse : Form
 
     private void SortingButton_Click(object sender, EventArgs e)
     {
-        var validateObj = new IsNullIAddingItemValidation();
-        var rulesValidationObj = new RulesValidationAddingItem();
-        if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
-        {
-            MessageBoxFailure();
-        }
-        else
-        {
-            if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
-            {
-                BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
-                var bs = new BindingSource();
-                bs.DataSource = dataGridView1.DataSource;
+        //var validateObj = new IsNullIAddingItemValidation();
+        //var rulesValidationObj = new RulesValidationAddingItem();
+        //if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
+        //{
+        //    MessageBoxFailure();
+        //}
+        //else
+        //{
+        //    if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
+        //    {
+        //        BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
+        //        var bs = new BindingSource();
+        //        bs.DataSource = dataGridView1.DataSource;
 
 
-                bs.Filter = GetFilter();
+        //        bs.Filter = GetFilter();
 
-                dataGridView1.DataSource = bs;
-            }
-            else
-            {
-                WrongFormatMessageBox();
-            }
-        }
+        //        dataGridView1.DataSource = bs;
+        //    }
+        //    else
+        //    {
+        //        WrongFormatMessageBox();
+        //    }
+        //}
     }
 
     private void MessageBoxFailure()
