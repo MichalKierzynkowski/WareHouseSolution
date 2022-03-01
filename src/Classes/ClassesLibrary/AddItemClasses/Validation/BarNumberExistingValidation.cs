@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,15 +16,15 @@ namespace ClassesLibrary.AddItemClasses.Validation
             barNumber = BarNumber;
         }
         public string BarNumber { get; set; }
+        public string ConnectionString { get; set; } = ConfigurationManager.ConnectionStrings["MichalPC"].ConnectionString;
 
-       
-        public bool IsGivenBarNumberNotExist( string connectionString)
+        public bool IsGivenBarNumberNotExist( )
         {
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = new SqlConnection(ConnectionString))
             {
                 var exists = connection.Query<object>(
-                        "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE Bar_Number = @barNumber)", new {BarNumber})
+                        "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE Bar_Number = @barNumber)", new { BarNumber })
                     .Any();
 
                 connection.Close();

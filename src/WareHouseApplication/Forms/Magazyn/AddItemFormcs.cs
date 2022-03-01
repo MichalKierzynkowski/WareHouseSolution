@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using ClassesLibrary.AddItemClasses.Validation;
@@ -16,6 +17,8 @@ public partial class AddItemFormcs : Form
         InitializeComponent();
         this.connectionString = connectionString;
         ObjMainMenu = objMainMenu;
+        string connectionStrings = ConfigurationManager.ConnectionStrings["MichalPC"].ConnectionString;
+        int x = 5;
     }
 
     public MainMenu ObjMainMenu { get; }
