@@ -237,10 +237,10 @@ public partial class AddItemFormcs : Form
         var result = ValidateAddProduct(product);
         if (!result.IsValid)
         {
-            foreach (var failure in result.Errors)
-            {
-                MessageBox.Show(failure.ErrorMessage, "Message", MessageBoxButtons.OK);
-            }
+
+            MessageBox.Show(string.Join("\n", result.Errors),"Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+      
 
         }
         else
