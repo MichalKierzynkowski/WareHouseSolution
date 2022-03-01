@@ -20,6 +20,8 @@ public class AddProductValidate:AbstractValidator<Product>
         RuleFor(x => x.IdTypeProduct).Must(IdTypeProduct => IsStringContainsOnlyNumbers(IdTypeProduct))
             .WithMessage("Pole Rodzaj Produktu nie może zawierać liter!");
         RuleFor(x => x.BarNumber).NotEmpty().WithMessage("Pole numer kreskowy nie może być puste!");
+        RuleFor(x => x.BarNumber).Must(BarNumber => IsStringContainsOnlyNumbers(BarNumber))
+            .WithMessage("Pole Kod Kreskowy nie może zawierać liter!");
         RuleFor(x => x.BarNumber).Must(BarNumber=>IsExistingBarNumberNotExist(BarNumber)).WithMessage("Podany numer kreskowy znajduje się już w bazie!");
 
 
