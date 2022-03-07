@@ -23,9 +23,9 @@ public class AddProductTesting
     {
         Product = new WareHouse.Data.SqlModels.Product()
         {
-            DescriptionProduct ="",
-            IdTypeProduct = "s",
-            BarNumber = "2",
+            DescriptionProduct ="asd",
+            IdTypeProduct = "2",
+            BarNumber = "",
             Offer_Price = "2",
             IsReturned = "Nie",
             Quantity = "3",
@@ -41,22 +41,6 @@ public class AddProductTesting
         result.IsValid.Should().BeFalse();
     }
 
-    [Fact]
-    public void IsGivenBarNumberExistingInDataBase()
-    {
-        int BarNumber = 1999;
-        bool result;
-        using (var connection = new SqlConnection(ConnectionString))
-        {
-            var exists = connection.Query<object>(
-                    "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE BarNumber = @barNumber)", new {BarNumber})
-                .Any();
-
-            connection.Close();
-
-
-            exists.Should().BeFalse();
-        }
-
-    }
+    
+    
 }
