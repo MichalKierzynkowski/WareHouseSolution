@@ -15,14 +15,13 @@ namespace WareHouseApplication.Forms.Magazyn;
 public partial class AddItemFormcs : Form
 {
     public string ConnectionString { get; set; }
-    private readonly IConfiguration _configuration;
-    public AddItemFormcs(MainMenu objMainMenu,IConfiguration config)
+  
+    public AddItemFormcs(MainMenu objMainMenu,string connectionString)
     {
         InitializeComponent();
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-       _configuration = config;
-       ConnectionString = _configuration.GetConnectionString("Michal");
+       ConnectionString = connectionString;
 
     }
 
@@ -73,7 +72,8 @@ public partial class AddItemFormcs : Form
 
     public void DostepnoscButton_Click(object sender, EventArgs e)
     {
-        
+        var validateObj = new BarNumberValidation(ConnectionString,BarNumberTBox.Value);
+
     }
 
     public void HidingArrowsInNumerics()
@@ -109,7 +109,7 @@ public partial class AddItemFormcs : Form
 
         string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
 
-        SqlConnection cnn = new SqlConnection(connectionString);
+        SqlConnection cnn = new SqlConnection(ConnectionString);
         SqlCommand cmd = new SqlCommand(insertSql, cnn);
 
         cmd.Parameters.AddWithValue("@Type_Product", Type_Product);
@@ -130,7 +130,7 @@ public partial class AddItemFormcs : Form
         //var BuyingPrice = BuyPriceTBox.Text;
        
         string From_Product_Create = "Tak";
-        SqlConnection cnn2 = new SqlConnection(connectionString);
+        SqlConnection cnn2 = new SqlConnection(ConnectionString);
         DateTime Date_Purchase = DateTime.Now;
         var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
         SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
