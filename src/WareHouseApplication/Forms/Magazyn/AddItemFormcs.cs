@@ -18,7 +18,7 @@ public partial class AddItemFormcs : Form
         this.connectionString = connectionString;
         ObjMainMenu = objMainMenu;
         string connectionStrings = ConfigurationManager.ConnectionStrings["MichalPC"].ConnectionString;
-        int x = 5;
+      
     }
 
     public MainMenu ObjMainMenu { get; }
@@ -114,9 +114,9 @@ public partial class AddItemFormcs : Form
 
     private void ClearingMenu()
     {
-        SellPriceTBox.Clear();
-        BuyPriceTBox.Clear();
-        AmountOfProductTBox.Clear();
+        //SellPriceTBox.Clear();
+        //BuyPriceTBox.Clear();
+       
         ProductDescriptionTBox.Clear();
         BarNumberTBox.Clear();
         BuyMethodDigitCBox.SelectedIndex = -1;
@@ -144,7 +144,7 @@ public partial class AddItemFormcs : Form
         var Description = ProductDescriptionTBox.Text;
         var Purchase_Method = BuyMethodDigitCBox.Text;
         var Quantity = AmountOfProductTBox.Text;
-        var OfferPrice = SellPriceTBox.Text;
+        //var OfferPrice = SellPriceTBox.Text;
 
         string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
 
@@ -156,7 +156,7 @@ public partial class AddItemFormcs : Form
         cmd.Parameters.AddWithValue("@Description", Description);
         cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
         cmd.Parameters.AddWithValue("@Quantity", Quantity);
-        cmd.Parameters.AddWithValue("@OfferPrice", Convert.ToDouble(OfferPrice));
+      //  cmd.Parameters.AddWithValue("@OfferPrice", Convert.ToDouble(OfferPrice));
         cnn.Open();
         cmd.ExecuteNonQuery();
         cnn.Close();
@@ -166,7 +166,7 @@ public partial class AddItemFormcs : Form
     {
         var Bar_Number = BarNumberTBox.Text;
         var Quantity = AmountOfProductTBox.Text;
-        var BuyingPrice = BuyPriceTBox.Text;
+        //var BuyingPrice = BuyPriceTBox.Text;
         var Id_Product = TakingIdProduct(Bar_Number);
         string From_Product_Create = "Tak";
         SqlConnection cnn2 = new SqlConnection(connectionString);
@@ -176,7 +176,7 @@ public partial class AddItemFormcs : Form
         cmdPurchase.Parameters.AddWithValue("@Id_Product", Id_Product);
         cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
         cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
-        cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
+       // cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
         cmdPurchase.Parameters.AddWithValue("@From_Product_Create",From_Product_Create);
 
 
@@ -229,9 +229,9 @@ public partial class AddItemFormcs : Form
             DescriptionProduct = ProductDescriptionTBox.Text,
             IdTypeProduct = ProductTypeDigitCBox.Text,
             BarNumber = BarNumberTBox.Text,
-            Offer_Price = SellPriceTBox.Text,
-            IsReturned = "Nie",
-            Quantity = AmountOfProductTBox.Text,
+            OfferPrice = OfferPriceNumeric.Value,
+            IsReturned = false,
+            Quantity = (int)AmountOfProductTBox.Value,
             IdPurchaseMethod = BuyMethodDigitCBox.Text
 
         };

@@ -12,9 +12,9 @@ public class Product
     public string BarNumber { get; set; }
     public string DescriptionProduct { get; set; }
     public string IdPurchaseMethod { get; set; }
-    public string Quantity { get; set; }
-    public string  Offer_Price { get; set; }
-    public string IsReturned { get; set; }
+    public int Quantity { get; set; }
+    public decimal OfferPrice { get; set; }
+    public bool IsReturned { get; set; }
 
         
 }

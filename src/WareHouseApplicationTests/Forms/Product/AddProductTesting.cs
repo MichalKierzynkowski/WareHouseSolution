@@ -23,10 +23,10 @@ public class AddProductTesting
     {
         Product = new WareHouse.Data.SqlModels.Product()
         {
-            DescriptionProduct ="asd",
+            DescriptionProduct ="sa",
             IdTypeProduct = "2",
-            BarNumber = "",
-            Offer_Price = "2",
+            BarNumber = "12",
+            OfferPrice = "1.5",
             IsReturned = "Nie",
             Quantity = "3",
             IdPurchaseMethod ="3"

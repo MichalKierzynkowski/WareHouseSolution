@@ -42,11 +42,9 @@ namespace WareHouseApplication.Forms.Magazyn
             this.ProductDescriptionTBox = new System.Windows.Forms.TextBox();
             this.BarNumberTBox = new System.Windows.Forms.TextBox();
             this.BuyMethodWordCBox = new System.Windows.Forms.ComboBox();
-            this.SellPriceTBox = new System.Windows.Forms.TextBox();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.AmountOfProductTBox = new System.Windows.Forms.TextBox();
             this.ProductTypeDigitCBox = new System.Windows.Forms.ComboBox();
             this.ProductTypeWordCBox = new System.Windows.Forms.ComboBox();
             this.BuyMethodDigitCBox = new System.Windows.Forms.ComboBox();
@@ -59,8 +57,10 @@ namespace WareHouseApplication.Forms.Magazyn
             this.AmountProductInfo = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.AvailabilityButton = new System.Windows.Forms.Button();
-            this.BuyPriceTBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.OfferPriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.SellPriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.AmountOfProductTBox = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDescriptionInfo)).BeginInit();
@@ -70,6 +70,9 @@ namespace WareHouseApplication.Forms.Magazyn
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OfferPriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountOfProductTBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -183,14 +186,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.BuyMethodWordCBox.TabIndex = 10;
             this.BuyMethodWordCBox.SelectedValueChanged += new System.EventHandler(this.MetodaKupnaWyrazCBox_SelectedValueChanged);
             // 
-            // SellPriceTBox
-            // 
-            this.SellPriceTBox.Location = new System.Drawing.Point(424, 536);
-            this.SellPriceTBox.Multiline = true;
-            this.SellPriceTBox.Name = "SellPriceTBox";
-            this.SellPriceTBox.Size = new System.Drawing.Size(287, 26);
-            this.SellPriceTBox.TabIndex = 12;
-            // 
             // AddProductButton
             // 
             this.AddProductButton.Location = new System.Drawing.Point(619, 745);
@@ -220,14 +215,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label8.Size = new System.Drawing.Size(132, 25);
             this.label8.TabIndex = 15;
             this.label8.Text = "Ilość Produktu";
-            // 
-            // AmountOfProductTBox
-            // 
-            this.AmountOfProductTBox.Location = new System.Drawing.Point(424, 650);
-            this.AmountOfProductTBox.Multiline = true;
-            this.AmountOfProductTBox.Name = "AmountOfProductTBox";
-            this.AmountOfProductTBox.Size = new System.Drawing.Size(287, 26);
-            this.AmountOfProductTBox.TabIndex = 16;
             // 
             // ProductTypeDigitCBox
             // 
@@ -449,14 +436,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.AvailabilityButton.UseVisualStyleBackColor = true;
             this.AvailabilityButton.Click += new System.EventHandler(this.DostepnoscButton_Click);
             // 
-            // BuyPriceTBox
-            // 
-            this.BuyPriceTBox.Location = new System.Drawing.Point(424, 596);
-            this.BuyPriceTBox.Multiline = true;
-            this.BuyPriceTBox.Name = "BuyPriceTBox";
-            this.BuyPriceTBox.Size = new System.Drawing.Size(287, 26);
-            this.BuyPriceTBox.TabIndex = 29;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -467,14 +446,39 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label6.TabIndex = 28;
             this.label6.Text = "Cena Zakupu Produktu";
             // 
+            // OfferPriceNumeric
+            // 
+            this.OfferPriceNumeric.DecimalPlaces = 2;
+            this.OfferPriceNumeric.Location = new System.Drawing.Point(424, 596);
+            this.OfferPriceNumeric.Name = "OfferPriceNumeric";
+            this.OfferPriceNumeric.Size = new System.Drawing.Size(285, 25);
+            this.OfferPriceNumeric.TabIndex = 32;
+            // 
+            // SellPriceNumeric
+            // 
+            this.SellPriceNumeric.DecimalPlaces = 2;
+            this.SellPriceNumeric.Location = new System.Drawing.Point(424, 536);
+            this.SellPriceNumeric.Name = "SellPriceNumeric";
+            this.SellPriceNumeric.Size = new System.Drawing.Size(287, 25);
+            this.SellPriceNumeric.TabIndex = 33;
+            // 
+            // AmountOfProductTBox
+            // 
+            this.AmountOfProductTBox.Location = new System.Drawing.Point(424, 651);
+            this.AmountOfProductTBox.Name = "AmountOfProductTBox";
+            this.AmountOfProductTBox.Size = new System.Drawing.Size(285, 25);
+            this.AmountOfProductTBox.TabIndex = 34;
+            // 
             // AddItemFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(900, 861);
+            this.Controls.Add(this.AmountOfProductTBox);
+            this.Controls.Add(this.SellPriceNumeric);
+            this.Controls.Add(this.OfferPriceNumeric);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.BuyPriceTBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.AvailabilityButton);
             this.Controls.Add(this.AmountProductInfo);
@@ -486,11 +490,9 @@ namespace WareHouseApplication.Forms.Magazyn
             this.Controls.Add(this.BuyMethodDigitCBox);
             this.Controls.Add(this.ProductTypeWordCBox);
             this.Controls.Add(this.ProductTypeDigitCBox);
-            this.Controls.Add(this.AmountOfProductTBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddProductButton);
-            this.Controls.Add(this.SellPriceTBox);
             this.Controls.Add(this.BuyMethodWordCBox);
             this.Controls.Add(this.BarNumberTBox);
             this.Controls.Add(this.ProductDescriptionTBox);
@@ -515,6 +517,9 @@ namespace WareHouseApplication.Forms.Magazyn
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OfferPriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountOfProductTBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,11 +538,9 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.TextBox ProductDescriptionTBox;
         private System.Windows.Forms.TextBox BarNumberTBox;
         private System.Windows.Forms.ComboBox BuyMethodWordCBox;
-        private System.Windows.Forms.TextBox SellPriceTBox;
         private System.Windows.Forms.Button AddProductButton;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox AmountOfProductTBox;
         private System.Windows.Forms.ComboBox ProductTypeDigitCBox;
         private System.Windows.Forms.ComboBox ProductTypeWordCBox;
         private System.Windows.Forms.ComboBox BuyMethodDigitCBox;
@@ -550,7 +553,9 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.PictureBox AmountProductInfo;
         private System.Windows.Forms.Button AvailabilityButton;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox BuyPriceTBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown OfferPriceNumeric;
+        private System.Windows.Forms.NumericUpDown SellPriceNumeric;
+        private System.Windows.Forms.NumericUpDown AmountOfProductTBox;
     }
 }
