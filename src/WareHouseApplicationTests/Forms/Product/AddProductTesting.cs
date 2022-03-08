@@ -25,11 +25,19 @@ public class AddProductTesting
         {
             DescriptionProduct ="sa",
             IdTypeProduct = "1",
-            BarNumber = 3,
+            BarNumber = 312421412,
             OfferPrice = 3,
             IsReturned = false,
             Quantity = 2,
-            IdPurchaseMethod ="2"
+            IdPurchaseMethod ="2",
+            Purchase = new Purchase()
+            {
+                Amount = 2,
+                DatePurchase = DateTime.UtcNow,
+                IdProduct = new Guid(),
+                IdPurchase = new Guid(),
+                Price = 0
+            }
             
            
 
@@ -38,7 +46,7 @@ public class AddProductTesting
     [Fact]
     public void AddProductTestShouldBeFalse()
     {
-        AddProductValidate addProductValidate = new AddProductValidate();
+        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
         var result = addProductValidate.Validate(Product);
         result.IsValid.Should().BeFalse();
     }

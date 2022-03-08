@@ -18,7 +18,10 @@ namespace ClassesLibrary.AddItemClasses.Validation
         public int  BarNumber { get; set; }
 
         public string ConnectionString { get; set; } =
-            "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS;Initial Catalog=WareHouse;User ID =DESKTOP-DQ7DARP\\Michal; Integrated Security=SSPI;Persist Security Info=False;Encrypt=True;TrustServerCertificate=True;";
+           
+        System.Configuration.ConfigurationManager.
+            ConnectionStrings["Michal"].ConnectionString;
+        
         public bool IsGivenBarNumberExist( )
         {
 

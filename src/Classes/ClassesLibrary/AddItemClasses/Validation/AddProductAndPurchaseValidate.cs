@@ -4,9 +4,9 @@ using WareHouse.Data.SqlModels;
 
 namespace ClassesLibrary.AddItemClasses.Validation;
 
-public class AddProductValidate : AbstractValidator<Product>
+public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 {
-    public AddProductValidate()
+    public AddProductAndPurchaseValidate()
     {
         RuleFor(x => x.DescriptionProduct).NotEmpty().WithMessage("Pole Opis Produktu nie może być puste!");
         RuleFor(x => x.DescriptionProduct).Must(DescriptionProduct => IsStringContainsNumbers(DescriptionProduct))
@@ -21,9 +21,9 @@ public class AddProductValidate : AbstractValidator<Product>
                             .WithMessage("Podany numer kreskowy znajduje się już w bazie!"));
 
         RuleFor(x => x.OfferPrice).NotEmpty()
-            .WithMessage("Pole Cena Zakupu nie może być puste!").DependentRules(() =>
+            .WithMessage("Pole Cena Sprzedaży nie może być puste!").DependentRules(() =>
                 RuleFor(x => x.OfferPrice).Must(OfferPrice => IsPriceIsGreaterThan0(OfferPrice))
-                    .WithMessage("Cena zakupu musi być większa od 0!"));
+                    .WithMessage("Cena Sprzedaży musi być większa od 0!"));
 
         RuleFor(x => x.Quantity).NotEmpty()
             .WithMessage("Pole Ilość nie może być puste!").DependentRules(() =>
@@ -32,6 +32,11 @@ public class AddProductValidate : AbstractValidator<Product>
 
 
         RuleFor(x => x.IdPurchaseMethod).NotEmpty().WithMessage("Pole Metoda Kupna nie może być pusta!");
+
+        RuleFor(x => x.Purchase.Price).NotEmpty()
+            .WithMessage("Pole Cena Zakupu nie może być puste!").DependentRules(() =>
+                RuleFor(x => x.Purchase.Price).Must(PurchasePrice => IsPriceIsGreaterThan0(PurchasePrice))
+                    .WithMessage("Cena zakupu musi być większa od 0!"));
 
     }
 
@@ -42,10 +47,7 @@ public class AddProductValidate : AbstractValidator<Product>
         return true;
     }
 
-    private bool IsCorrectFormatOfPrice(decimal price)
-    {
-        return true;
-    }
+    
 
     private bool IsPriceIsGreaterThan0(decimal value)
     {
@@ -54,12 +56,7 @@ public class AddProductValidate : AbstractValidator<Product>
         return false;
     }
 
-    private bool IsStringContainsOnlyNumbers(string value)
-    {
-        if (value.All(char.IsDigit))
-            return true;
-        return false;
-    }
+    
 
     private bool IsExistingBarNumberNotExist(int barNumber)
     {

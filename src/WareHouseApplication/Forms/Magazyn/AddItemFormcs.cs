@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using ClassesLibrary.AddItemClasses.Validation;
 using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -69,48 +70,7 @@ public partial class AddItemFormcs : Form
 
     public void DostepnoscButton_Click(object sender, EventArgs e)
     {
-       // string bar_Number = BarNumberTBox.Text;
-       // //var notNullValidationObj = new IsNullIAddingItemValidation(bar_Number);
-       //// var list = notNullValidationObj.list;
-       // //var isNull = notNullValidationObj.isNullValidation(list);
-       // //var rulesValidationObj = new RulesValidationAddingItem(bar_Number);
-       // var isCorrect = rulesValidationObj.Validation(bar_Number);
-
-       // if (isNull == false)
-       // {
-       //     if (isCorrect)
-       //     {
-       //         var objBarNumbValid = new BarNumberValidation();
-       //         var exists = objBarNumbValid.Validation(bar_Number, connectionString);
-
-       //         if (exists == true)
-       //         {
-       //             string message = "Instnieje w bazie taki produkt!";
-       //             string title = "Informacja";
-       //             MessageBox.Show(message, title);
-       //         }
-       //         else
-       //         {
-       //             string message = "Nie istnieje w bazie taki produkt!";
-       //             string title = "Informacja";
-       //             MessageBox.Show(message, title);
-       //         }
-       //     }
-       //     else
-       //     {
-       //         MessageBox.Show(
-       //             "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-       //             "Jeśli chcesz sprawdzić dostępność produktu wypełni pole Numer_Kreskowy!", "Błąd!",
-       //             MessageBoxButtons.OK, MessageBoxIcon.Error);
-       //     }
-       // }
-       // else
-       // {
-       //     MessageBox.Show(
-       //         "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-       //         "Jeśli chcesz sprawdzić dostepność produktu, wprowadź odpowiednie znaki!", "Błąd!",
-       //         MessageBoxButtons.OK, MessageBoxIcon.Error);
-       // }
+        
     }
 
     public void HidingArrowsInNumerics()
@@ -122,11 +82,13 @@ public partial class AddItemFormcs : Form
     }
     private void ClearingMenu()
     {
-        //SellPriceTBox.Clear();
-        //BuyPriceTBox.Clear();
+        BarNumberTBox.Value = 0;
+        SellPriceNumeric.Value = 0;
+        OfferPriceNumeric.Value = 0;
+        AmountOfProductTBox.Value = 0;
        
         ProductDescriptionTBox.Clear();
-        //BarNumberTBox.Clear();
+        
         BuyMethodDigitCBox.SelectedIndex = -1;
         ProductTypeDigitCBox.SelectedIndex = -1;
     }
@@ -185,6 +147,7 @@ public partial class AddItemFormcs : Form
 
     private void SuccessfullyProductAdded()
     {
+        ClearingMenu();
         MessageBox.Show(
 
             "Pomyślnie dodano nowy produkt!", "Sukces!",
@@ -229,14 +192,14 @@ public partial class AddItemFormcs : Form
         }
         else
         {
-                
+                SuccessfullyProductAdded();
         }
 
     }
 
     private  ValidationResult ValidateAddProduct(Product product)
     {
-        AddProductValidate addProductValidate = new AddProductValidate();
+        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
         var result = addProductValidate.Validate(product);
         return result;
 

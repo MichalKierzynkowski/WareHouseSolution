@@ -27,9 +27,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-close-window-48 %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Classes\ClassesLibrary\ClassesLibrary.csproj" />
     <ProjectReference Include="..\WareHouse.Data\WareHouse.Data.csproj" />
   </ItemGroup>
