@@ -26,9 +26,9 @@ public class AddProductTesting
             DescriptionProduct ="sa",
             IdTypeProduct = "2",
             BarNumber = "12",
-            OfferPrice = "1.5",
-            IsReturned = "Nie",
-            Quantity = "3",
+            OfferPrice = 3,
+            IsReturned = false,
+            Quantity = 2,
             IdPurchaseMethod ="3"
 
         };

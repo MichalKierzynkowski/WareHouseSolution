@@ -237,6 +237,7 @@ public partial class AddItemFormcs : Form
         };
 
 
+
         var result = ValidateAddProduct(product);
         if (!result.IsValid)
         {

@@ -6,6 +6,6 @@ namespace WareHouse.Data.SqlModels;
 public class Product_Type
 {
 
-    public int Type_Product { get; set; }
-    public string Product_Type_Description { get; set; }
+    public int TypeProduct { get; set; }
+    public string ProductTypeDescription { get; set; }
 }

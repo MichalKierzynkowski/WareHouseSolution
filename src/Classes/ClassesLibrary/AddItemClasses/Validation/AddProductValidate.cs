@@ -12,7 +12,7 @@ public class AddProductValidate : AbstractValidator<Product>
         RuleFor(x => x.DescriptionProduct).Must(DescriptionProduct => IsStringContainsNumbers(DescriptionProduct))
             .WithMessage("Pole Opis Produktu nie może zawierać cyfr!");
 
-        RuleFor(x => x.IdTypeProduct).NotEmpty().WithMessage("Pole Typ Produktu nie może być puste!");
+        RuleFor(x => x.IdTypeProduct).NotEmpty().WithMessage("Pole Rodzaj Produktu nie może być puste!");
         RuleFor(x => x.IdTypeProduct).Must(IdTypeProduct => IsStringContainsOnlyNumbers(IdTypeProduct))
             .WithMessage("Pole Rodzaj Produktu nie może zawierać liter!");
 
@@ -31,7 +31,10 @@ public class AddProductValidate : AbstractValidator<Product>
         RuleFor(x => x.Quantity).NotEmpty()
             .WithMessage("Pole Ilość nie może być puste!").DependentRules(() =>
                 RuleFor(x => x.Quantity).Must(OfferPrice => IsPriceIsGreaterThan0(OfferPrice))
-                    .WithMessage("Cena zakupu musi być większa od 0!"));
+                    .WithMessage("Pole Ilość musi być większa od 0!"));
+
+
+        RuleFor(x => x.IdPurchaseMethod).NotEmpty().WithMessage("Pole Metoda Kupna nie może być pusta!");
 
     }
 

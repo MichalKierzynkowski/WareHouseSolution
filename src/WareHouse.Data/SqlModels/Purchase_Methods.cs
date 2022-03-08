@@ -5,6 +5,6 @@ namespace WareHouse.Data.SqlModels;
 [Table("Purchase_Methods")]
 public class Purchase_Methods
 {
-    public int Purchase_Method { get; set; }
-    public string Purchase_Method_Description { get; set; }
+    public int PurchaseMethod { get; set; }
+    public string PurchaseMethodDescription { get; set; }
 }
