@@ -13,15 +13,12 @@ public class AddProductValidate : AbstractValidator<Product>
             .WithMessage("Pole Opis Produktu nie może zawierać cyfr!");
 
         RuleFor(x => x.IdTypeProduct).NotEmpty().WithMessage("Pole Rodzaj Produktu nie może być puste!");
-        RuleFor(x => x.IdTypeProduct).Must(IdTypeProduct => IsStringContainsOnlyNumbers(IdTypeProduct))
-            .WithMessage("Pole Rodzaj Produktu nie może zawierać liter!");
-
+        
         RuleFor(x => x.BarNumber).NotEmpty()
+
             .WithMessage("Pole numer kreskowy nie może być puste!").DependentRules(() =>
-                RuleFor(x => x.BarNumber).Must(BarNumber => IsStringContainsOnlyNumbers(BarNumber))
-                    .WithMessage("Pole Kod Kreskowy nie może zawierać liter!").DependentRules(() =>
                         RuleFor(x => x.BarNumber).Must(BarNumber => IsExistingBarNumberNotExist(BarNumber))
-                            .WithMessage("Podany numer kreskowy znajduje się już w bazie!")));
+                            .WithMessage("Podany numer kreskowy znajduje się już w bazie!"));
 
         RuleFor(x => x.OfferPrice).NotEmpty()
             .WithMessage("Pole Cena Zakupu nie może być puste!").DependentRules(() =>
@@ -64,7 +61,7 @@ public class AddProductValidate : AbstractValidator<Product>
         return false;
     }
 
-    private bool IsExistingBarNumberNotExist(string barNumber)
+    private bool IsExistingBarNumberNotExist(int barNumber)
     {
         var barNumberValidate = new BarNumberExistingValidation(barNumber);
         var result = barNumberValidate.IsGivenBarNumberExist();

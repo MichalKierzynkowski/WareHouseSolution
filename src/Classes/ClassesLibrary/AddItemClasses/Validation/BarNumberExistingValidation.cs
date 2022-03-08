@@ -11,11 +11,11 @@ namespace ClassesLibrary.AddItemClasses.Validation
 {
     public class BarNumberExistingValidation
     {
-        public BarNumberExistingValidation(string barNumber)
+        public BarNumberExistingValidation(int  barNumber)
         {
             BarNumber = barNumber;
         }
-        public string BarNumber { get; set; }
+        public int  BarNumber { get; set; }
 
         public string ConnectionString { get; set; } =
             "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS;Initial Catalog=WareHouse;User ID =DESKTOP-DQ7DARP\\Michal; Integrated Security=SSPI;Persist Security Info=False;Encrypt=True;TrustServerCertificate=True;";

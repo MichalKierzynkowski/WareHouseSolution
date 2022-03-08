@@ -5,9 +5,9 @@ namespace WareHouse.Data.SqlModels;
 [Table("Purchase")]
 public class Purchase
 {
-    public int IdPurchase { get; set; }
-    public int IdProduct { get; set; }
+    public Guid IdPurchase { get; set; }
+    public Guid IdProduct { get; set; }
     public DateTime DatePurchase { get; set; }
     public int Amount { get; set; }
-    public int Price { get; set; }
+    public decimal Price { get; set; }
 }

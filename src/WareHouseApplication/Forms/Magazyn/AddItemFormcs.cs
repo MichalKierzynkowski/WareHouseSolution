@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using ClassesLibrary.AddItemClasses.Validation;
 using Dapper;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using WareHouse.Data.SqlModels;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
@@ -17,7 +18,7 @@ public partial class AddItemFormcs : Form
         InitializeComponent();
         this.connectionString = connectionString;
         ObjMainMenu = objMainMenu;
-        string connectionStrings = ConfigurationManager.ConnectionStrings["MichalPC"].ConnectionString;
+       HidingArrowsInNumerics();
       
     }
 
@@ -112,30 +113,25 @@ public partial class AddItemFormcs : Form
        // }
     }
 
+    public void HidingArrowsInNumerics()
+    {
+        SellPriceNumeric.Controls[0].Visible = false;
+        OfferPriceNumeric.Controls[0].Visible = false;
+        AmountOfProductTBox.Controls[0].Visible = false;
+        BarNumberTBox.Controls[0].Visible = false;
+    }
     private void ClearingMenu()
     {
         //SellPriceTBox.Clear();
         //BuyPriceTBox.Clear();
        
         ProductDescriptionTBox.Clear();
-        BarNumberTBox.Clear();
+        //BarNumberTBox.Clear();
         BuyMethodDigitCBox.SelectedIndex = -1;
         ProductTypeDigitCBox.SelectedIndex = -1;
     }
 
-    private int TakingIdProduct(string BarNumber)
-
-    {
-        using (var con = new SqlConnection(connectionString))
-        {
-            con.Open();
-            int iBarNumber = Convert.ToInt32(BarNumber);
-            var car = con.QueryFirst<Product>(@"SELECT Id_Product FROM Product WHERE Bar_Number= @Bar_Number",
-                new { Bar_Number = iBarNumber });
-
-            return (int)car.IdProduct;
-        }
-    }
+   
 
     private void CreatingProduct()
     {
@@ -167,13 +163,13 @@ public partial class AddItemFormcs : Form
         var Bar_Number = BarNumberTBox.Text;
         var Quantity = AmountOfProductTBox.Text;
         //var BuyingPrice = BuyPriceTBox.Text;
-        var Id_Product = TakingIdProduct(Bar_Number);
+       
         string From_Product_Create = "Tak";
         SqlConnection cnn2 = new SqlConnection(connectionString);
         DateTime Date_Purchase = DateTime.Now;
         var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
         SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
-        cmdPurchase.Parameters.AddWithValue("@Id_Product", Id_Product);
+        
         cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
         cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
        // cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
@@ -185,13 +181,7 @@ public partial class AddItemFormcs : Form
         cnn2.Close();
     }
 
-    private void BarNumberDuplicateBox()
-    {
-        MessageBox.Show(
-            "Błąd bazy danych!" + Environment.NewLine +
-            "Baza zawiera już produkt o takim kodzie kreskowym!", "Błąd!",
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
+   
 
     private void SuccessfullyProductAdded()
     {
@@ -200,40 +190,30 @@ public partial class AddItemFormcs : Form
             "Pomyślnie dodano nowy produkt!", "Sukces!",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
-    private void ErrorWithPriceBox()
-    {
-        MessageBox.Show(
-            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-            "Pamiętaj, że cena musi być zdefiniowana z przecinkiem!", "Błąd!",
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-    private void FieldNullBox()
-    {
-        MessageBox.Show(
-            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-            "Formularz zawiera puste pola!", "Błąd!",
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-    private void FieldNotCorrectBox()
-    {
-        MessageBox.Show(
-            "Formularz nie został wypełniony prawidłowo!" + Environment.NewLine +
-            "Pola nie zostały wypełnione prawidłowo!", "Błąd!",
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
+   
+    
 
     private void AddProductButton_Click(object sender, EventArgs e)
     {
+        Guid idProductGuid = Guid.NewGuid();
         var product = new Product()
         {
+            IdProduct = idProductGuid,
             DescriptionProduct = ProductDescriptionTBox.Text,
             IdTypeProduct = ProductTypeDigitCBox.Text,
-            BarNumber = BarNumberTBox.Text,
+            BarNumber = (int)BarNumberTBox.Value,
             OfferPrice = OfferPriceNumeric.Value,
             IsReturned = false,
             Quantity = (int)AmountOfProductTBox.Value,
-            IdPurchaseMethod = BuyMethodDigitCBox.Text
-
+            IdPurchaseMethod = BuyMethodDigitCBox.Text,
+            Purchase = new Purchase
+            {
+                Amount = (int)AmountOfProductTBox.Value,
+                DatePurchase = DateTime.UtcNow.Date,
+                Price=SellPriceNumeric.Value,
+               IdPurchase = Guid.NewGuid(),
+               IdProduct = idProductGuid
+            }
         };
 
 
@@ -251,7 +231,6 @@ public partial class AddItemFormcs : Form
         {
                 
         }
-
 
     }
 

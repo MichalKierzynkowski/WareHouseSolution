@@ -2,8 +2,8 @@
 
 namespace WareHouse.Data.SqlModels;
 
-[Table("Product_Type")]
-public class Product_Type
+[Table("ProductType")]
+public class ProductType
 {
 
     public int TypeProduct { get; set; }

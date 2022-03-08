@@ -40,7 +40,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ProductDescriptionTBox = new System.Windows.Forms.TextBox();
-            this.BarNumberTBox = new System.Windows.Forms.TextBox();
             this.BuyMethodWordCBox = new System.Windows.Forms.ComboBox();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
@@ -61,6 +60,7 @@ namespace WareHouseApplication.Forms.Magazyn
             this.OfferPriceNumeric = new System.Windows.Forms.NumericUpDown();
             this.SellPriceNumeric = new System.Windows.Forms.NumericUpDown();
             this.AmountOfProductTBox = new System.Windows.Forms.NumericUpDown();
+            this.BarNumberTBox = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductDescriptionInfo)).BeginInit();
@@ -73,6 +73,7 @@ namespace WareHouseApplication.Forms.Magazyn
             ((System.ComponentModel.ISupportInitialize)(this.OfferPriceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfProductTBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarNumberTBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -164,14 +165,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.ProductDescriptionTBox.Name = "ProductDescriptionTBox";
             this.ProductDescriptionTBox.Size = new System.Drawing.Size(287, 26);
             this.ProductDescriptionTBox.TabIndex = 7;
-            // 
-            // BarNumberTBox
-            // 
-            this.BarNumberTBox.Location = new System.Drawing.Point(424, 363);
-            this.BarNumberTBox.Multiline = true;
-            this.BarNumberTBox.Name = "BarNumberTBox";
-            this.BarNumberTBox.Size = new System.Drawing.Size(287, 30);
-            this.BarNumberTBox.TabIndex = 9;
             // 
             // BuyMethodWordCBox
             // 
@@ -469,12 +462,20 @@ namespace WareHouseApplication.Forms.Magazyn
             this.AmountOfProductTBox.Size = new System.Drawing.Size(285, 25);
             this.AmountOfProductTBox.TabIndex = 34;
             // 
+            // BarNumberTBox
+            // 
+            this.BarNumberTBox.Location = new System.Drawing.Point(424, 367);
+            this.BarNumberTBox.Name = "BarNumberTBox";
+            this.BarNumberTBox.Size = new System.Drawing.Size(286, 25);
+            this.BarNumberTBox.TabIndex = 35;
+            // 
             // AddItemFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(900, 861);
+            this.Controls.Add(this.BarNumberTBox);
             this.Controls.Add(this.AmountOfProductTBox);
             this.Controls.Add(this.SellPriceNumeric);
             this.Controls.Add(this.OfferPriceNumeric);
@@ -494,7 +495,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.BuyMethodWordCBox);
-            this.Controls.Add(this.BarNumberTBox);
             this.Controls.Add(this.ProductDescriptionTBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -520,6 +520,7 @@ namespace WareHouseApplication.Forms.Magazyn
             ((System.ComponentModel.ISupportInitialize)(this.OfferPriceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfProductTBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarNumberTBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,7 +537,6 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ProductDescriptionTBox;
-        private System.Windows.Forms.TextBox BarNumberTBox;
         private System.Windows.Forms.ComboBox BuyMethodWordCBox;
         private System.Windows.Forms.Button AddProductButton;
         private System.Windows.Forms.Button CancelButton;
@@ -557,5 +557,6 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.NumericUpDown OfferPriceNumeric;
         private System.Windows.Forms.NumericUpDown SellPriceNumeric;
         private System.Windows.Forms.NumericUpDown AmountOfProductTBox;
+        private System.Windows.Forms.NumericUpDown BarNumberTBox;
     }
 }

@@ -24,12 +24,14 @@ public class AddProductTesting
         Product = new WareHouse.Data.SqlModels.Product()
         {
             DescriptionProduct ="sa",
-            IdTypeProduct = "2",
-            BarNumber = "12",
+            IdTypeProduct = "1",
+            BarNumber = 3,
             OfferPrice = 3,
             IsReturned = false,
             Quantity = 2,
-            IdPurchaseMethod ="3"
+            IdPurchaseMethod ="2"
+            
+           
 
         };
     }
