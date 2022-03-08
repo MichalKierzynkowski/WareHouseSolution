@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace ClassesLibrary.AddItemClasses.Validation
 {
     public class BarNumberExistingValidation
     {
+        
         public BarNumberExistingValidation(int  barNumber)
         {
             BarNumber = barNumber;
@@ -18,10 +20,10 @@ namespace ClassesLibrary.AddItemClasses.Validation
         public int  BarNumber { get; set; }
 
         public string ConnectionString { get; set; } =
-           
-        System.Configuration.ConfigurationManager.
-            ConnectionStrings["Michal"].ConnectionString;
-        
+            "Data Source=DESKTOP-GI0C1PC\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
+
+
+
         public bool IsGivenBarNumberExist( )
         {
 

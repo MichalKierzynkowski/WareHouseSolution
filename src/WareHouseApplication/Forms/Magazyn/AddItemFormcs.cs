@@ -6,6 +6,7 @@ using System.Windows.Forms.VisualStyles;
 using ClassesLibrary.AddItemClasses.Validation;
 using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Configuration;
 using WareHouse.Data.SqlModels;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
@@ -13,14 +14,16 @@ namespace WareHouseApplication.Forms.Magazyn;
 
 public partial class AddItemFormcs : Form
 {
-    public string connectionString { get; set; }
-    public AddItemFormcs(MainMenu objMainMenu, string connectionString)
+    public string ConnectionString { get; set; }
+    private readonly IConfiguration _configuration;
+    public AddItemFormcs(MainMenu objMainMenu,IConfiguration config)
     {
         InitializeComponent();
-        this.connectionString = connectionString;
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-      
+       _configuration = config;
+       ConnectionString = _configuration.GetConnectionString("Michal");
+
     }
 
     public MainMenu ObjMainMenu { get; }
