@@ -14,7 +14,7 @@ public class Product
     public string DescriptionProduct { get; set; }
     public string IdPurchaseMethod { get; set; }
     public int Quantity { get; set; }
-    public decimal OfferPrice { get; set; }
+    public decimal CurrentSellingPrice { get; set; }
     public bool IsReturned { get; set; }
     public Purchase Purchase { get; set; }
 

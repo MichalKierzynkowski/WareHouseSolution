@@ -12,7 +12,7 @@ using ClassesLibrary.SqlClassesInterfaces;
 
 namespace WareHouseApplication;
 
-static class Program
+public static class Program
 {
     public static IConfiguration Configuration;
     public static IServiceProvider ServiceProvider { get; set; }

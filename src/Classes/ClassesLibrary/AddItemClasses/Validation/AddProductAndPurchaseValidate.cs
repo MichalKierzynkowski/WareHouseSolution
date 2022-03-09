@@ -6,8 +6,9 @@ namespace ClassesLibrary.AddItemClasses.Validation;
 
 public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 {
-    public AddProductAndPurchaseValidate()
+    public AddProductAndPurchaseValidate(string connectionString)
     {
+        
         RuleFor(x => x.DescriptionProduct).NotEmpty().WithMessage("Pole Opis Produktu nie może być puste!");
         RuleFor(x => x.DescriptionProduct).Must(DescriptionProduct => IsStringContainsNumbers(DescriptionProduct))
             .WithMessage("Pole Opis Produktu nie może zawierać cyfr!");
@@ -17,12 +18,12 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
         RuleFor(x => x.BarNumber).NotEmpty()
 
             .WithMessage("Pole numer kreskowy nie może być puste!").DependentRules(() =>
-                        RuleFor(x => x.BarNumber).Must(BarNumber => IsExistingBarNumberNotExist(BarNumber))
+                        RuleFor(x => x.BarNumber).Must(BarNumber => IsExistingBarNumberNotExist(BarNumber,connectionString))
                             .WithMessage("Podany numer kreskowy znajduje się już w bazie!"));
 
-        RuleFor(x => x.OfferPrice).NotEmpty()
+        RuleFor(x => x.CurrentSellingPrice).NotEmpty()
             .WithMessage("Pole Cena Sprzedaży nie może być puste!").DependentRules(() =>
-                RuleFor(x => x.OfferPrice).Must(OfferPrice => IsPriceIsGreaterThan0(OfferPrice))
+                RuleFor(x => x.CurrentSellingPrice).Must(CurrentSellingPrice => IsPriceIsGreaterThan0(CurrentSellingPrice))
                     .WithMessage("Cena Sprzedaży musi być większa od 0!"));
 
         RuleFor(x => x.Quantity).NotEmpty()
@@ -33,9 +34,9 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 
         RuleFor(x => x.IdPurchaseMethod).NotEmpty().WithMessage("Pole Metoda Kupna nie może być pusta!");
 
-        RuleFor(x => x.Purchase.Price).NotEmpty()
+        RuleFor(x => x.Purchase.PurchasePrice).NotEmpty()
             .WithMessage("Pole Cena Zakupu nie może być puste!").DependentRules(() =>
-                RuleFor(x => x.Purchase.Price).Must(PurchasePrice => IsPriceIsGreaterThan0(PurchasePrice))
+                RuleFor(x => x.Purchase.PurchasePrice).Must(PurchasePrice => IsPriceIsGreaterThan0(PurchasePrice))
                     .WithMessage("Cena zakupu musi być większa od 0!"));
 
     }
@@ -58,9 +59,9 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 
     
 
-    private bool IsExistingBarNumberNotExist(int barNumber)
+    private bool IsExistingBarNumberNotExist(int barNumber,string connectionString)
     {
-        var barNumberValidate = new BarNumberExistingValidation(barNumber);
+        var barNumberValidate = new BarNumberExistingValidation(barNumber,connectionString);
         var result = barNumberValidate.IsGivenBarNumberExist();
         if (result)
             return false;

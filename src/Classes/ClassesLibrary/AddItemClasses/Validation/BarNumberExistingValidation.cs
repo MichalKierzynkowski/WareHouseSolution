@@ -12,15 +12,16 @@ namespace ClassesLibrary.AddItemClasses.Validation
 {
     public class BarNumberExistingValidation
     {
-        
-        public BarNumberExistingValidation(int  barNumber)
+        public string ConnectionString { get; set; }
+        public BarNumberExistingValidation(int  barNumber, string connectionString)
         {
             BarNumber = barNumber;
+            ConnectionString = connectionString;
         }
         public int  BarNumber { get; set; }
 
         
-        public string ConnectionString { get; set; } = "Data Source=DESKTOP-4NURNJC; Initial Catalog=WareHouse;Trusted_Connection=True; Integrated Security=SSPI;Persist Security Info=False;Encrypt=False;TrustServerCertificate=True;";
+        
 
 
         public bool IsGivenBarNumberExist( )

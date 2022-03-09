@@ -17,16 +17,15 @@ public partial class MainMenu : Form
    
 
     public MainMenu ObjMainMenu { get; private set; }
-    public ReturnSqlConnection objReturnSql { get; set; }
+   
    
 
-    private  IReturnSql _returnSqlConnection;
+   
     public MainMenu()
     {
         InitializeComponent();
-        objReturnSql = new ReturnSqlConnection();
-        _returnSqlConnection = (IReturnSql)WareHouseApplication.Program.ServiceProvider.GetService(typeof(IReturnSql));
-        string test = _returnSqlConnection.ReturnSql();
+       
+        
     }       
 
     private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,8 +104,8 @@ public partial class MainMenu : Form
 
     private void edycjaMagazynuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-    //    var obj = new EditWareHouse(connectionString);
-    //    obj.Show();
+       //var obj = new EditWareHouse();
+       //obj.Show();
     }
 
     private void informacjeOWersjiToolStripMenuItem_Click(object sender, EventArgs e)

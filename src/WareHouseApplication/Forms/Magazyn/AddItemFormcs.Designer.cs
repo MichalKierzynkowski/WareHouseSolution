@@ -57,8 +57,8 @@ namespace WareHouseApplication.Forms.Magazyn
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.AvailabilityButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.OfferPriceNumeric = new System.Windows.Forms.NumericUpDown();
-            this.SellPriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.PurchasePriceBox = new System.Windows.Forms.NumericUpDown();
+            this.CurrentSellingPriceBox = new System.Windows.Forms.NumericUpDown();
             this.AmountOfProductTBox = new System.Windows.Forms.NumericUpDown();
             this.BarNumberTBox = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
@@ -70,8 +70,8 @@ namespace WareHouseApplication.Forms.Magazyn
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OfferPriceNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PurchasePriceBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentSellingPriceBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfProductTBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BarNumberTBox)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +83,7 @@ namespace WareHouseApplication.Forms.Magazyn
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(-1, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(901, 121);
+            this.panel1.Size = new System.Drawing.Size(901, 107);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -91,9 +91,9 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label1.AutoSize = true;
             this.label1.CausesValidation = false;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(354, 31);
+            this.label1.Location = new System.Drawing.Point(354, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 45);
+            this.label1.Size = new System.Drawing.Size(224, 41);
             this.label1.TabIndex = 2;
             this.label1.Text = "Dodaj Produkt";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,7 +101,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(269, 31);
+            this.pictureBox2.Location = new System.Drawing.Point(269, 27);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -112,9 +112,9 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(170, 212);
+            this.label2.Location = new System.Drawing.Point(170, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 25);
+            this.label2.Size = new System.Drawing.Size(114, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Opis Produktu";
             // 
@@ -122,9 +122,9 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(170, 287);
+            this.label3.Location = new System.Drawing.Point(170, 253);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 25);
+            this.label3.Size = new System.Drawing.Size(130, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "Rodzaj Produktu";
             // 
@@ -132,9 +132,9 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(170, 363);
+            this.label4.Location = new System.Drawing.Point(170, 320);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 25);
+            this.label4.Size = new System.Drawing.Size(114, 21);
             this.label4.TabIndex = 3;
             this.label4.Text = "Kod Kreskowy";
             // 
@@ -142,9 +142,9 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(170, 449);
+            this.label5.Location = new System.Drawing.Point(170, 396);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 25);
+            this.label5.Size = new System.Drawing.Size(118, 21);
             this.label5.TabIndex = 4;
             this.label5.Text = "Metoda Kupna";
             // 
@@ -152,18 +152,18 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(170, 528);
+            this.label7.Location = new System.Drawing.Point(170, 466);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(222, 25);
+            this.label7.Size = new System.Drawing.Size(194, 21);
             this.label7.TabIndex = 6;
             this.label7.Text = "Cena sprzedaży produktu";
             // 
             // ProductDescriptionTBox
             // 
-            this.ProductDescriptionTBox.Location = new System.Drawing.Point(424, 220);
+            this.ProductDescriptionTBox.Location = new System.Drawing.Point(424, 194);
             this.ProductDescriptionTBox.Multiline = true;
             this.ProductDescriptionTBox.Name = "ProductDescriptionTBox";
-            this.ProductDescriptionTBox.Size = new System.Drawing.Size(287, 26);
+            this.ProductDescriptionTBox.Size = new System.Drawing.Size(287, 23);
             this.ProductDescriptionTBox.TabIndex = 7;
             // 
             // BuyMethodWordCBox
@@ -173,17 +173,17 @@ namespace WareHouseApplication.Forms.Magazyn
             this.BuyMethodWordCBox.Items.AddRange(new object[] {
             "Faktura",
             "Paragon"});
-            this.BuyMethodWordCBox.Location = new System.Drawing.Point(514, 447);
+            this.BuyMethodWordCBox.Location = new System.Drawing.Point(514, 394);
             this.BuyMethodWordCBox.Name = "BuyMethodWordCBox";
-            this.BuyMethodWordCBox.Size = new System.Drawing.Size(196, 25);
+            this.BuyMethodWordCBox.Size = new System.Drawing.Size(196, 23);
             this.BuyMethodWordCBox.TabIndex = 10;
             this.BuyMethodWordCBox.SelectedValueChanged += new System.EventHandler(this.MetodaKupnaWyrazCBox_SelectedValueChanged);
             // 
             // AddProductButton
             // 
-            this.AddProductButton.Location = new System.Drawing.Point(619, 745);
+            this.AddProductButton.Location = new System.Drawing.Point(619, 657);
             this.AddProductButton.Name = "AddProductButton";
-            this.AddProductButton.Size = new System.Drawing.Size(123, 65);
+            this.AddProductButton.Size = new System.Drawing.Size(123, 57);
             this.AddProductButton.TabIndex = 13;
             this.AddProductButton.Text = "Dodaj Produkt";
             this.AddProductButton.UseVisualStyleBackColor = true;
@@ -191,9 +191,9 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(361, 745);
+            this.CancelButton.Location = new System.Drawing.Point(361, 657);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(123, 65);
+            this.CancelButton.Size = new System.Drawing.Size(123, 57);
             this.CancelButton.TabIndex = 14;
             this.CancelButton.Text = "Anuluj";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -203,9 +203,9 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(172, 647);
+            this.label8.Location = new System.Drawing.Point(172, 571);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(132, 25);
+            this.label8.Size = new System.Drawing.Size(115, 21);
             this.label8.TabIndex = 15;
             this.label8.Text = "Ilość Produktu";
             // 
@@ -258,9 +258,9 @@ namespace WareHouseApplication.Forms.Magazyn
             "42",
             "43",
             "55"});
-            this.ProductTypeDigitCBox.Location = new System.Drawing.Point(424, 294);
+            this.ProductTypeDigitCBox.Location = new System.Drawing.Point(424, 259);
             this.ProductTypeDigitCBox.Name = "ProductTypeDigitCBox";
-            this.ProductTypeDigitCBox.Size = new System.Drawing.Size(46, 25);
+            this.ProductTypeDigitCBox.Size = new System.Drawing.Size(46, 23);
             this.ProductTypeDigitCBox.TabIndex = 17;
             this.ProductTypeDigitCBox.SelectedValueChanged += new System.EventHandler(this.comboBox2_SelectedValueChanged);
             // 
@@ -313,9 +313,9 @@ namespace WareHouseApplication.Forms.Magazyn
             "Zegarek",
             "Apaszka",
             "Perfumy"});
-            this.ProductTypeWordCBox.Location = new System.Drawing.Point(514, 294);
+            this.ProductTypeWordCBox.Location = new System.Drawing.Point(514, 259);
             this.ProductTypeWordCBox.Name = "ProductTypeWordCBox";
-            this.ProductTypeWordCBox.Size = new System.Drawing.Size(196, 25);
+            this.ProductTypeWordCBox.Size = new System.Drawing.Size(196, 23);
             this.ProductTypeWordCBox.TabIndex = 18;
             this.ProductTypeWordCBox.SelectedValueChanged += new System.EventHandler(this.comboBox3_SelectedValueChanged);
             // 
@@ -326,9 +326,9 @@ namespace WareHouseApplication.Forms.Magazyn
             this.BuyMethodDigitCBox.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.BuyMethodDigitCBox.Location = new System.Drawing.Point(424, 449);
+            this.BuyMethodDigitCBox.Location = new System.Drawing.Point(424, 396);
             this.BuyMethodDigitCBox.Name = "BuyMethodDigitCBox";
-            this.BuyMethodDigitCBox.Size = new System.Drawing.Size(46, 25);
+            this.BuyMethodDigitCBox.Size = new System.Drawing.Size(46, 23);
             this.BuyMethodDigitCBox.TabIndex = 19;
             this.BuyMethodDigitCBox.SelectedValueChanged += new System.EventHandler(this.MetodaKupnaCyfraCBox_SelectedValueChanged);
             // 
@@ -340,7 +340,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // ProductDescriptionInfo
             // 
             this.ProductDescriptionInfo.Image = ((System.Drawing.Image)(resources.GetObject("ProductDescriptionInfo.Image")));
-            this.ProductDescriptionInfo.Location = new System.Drawing.Point(715, 220);
+            this.ProductDescriptionInfo.Location = new System.Drawing.Point(715, 194);
             this.ProductDescriptionInfo.Name = "ProductDescriptionInfo";
             this.ProductDescriptionInfo.Size = new System.Drawing.Size(25, 25);
             this.ProductDescriptionInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -351,7 +351,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // ProductTypeInfo
             // 
             this.ProductTypeInfo.Image = ((System.Drawing.Image)(resources.GetObject("ProductTypeInfo.Image")));
-            this.ProductTypeInfo.Location = new System.Drawing.Point(715, 294);
+            this.ProductTypeInfo.Location = new System.Drawing.Point(715, 259);
             this.ProductTypeInfo.Name = "ProductTypeInfo";
             this.ProductTypeInfo.Size = new System.Drawing.Size(25, 25);
             this.ProductTypeInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -363,7 +363,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // BarNumberInfo
             // 
             this.BarNumberInfo.Image = ((System.Drawing.Image)(resources.GetObject("BarNumberInfo.Image")));
-            this.BarNumberInfo.Location = new System.Drawing.Point(715, 367);
+            this.BarNumberInfo.Location = new System.Drawing.Point(715, 324);
             this.BarNumberInfo.Name = "BarNumberInfo";
             this.BarNumberInfo.Size = new System.Drawing.Size(25, 25);
             this.BarNumberInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -375,7 +375,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // BuyMethodInfo
             // 
             this.BuyMethodInfo.Image = ((System.Drawing.Image)(resources.GetObject("BuyMethodInfo.Image")));
-            this.BuyMethodInfo.Location = new System.Drawing.Point(715, 446);
+            this.BuyMethodInfo.Location = new System.Drawing.Point(715, 394);
             this.BuyMethodInfo.Name = "BuyMethodInfo";
             this.BuyMethodInfo.Size = new System.Drawing.Size(25, 25);
             this.BuyMethodInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -386,7 +386,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // SellPriceInfo
             // 
             this.SellPriceInfo.Image = ((System.Drawing.Image)(resources.GetObject("SellPriceInfo.Image")));
-            this.SellPriceInfo.Location = new System.Drawing.Point(715, 536);
+            this.SellPriceInfo.Location = new System.Drawing.Point(715, 473);
             this.SellPriceInfo.Name = "SellPriceInfo";
             this.SellPriceInfo.Size = new System.Drawing.Size(25, 25);
             this.SellPriceInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -398,7 +398,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // AmountProductInfo
             // 
             this.AmountProductInfo.Image = ((System.Drawing.Image)(resources.GetObject("AmountProductInfo.Image")));
-            this.AmountProductInfo.Location = new System.Drawing.Point(715, 650);
+            this.AmountProductInfo.Location = new System.Drawing.Point(715, 574);
             this.AmountProductInfo.Name = "AmountProductInfo";
             this.AmountProductInfo.Size = new System.Drawing.Size(25, 25);
             this.AmountProductInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -410,7 +410,7 @@ namespace WareHouseApplication.Forms.Magazyn
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(715, 596);
+            this.pictureBox3.Location = new System.Drawing.Point(715, 526);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(25, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -421,9 +421,9 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             // AvailabilityButton
             // 
-            this.AvailabilityButton.Location = new System.Drawing.Point(490, 745);
+            this.AvailabilityButton.Location = new System.Drawing.Point(490, 657);
             this.AvailabilityButton.Name = "AvailabilityButton";
-            this.AvailabilityButton.Size = new System.Drawing.Size(123, 65);
+            this.AvailabilityButton.Size = new System.Drawing.Size(123, 57);
             this.AvailabilityButton.TabIndex = 27;
             this.AvailabilityButton.Text = "Sprawdz Dostępność Produktu";
             this.AvailabilityButton.UseVisualStyleBackColor = true;
@@ -433,52 +433,72 @@ namespace WareHouseApplication.Forms.Magazyn
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(170, 589);
+            this.label6.Location = new System.Drawing.Point(170, 520);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(203, 25);
+            this.label6.Size = new System.Drawing.Size(174, 21);
             this.label6.TabIndex = 28;
             this.label6.Text = "Cena Zakupu Produktu";
             // 
-            // OfferPriceNumeric
+            // PurchasePriceBox
             // 
-            this.OfferPriceNumeric.DecimalPlaces = 2;
-            this.OfferPriceNumeric.Location = new System.Drawing.Point(424, 596);
-            this.OfferPriceNumeric.Name = "OfferPriceNumeric";
-            this.OfferPriceNumeric.Size = new System.Drawing.Size(285, 25);
-            this.OfferPriceNumeric.TabIndex = 32;
+            this.PurchasePriceBox.DecimalPlaces = 2;
+            this.PurchasePriceBox.Location = new System.Drawing.Point(424, 526);
+            this.PurchasePriceBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.PurchasePriceBox.Name = "PurchasePriceBox";
+            this.PurchasePriceBox.Size = new System.Drawing.Size(285, 23);
+            this.PurchasePriceBox.TabIndex = 32;
             // 
-            // SellPriceNumeric
+            // CurrentSellingPriceBox
             // 
-            this.SellPriceNumeric.DecimalPlaces = 2;
-            this.SellPriceNumeric.Location = new System.Drawing.Point(424, 536);
-            this.SellPriceNumeric.Name = "SellPriceNumeric";
-            this.SellPriceNumeric.Size = new System.Drawing.Size(287, 25);
-            this.SellPriceNumeric.TabIndex = 33;
+            this.CurrentSellingPriceBox.DecimalPlaces = 2;
+            this.CurrentSellingPriceBox.Location = new System.Drawing.Point(424, 473);
+            this.CurrentSellingPriceBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.CurrentSellingPriceBox.Name = "CurrentSellingPriceBox";
+            this.CurrentSellingPriceBox.Size = new System.Drawing.Size(287, 23);
+            this.CurrentSellingPriceBox.TabIndex = 33;
             // 
             // AmountOfProductTBox
             // 
-            this.AmountOfProductTBox.Location = new System.Drawing.Point(424, 651);
+            this.AmountOfProductTBox.Location = new System.Drawing.Point(424, 574);
+            this.AmountOfProductTBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.AmountOfProductTBox.Name = "AmountOfProductTBox";
-            this.AmountOfProductTBox.Size = new System.Drawing.Size(285, 25);
+            this.AmountOfProductTBox.Size = new System.Drawing.Size(285, 23);
             this.AmountOfProductTBox.TabIndex = 34;
             // 
             // BarNumberTBox
             // 
-            this.BarNumberTBox.Location = new System.Drawing.Point(424, 367);
+            this.BarNumberTBox.Location = new System.Drawing.Point(424, 324);
+            this.BarNumberTBox.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.BarNumberTBox.Name = "BarNumberTBox";
-            this.BarNumberTBox.Size = new System.Drawing.Size(286, 25);
+            this.BarNumberTBox.Size = new System.Drawing.Size(286, 23);
             this.BarNumberTBox.TabIndex = 35;
             // 
             // AddItemFormcs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(900, 861);
+            this.ClientSize = new System.Drawing.Size(900, 760);
             this.Controls.Add(this.BarNumberTBox);
             this.Controls.Add(this.AmountOfProductTBox);
-            this.Controls.Add(this.SellPriceNumeric);
-            this.Controls.Add(this.OfferPriceNumeric);
+            this.Controls.Add(this.CurrentSellingPriceBox);
+            this.Controls.Add(this.PurchasePriceBox);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.AvailabilityButton);
@@ -517,8 +537,8 @@ namespace WareHouseApplication.Forms.Magazyn
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OfferPriceNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PurchasePriceBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentSellingPriceBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfProductTBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BarNumberTBox)).EndInit();
             this.ResumeLayout(false);
@@ -554,8 +574,8 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.Button AvailabilityButton;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown OfferPriceNumeric;
-        private System.Windows.Forms.NumericUpDown SellPriceNumeric;
+        private System.Windows.Forms.NumericUpDown PurchasePriceBox;
+        private System.Windows.Forms.NumericUpDown CurrentSellingPriceBox;
         private System.Windows.Forms.NumericUpDown AmountOfProductTBox;
         private System.Windows.Forms.NumericUpDown BarNumberTBox;
     }

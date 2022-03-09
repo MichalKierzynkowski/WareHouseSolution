@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using ClassesLibrary.AddItemClasses.Validation;
+using ClassesLibrary.SqlClassesInterfaces;
 using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
@@ -15,20 +16,18 @@ namespace WareHouseApplication.Forms.Magazyn;
 public partial class AddItemFormcs : Form
 {
     public string ConnectionString { get; set; }
-  
+    private IReturnSql _returnSql;
     public AddItemFormcs(MainMenu objMainMenu)
     {
         InitializeComponent();
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-        TestingMethod();
+        _returnSql = (IReturnSql)WareHouseApplication.Program.ServiceProvider.GetService(typeof(IReturnSql));
+        ConnectionString = _returnSql.ReturnSql();
 
 
     }
-    public void TestingMethod()
-    {
-
-    }
+    
 
     public MainMenu ObjMainMenu { get; }
 
@@ -83,16 +82,16 @@ public partial class AddItemFormcs : Form
 
     public void HidingArrowsInNumerics()
     {
-        SellPriceNumeric.Controls[0].Visible = false;
-        OfferPriceNumeric.Controls[0].Visible = false;
+        CurrentSellingPriceBox.Controls[0].Visible = false;
+        PurchasePriceBox.Controls[0].Visible = false;
         AmountOfProductTBox.Controls[0].Visible = false;
         BarNumberTBox.Controls[0].Visible = false;
     }
     private void ClearingMenu()
     {
         BarNumberTBox.Value = 0;
-        SellPriceNumeric.Value = 0;
-        OfferPriceNumeric.Value = 0;
+        CurrentSellingPriceBox.Value = 0;
+        PurchasePriceBox.Value = 0;
         AmountOfProductTBox.Value = 0;
        
         ProductDescriptionTBox.Clear();
@@ -173,7 +172,7 @@ public partial class AddItemFormcs : Form
             DescriptionProduct = ProductDescriptionTBox.Text,
             IdTypeProduct = ProductTypeDigitCBox.Text,
             BarNumber = (int)BarNumberTBox.Value,
-            OfferPrice = OfferPriceNumeric.Value,
+            CurrentSellingPrice = CurrentSellingPriceBox.Value,
             IsReturned = false,
             Quantity = (int)AmountOfProductTBox.Value,
             IdPurchaseMethod = BuyMethodDigitCBox.Text,
@@ -181,7 +180,7 @@ public partial class AddItemFormcs : Form
             {
                 Amount = (int)AmountOfProductTBox.Value,
                 DatePurchase = DateTime.UtcNow.Date,
-                Price=SellPriceNumeric.Value,
+                PurchasePrice=PurchasePriceBox.Value,
                IdPurchase = Guid.NewGuid(),
                IdProduct = idProductGuid
             }
@@ -207,7 +206,7 @@ public partial class AddItemFormcs : Form
 
     private  ValidationResult ValidateAddProduct(Product product)
     {
-        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
+        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate(ConnectionString);
         var result = addProductValidate.Validate(product);
         return result;
 

@@ -11,15 +11,20 @@ using Xunit;
 using FluentAssertions;
 using Microsoft.Data.SqlClient;
 using WareHouse.Data.SqlModels;
+using ClassesLibrary.SqlClassesInterfaces;
+
 namespace WareHouseApplicationTests.Forms.Product;
 
 public class AddProductTesting
 {
     public WareHouse.Data.SqlModels.Product Product { get; set; }
-
    
+
     public AddProductTesting()
     {
+        
+       
+
         Product = new WareHouse.Data.SqlModels.Product()
         {
             DescriptionProduct ="sa",
@@ -45,7 +50,7 @@ public class AddProductTesting
     [Fact]
     public void AddProductTestShouldBeFalse()
     {
-        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
+        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate("Data Source=DESKTOP-4NURNJC; Initial Catalog=WareHouse;Trusted_Connection=True; Integrated Security=SSPI;Persist Security Info=False;Encrypt=False;TrustServerCertificate=True;");
         var result = addProductValidate.Validate(Product);
         result.IsValid.Should().BeFalse();
     }

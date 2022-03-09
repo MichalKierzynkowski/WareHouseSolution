@@ -9,5 +9,5 @@ public class Purchase
     public Guid IdProduct { get; set; }
     public DateTime DatePurchase { get; set; }
     public int Amount { get; set; }
-    public decimal Price { get; set; }
+    public decimal PurchasePrice { get; set; }
 }
