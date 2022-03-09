@@ -11,4 +11,5 @@ public class ReturnSqlConnection : IReturnSql
     {
         return "Data Source=DESKTOP-GI0C1PC\\SQLEXPRESS;; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
     }
+   
 }

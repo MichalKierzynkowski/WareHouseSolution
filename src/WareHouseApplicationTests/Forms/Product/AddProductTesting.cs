@@ -17,8 +17,7 @@ public class AddProductTesting
 {
     public WareHouse.Data.SqlModels.Product Product { get; set; }
 
-    public string ConnectionString { get; set; } =
-        "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;User ID =DESKTOP-DQ7DARP\\Michal; Integrated Security=SSPI;Persist Security Info=False;Encrypt=True;TrustServerCertificate=True;";
+   
     public AddProductTesting()
     {
         Product = new WareHouse.Data.SqlModels.Product()

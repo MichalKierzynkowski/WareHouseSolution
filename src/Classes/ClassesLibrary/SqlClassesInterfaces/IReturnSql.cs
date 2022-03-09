@@ -1,7 +1,8 @@
 ﻿namespace ClassesLibrary.SqlClassesInterfaces;
 
-public interface IReturnSql
+public  interface IReturnSql
 {
     string ReturnSqlPc();
     string ReturnSqlLaptop();
+    
 }

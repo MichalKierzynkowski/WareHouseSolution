@@ -6,41 +6,38 @@ using WareHouseApplication.Forms;
 using System.Configuration;
 using Microsoft.Extensions.Configuration;
 using Configuration = System.Configuration.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using ClassesLibrary.SqlClassesInterfaces;
 
 namespace WareHouseApplication;
 
 static class Program
 {
-    public static  IConfigurationRoot Configuration { get; }
+    public static IConfiguration Configuration;
+    public static IServiceProvider ServiceProvider { get; set; }
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
     [STAThread]
     static void Main()
     {
-        
-        Application.SetHighDpiMode(HighDpiMode.SystemAware);
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-
-        var services = new ServiceCollection();
-
-        ConfigureServices(services);
-
-        using (ServiceProvider serviceProvider = services.BuildServiceProvider())
-        {
-            var form1 = serviceProvider.GetRequiredService<MainMenu>();
-            Application.Run(form1);
+        ConfigureServices();
+        Application.Run(new MainMenu());
 
 
-        }
+
+
     }
-
-    private static void ConfigureServices(ServiceCollection services)
+    static void ConfigureServices()
     {
-        services.AddScoped<MainMenu>();
+        var services = new ServiceCollection();
+        services.AddTransient<IReturnSql,ReturnSqlConnection>();
+        ServiceProvider = services.BuildServiceProvider();
        
-        
-
     }
+
+
 }

@@ -21,7 +21,12 @@ public partial class AddItemFormcs : Form
         InitializeComponent();
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-       
+        TestingMethod();
+
+
+    }
+    public void TestingMethod()
+    {
 
     }
 

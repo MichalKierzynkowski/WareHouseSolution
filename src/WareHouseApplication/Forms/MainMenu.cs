@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using ClassesLibrary.SqlClassesInterfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using WareHouseApplication.Forms.Magazyn;
 using WareHouseApplication.Forms.Program;
 using WareHouseApplication.Forms.Sale;
@@ -16,12 +18,16 @@ public partial class MainMenu : Form
 
     public MainMenu ObjMainMenu { get; private set; }
     public ReturnSqlConnection objReturnSql { get; set; }
+   
+
+    private  IReturnSql _returnSqlConnection;
     public MainMenu()
     {
         InitializeComponent();
         objReturnSql = new ReturnSqlConnection();
-       
-    }
+        _returnSqlConnection = (IReturnSql)WareHouseApplication.Program.ServiceProvider.GetService(typeof(IReturnSql));
+        string test = _returnSqlConnection.ReturnSqlLaptop();
+    }       
 
     private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -60,8 +66,8 @@ public partial class MainMenu : Form
 
     private void MainMenu_Load(object sender, EventArgs e)
     {
-        var objMainMenu = new MainMenu();
-        this.ObjMainMenu = objMainMenu;
+        //var objMainMenu = new MainMenu();
+        //this.ObjMainMenu = objMainMenu;
         //this.Location= Screen.AllScreens[0].WorkingArea.Location;
     }
 

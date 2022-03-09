@@ -19,9 +19,8 @@ namespace ClassesLibrary.AddItemClasses.Validation
         }
         public int  BarNumber { get; set; }
 
-        public string ConnectionString { get; set; } =
-            "Data Source=DESKTOP-GI0C1PC\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
-
+        
+        public string ConnectionString { get; set; } = "Data Source=DESKTOP-4NURNJC; Initial Catalog=WareHouse;Trusted_Connection=True; Integrated Security=SSPI;Persist Security Info=False;Encrypt=False;TrustServerCertificate=True;";
 
 
         public bool IsGivenBarNumberExist( )
