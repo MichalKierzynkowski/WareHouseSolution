@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WareHouse.Data.SqlModels;
-
+using Dapper;
 namespace ClassesLibrary.AddItemClasses.Queries
 {
     public class AddProductAndPurchaseToDataBase
@@ -18,25 +18,24 @@ namespace ClassesLibrary.AddItemClasses.Queries
         public AddProductAndPurchaseToDataBase(Product product,string connectionString)
         {
             ConnectionString = connectionString;
-            Product= product; 
-            Product.Purchase = Purchase;
+            Product= product;
+            Purchase = Product.Purchase;
+            AddProduct();
         }
 
         public void AddProduct()
         {
 
-            
-
-            string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
-
-            SqlConnection cnn = new SqlConnection(ConnectionString);
-            SqlCommand cmd = new SqlCommand(insertSql, cnn);
-
            
-            
-            cnn.Open();
-            cmd.ExecuteNonQuery();
-            cnn.Close();
+            string insertSql = @"INSERT INTO Product (IdProduct,IdTypeProduct,BarNumber,DescriptionProduct,IdPurchaseMethod,Quantity,CurrentSellingPrice,IsReturned) values
+            (@IdProduct,@IdTypeProduct,@BarNumber,@DescriptionProduct,@IdPurchaseMethod,@Quantity,@CurrentSellingPrice,@IsReturned);";
+            using(var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                connection.Execute(insertSql,Product);
+                connection.Close();
+            }
+          
         }
         public void AddPurchase()
         {

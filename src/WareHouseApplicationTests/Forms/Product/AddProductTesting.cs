@@ -12,6 +12,7 @@ using FluentAssertions;
 using Microsoft.Data.SqlClient;
 using WareHouse.Data.SqlModels;
 using ClassesLibrary.SqlClassesInterfaces;
+using ClassesLibrary.AddItemClasses.Queries;
 
 namespace WareHouseApplicationTests.Forms.Product;
 
@@ -27,10 +28,11 @@ public class AddProductTesting
 
         Product = new WareHouse.Data.SqlModels.Product()
         {
+            IdProduct = Guid.NewGuid(),
             DescriptionProduct ="sa",
             IdTypeProduct = "1",
             BarNumber = 312421412,
-            OfferPrice = 3,
+            CurrentSellingPrice = 3,
             IsReturned = false,
             Quantity = 2,
             IdPurchaseMethod ="2",
@@ -40,7 +42,7 @@ public class AddProductTesting
                 DatePurchase = DateTime.UtcNow,
                 IdProduct = new Guid(),
                 IdPurchase = new Guid(),
-                Price = 0
+                PurchasePrice = 0
             }
             
            
@@ -54,7 +56,12 @@ public class AddProductTesting
         var result = addProductValidate.Validate(Product);
         result.IsValid.Should().BeFalse();
     }
+    [Fact]
+    public void AddProductToDataBaseTest()
+    {
+        AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(Product, "Data Source=DESKTOP-4NURNJC; Initial Catalog=WareHouse;Trusted_Connection=True; Integrated Security=SSPI;Persist Security Info=False;Encrypt=False;TrustServerCertificate=True;");
 
+    }
     
     
 }
