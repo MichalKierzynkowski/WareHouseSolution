@@ -39,7 +39,7 @@ static class Program
     private static void ConfigureServices(ServiceCollection services)
     {
         services.AddScoped<MainMenu>();
-        services.AddSingleton<IConfiguration>(Configuration);
+       
         
 
     }

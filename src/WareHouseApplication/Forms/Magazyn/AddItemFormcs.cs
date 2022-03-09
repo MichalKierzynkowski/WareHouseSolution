@@ -16,12 +16,12 @@ public partial class AddItemFormcs : Form
 {
     public string ConnectionString { get; set; }
   
-    public AddItemFormcs(MainMenu objMainMenu,string connectionString)
+    public AddItemFormcs(MainMenu objMainMenu)
     {
         InitializeComponent();
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-       ConnectionString = connectionString;
+       
 
     }
 
@@ -72,7 +72,7 @@ public partial class AddItemFormcs : Form
 
     public void DostepnoscButton_Click(object sender, EventArgs e)
     {
-        var validateObj = new BarNumberValidation(ConnectionString,BarNumberTBox.Value);
+        var validateObj = new BarNumberValidation(BarNumberTBox.Value);
 
     }
 

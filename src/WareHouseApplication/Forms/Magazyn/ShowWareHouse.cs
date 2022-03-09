@@ -17,7 +17,7 @@ public partial class ShowWareHouse : Form
     private int? BarNumberInt;
     private string IsReturning;
 
-    public ShowWareHouse(MainMenu objMainMenu, string connectionString)
+    public ShowWareHouse(MainMenu objMainMenu)
     {
         InitializeComponent();
         this.connectionString = connectionString;

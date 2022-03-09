@@ -10,9 +10,9 @@ namespace ClassesLibrary.AddItemClasses.Validation
     {
         
 
-        public BarNumberValidation(string connectionString, decimal barNumber) 
+        public BarNumberValidation( decimal barNumber)
         {
-            Value = value;
+            BarNumber = barNumber;
         }
 
         public string ConnectionString { get; }

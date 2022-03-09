@@ -24,10 +24,10 @@ public partial class AddSale : Form
     private int SelectedRow { get; set; }
     private int? SelecterBarNumber { get; set; }
 
-    public AddSale(string connectionString)
+    public AddSale()
     {
         InitializeComponent();
-        ConnectionString = connectionString;
+        
         DefaultFillingGridView();
         SellItemButton.Enabled = false; 
 

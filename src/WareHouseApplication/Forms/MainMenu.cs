@@ -12,7 +12,7 @@ public partial class MainMenu : Form
     int mov;
     int movX;
     int movY;
-    public string connectionString { get; set; }
+   
 
     public MainMenu ObjMainMenu { get; private set; }
     public ReturnSqlConnection objReturnSql { get; set; }
@@ -20,7 +20,7 @@ public partial class MainMenu : Form
     {
         InitializeComponent();
         objReturnSql = new ReturnSqlConnection();
-        connectionString = objReturnSql.ReturnSqlLaptop();
+       
     }
 
     private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,8 +38,10 @@ public partial class MainMenu : Form
 
     private void dodajProduktToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        var obj = new AddItemFormcs(ObjMainMenu, connectionString);
+        var obj = new AddItemFormcs(ObjMainMenu);
         obj.Show();
+       
+
 
     }
 
@@ -65,7 +67,7 @@ public partial class MainMenu : Form
 
     private void wyświetlMagazynToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        var obj = new ShowWareHouse(ObjMainMenu, connectionString);
+        var obj = new ShowWareHouse(ObjMainMenu);
         obj.Show();
     }
 
@@ -91,7 +93,7 @@ public partial class MainMenu : Form
 
     private void zwróćProduktToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        var obj = new ReturnForm(connectionString);
+        var obj = new ReturnForm();
         obj.Show();
     }
 
@@ -109,7 +111,7 @@ public partial class MainMenu : Form
 
     private void sprzedajPrzedmiotToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        var obj = new AddSale(connectionString);
+        var obj = new AddSale();
         obj.Show();
     }
 }
