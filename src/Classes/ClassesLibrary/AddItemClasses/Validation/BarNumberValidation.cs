@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
+using FluentValidation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +8,27 @@ using System.Threading.Tasks;
 
 namespace ClassesLibrary.AddItemClasses.Validation
 {
-    public class BarNumberValidation
+    public class BarNumberValidation:AbstractValidator<BarNumberModel>
     {
-        
-
-        public BarNumberValidation( decimal barNumber)
+        public BarNumberValidation(string connection)
         {
-            BarNumber = barNumber;
+
+            RuleFor(x => x.BarNumber).NotEmpty()
+
+           .WithMessage("Pole numer kreskowy nie może być puste!").DependentRules(() =>
+                       RuleFor(x => x.BarNumber).Must(BarNumber => IsExistingBarNumberNotExist(BarNumber, connection))
+                           .WithMessage("Podany numer kreskowy znajduje się już w bazie!"));
+
+
         }
 
-        public string ConnectionString { get; }
-        public decimal BarNumber { get; }
+        private bool IsExistingBarNumberNotExist(decimal barNumber, string connectionString)
+        {
+            var barNumberValidate = new BarNumberExistingValidation(barNumber, connectionString);
+            var result = barNumberValidate.IsGivenBarNumberExist();
+            if (result)
+                return false;
+            return true;
+        }
     }
 }

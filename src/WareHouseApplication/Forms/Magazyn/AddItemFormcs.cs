@@ -3,7 +3,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using ClassesLibrary.AddItemClasses.Queries;
 using ClassesLibrary.AddItemClasses.Validation;
+using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
 using ClassesLibrary.SqlClassesInterfaces;
 using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -76,8 +78,30 @@ public partial class AddItemFormcs : Form
 
     public void DostepnoscButton_Click(object sender, EventArgs e)
     {
-        var validateObj = new BarNumberValidation(BarNumberTBox.Value);
+        var barNumberObj = new BarNumberModel()
+        {
+            BarNumber=BarNumberTBox.Value
+        };
 
+        var result = ValidateBarNumber(barNumberObj);
+        if (!result.IsValid)
+        {
+            MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        else
+        {
+            MessageBox.Show("Podany numer kodu kreskowego nie jest przypisany do żadnego produktu!","Informacja",
+               MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+    }
+    public ValidationResult ValidateBarNumber(BarNumberModel barNumber)
+    {
+        BarNumberValidation barNumberValidation = new BarNumberValidation(ConnectionString);
+        var result = barNumberValidation.Validate(barNumber);
+        return result;
     }
 
     public void HidingArrowsInNumerics()
@@ -102,30 +126,7 @@ public partial class AddItemFormcs : Form
 
    
 
-    private void CreatingProduct()
-    {
-        var Type_Product = ProductTypeDigitCBox.Text;
-        var Bar_Number = BarNumberTBox.Text;
-        var Description = ProductDescriptionTBox.Text;
-        var Purchase_Method = BuyMethodDigitCBox.Text;
-        var Quantity = AmountOfProductTBox.Text;
-        //var OfferPrice = SellPriceTBox.Text;
-
-        string insertSql = @"INSERT INTO Product (Type_Product,Bar_Number,Description_Product,Purchase_Method,Quantity,Offer_Price,IsReturned) Values (@Type_Product,@Bar_Number,@Description,@Purchase_Method,@Quantity,@OfferPrice,'Nie');";
-
-        SqlConnection cnn = new SqlConnection(ConnectionString);
-        SqlCommand cmd = new SqlCommand(insertSql, cnn);
-
-        cmd.Parameters.AddWithValue("@Type_Product", Type_Product);
-        cmd.Parameters.AddWithValue("@Bar_Number", Bar_Number);
-        cmd.Parameters.AddWithValue("@Description", Description);
-        cmd.Parameters.AddWithValue("@Purchase_Method", Purchase_Method);
-        cmd.Parameters.AddWithValue("@Quantity", Quantity);
-      //  cmd.Parameters.AddWithValue("@OfferPrice", Convert.ToDouble(OfferPrice));
-        cnn.Open();
-        cmd.ExecuteNonQuery();
-        cnn.Close();
-    }
+  
 
     private void CreatingPurchase()
     {
@@ -178,9 +179,9 @@ public partial class AddItemFormcs : Form
             IdPurchaseMethod = BuyMethodDigitCBox.Text,
             Purchase = new Purchase
             {
-                Amount = (int)AmountOfProductTBox.Value,
-                DatePurchase = DateTime.UtcNow.Date,
-                PurchasePrice=PurchasePriceBox.Value,
+               Amount = (int)AmountOfProductTBox.Value,
+               DatePurchase = DateTime.UtcNow.Date,
+               PurchasePrice=PurchasePriceBox.Value,
                IdPurchase = Guid.NewGuid(),
                IdProduct = idProductGuid
             }
@@ -199,7 +200,11 @@ public partial class AddItemFormcs : Form
         }
         else
         {
+
+            AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(product,ConnectionString);
                 SuccessfullyProductAdded();
+
+
         }
 
     }

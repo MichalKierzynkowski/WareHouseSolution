@@ -13,12 +13,12 @@ namespace ClassesLibrary.AddItemClasses.Validation
     public class BarNumberExistingValidation
     {
         public string ConnectionString { get; set; }
-        public BarNumberExistingValidation(int  barNumber, string connectionString)
+        public BarNumberExistingValidation(decimal  barNumber, string connectionString)
         {
             BarNumber = barNumber;
             ConnectionString = connectionString;
         }
-        public int  BarNumber { get; set; }
+        public decimal  BarNumber { get; set; }
 
         
         
