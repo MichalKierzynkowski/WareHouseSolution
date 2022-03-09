@@ -2,7 +2,7 @@
 
 public  interface IReturnSql
 {
-    string ReturnSqlPc();
-    string ReturnSqlLaptop();
+    string ReturnSql();
+  
     
 }

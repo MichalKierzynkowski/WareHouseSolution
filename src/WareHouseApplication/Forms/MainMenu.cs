@@ -26,7 +26,7 @@ public partial class MainMenu : Form
         InitializeComponent();
         objReturnSql = new ReturnSqlConnection();
         _returnSqlConnection = (IReturnSql)WareHouseApplication.Program.ServiceProvider.GetService(typeof(IReturnSql));
-        string test = _returnSqlConnection.ReturnSqlLaptop();
+        string test = _returnSqlConnection.ReturnSql();
     }       
 
     private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,8 +66,8 @@ public partial class MainMenu : Form
 
     private void MainMenu_Load(object sender, EventArgs e)
     {
-        //var objMainMenu = new MainMenu();
-        //this.ObjMainMenu = objMainMenu;
+        var objMainMenu = new MainMenu();
+        this.ObjMainMenu = objMainMenu;
         //this.Location= Screen.AllScreens[0].WorkingArea.Location;
     }
 
