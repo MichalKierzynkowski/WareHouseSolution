@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 using WareHouse.Data.AppConnection;
 using WareHouse.Data.SqlModels;
 using Dapper;
+using Microsoft.Data.SqlClient;
+
 namespace WareHouse.Data.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        public bool Delete(string productId)
+        public void Delete(string productId)
         {
             throw new NotImplementedException();
         }
@@ -27,14 +29,23 @@ namespace WareHouse.Data.Repository
             return db.Query<Product>("select * from Product", commandType: CommandType.Text);
         }
 
-        public bool Insert(Product product)
+        public Guid Insert(Product product)
+        {
+            using IDbConnection db = new SqlConnection(ReturnAppConection.ConnectionString);
+                if (db.State==ConnectionState.Closed)
+            {
+                db.Open();
+            }
+             db.Query<Product>(@"INSERT INTO Product (IdProduct,IdTypeProduct,BarNumber,DescriptionProduct,IdPurchaseMethod,Quantity,CurrentSellingPrice,IsReturned) values
+            (@IdProduct, @IdTypeProduct, @BarNumber, @DescriptionProduct, @IdPurchaseMethod, @Quantity, @CurrentSellingPrice, @IsReturned);",product);
+            return product.IdProduct;
+        }
+
+        public void Update(Product product)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Product product)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

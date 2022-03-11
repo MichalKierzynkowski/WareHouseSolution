@@ -9,6 +9,6 @@ namespace WareHouse.Data.AppConnection
 {
     public static class ReturnAppConection
     {
-        public static string ConnectionString => ConfigurationManager.ConnectionStrings["Michal"].ConnectionString;
+        public static string ConnectionString => ConfigurationManager.ConnectionStrings["cnwork"].ConnectionString;
     }
 }

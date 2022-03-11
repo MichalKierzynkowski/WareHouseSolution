@@ -10,8 +10,8 @@ namespace WareHouse.Data.Repository
     public interface IProductRepository
     {
         IEnumerable<Product> GetProducts();
-        bool Insert(Product product);
-        bool Update(Product product);
-        bool Delete(string productId);
+        Guid Insert(Product product);
+        void Update(Product product);
+        void Delete(string productId);
     }
 }

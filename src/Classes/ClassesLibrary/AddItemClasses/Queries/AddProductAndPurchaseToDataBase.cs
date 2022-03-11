@@ -19,7 +19,7 @@ namespace ClassesLibrary.AddItemClasses.Queries
         {
            
             Product= product;
-            Purchase = Product.Purchase;
+           // Purchase = Product.Purchase;
             AddProduct();
         }
 

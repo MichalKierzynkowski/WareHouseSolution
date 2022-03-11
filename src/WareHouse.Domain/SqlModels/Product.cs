@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Query.Internal;
+
 
 namespace WareHouse.Data.SqlModels;
 
@@ -17,6 +17,7 @@ public class Product
     public decimal CurrentSellingPrice { get; set; }
     public bool IsReturned { get; set; }
     public Purchase Purchase { get; set; }
+
 
    
 }

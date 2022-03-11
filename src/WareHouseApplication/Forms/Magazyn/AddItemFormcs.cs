@@ -11,6 +11,7 @@ using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using WareHouse.Data.SqlModels;
+using WareHouse.Logic.AddItemClasses.Validation;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace WareHouseApplication.Forms.Magazyn;
@@ -123,35 +124,6 @@ public partial class AddItemFormcs : Form
         ProductTypeDigitCBox.SelectedIndex = -1;
     }
 
-   
-
-  
-
-    private void CreatingPurchase()
-    {
-        var Bar_Number = BarNumberTBox.Text;
-        var Quantity = AmountOfProductTBox.Text;
-        //var BuyingPrice = BuyPriceTBox.Text;
-       
-        string From_Product_Create = "Tak";
-        SqlConnection cnn2 = new SqlConnection();
-        DateTime Date_Purchase = DateTime.Now;
-        var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
-        SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
-        
-        cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
-        cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
-       // cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
-        cmdPurchase.Parameters.AddWithValue("@From_Product_Create",From_Product_Create);
-
-
-        cnn2.Open();
-        cmdPurchase.ExecuteNonQuery();
-        cnn2.Close();
-    }
-
-   
-
     private void SuccessfullyProductAdded()
     {
         ClearingMenu();
@@ -187,8 +159,9 @@ public partial class AddItemFormcs : Form
         };
 
 
+        ValidateAddProduct validateAddProduct = new ValidateAddProduct(product);
 
-        var result = ValidateAddProduct(product);
+        var result = validateAddProduct.ReturnValidatingResult();
         if (!result.IsValid)
         {
 
@@ -208,11 +181,5 @@ public partial class AddItemFormcs : Form
 
     }
 
-    private  ValidationResult ValidateAddProduct(Product product)
-    {
-        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
-        var result = addProductValidate.Validate(product);
-        return result;
-
-    }
+   
 }
