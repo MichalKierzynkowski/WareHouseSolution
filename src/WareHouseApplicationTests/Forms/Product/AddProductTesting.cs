@@ -13,6 +13,8 @@ using Microsoft.Data.SqlClient;
 using WareHouse.Data.SqlModels;
 
 using ClassesLibrary.AddItemClasses.Queries;
+using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
+using WareHouse.Logic.AddItemClasses.Validation;
 
 namespace WareHouseApplicationTests.Forms.Product;
 
@@ -29,9 +31,9 @@ public class AddProductTesting
         Product = new WareHouse.Data.SqlModels.Product()
         {
             IdProduct = Guid.NewGuid(),
-            DescriptionProduct ="sa",
+            DescriptionProduct ="sa sd",
             IdTypeProduct = "1",
-            BarNumber = 312421412,
+            BarNumber = 3,
             CurrentSellingPrice = 3,
             IsReturned = false,
             Quantity = 2,
@@ -54,14 +56,21 @@ public class AddProductTesting
     {
         AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
         var result = addProductValidate.Validate(Product);
+        var errros = result.Errors;
         result.IsValid.Should().BeFalse();
     }
+  
     [Fact]
-    public void AddProductToDataBaseTest()
+    public void DataBaseShouldContainsThatBarNumbers()
     {
-        AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(Product);
+        var barNumberObj = new BarNumberModel()
+        {
+            BarNumber = Product.BarNumber
+        };
 
+        ValidationBarNumber validationBarNumber = new ValidationBarNumber(barNumberObj);
+        var result = validationBarNumber.ReturnValidatingResult();
+        var errors = result.Errors;
     }
-    
     
 }

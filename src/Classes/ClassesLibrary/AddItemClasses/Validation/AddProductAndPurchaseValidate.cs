@@ -43,9 +43,8 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 
     private bool IsStringContainsNumbers(string value)
     {
-        if (!value.All(char.IsLetter)) return false;
-
-        return true;
+        value = value.Replace("", string.Empty);
+        return System.Text.RegularExpressions.Regex.IsMatch(value, @"^[a-zA-Z]+$");
     }
 
     

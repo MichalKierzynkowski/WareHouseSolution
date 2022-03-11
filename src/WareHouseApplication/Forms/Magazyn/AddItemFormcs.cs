@@ -19,13 +19,13 @@ namespace WareHouseApplication.Forms.Magazyn;
 public partial class AddItemFormcs : Form
 {
     
-   
+   private CreateProductAndPurchase _createProductAndPurchase { get; set; }
     public AddItemFormcs(MainMenu objMainMenu)
     {
         InitializeComponent();
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-        
+       
 
 
     }
@@ -83,7 +83,8 @@ public partial class AddItemFormcs : Form
             BarNumber=BarNumberTBox.Value
         };
 
-        var result = ValidateBarNumber(barNumberObj);
+        ValidationBarNumber validationBarNumber = new ValidationBarNumber(barNumberObj);
+        var result = validationBarNumber.ReturnValidatingResult();
         if (!result.IsValid)
         {
             MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
@@ -97,12 +98,7 @@ public partial class AddItemFormcs : Form
 
 
     }
-    public ValidationResult ValidateBarNumber(BarNumberModel barNumber)
-    {
-        BarNumberValidation barNumberValidation = new BarNumberValidation();
-        var result = barNumberValidation.Validate(barNumber);
-        return result;
-    }
+   
 
     public void HidingArrowsInNumerics()
     {
@@ -148,15 +144,17 @@ public partial class AddItemFormcs : Form
             IsReturned = false,
             Quantity = (int)AmountOfProductTBox.Value,
             IdPurchaseMethod = BuyMethodDigitCBox.Text,
+            AddedAt=DateTime.Now,
             Purchase = new Purchase
             {
                Amount = (int)AmountOfProductTBox.Value,
-               DatePurchase = DateTime.UtcNow.Date,
+               DatePurchase = DateTime.Now,
                PurchasePrice=PurchasePriceBox.Value,
                IdPurchase = Guid.NewGuid(),
                IdProduct = idProductGuid
             }
         };
+
 
 
         ValidateAddProduct validateAddProduct = new ValidateAddProduct(product);
@@ -173,7 +171,7 @@ public partial class AddItemFormcs : Form
         else
         {
 
-            AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(product);
+            _createProductAndPurchase = new CreateProductAndPurchase(product);
                 SuccessfullyProductAdded();
 
 

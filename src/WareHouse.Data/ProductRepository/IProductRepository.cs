@@ -10,7 +10,7 @@ namespace WareHouse.Data.Repository
     public interface IProductRepository
     {
         IEnumerable<Product> GetProducts();
-        Guid Insert(Product product);
+        void Insert(Product product);
         void Update(Product product);
         void Delete(string productId);
         bool CheckExistenceOfBarNumber(decimal barNumber);

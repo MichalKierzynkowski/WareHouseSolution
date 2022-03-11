@@ -42,16 +42,16 @@ namespace WareHouse.Data.Repository
             return db.Query<Product>("select * from Product", commandType: CommandType.Text);
         }
 
-        public Guid Insert(Product product)
+        public void Insert(Product product)
         {
             using IDbConnection db = new SqlConnection(ReturnAppConection.ConnectionString);
                 if (db.State==ConnectionState.Closed)
             {
                 db.Open();
             }
-             db.Query<Product>(@"INSERT INTO Product (IdProduct,IdTypeProduct,BarNumber,DescriptionProduct,IdPurchaseMethod,Quantity,CurrentSellingPrice,IsReturned) values
-            (@IdProduct, @IdTypeProduct, @BarNumber, @DescriptionProduct, @IdPurchaseMethod, @Quantity, @CurrentSellingPrice, @IsReturned);",product);
-            return product.IdProduct;
+             db.Query<Product>(@"INSERT INTO Product (IdProduct,IdTypeProduct,BarNumber,DescriptionProduct,IdPurchaseMethod,Quantity,CurrentSellingPrice,IsReturned,AddedAt) values
+            (@IdProduct, @IdTypeProduct, @BarNumber, @DescriptionProduct, @IdPurchaseMethod, @Quantity, @CurrentSellingPrice, @IsReturned,@AddedAt);",product);
+           
         }
 
         public void Update(Product product)
