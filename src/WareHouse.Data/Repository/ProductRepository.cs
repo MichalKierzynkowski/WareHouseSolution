@@ -14,6 +14,19 @@ namespace WareHouse.Data.Repository
 {
     public class ProductRepository : IProductRepository
     {
+        public bool CheckExistenceOfBarNumber(decimal barNumber)
+        {
+            using (var connection = new SqlConnection(ReturnAppConection.ConnectionString))
+            {
+                var exists = connection.Query<object>(
+                        "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE BarNumber = @barNumber)", new { barNumber })
+                    .Any();
+
+                connection.Close();
+                return exists;
+            }
+        }
+
         public void Delete(string productId)
         {
             throw new NotImplementedException();

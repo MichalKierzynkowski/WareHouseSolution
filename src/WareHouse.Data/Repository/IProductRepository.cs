@@ -13,5 +13,6 @@ namespace WareHouse.Data.Repository
         Guid Insert(Product product);
         void Update(Product product);
         void Delete(string productId);
+        bool CheckExistenceOfBarNumber(decimal barNumber);
     }
 }
