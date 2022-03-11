@@ -4,8 +4,10 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using ClassesLibrary.AddItemClasses.Queries;
-using ClassesLibrary.AddItemClasses.Validation;
 using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
+
+using WareHouse.Logic.AddItemClasses.Validation;
+
 
 using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
