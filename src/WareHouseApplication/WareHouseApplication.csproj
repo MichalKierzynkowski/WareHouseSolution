@@ -27,7 +27,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Classes\ClassesLibrary\ClassesLibrary.csproj" />
+    <ProjectReference Include="..\Classes\ClassesLibrary\WareHouse.Logic.csproj" />
     <ProjectReference Include="..\WareHouse.Data\WareHouse.Data.csproj" />
   </ItemGroup>
   <ItemGroup>

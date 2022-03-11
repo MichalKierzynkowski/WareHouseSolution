@@ -11,7 +11,7 @@ using Xunit;
 using FluentAssertions;
 using Microsoft.Data.SqlClient;
 using WareHouse.Data.SqlModels;
-using ClassesLibrary.SqlClassesInterfaces;
+
 using ClassesLibrary.AddItemClasses.Queries;
 
 namespace WareHouseApplicationTests.Forms.Product;
@@ -52,14 +52,14 @@ public class AddProductTesting
     [Fact]
     public void AddProductTestShouldBeFalse()
     {
-        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate("Data Source=DESKTOP-4NURNJC; Initial Catalog=WareHouse;Trusted_Connection=True; Integrated Security=SSPI;Persist Security Info=False;Encrypt=False;TrustServerCertificate=True;");
+        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
         var result = addProductValidate.Validate(Product);
         result.IsValid.Should().BeFalse();
     }
     [Fact]
     public void AddProductToDataBaseTest()
     {
-        AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(Product, "Data Source=DESKTOP-4NURNJC; Initial Catalog=WareHouse;Trusted_Connection=True; Integrated Security=SSPI;Persist Security Info=False;Encrypt=False;TrustServerCertificate=True;");
+        AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(Product);
 
     }
     
