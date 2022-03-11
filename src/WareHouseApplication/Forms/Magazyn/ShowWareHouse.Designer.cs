@@ -217,7 +217,7 @@ namespace WareHouseApplication.Forms.Magazyn
             this.RodzajProduktuWyrazCBox.Size = new System.Drawing.Size(224, 24);
             this.RodzajProduktuWyrazCBox.TabIndex = 20;
             this.RodzajProduktuWyrazCBox.SelectionChangeCommitted += new System.EventHandler(this.comboBox3_SelectionChangeCommitted);
-            this.RodzajProduktuWyrazCBox.SelectedValueChanged += new System.EventHandler(this.comboBox3_SelectedValueChanged);
+           
             // 
             // RodzajProdCBox
             // 

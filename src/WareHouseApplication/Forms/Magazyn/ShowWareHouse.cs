@@ -20,12 +20,12 @@ public partial class ShowWareHouse : Form
     public ShowWareHouse(MainMenu objMainMenu)
     {
         InitializeComponent();
-        this.connectionString = connectionString;
+        
         AutoScaleDimensions = new SizeF(96F, 96F);
         AutoScaleMode = AutoScaleMode.Font;
         ObjMainMenu = objMainMenu;
         DefaultFillingGridView();
-       // ObjValidationAddingItem = new RulesValidationAddingItem();
+      
 
 
     }
@@ -37,7 +37,7 @@ public partial class ShowWareHouse : Form
 
 
 
-    private void ShowSpecificProducts(string query, string queryItem)
+    private void ShowSpecificProducts(string query)
     {
         dataGridView1.DataSource = null;
         dataGridView1.Rows.Clear();
@@ -117,15 +117,7 @@ public partial class ShowWareHouse : Form
 
     }
 
-    private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
-    {
-
-
-
-
-
-
-    }
+   
 
     private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
     {
@@ -163,7 +155,7 @@ public partial class ShowWareHouse : Form
     {
         var objAlert = new Alert.Alert(dataGridView1);
         objAlert.Show();
-        // SavingProductsExcel();
+       
     }
 
     private void DefaultFillingGridView()

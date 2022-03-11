@@ -9,6 +9,7 @@ using WareHouse.Data.AppConnection;
 using WareHouse.Data.SqlModels;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using WareHouse.Domain.ProductDto;
 
 namespace WareHouse.Data.Repository
 {
@@ -32,14 +33,14 @@ namespace WareHouse.Data.Repository
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Product> GetProducts()
+        public IEnumerable<ShowAllProductsDto> GetProducts()
         {
             using IDbConnection db = new SqlConnection(ReturnAppConection.ConnectionString);
             if (db.State== ConnectionState.Closed)
             {
                 db.Open();
             }
-            return db.Query<Product>("select * from Product", commandType: CommandType.Text);
+            return db.Query<ShowAllProductsDto>("select * from Product", commandType: CommandType.Text);
         }
 
         public void Insert(Product product)
