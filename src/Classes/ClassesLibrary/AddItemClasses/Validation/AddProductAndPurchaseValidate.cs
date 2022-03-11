@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using FluentValidation;
 using WareHouse.Data.SqlModels;
 
@@ -43,8 +44,8 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 
     private bool IsStringContainsNumbers(string value)
     {
-        value = value.Replace("", string.Empty);
-        return System.Text.RegularExpressions.Regex.IsMatch(value, @"^[a-zA-Z]+$");
+        string valueToCheck = String.Concat(value.Where(c => !Char.IsWhiteSpace(c)));
+        return System.Text.RegularExpressions.Regex.IsMatch(valueToCheck, @"^[a-zA-Z]+$");
     }
 
     
