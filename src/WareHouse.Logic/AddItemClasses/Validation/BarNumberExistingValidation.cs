@@ -6,17 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
+
+using WareHouse.Data.Repository;
 
 namespace ClassesLibrary.AddItemClasses.Validation
 {
     public class BarNumberExistingValidation
     {
-        
-        public string ConnectionString { get; set; } =ConfigurationManager.ConnectionStrings["Michal"].ConnectionString;
+
+        ProductRepository productRepository { get; set; }
         public BarNumberExistingValidation(decimal  barNumber)
         {
             BarNumber = barNumber;
+            productRepository =  new ProductRepository();
           
         }
         public decimal  BarNumber { get; set; }
@@ -28,17 +30,11 @@ namespace ClassesLibrary.AddItemClasses.Validation
         public bool IsGivenBarNumberExist( )
         {
 
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                var exists = connection.Query<object>(
-                        "SELECT 1 WHERE EXISTS (SELECT 1 FROM Product WHERE BarNumber = @barNumber)", new { BarNumber })
-                    .Any();
+            return productRepository.CheckExistenceOfBarNumber(BarNumber);
+            
+            
 
-                connection.Close();
-                return exists;
-
-
-            }
+            
         }
     }
 }

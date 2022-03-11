@@ -4,13 +4,16 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using ClassesLibrary.AddItemClasses.Queries;
-using ClassesLibrary.AddItemClasses.Validation;
 using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
+
+using WareHouse.Logic.AddItemClasses.Validation;
+
 
 using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using WareHouse.Data.SqlModels;
+using WareHouse.Logic.AddItemClasses.Validation;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace WareHouseApplication.Forms.Magazyn;
@@ -18,13 +21,13 @@ namespace WareHouseApplication.Forms.Magazyn;
 public partial class AddItemFormcs : Form
 {
     
-   
+   private CreateProductAndPurchase _createProductAndPurchase { get; set; }
     public AddItemFormcs(MainMenu objMainMenu)
     {
         InitializeComponent();
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-        
+       
 
 
     }
@@ -82,7 +85,8 @@ public partial class AddItemFormcs : Form
             BarNumber=BarNumberTBox.Value
         };
 
-        var result = ValidateBarNumber(barNumberObj);
+        ValidationBarNumber validationBarNumber = new ValidationBarNumber(barNumberObj);
+        var result = validationBarNumber.ReturnValidatingResult();
         if (!result.IsValid)
         {
             MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
@@ -96,12 +100,7 @@ public partial class AddItemFormcs : Form
 
 
     }
-    public ValidationResult ValidateBarNumber(BarNumberModel barNumber)
-    {
-        BarNumberValidation barNumberValidation = new BarNumberValidation();
-        var result = barNumberValidation.Validate(barNumber);
-        return result;
-    }
+   
 
     public void HidingArrowsInNumerics()
     {
@@ -122,35 +121,6 @@ public partial class AddItemFormcs : Form
         BuyMethodDigitCBox.SelectedIndex = -1;
         ProductTypeDigitCBox.SelectedIndex = -1;
     }
-
-   
-
-  
-
-    private void CreatingPurchase()
-    {
-        var Bar_Number = BarNumberTBox.Text;
-        var Quantity = AmountOfProductTBox.Text;
-        //var BuyingPrice = BuyPriceTBox.Text;
-       
-        string From_Product_Create = "Tak";
-        SqlConnection cnn2 = new SqlConnection();
-        DateTime Date_Purchase = DateTime.Now;
-        var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
-        SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
-        
-        cmdPurchase.Parameters.AddWithValue("@Date_Purchase", Date_Purchase);
-        cmdPurchase.Parameters.AddWithValue("@Quantity", Quantity);
-       // cmdPurchase.Parameters.AddWithValue("@BuyingPrice", Convert.ToDouble(BuyingPrice));
-        cmdPurchase.Parameters.AddWithValue("@From_Product_Create",From_Product_Create);
-
-
-        cnn2.Open();
-        cmdPurchase.ExecuteNonQuery();
-        cnn2.Close();
-    }
-
-   
 
     private void SuccessfullyProductAdded()
     {
@@ -176,10 +146,11 @@ public partial class AddItemFormcs : Form
             IsReturned = false,
             Quantity = (int)AmountOfProductTBox.Value,
             IdPurchaseMethod = BuyMethodDigitCBox.Text,
+            AddedAt=DateTime.Now,
             Purchase = new Purchase
             {
                Amount = (int)AmountOfProductTBox.Value,
-               DatePurchase = DateTime.UtcNow.Date,
+               DatePurchase = DateTime.Now,
                PurchasePrice=PurchasePriceBox.Value,
                IdPurchase = Guid.NewGuid(),
                IdProduct = idProductGuid
@@ -188,7 +159,9 @@ public partial class AddItemFormcs : Form
 
 
 
-        var result = ValidateAddProduct(product);
+        ValidateAddProduct validateAddProduct = new ValidateAddProduct(product);
+
+        var result = validateAddProduct.ReturnValidatingResult();
         if (!result.IsValid)
         {
 
@@ -200,7 +173,7 @@ public partial class AddItemFormcs : Form
         else
         {
 
-            AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(product);
+            _createProductAndPurchase = new CreateProductAndPurchase(product);
                 SuccessfullyProductAdded();
 
 
@@ -208,11 +181,5 @@ public partial class AddItemFormcs : Form
 
     }
 
-    private  ValidationResult ValidateAddProduct(Product product)
-    {
-        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
-        var result = addProductValidate.Validate(product);
-        return result;
-
-    }
+   
 }

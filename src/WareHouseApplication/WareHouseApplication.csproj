@@ -14,21 +14,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Update="WareHouseDataSet.xsc">
-      <DependentUpon>WareHouseDataSet.xsd</DependentUpon>
-    </None>
-    <None Update="WareHouseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>WareHouseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Update="WareHouseDataSet.xss">
-      <DependentUpon>WareHouseDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Classes\ClassesLibrary\ClassesLibrary.csproj" />
-    <ProjectReference Include="..\WareHouse.Data\WareHouse.Data.csproj" />
+    
+    <ProjectReference Include="..\WareHouse.Logic\WareHouse.Logic.csproj" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -99,11 +88,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Update="WareHouseDataSet.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>WareHouseDataSet.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
