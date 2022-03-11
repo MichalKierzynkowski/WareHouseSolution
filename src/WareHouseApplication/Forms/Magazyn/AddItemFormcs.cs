@@ -17,7 +17,7 @@ namespace WareHouseApplication.Forms.Magazyn;
 
 public partial class AddItemFormcs : Form
 {
-    public string ConnectionString { get; set; }
+    
     private IReturnSql _returnSql;
     public AddItemFormcs(MainMenu objMainMenu)
     {
@@ -211,7 +211,7 @@ public partial class AddItemFormcs : Form
 
     private  ValidationResult ValidateAddProduct(Product product)
     {
-        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate(ConnectionString);
+        AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
         var result = addProductValidate.Validate(product);
         return result;
 

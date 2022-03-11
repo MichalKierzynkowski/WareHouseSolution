@@ -12,11 +12,12 @@ namespace ClassesLibrary.AddItemClasses.Validation
 {
     public class BarNumberExistingValidation
     {
-        public string ConnectionString { get; set; }
-        public BarNumberExistingValidation(decimal  barNumber, string connectionString)
+        
+        public string ConnectionString { get; set; } =ConfigurationManager.ConnectionStrings["Michal"].ConnectionString;
+        public BarNumberExistingValidation(decimal  barNumber)
         {
             BarNumber = barNumber;
-            ConnectionString = connectionString;
+          
         }
         public decimal  BarNumber { get; set; }
 

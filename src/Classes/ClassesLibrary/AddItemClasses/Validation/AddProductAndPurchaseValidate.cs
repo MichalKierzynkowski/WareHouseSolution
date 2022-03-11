@@ -6,7 +6,7 @@ namespace ClassesLibrary.AddItemClasses.Validation;
 
 public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 {
-    public AddProductAndPurchaseValidate(string connectionString)
+    public AddProductAndPurchaseValidate()
     {
         
         RuleFor(x => x.DescriptionProduct).NotEmpty().WithMessage("Pole Opis Produktu nie może być puste!");
@@ -18,7 +18,7 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
         RuleFor(x => x.BarNumber).NotEmpty()
 
             .WithMessage("Pole numer kreskowy nie może być puste!").DependentRules(() =>
-                        RuleFor(x => x.BarNumber).Must(BarNumber => IsExistingBarNumberNotExist(BarNumber,connectionString))
+                        RuleFor(x => x.BarNumber).Must(BarNumber => IsExistingBarNumberNotExist(BarNumber))
                             .WithMessage("Podany numer kreskowy znajduje się już w bazie!"));
 
         RuleFor(x => x.CurrentSellingPrice).NotEmpty()
@@ -59,9 +59,9 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 
     
 
-    private bool IsExistingBarNumberNotExist(int barNumber,string connectionString)
+    private bool IsExistingBarNumberNotExist(int barNumber)
     {
-        var barNumberValidate = new BarNumberExistingValidation(barNumber,connectionString);
+        var barNumberValidate = new BarNumberExistingValidation(barNumber);
         var result = barNumberValidate.IsGivenBarNumberExist();
         if (result)
             return false;
