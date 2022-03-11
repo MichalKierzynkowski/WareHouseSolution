@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Configuration = System.Configuration.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using ClassesLibrary.SqlClassesInterfaces;
+
 
 namespace WareHouseApplication;
 
@@ -34,7 +34,7 @@ public static class Program
     static void ConfigureServices()
     {
         var services = new ServiceCollection();
-        services.AddTransient<IReturnSql,ReturnSqlConnection>();
+
         ServiceProvider = services.BuildServiceProvider();
        
     }

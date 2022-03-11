@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ClassesLibrary.SqlClassesInterfaces;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WareHouseApplication.Forms.Magazyn;

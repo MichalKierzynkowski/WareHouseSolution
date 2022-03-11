@@ -15,9 +15,9 @@ namespace ClassesLibrary.AddItemClasses.Queries
         public Purchase Purchase { get; set; }
        
 
-        public AddProductAndPurchaseToDataBase(Product product,string connectionString)
+        public AddProductAndPurchaseToDataBase(Product product)
         {
-            ConnectionString = connectionString;
+           
             Product= product;
             Purchase = Product.Purchase;
             AddProduct();

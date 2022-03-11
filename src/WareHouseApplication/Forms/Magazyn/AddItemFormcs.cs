@@ -6,7 +6,7 @@ using System.Windows.Forms.VisualStyles;
 using ClassesLibrary.AddItemClasses.Queries;
 using ClassesLibrary.AddItemClasses.Validation;
 using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
-using ClassesLibrary.SqlClassesInterfaces;
+
 using Dapper;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
@@ -18,14 +18,13 @@ namespace WareHouseApplication.Forms.Magazyn;
 public partial class AddItemFormcs : Form
 {
     
-    private IReturnSql _returnSql;
+   
     public AddItemFormcs(MainMenu objMainMenu)
     {
         InitializeComponent();
         ObjMainMenu = objMainMenu;
        HidingArrowsInNumerics();
-        _returnSql = (IReturnSql)WareHouseApplication.Program.ServiceProvider.GetService(typeof(IReturnSql));
-        ConnectionString = _returnSql.ReturnSql();
+        
 
 
     }
@@ -99,7 +98,7 @@ public partial class AddItemFormcs : Form
     }
     public ValidationResult ValidateBarNumber(BarNumberModel barNumber)
     {
-        BarNumberValidation barNumberValidation = new BarNumberValidation(ConnectionString);
+        BarNumberValidation barNumberValidation = new BarNumberValidation();
         var result = barNumberValidation.Validate(barNumber);
         return result;
     }
@@ -135,7 +134,7 @@ public partial class AddItemFormcs : Form
         //var BuyingPrice = BuyPriceTBox.Text;
        
         string From_Product_Create = "Tak";
-        SqlConnection cnn2 = new SqlConnection(ConnectionString);
+        SqlConnection cnn2 = new SqlConnection();
         DateTime Date_Purchase = DateTime.Now;
         var querySqlPurchase = @"Insert Into Purchase (Id_Product,Date_Purchase,Amount,Price,From_Product_Create) values(@Id_Product,@Date_Purchase,@Quantity,@BuyingPrice,@From_Product_Create)";
         SqlCommand cmdPurchase = new SqlCommand(querySqlPurchase, cnn2);
@@ -201,7 +200,7 @@ public partial class AddItemFormcs : Form
         else
         {
 
-            AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(product,ConnectionString);
+            AddProductAndPurchaseToDataBase addObj = new AddProductAndPurchaseToDataBase(product);
                 SuccessfullyProductAdded();
 
 

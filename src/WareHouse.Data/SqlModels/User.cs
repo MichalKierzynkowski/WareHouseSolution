@@ -3,9 +3,9 @@
 namespace WareHouse.Data.SqlModels;
 
 [Table("Users")]
-public class Users
+public class User
 {
-    public int IdUsers { get; set; }
+    public int IdUser { get; set; }
     public string LoginUser { get; set; }
     public string PasswordUser { get; set; }
 
