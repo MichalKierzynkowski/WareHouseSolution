@@ -50,7 +50,7 @@ namespace WareHouse.Data.Repository
             {
                 db.Open();
             }
-            return db.Query<ShowAllProductsDto>(query, commandType: CommandType.Text);
+            return db.Query<ShowAllProductsDto>(query, commandType: CommandType.Text).ToList();
         }
 
         public void Insert(Product product)
@@ -69,7 +69,9 @@ namespace WareHouse.Data.Repository
         {
             throw new NotImplementedException();
         }
-        public IEnumerable<ShowAllProductsDto> ReturnProductsById(int barNumber)
+        
+
+        public IEnumerable<ShowAllProductsDto> ReturnProductsById(decimal barNumber)
         {
             string query = @"SELECT dbo.Product.DescriptionProduct, dbo.Product.Quantity,dbo.Product.BarNumber, 
             dbo.Product.CurrentSellingPrice, dbo.Product.IsReturned, dbo.Product.AddedAt, dbo.PurchaseMethod.PurchaseMethodDescription,dbo.ProductType.ProductTypeDescription, dbo.Purchase.PurchasePrice
@@ -87,11 +89,10 @@ namespace WareHouse.Data.Repository
                 db.Open();
             }
 
-            var allProducts=  db.Query<ShowAllProductsDto>(query, commandType: CommandType.Text);
-            return allProducts.Where(x => x.BarNumber==barNumber);
-
-
+            var allProducts = db.Query<ShowAllProductsDto>(query, commandType: CommandType.Text);
+            IEnumerable<ShowAllProductsDto> product = allProducts.Where(x => x.BarNumber == barNumber).ToList();
+            return product;
         }
-
+        
     }
 }

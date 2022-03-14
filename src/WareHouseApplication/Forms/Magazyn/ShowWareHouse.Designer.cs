@@ -49,13 +49,15 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.CenaZakupuCBox = new System.Windows.Forms.ComboBox();
-            this.CenaSprzedazCBox = new System.Windows.Forms.ComboBox();
+            this.BuyingPriceCBox = new System.Windows.Forms.ComboBox();
+            this.SellingPriceCBox = new System.Windows.Forms.ComboBox();
             this.IsReturnedComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.AmountCBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.BarNumberNumeric = new System.Windows.Forms.NumericUpDown();
+            this.AddedAtCBox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -110,6 +112,7 @@ namespace WareHouseApplication.Forms.Magazyn
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1035, 608);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ResetButton
             // 
@@ -349,7 +352,7 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label6.AutoSize = true;
             this.label6.CausesValidation = false;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(1121, 422);
+            this.label6.Location = new System.Drawing.Point(1121, 413);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 25);
             this.label6.TabIndex = 27;
@@ -361,40 +364,41 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label7.AutoSize = true;
             this.label7.CausesValidation = false;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(1121, 486);
+            this.label7.Location = new System.Drawing.Point(1121, 473);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 25);
             this.label7.TabIndex = 28;
             this.label7.Text = "Cena Sprzedaży:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CenaZakupuCBox
+            // BuyingPriceCBox
             // 
-            this.CenaZakupuCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CenaZakupuCBox.FormattingEnabled = true;
-            this.CenaZakupuCBox.Items.AddRange(new object[] {
+            this.BuyingPriceCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BuyingPriceCBox.FormattingEnabled = true;
+            this.BuyingPriceCBox.Items.AddRange(new object[] {
             "Od najmniejszej do największej",
             "Od najwiekszej do najmniejszej"});
-            this.CenaZakupuCBox.Location = new System.Drawing.Point(1368, 436);
-            this.CenaZakupuCBox.Margin = new System.Windows.Forms.Padding(4);
-            this.CenaZakupuCBox.Name = "CenaZakupuCBox";
-            this.CenaZakupuCBox.Size = new System.Drawing.Size(264, 23);
-            this.CenaZakupuCBox.TabIndex = 31;
-            this.CenaZakupuCBox.SelectionChangeCommitted += new System.EventHandler(this.CenaZakupuCBox_SelectionChangeCommitted);
+            this.BuyingPriceCBox.Location = new System.Drawing.Point(1368, 418);
+            this.BuyingPriceCBox.Margin = new System.Windows.Forms.Padding(4);
+            this.BuyingPriceCBox.Name = "BuyingPriceCBox";
+            this.BuyingPriceCBox.Size = new System.Drawing.Size(264, 23);
+            this.BuyingPriceCBox.TabIndex = 31;
+            this.BuyingPriceCBox.SelectedIndexChanged += new System.EventHandler(this.BuyingPriceCBox_SelectedIndexChanged);
+            this.BuyingPriceCBox.SelectionChangeCommitted += new System.EventHandler(this.CenaZakupuCBox_SelectionChangeCommitted);
             // 
-            // CenaSprzedazCBox
+            // SellingPriceCBox
             // 
-            this.CenaSprzedazCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CenaSprzedazCBox.FormattingEnabled = true;
-            this.CenaSprzedazCBox.Items.AddRange(new object[] {
+            this.SellingPriceCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SellingPriceCBox.FormattingEnabled = true;
+            this.SellingPriceCBox.Items.AddRange(new object[] {
             "Od najmniejszej do największej",
             "Od najwiekszej do najmniejszej"});
-            this.CenaSprzedazCBox.Location = new System.Drawing.Point(1368, 493);
-            this.CenaSprzedazCBox.Margin = new System.Windows.Forms.Padding(4);
-            this.CenaSprzedazCBox.Name = "CenaSprzedazCBox";
-            this.CenaSprzedazCBox.Size = new System.Drawing.Size(264, 23);
-            this.CenaSprzedazCBox.TabIndex = 32;
-            this.CenaSprzedazCBox.SelectionChangeCommitted += new System.EventHandler(this.CenaSprzedazCBox_SelectionChangeCommitted);
+            this.SellingPriceCBox.Location = new System.Drawing.Point(1368, 478);
+            this.SellingPriceCBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SellingPriceCBox.Name = "SellingPriceCBox";
+            this.SellingPriceCBox.Size = new System.Drawing.Size(264, 23);
+            this.SellingPriceCBox.TabIndex = 32;
+            this.SellingPriceCBox.SelectionChangeCommitted += new System.EventHandler(this.CenaSprzedazCBox_SelectionChangeCommitted);
             // 
             // IsReturnedComboBox
             // 
@@ -403,7 +407,7 @@ namespace WareHouseApplication.Forms.Magazyn
             this.IsReturnedComboBox.Items.AddRange(new object[] {
             "Tak",
             "Nie"});
-            this.IsReturnedComboBox.Location = new System.Drawing.Point(1368, 561);
+            this.IsReturnedComboBox.Location = new System.Drawing.Point(1367, 566);
             this.IsReturnedComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.IsReturnedComboBox.Name = "IsReturnedComboBox";
             this.IsReturnedComboBox.Size = new System.Drawing.Size(264, 23);
@@ -415,33 +419,33 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label8.AutoSize = true;
             this.label8.CausesValidation = false;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(1121, 553);
+            this.label8.Location = new System.Drawing.Point(1121, 561);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(156, 25);
             this.label8.TabIndex = 33;
             this.label8.Text = "Towar Zwrócony:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // AmountCBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.AmountCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AmountCBox.FormattingEnabled = true;
+            this.AmountCBox.Items.AddRange(new object[] {
             "Od najmniejszej do największej",
             "Od najwiekszej do najmniejszej"});
-            this.comboBox1.Location = new System.Drawing.Point(1368, 613);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(264, 23);
-            this.comboBox1.TabIndex = 36;
-            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
+            this.AmountCBox.Location = new System.Drawing.Point(1367, 618);
+            this.AmountCBox.Margin = new System.Windows.Forms.Padding(4);
+            this.AmountCBox.Name = "AmountCBox";
+            this.AmountCBox.Size = new System.Drawing.Size(264, 23);
+            this.AmountCBox.TabIndex = 36;
+            this.AmountCBox.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.CausesValidation = false;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(1123, 606);
+            this.label9.Location = new System.Drawing.Point(1121, 613);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 25);
             this.label9.TabIndex = 35;
@@ -460,19 +464,46 @@ namespace WareHouseApplication.Forms.Magazyn
             this.BarNumberNumeric.Size = new System.Drawing.Size(263, 23);
             this.BarNumberNumeric.TabIndex = 37;
             // 
+            // AddedAtCBox
+            // 
+            this.AddedAtCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddedAtCBox.FormattingEnabled = true;
+            this.AddedAtCBox.Items.AddRange(new object[] {
+            "Tak",
+            "Nie"});
+            this.AddedAtCBox.Location = new System.Drawing.Point(1367, 524);
+            this.AddedAtCBox.Margin = new System.Windows.Forms.Padding(4);
+            this.AddedAtCBox.Name = "AddedAtCBox";
+            this.AddedAtCBox.Size = new System.Drawing.Size(264, 23);
+            this.AddedAtCBox.TabIndex = 39;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.CausesValidation = false;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(1121, 519);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(135, 25);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Data Dodania:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ShowWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1872, 795);
+            this.Controls.Add(this.AddedAtCBox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.BarNumberNumeric);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.AmountCBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.IsReturnedComboBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.CenaSprzedazCBox);
-            this.Controls.Add(this.CenaZakupuCBox);
+            this.Controls.Add(this.SellingPriceCBox);
+            this.Controls.Add(this.BuyingPriceCBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -526,12 +557,14 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox CenaZakupuCBox;
-        private System.Windows.Forms.ComboBox CenaSprzedazCBox;
+        private System.Windows.Forms.ComboBox BuyingPriceCBox;
+        private System.Windows.Forms.ComboBox SellingPriceCBox;
         private System.Windows.Forms.ComboBox IsReturnedComboBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox AmountCBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown BarNumberNumeric;
+        private System.Windows.Forms.ComboBox AddedAtCBox;
+        private System.Windows.Forms.Label label10;
     }
 }
