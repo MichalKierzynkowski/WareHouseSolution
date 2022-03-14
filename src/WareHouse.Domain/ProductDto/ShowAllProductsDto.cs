@@ -16,6 +16,7 @@ namespace WareHouse.Domain.ProductDto
         public string PurchaseMethodDescription { get; set; }
         public string ProductTypeDescription { get; set; }
         public bool IsReturned { get; set; }
+        public DateTime AddedAt { get; set; }
 
     }
 }

@@ -31,7 +31,54 @@ public partial class ShowWareHouse : Form
 
     private void StoreProductsInDataGridView()
     {
-      dataGridView1.DataSource  = productRepository.GetProducts();
+     
+        dataGridView1.ReadOnly = true;
+        dataGridView1.AutoGenerateColumns = false;
+        dataGridView1.ColumnCount = 9;
+        dataGridView1.Columns[0].HeaderText = "Numer Ewidencyjny";
+        dataGridView1.Columns[0].DataPropertyName = "BarNumber";
+        dataGridView1.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[1].HeaderText = "Opis Produktu";
+        dataGridView1.Columns[1].DataPropertyName = "DescriptionProduct";
+        dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[2].HeaderText = "Ilość";
+        dataGridView1.Columns[2].DataPropertyName = "Quantity";
+        dataGridView1.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[3].HeaderText = "Cena Sprzedaży";
+        dataGridView1.Columns[3].DataPropertyName = "CurrentSellingPrice";
+        dataGridView1.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[4].HeaderText = "Cena Zakupu";
+        dataGridView1.Columns[4].DataPropertyName = "PurchasePrice";
+        dataGridView1.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[5].HeaderText = "Metoda Zakupu";
+        dataGridView1.Columns[5].DataPropertyName = "PurchaseMethodDescription";
+        dataGridView1.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[6].HeaderText = "Rodzaj Produktu";
+        dataGridView1.Columns[6].DataPropertyName = "ProductTypeDescription";
+        dataGridView1.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[7].HeaderText = "Zwrócony";
+        dataGridView1.Columns[7].DataPropertyName = "IsReturned";
+        dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.Columns[8].HeaderText = "Data Dodania";
+        dataGridView1.Columns[8].DataPropertyName = "AddedAt";
+        dataGridView1.Columns[8].SortMode = DataGridViewColumnSortMode.NotSortable;
+        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dataGridView1.AllowUserToAddRows = false;
+        dataGridView1.BackgroundColor = SystemColors.Control;
+        dataGridView1.RowHeadersVisible = false;
+        dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Bold);
+        dataGridView1.RowsDefaultCellStyle.Font = new Font("Arial", 7);
+        dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        //set the DataGridView control's data source/data table
+     
+        dataGridView1.AllowUserToResizeColumns = false;
+        dataGridView1.AllowUserToResizeRows = false;
+        dataGridView1.Columns[0].Width = 75;
+        dataGridView1.Columns[1].Width = 150;
+        dataGridView1.Columns[2].Width = 75;
+        dataGridView1.DataSource = productRepository.GetProducts();
+
     }
 
     public MainMenu ObjMainMenu { get; }
@@ -93,58 +140,7 @@ public partial class ShowWareHouse : Form
 
     private void SzukajButton_Click(object sender, EventArgs e)
     {
-        /*
-        BarNumber = NumerKreskowyTBox.Text.ToString();
-
-        bool isCorrect=ObjValidationAddingItem.ShowHouseBarNumberValidation(BarNumber);
-
-        if(isCorrect==false)
-        {
-            string message = "Pole Kod Kreskowy jest puste lub źle wypełnione!";
-            string title = "Błąd!";
-            MessageBox.Show(message, title,MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            BarNumber = string.Empty;
-        }
-        else
-        {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-
-
-            bs.Filter = GetFilter();
-
-            dataGridView1.DataSource = bs;
-
-        }
-        */
-        //var validateObj = new IsNullIAddingItemValidation();
-        //var rulesValidationObj = new RulesValidationAddingItem();
-        //if (validateObj.CheckSingleString(NumerKreskowyTBox.Text))
-        //{
-        //    MessageBoxFailure();
-        //}
-        //else
-        //{
-
-        //    if (rulesValidationObj.Validation(NumerKreskowyTBox.Text))
-        //    {
-        //        BarNumberInt = Convert.ToInt32(NumerKreskowyTBox.Text);
-        //        BindingSource bs = new BindingSource();
-        //        bs.DataSource = dataGridView1.DataSource;
-
-
-        //        bs.Filter = GetFilter();
-
-        //        dataGridView1.DataSource = bs;
-        //    }
-        //    else
-        //    {
-        //        WrongFormatMessageBox();
-        //    }
-
-
-               
-        //}
+       
           
 
 
@@ -312,14 +308,7 @@ public partial class ShowWareHouse : Form
         }
 
     }
-    private void MessageBoxFailure()
-    {
-        MessageBox.Show("Nie wypełniono pola - Kod Kreskowy!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-    }
-    private void WrongFormatMessageBox()
-    {
-        MessageBox.Show("Pole Kod Kreskowy zawiera niepoprawne znaki!", " Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-    }
+  
 
     private void IsReturnedComboBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
