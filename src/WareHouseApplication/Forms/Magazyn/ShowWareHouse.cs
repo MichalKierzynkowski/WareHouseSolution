@@ -1,16 +1,11 @@
-﻿using ClassesLibrary.AddItemClasses.Validation;
-using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+﻿using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using WareHouse.Data.Repository;
 using WareHouse.Domain.ProductDto;
-using WareHouse.Logic.AddItemClasses.Validation;
 using WareHouse.Logic.ShowWareHouseClasses.Converter;
 using WareHouse.Logic.ShowWareHouseClasses.Validation;
 
@@ -20,32 +15,30 @@ public partial class ShowWareHouse : Form
 {
 
     private string ProductTypeDescription;
-    private string BuyingMethodDescription;     
+    private string BuyingMethodDescription;
     private int? BarNumberInt;
-    private string IsReturning;
     IProductRepository productRepository;
     public ShowWareHouse(MainMenu objMainMenu)
     {
         InitializeComponent();
         productRepository = new ProductRepository();
-      
+
         AutoScaleMode = AutoScaleMode.Font;
         ObjMainMenu = objMainMenu;
         StoreProductsInDataGridView(productRepository.GetProducts());
         BarNumberNumeric.Controls[0].Visible = false;
 
     }
-
     private void StoreProductsInDataGridView(IEnumerable<ShowAllProductsDto> product)
     {
-        
+
 
 
         dataGridView1.DataSource = null;
         dataGridView1.Rows.Clear();
 
-     
-        
+
+
 
         dataGridView1.ReadOnly = true;
         dataGridView1.AutoGenerateColumns = false;
@@ -84,7 +77,7 @@ public partial class ShowWareHouse : Form
         dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Bold);
         dataGridView1.RowsDefaultCellStyle.Font = new Font("Arial", 7);
         dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;      
+        dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         dataGridView1.AllowUserToResizeColumns = false;
         dataGridView1.AllowUserToResizeRows = false;
 
@@ -94,13 +87,7 @@ public partial class ShowWareHouse : Form
 
 
     }
-
     public MainMenu ObjMainMenu { get; }
-
-   
-
-
-
     private void RodzajProdCBox_SelectedValueChanged(object sender, EventArgs e)
     {
         int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
@@ -108,31 +95,25 @@ public partial class ShowWareHouse : Form
 
 
     }
-
-   
-
     private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
         MetodaKupnaWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
     }
-
     private void MetodaKupnaWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
         MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
     }
-
     private void ResetButton_Click(object sender, EventArgs e)
     {
         ClearingOptions();
-       
+
         ProductTypeDescription = string.Empty;
         BuyingMethodDescription = string.Empty;
         BarNumberInt = null;
         StoreProductsInDataGridView(productRepository.GetProducts());
     }
-
     private void ClearingOptions()
     {
         MetodaKupnaCyfraCBox.SelectedIndex = -1;
@@ -140,19 +121,15 @@ public partial class ShowWareHouse : Form
         BuyingPriceCBox.SelectedIndex = -1;
         SellingPriceCBox.SelectedIndex = -1;
         BarNumberNumeric.Value = 0;
-        IsReturnedComboBox.SelectedIndex = -1;
+        AddedAtCBox.SelectedIndex = -1;
         AmountCBox.SelectedIndex = -1;
     }
-
     private void button3_Click(object sender, EventArgs e)
     {
         var objAlert = new Alert.Alert(dataGridView1);
         objAlert.Show();
-       
+
     }
-
-   
-
     private void SzukajButton_Click(object sender, EventArgs e)
     {
 
@@ -161,7 +138,7 @@ public partial class ShowWareHouse : Form
             BarNumber = BarNumberNumeric.Value
         };
 
-        
+
         ShowProductsFromBarNumberValidation validationbarNumber = new ShowProductsFromBarNumberValidation(barNumberObj);
         var result = validationbarNumber.ReturnValidatingResult();
 
@@ -174,10 +151,10 @@ public partial class ShowWareHouse : Form
         {
 
             StoreProductsInDataGridView(productRepository.ReturnProductsById(barNumberObj.BarNumber));
-            
-            
-           
-         
+
+
+
+
 
         }
 
@@ -185,7 +162,6 @@ public partial class ShowWareHouse : Form
 
 
     }
-
     private void comboBox3_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemComboBox3 = Convert.ToInt16(RodzajProduktuWyrazCBox.SelectedIndex);
@@ -209,7 +185,6 @@ public partial class ShowWareHouse : Form
 
 
     }
-
     private void RodzajProdCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
@@ -223,14 +198,13 @@ public partial class ShowWareHouse : Form
         BindingSource bs = new BindingSource();
         bs.DataSource = dataGridView1.DataSource;
 
-           
+
         bs.Filter = GetFilter();
 
         dataGridView1.DataSource = bs;
-           
+
 
     }
-
     private void MetodaKupnaCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
@@ -254,7 +228,6 @@ public partial class ShowWareHouse : Form
 
 
     }
-
     private void MetodaKupnaWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
@@ -262,7 +235,7 @@ public partial class ShowWareHouse : Form
         BuyingMethodDescription = MetodaKupnaWyrazCBox.SelectedItem.ToString();
         string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
         BindingSource bs = new BindingSource();
-          
+
 
 
 
@@ -274,10 +247,9 @@ public partial class ShowWareHouse : Form
         dataGridView1.DataSource = null;
         dataGridView1.ResetBindings();
         dataGridView1.DataSource = bs;
-           
+
 
     }
-
     private string GetFilter()
     {
 
@@ -295,13 +267,10 @@ public partial class ShowWareHouse : Form
         {
 
             parts.Add($"BarNumber = {BarNumberInt}");
-              
+
 
         }
-        if (string.IsNullOrWhiteSpace(IsReturning)==false)
-        {
-            parts.Add($"IsReturned like '%{IsReturning}%'");
-        }
+
 
 
 
@@ -312,7 +281,6 @@ public partial class ShowWareHouse : Form
         return stringResult;
 
     }
-
     private void CenaZakupuCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
         string CenaZakupu = BuyingPriceCBox.Text.ToString();
@@ -332,11 +300,10 @@ public partial class ShowWareHouse : Form
 
 
     }
-
     private void CenaSprzedazCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
 
-        string CenaSprzedazy =SellingPriceCBox.Text.ToString();
+        string CenaSprzedazy = SellingPriceCBox.Text.ToString();
         if (CenaSprzedazy == "Od najmniejszej do największej")
         {
             dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
@@ -347,28 +314,9 @@ public partial class ShowWareHouse : Form
         }
 
     }
-  
-
-    private void IsReturnedComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-    {
-        BindingSource bs = new BindingSource();
-        IsReturning = IsReturnedComboBox.SelectedItem.ToString();
-
-
-
-        bs.DataSource = dataGridView1.DataSource;
-        dataGridView1.DataSource = null;
-
-        // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
-        bs.Filter = GetFilter();
-        dataGridView1.DataSource = null;
-        dataGridView1.ResetBindings();
-        dataGridView1.DataSource = bs;
-    }
-
     private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
     {
-        string Ilosc= AmountCBox.Text.ToString();
+        string Ilosc = AmountCBox.Text.ToString();
         if (Ilosc == "Od najmniejszej do największej")
         {
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
@@ -378,14 +326,16 @@ public partial class ShowWareHouse : Form
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
         }
     }
-
-    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void AddedAtCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
-
-    }
-
-    private void BuyingPriceCBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
+        string Ilosc = AddedAtCBox.Text;
+        if (Ilosc == "Od najmłodszej do najstarszej")
+        {
+            dataGridView1.Sort(dataGridView1.Columns[8], ListSortDirection.Ascending);
+        }
+        else
+        {
+            dataGridView1.Sort(dataGridView1.Columns[8], ListSortDirection.Descending);
+        }
     }
 }

@@ -1,13 +1,6 @@
 ﻿using ClassesLibrary.AddItemClasses.Validation;
 using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
-using FluentValidation;
 using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WareHouse.Logic.AddItemClasses.Validation
 {

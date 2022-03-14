@@ -1,13 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using FluentAssertions.Common;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Windows.Forms;
 using WareHouseApplication.Forms;
-using System.Configuration;
-using Microsoft.Extensions.Configuration;
-using Configuration = System.Configuration.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 
 namespace WareHouseApplication;
@@ -36,7 +31,7 @@ public static class Program
         var services = new ServiceCollection();
 
         ServiceProvider = services.BuildServiceProvider();
-       
+
     }
 
 

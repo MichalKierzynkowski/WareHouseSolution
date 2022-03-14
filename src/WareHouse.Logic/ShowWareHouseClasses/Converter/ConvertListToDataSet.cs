@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WareHouse.Logic.ShowWareHouseClasses.Converter
 {
-    public static  class ConvertListToDataSet
+    public static class ConvertListToDataSet
     {
         public static DataSet ToDataSet<T>(this IEnumerable<T> list)
         {

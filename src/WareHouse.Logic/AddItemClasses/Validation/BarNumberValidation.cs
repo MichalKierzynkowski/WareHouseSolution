@@ -1,14 +1,9 @@
 ﻿using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassesLibrary.AddItemClasses.Validation
 {
-    public class BarNumberValidation:AbstractValidator<BarNumberModel>
+    public class BarNumberValidation : AbstractValidator<BarNumberModel>
     {
         public BarNumberValidation()
         {

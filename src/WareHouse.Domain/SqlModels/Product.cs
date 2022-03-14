@@ -20,5 +20,5 @@ public class Product
     public Purchase Purchase { get; set; }
 
 
-   
+
 }

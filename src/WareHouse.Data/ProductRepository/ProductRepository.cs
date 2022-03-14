@@ -1,14 +1,8 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WareHouse.Data.AppConnection;
 using WareHouse.Data.SqlModels;
-using Dapper;
-using Microsoft.Data.SqlClient;
 using WareHouse.Domain.ProductDto;
 
 namespace WareHouse.Data.Repository
@@ -44,9 +38,9 @@ namespace WareHouse.Data.Repository
             WHERE dbo.Purchase.DatePurchase 
             IN ( SELECT MAX(dbo.Purchase.DatePurchase)  FROM dbo.Purchase  GROUP BY IdProduct)";
 
-                  
+
             using IDbConnection db = new SqlConnection(ReturnAppConection.ConnectionString);
-            if (db.State== ConnectionState.Closed)
+            if (db.State == ConnectionState.Closed)
             {
                 db.Open();
             }
@@ -56,20 +50,20 @@ namespace WareHouse.Data.Repository
         public void Insert(Product product)
         {
             using IDbConnection db = new SqlConnection(ReturnAppConection.ConnectionString);
-                if (db.State==ConnectionState.Closed)
+            if (db.State == ConnectionState.Closed)
             {
                 db.Open();
             }
-             db.Query<Product>(@"INSERT INTO Product (IdProduct,IdTypeProduct,BarNumber,DescriptionProduct,IdPurchaseMethod,Quantity,CurrentSellingPrice,IsReturned,AddedAt) values
-            (@IdProduct, @IdTypeProduct, @BarNumber, @DescriptionProduct, @IdPurchaseMethod, @Quantity, @CurrentSellingPrice, @IsReturned,@AddedAt);",product);
-           
+            db.Query<Product>(@"INSERT INTO Product (IdProduct,IdTypeProduct,BarNumber,DescriptionProduct,IdPurchaseMethod,Quantity,CurrentSellingPrice,IsReturned,AddedAt) values
+            (@IdProduct, @IdTypeProduct, @BarNumber, @DescriptionProduct, @IdPurchaseMethod, @Quantity, @CurrentSellingPrice, @IsReturned,@AddedAt);", product);
+
         }
 
         public void Update(Product product)
         {
             throw new NotImplementedException();
         }
-        
+
 
         public IEnumerable<ShowAllProductsDto> ReturnProductsById(decimal barNumber)
         {
@@ -93,6 +87,6 @@ namespace WareHouse.Data.Repository
             IEnumerable<ShowAllProductsDto> product = allProducts.Where(x => x.BarNumber == barNumber).ToList();
             return product;
         }
-        
+
     }
 }

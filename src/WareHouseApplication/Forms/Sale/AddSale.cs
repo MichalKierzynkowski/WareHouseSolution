@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassesLibrary;
 
 namespace WareHouseApplication.Forms.Sale;
 
@@ -27,9 +22,9 @@ public partial class AddSale : Form
     public AddSale()
     {
         InitializeComponent();
-        
+
         DefaultFillingGridView();
-        SellItemButton.Enabled = false; 
+        SellItemButton.Enabled = false;
 
     }
     private void DefaultFillingGridView()
@@ -218,7 +213,7 @@ public partial class AddSale : Form
 
         dataGridView1.DataSource = bs;
 
-            
+
     }
 
     private void MetodaZakupuCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -267,15 +262,15 @@ public partial class AddSale : Form
         if (SelectedRow >= 0)
         {
             SellItemButton.Enabled = true;
-               
+
             var selectedRow = dataGridView1.Rows[SelectedRow];
             OpisProduktuTBox.Text = selectedRow.Cells[0].Value.ToString();
 
-                
+
             BuyPriceBox.Text = selectedRow.Cells[4].Value.ToString();
-            SellPriceBox.Text =selectedRow.Cells[5].Value.ToString();
+            SellPriceBox.Text = selectedRow.Cells[5].Value.ToString();
             RodzajProduktuWyrazCBox.SelectedItem = selectedRow.Cells[1].Value.ToString();
-               
+
             SelecterBarNumber = Convert.ToInt32(selectedRow.Cells[6].Value.ToString());
         }
         else

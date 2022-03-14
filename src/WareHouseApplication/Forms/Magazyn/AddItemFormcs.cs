@@ -1,37 +1,26 @@
-﻿using System;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using ClassesLibrary.AddItemClasses.Queries;
+﻿using ClassesLibrary.AddItemClasses.Queries;
 using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
-
-using WareHouse.Logic.AddItemClasses.Validation;
-
-
-using Dapper;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.Extensions.Configuration;
+using System;
+using System.Windows.Forms;
 using WareHouse.Data.SqlModels;
 using WareHouse.Logic.AddItemClasses.Validation;
-using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace WareHouseApplication.Forms.Magazyn;
 
 public partial class AddItemFormcs : Form
 {
-    
-   private CreateProductAndPurchase _createProductAndPurchase { get; set; }
+
+    private CreateProductAndPurchase _createProductAndPurchase { get; set; }
     public AddItemFormcs(MainMenu objMainMenu)
     {
         InitializeComponent();
         ObjMainMenu = objMainMenu;
-       HidingArrowsInNumerics();
-       
+        HidingArrowsInNumerics();
+
 
 
     }
-    
+
 
     public MainMenu ObjMainMenu { get; }
 
@@ -64,7 +53,7 @@ public partial class AddItemFormcs : Form
         ProductTypeDigitCBox.SelectedIndex = selectedItemComboBox3;
     }
 
-       
+
 
     private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
     {
@@ -82,7 +71,7 @@ public partial class AddItemFormcs : Form
     {
         var barNumberObj = new BarNumberModel()
         {
-            BarNumber=BarNumberTBox.Value
+            BarNumber = BarNumberTBox.Value
         };
 
         ValidationBarNumber validationBarNumber = new ValidationBarNumber(barNumberObj);
@@ -94,13 +83,13 @@ public partial class AddItemFormcs : Form
         }
         else
         {
-            MessageBox.Show("Podany numer kodu kreskowego nie jest przypisany do żadnego produktu!","Informacja",
+            MessageBox.Show("Podany numer kodu kreskowego nie jest przypisany do żadnego produktu!", "Informacja",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
     }
-   
+
 
     public void HidingArrowsInNumerics()
     {
@@ -115,9 +104,9 @@ public partial class AddItemFormcs : Form
         CurrentSellingPriceBox.Value = 0;
         PurchasePriceBox.Value = 0;
         AmountOfProductTBox.Value = 0;
-       
+
         ProductDescriptionTBox.Clear();
-        
+
         BuyMethodDigitCBox.SelectedIndex = -1;
         ProductTypeDigitCBox.SelectedIndex = -1;
     }
@@ -130,8 +119,8 @@ public partial class AddItemFormcs : Form
             "Pomyślnie dodano nowy produkt!", "Sukces!",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
-   
-    
+
+
 
     private void AddProductButton_Click(object sender, EventArgs e)
     {
@@ -146,14 +135,14 @@ public partial class AddItemFormcs : Form
             IsReturned = false,
             Quantity = (int)AmountOfProductTBox.Value,
             IdPurchaseMethod = BuyMethodDigitCBox.Text,
-            AddedAt=DateTime.Now,
+            AddedAt = DateTime.Now,
             Purchase = new Purchase
             {
-               Amount = (int)AmountOfProductTBox.Value,
-               DatePurchase = DateTime.Now,
-               PurchasePrice=PurchasePriceBox.Value,
-               IdPurchase = Guid.NewGuid(),
-               IdProduct = idProductGuid
+                Amount = (int)AmountOfProductTBox.Value,
+                DatePurchase = DateTime.Now,
+                PurchasePrice = PurchasePriceBox.Value,
+                IdPurchase = Guid.NewGuid(),
+                IdProduct = idProductGuid
             }
         };
 
@@ -165,21 +154,21 @@ public partial class AddItemFormcs : Form
         if (!result.IsValid)
         {
 
-            MessageBox.Show(string.Join("\n", result.Errors),"Błąd",
+            MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-      
+
 
         }
         else
         {
 
             _createProductAndPurchase = new CreateProductAndPurchase(product);
-                SuccessfullyProductAdded();
+            SuccessfullyProductAdded();
 
 
         }
 
     }
 
-   
+
 }

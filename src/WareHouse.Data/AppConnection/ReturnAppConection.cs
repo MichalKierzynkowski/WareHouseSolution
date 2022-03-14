@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-
-
-namespace WareHouse.Data.AppConnection
+﻿namespace WareHouse.Data.AppConnection
 {
     public static class ReturnAppConection
     {
