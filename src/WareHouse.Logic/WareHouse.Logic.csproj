@@ -25,8 +25,5 @@
     <ProjectReference Include="..\WareHouse.Data\WareHouse.Data.csproj" />
     <ProjectReference Include="..\WareHouse.Domain\WareHouse.Domain.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ShowWareHouseClasses\" />
-  </ItemGroup>
  
 </Project>

@@ -69,7 +69,29 @@ namespace WareHouse.Data.Repository
         {
             throw new NotImplementedException();
         }
+        public IEnumerable<ShowAllProductsDto> ReturnProductsById(int barNumber)
+        {
+            string query = @"SELECT dbo.Product.DescriptionProduct, dbo.Product.Quantity,dbo.Product.BarNumber, 
+            dbo.Product.CurrentSellingPrice, dbo.Product.IsReturned, dbo.Product.AddedAt, dbo.PurchaseMethod.PurchaseMethodDescription,dbo.ProductType.ProductTypeDescription, dbo.Purchase.PurchasePrice
+            FROM dbo.Product  
+            INNER JOIN dbo.Purchase ON dbo.Product.IdProduct = dbo.Purchase.IdProduct 
+            INNER JOIN dbo.PurchaseMethod ON dbo.Product.IdPurchaseMethod = dbo.PurchaseMethod.IdPurchaseMethod   
+            INNER JOIN dbo.ProductType ON dbo.Product.IdTypeProduct = dbo.ProductType.IdProductType  
+            WHERE dbo.Purchase.DatePurchase 
+            IN ( SELECT MAX(dbo.Purchase.DatePurchase)  FROM dbo.Purchase  GROUP BY IdProduct)";
 
-        
+
+            using IDbConnection db = new SqlConnection(ReturnAppConection.ConnectionString);
+            if (db.State == ConnectionState.Closed)
+            {
+                db.Open();
+            }
+
+            var allProducts=  db.Query<ShowAllProductsDto>(query, commandType: CommandType.Text);
+            return allProducts.Where(x => x.BarNumber==barNumber);
+
+
+        }
+
     }
 }

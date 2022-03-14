@@ -22,6 +22,13 @@ namespace ClassesLibrary.AddItemClasses.Validation
 
         }
 
+        public BarNumberValidation(BarNumberModel barNumberObj)
+        {
+            BarNumberObj = barNumberObj;
+        }
+
+        public BarNumberModel BarNumberObj { get; }
+
         private bool IsExistingBarNumberNotExist(decimal barNumber)
         {
             var barNumberValidate = new BarNumberExistingValidation(barNumber);

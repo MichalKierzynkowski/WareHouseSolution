@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClassesLibrary.AddItemClasses.Validation;
+using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +8,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using WareHouse.Data.Repository;
+using WareHouse.Logic.AddItemClasses.Validation;
+using WareHouse.Logic.ShowWareHouseClasses.Validation;
 
 namespace WareHouseApplication.Forms.Magazyn;
 
@@ -21,11 +25,11 @@ public partial class ShowWareHouse : Form
     {
         InitializeComponent();
         productRepository = new ProductRepository();
-        AutoScaleDimensions = new SizeF(96F, 96F);
+      
         AutoScaleMode = AutoScaleMode.Font;
         ObjMainMenu = objMainMenu;
-        StoreProductsInDataGridView();    
-
+        StoreProductsInDataGridView();
+        BarNumberNumeric.Controls[0].Visible = false;
 
     }
 
@@ -74,9 +78,7 @@ public partial class ShowWareHouse : Form
      
         dataGridView1.AllowUserToResizeColumns = false;
         dataGridView1.AllowUserToResizeRows = false;
-        dataGridView1.Columns[0].Width = 75;
-        dataGridView1.Columns[1].Width = 150;
-        dataGridView1.Columns[2].Width = 75;
+       
         dataGridView1.DataSource = productRepository.GetProducts();
 
     }
@@ -124,7 +126,7 @@ public partial class ShowWareHouse : Form
         RodzajProdCBox.SelectedIndex = -1;
         CenaZakupuCBox.SelectedIndex = -1;
         CenaSprzedazCBox.SelectedIndex = -1;
-        NumerKreskowyTBox.Clear();
+        BarNumberNumeric.Value = 0;
         IsReturnedComboBox.SelectedIndex = -1;
         comboBox1.SelectedIndex = -1;
     }
@@ -140,8 +142,26 @@ public partial class ShowWareHouse : Form
 
     private void SzukajButton_Click(object sender, EventArgs e)
     {
-       
-          
+
+        var barNumberObj = new BarNumberModel()
+        {
+            BarNumber = BarNumberNumeric.Value
+        };
+
+        
+        ShowProductsFromBarNumberValidation validationbarNumber = new ShowProductsFromBarNumberValidation(barNumberObj);
+        var result = validationbarNumber.ReturnValidatingResult();
+
+        if (!result.IsValid)
+        {
+            MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        else
+        {
+            
+        }
+
 
 
 

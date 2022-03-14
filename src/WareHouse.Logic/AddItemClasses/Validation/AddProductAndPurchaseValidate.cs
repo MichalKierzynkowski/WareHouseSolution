@@ -45,7 +45,7 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
     private bool IsStringContainsNumbers(string value)
     {
         string valueToCheck = String.Concat(value.Where(c => !Char.IsWhiteSpace(c)));
-        return System.Text.RegularExpressions.Regex.IsMatch(valueToCheck, @"^[a-zA-Z]+$");
+        return System.Text.RegularExpressions.Regex.IsMatch(valueToCheck, @"^[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻżxX]+$");
     }
 
     
@@ -59,7 +59,7 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 
     
 
-    private bool IsExistingBarNumberNotExist(int barNumber)
+    private bool IsExistingBarNumberNotExist(decimal barNumber)
     {
         var barNumberValidate = new BarNumberExistingValidation(barNumber);
         var result = barNumberValidate.IsGivenBarNumberExist();
