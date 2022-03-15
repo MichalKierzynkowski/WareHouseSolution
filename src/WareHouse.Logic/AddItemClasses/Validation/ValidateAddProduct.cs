@@ -1,4 +1,5 @@
-﻿using ClassesLibrary.AddItemClasses.Validation;
+﻿using System.ComponentModel.DataAnnotations;
+using ClassesLibrary.AddItemClasses.Validation;
 using FluentValidation.Results;
 using WareHouse.Data.SqlModels;
 
@@ -13,7 +14,7 @@ namespace WareHouse.Logic.AddItemClasses.Validation
         }
 
         public Product Product { get; }
-        public ValidationResult ReturnValidatingResult()
+        public FluentValidation.Results.ValidationResult ReturnValidatingResult()
         {
             AddProductAndPurchaseValidate addProductValidate = new AddProductAndPurchaseValidate();
             return addProductValidate.Validate(Product);

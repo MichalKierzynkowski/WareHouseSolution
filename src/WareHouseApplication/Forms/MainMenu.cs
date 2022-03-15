@@ -101,8 +101,8 @@ public partial class MainMenu : Form
 
     private void edycjaMagazynuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        //var obj = new EditWareHouse();
-        //obj.Show();
+        var obj = new EditWareHouse();
+        obj.Show();
     }
 
     private void informacjeOWersjiToolStripMenuItem_Click(object sender, EventArgs e)

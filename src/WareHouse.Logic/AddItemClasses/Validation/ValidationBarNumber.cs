@@ -1,4 +1,5 @@
-﻿using ClassesLibrary.AddItemClasses.Validation;
+﻿using System.ComponentModel.DataAnnotations;
+using ClassesLibrary.AddItemClasses.Validation;
 using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
 using FluentValidation.Results;
 
@@ -14,7 +15,7 @@ namespace WareHouse.Logic.AddItemClasses.Validation
 
         public BarNumberModel BarNumberObj { get; }
         BarNumberValidation barNumberValidation { get; set; }
-        public ValidationResult ReturnValidatingResult()
+        public FluentValidation.Results.ValidationResult ReturnValidatingResult()
         {
             return barNumberValidation.Validate(BarNumberObj);
 

@@ -19,21 +19,30 @@ public partial class EditWareHouse : Form
     public EditWareHouse()
     {
         InitializeComponent();
-        
-        
+        TurnOffButtons();
+        HidingArrowsInNumerics();
+       
+    }
+
+    
+   
+  
+    private int SelectedRow { get; set; }
+    private int? SelecterBarNumber { get; set; }
+    public void HidingArrowsInNumerics()
+    {
+        AmountNumeric.Controls[0].Visible = false;
+        BuyPriceNumeric.Controls[0].Visible = false;
+        SellPriceNumeric.Controls[0].Visible = false;
+       
+    }
+
+    public void TurnOffButtons()
+    {
         EditButton.Enabled = false;
         SaveChangesButton.Enabled = false;
         DeletButton.Enabled = false;
     }
-
-    
-    private SqlDataAdapter DAdapter { get; set; }
-    private DataSet Ds { get; set; }
-    private SqlCommand Cmd { get; set; }
-    private int SelectedRow { get; set; }
-    private int? SelecterBarNumber { get; set; }
-
-    
 
     private string GetFilter()
     {
@@ -130,18 +139,9 @@ public partial class EditWareHouse : Form
         var list2 = dataGridView1.DataSource;
     }
 
-    private void RodzajProdSortowanieCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
-    {
-    }
+    
 
-    private void MetodaZakupuCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
-    {
-    }
-
-    private void MetodaZakupuWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
-    {
-    }
-
+    
     private void ResetButton_Click(object sender, EventArgs e)
     {
         ResetSortingFields();
@@ -186,13 +186,13 @@ public partial class EditWareHouse : Form
             EditButton.Enabled = true;
             SaveChangesButton.Enabled = true;
             var selectedRow = dataGridView1.Rows[SelectedRow];
-            OpisProduktuTBox.Text = selectedRow.Cells[0].Value.ToString();
+            ProductDescriptionTBox.Text = selectedRow.Cells[0].Value.ToString();
 
             AmountNumeric.Value = Convert.ToDecimal(selectedRow.Cells[3].Value.ToString());
             BuyPriceNumeric.Value = Convert.ToDecimal(selectedRow.Cells[4].Value.ToString());
             SellPriceNumeric.Value = Convert.ToDecimal(selectedRow.Cells[5].Value.ToString());
-            RodzajProduktuWyrazCBox.SelectedItem = selectedRow.Cells[1].Value.ToString();
-            MetodaKupnaWyrazCBox.SelectedItem = selectedRow.Cells[2].Value.ToString();
+            ProductTypeWordCBox.SelectedItem = selectedRow.Cells[1].Value.ToString();
+            BuyMethodWordCBox.SelectedItem = selectedRow.Cells[2].Value.ToString();
             SelecterBarNumber = Convert.ToInt32(selectedRow.Cells[6].Value.ToString());
         }
         else
@@ -211,9 +211,9 @@ public partial class EditWareHouse : Form
         if (SelectedRow >= 0)
         {
             var newDataRow = dataGridView1.Rows[SelectedRow];
-            newDataRow.Cells[0].Value = OpisProduktuTBox.Text;
-            newDataRow.Cells[1].Value = RodzajProduktuWyrazCBox.Text;
-            newDataRow.Cells[2].Value = MetodaKupnaWyrazCBox.Text;
+            newDataRow.Cells[0].Value = ProductDescriptionTBox.Text;
+            newDataRow.Cells[1].Value = ProductTypeWordCBox.Text;
+            newDataRow.Cells[2].Value = BuyMethodWordCBox.Text;
             newDataRow.Cells[3].Value = AmountNumeric.Value;
             newDataRow.Cells[4].Value = BuyPriceNumeric.Value;
             newDataRow.Cells[5].Value = SellPriceNumeric.Value;

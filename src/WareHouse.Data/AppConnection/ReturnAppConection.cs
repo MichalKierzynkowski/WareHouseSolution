@@ -13,6 +13,6 @@
 
         //laptop 
 
-        public static string ConnectionString = "Data Source=DESKTOP-DQ7DARP\\\\SQLEXPRESS; Initial Catalog=WareHouse;User ID=; Integrated Security=SSPI;Persist Security Info=False;";
+        public static string ConnectionString = "Data Source=DESKTOP-DQ7DARP\\SQLEXPRESS; Initial Catalog=WareHouse;Trusted_Connection=True; Integrated Security=SSPI;Persist Security Info=False;Encrypt=False;TrustServerCertificate=True;";
     }
 }
