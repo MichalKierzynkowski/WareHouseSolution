@@ -1,9 +1,9 @@
-﻿using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
 using WareHouse.Data.Repository;
 using WareHouse.Domain.ProductDto;
 using WareHouse.Logic.ShowWareHouseClasses.Converter;
@@ -13,11 +13,12 @@ namespace WareHouseApplication.Forms.Magazyn;
 
 public partial class ShowWareHouse : Form
 {
+    private int? BarNumberInt;
+    private string BuyingMethodDescription;
+    private readonly IProductRepository productRepository;
 
     private string ProductTypeDescription;
-    private string BuyingMethodDescription;
-    private int? BarNumberInt;
-    IProductRepository productRepository;
+
     public ShowWareHouse(MainMenu objMainMenu)
     {
         InitializeComponent();
@@ -27,17 +28,14 @@ public partial class ShowWareHouse : Form
         ObjMainMenu = objMainMenu;
         StoreProductsInDataGridView(productRepository.GetProducts());
         BarNumberNumeric.Controls[0].Visible = false;
-
     }
+
+    public MainMenu ObjMainMenu { get; }
+
     private void StoreProductsInDataGridView(IEnumerable<ShowAllProductsDto> product)
     {
-
-
-
         dataGridView1.DataSource = null;
         dataGridView1.Rows.Clear();
-
-
 
 
         dataGridView1.ReadOnly = true;
@@ -81,30 +79,28 @@ public partial class ShowWareHouse : Form
         dataGridView1.AllowUserToResizeColumns = false;
         dataGridView1.AllowUserToResizeRows = false;
 
-        var productDataSet = ConvertListToDataSet.ToDataSet(product);
+        var productDataSet = product.ToDataSet();
         dataGridView1.DataSource = productDataSet.Tables[0];
-
-
-
     }
-    public MainMenu ObjMainMenu { get; }
+
     private void RodzajProdCBox_SelectedValueChanged(object sender, EventArgs e)
     {
         int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
         RodzajProduktuWyrazCBox.SelectedIndex = selectedItemComboBox2;
-
-
     }
+
     private void MetodaKupnaCyfraCBox_SelectedValueChanged(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
         MetodaKupnaWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
     }
+
     private void MetodaKupnaWyrazCBox_SelectedValueChanged(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
         MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
     }
+
     private void ResetButton_Click(object sender, EventArgs e)
     {
         ClearingOptions();
@@ -114,6 +110,7 @@ public partial class ShowWareHouse : Form
         BarNumberInt = null;
         StoreProductsInDataGridView(productRepository.GetProducts());
     }
+
     private void ClearingOptions()
     {
         MetodaKupnaCyfraCBox.SelectedIndex = -1;
@@ -124,52 +121,39 @@ public partial class ShowWareHouse : Form
         AddedAtCBox.SelectedIndex = -1;
         AmountCBox.SelectedIndex = -1;
     }
+
     private void button3_Click(object sender, EventArgs e)
     {
         var objAlert = new Alert.Alert(dataGridView1);
         objAlert.Show();
-
     }
+
     private void SzukajButton_Click(object sender, EventArgs e)
     {
-
-        var barNumberObj = new BarNumberModel()
+        var barNumberObj = new BarNumberModel
         {
             BarNumber = BarNumberNumeric.Value
         };
 
 
-        ShowProductsFromBarNumberValidation validationbarNumber = new ShowProductsFromBarNumberValidation(barNumberObj);
+        var validationbarNumber = new ShowProductsFromBarNumberValidation(barNumberObj);
         var result = validationbarNumber.ReturnValidatingResult();
 
         if (!result.IsValid)
-        {
             MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
         else
-        {
-
             StoreProductsInDataGridView(productRepository.ReturnProductsById(barNumberObj.BarNumber));
-
-
-
-
-
-        }
-
-
-
-
     }
+
     private void comboBox3_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemComboBox3 = Convert.ToInt16(RodzajProduktuWyrazCBox.SelectedIndex);
         RodzajProdCBox.SelectedIndex = selectedItemComboBox3;
         ProductTypeDescription = RodzajProduktuWyrazCBox.SelectedItem.ToString();
 
-        string prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
-        BindingSource bs = new BindingSource();
+        var prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
+        var bs = new BindingSource();
         var list = dataGridView1.DataSource;
 
         bs.DataSource = dataGridView1.DataSource;
@@ -180,11 +164,8 @@ public partial class ShowWareHouse : Form
         dataGridView1.DataSource = bs;
 
         var list2 = dataGridView1.DataSource;
-
-
-
-
     }
+
     private void RodzajProdCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemComboBox2 = Convert.ToInt16(RodzajProdCBox.SelectedIndex);
@@ -193,18 +174,17 @@ public partial class ShowWareHouse : Form
 
         var list = dataGridView1.DataSource;
 
-        string prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
+        var prodType = RodzajProduktuWyrazCBox.SelectedItem.ToString();
 
-        BindingSource bs = new BindingSource();
+        var bs = new BindingSource();
         bs.DataSource = dataGridView1.DataSource;
 
 
         bs.Filter = GetFilter();
 
         dataGridView1.DataSource = bs;
-
-
     }
+
     private void MetodaKupnaCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaKupnaCyfraCBox.SelectedIndex);
@@ -212,8 +192,8 @@ public partial class ShowWareHouse : Form
         var list = dataGridView1.DataSource;
 
         BuyingMethodDescription = MetodaKupnaWyrazCBox.SelectedItem.ToString();
-        string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
-        BindingSource bs = new BindingSource();
+        var buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
+        var bs = new BindingSource();
 
         bs.DataSource = dataGridView1.DataSource;
 
@@ -224,19 +204,15 @@ public partial class ShowWareHouse : Form
         dataGridView1.ResetBindings();
         dataGridView1.DataSource = bs;
         var list2 = dataGridView1.DataSource;
-
-
-
     }
+
     private void MetodaKupnaWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
         int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaKupnaWyrazCBox.SelectedIndex);
         MetodaKupnaCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
         BuyingMethodDescription = MetodaKupnaWyrazCBox.SelectedItem.ToString();
-        string buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
-        BindingSource bs = new BindingSource();
-
-
+        var buyingMethod = MetodaKupnaWyrazCBox.SelectedItem.ToString();
+        var bs = new BindingSource();
 
 
         bs.DataSource = dataGridView1.DataSource;
@@ -247,95 +223,57 @@ public partial class ShowWareHouse : Form
         dataGridView1.DataSource = null;
         dataGridView1.ResetBindings();
         dataGridView1.DataSource = bs;
-
-
     }
+
     private string GetFilter()
     {
-
-        List<string> parts = new List<string>();
+        var parts = new List<string>();
         if (string.IsNullOrWhiteSpace(ProductTypeDescription) == false)
-        {
             parts.Add($"ProductTypeDescription like '%{ProductTypeDescription}%'");
-        }
 
         if (string.IsNullOrWhiteSpace(BuyingMethodDescription) == false)
-        {
             parts.Add($"PurchaseMethodDescription like '%{BuyingMethodDescription}%'");
-        }
-        if (BarNumberInt != null)
-        {
-
-            parts.Add($"BarNumber = {BarNumberInt}");
-
-
-        }
-
-
-
-
+        if (BarNumberInt != null) parts.Add($"BarNumber = {BarNumberInt}");
 
 
         var stringResult = string.Join(" and ", parts);
 
         return stringResult;
-
     }
+
     private void CenaZakupuCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
-        string CenaZakupu = BuyingPriceCBox.Text.ToString();
+        var CenaZakupu = BuyingPriceCBox.Text;
         if (CenaZakupu == "Od najmniejszej do największej")
-        {
             dataGridView1.Sort(dataGridView1.Columns[4], ListSortDirection.Ascending);
-        }
         else
-        {
             dataGridView1.Sort(dataGridView1.Columns[4], ListSortDirection.Descending);
-        }
-
-
-
-
-
-
-
     }
+
     private void CenaSprzedazCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
-
-        string CenaSprzedazy = SellingPriceCBox.Text.ToString();
+        var CenaSprzedazy = SellingPriceCBox.Text;
         if (CenaSprzedazy == "Od najmniejszej do największej")
-        {
             dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
-        }
         else
-        {
             dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Descending);
-        }
-
     }
+
     private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
     {
-        string Ilosc = AmountCBox.Text.ToString();
+        var Ilosc = AmountCBox.Text;
         if (Ilosc == "Od najmniejszej do największej")
-        {
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
-        }
         else
-        {
             dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
-        }
     }
+
     private void AddedAtCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
-        string Ilosc = AddedAtCBox.Text;
+        var Ilosc = AddedAtCBox.Text;
         if (Ilosc == "Od najmłodszej do najstarszej")
-        {
             dataGridView1.Sort(dataGridView1.Columns[8], ListSortDirection.Ascending);
-        }
         else
-        {
             dataGridView1.Sort(dataGridView1.Columns[8], ListSortDirection.Descending);
-        }
     }
 }

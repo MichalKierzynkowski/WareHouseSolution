@@ -551,7 +551,7 @@ namespace WareHouseApplication.Forms.Magazyn
             this.SaveChangesButton.TabIndex = 55;
             this.SaveChangesButton.Text = "Zatwierdź Zmiany";
             this.SaveChangesButton.UseVisualStyleBackColor = true;
-            this.SaveChangesButton.Click += new System.EventHandler(this.SaveChangesButton_Click);
+          
             // 
             // EditWareHouse
             // 
