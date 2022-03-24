@@ -5,11 +5,13 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
 using Dapper;
 using WareHouse.Data.Repository;
 using WareHouse.Data.SqlModels;
 using WareHouse.Domain.ProductDto;
 using WareHouse.Logic.ShowWareHouseClasses.Converter;
+using WareHouse.Logic.ShowWareHouseClasses.Validation;
 
 namespace WareHouseApplication.Forms.Magazyn;
 
@@ -89,7 +91,8 @@ public partial class EditWareHouse : Form
         AmountNumeric.Controls[0].Visible = false;
         BuyPriceNumeric.Controls[0].Visible = false;
         SellPriceNumeric.Controls[0].Visible = false;
-       
+        BarNumberNumeric.Controls[0].Visible=false;
+
     }
 
     public void TurnOffButtons()
@@ -212,12 +215,29 @@ public partial class EditWareHouse : Form
         RodzajProdSortowanieWyrazCBox.SelectedIndex = -1;
         MetodaZakupuCyfraCBox.SelectedIndex = -1;
         MetodaZakupuWyrazCBox.SelectedIndex = -1;
-        NumerKreskowyTBox.Clear();
+        BarNumberNumeric.Value = 0;
+        StoreProductsInDataGridView(productRepository.GetProducts());
     }
 
     private void SortingButton_Click(object sender, EventArgs e)
     {
-        
+        var barNumberObj = new BarNumberModel
+        {
+            BarNumber = BarNumberNumeric.Value
+        };
+
+
+        var validationbarNumber = new ShowProductsFromBarNumberValidation(barNumberObj);
+        var result = validationbarNumber.ReturnValidatingResult();
+
+        if (!result.IsValid)
+            MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        else
+        {
+            StoreProductsInDataGridView(productRepository.ReturnProductsById(barNumberObj.BarNumber));
+        }
+      
     }
 
     

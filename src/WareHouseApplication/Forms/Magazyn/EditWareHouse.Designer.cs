@@ -51,7 +51,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.DeletButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.NumerKreskowyTBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.MetodaZakupuCyfraCBox = new System.Windows.Forms.ComboBox();
             this.MetodaZakupuWyrazCBox = new System.Windows.Forms.ComboBox();
@@ -62,12 +61,14 @@ namespace WareHouseApplication.Forms.Magazyn
             this.panel2 = new System.Windows.Forms.Panel();
             this.ResetButton = new System.Windows.Forms.Button();
             this.SaveChangesButton = new System.Windows.Forms.Button();
+            this.BarNumberNumeric = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuyPriceNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarNumberNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -342,15 +343,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.label9.Text = "Opcje Sortowania:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // NumerKreskowyTBox
-            // 
-            this.NumerKreskowyTBox.Location = new System.Drawing.Point(1078, 369);
-            this.NumerKreskowyTBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.NumerKreskowyTBox.Multiline = true;
-            this.NumerKreskowyTBox.Name = "NumerKreskowyTBox";
-            this.NumerKreskowyTBox.Size = new System.Drawing.Size(232, 30);
-            this.NumerKreskowyTBox.TabIndex = 52;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -511,7 +503,6 @@ namespace WareHouseApplication.Forms.Magazyn
             this.RodzajProdSortowanieCyfraCBox.Size = new System.Drawing.Size(45, 25);
             this.RodzajProdSortowanieCyfraCBox.TabIndex = 46;
             this.RodzajProdSortowanieCyfraCBox.SelectionChangeCommitted += new System.EventHandler(this.RodzajProdSortowanieCyfraCBox_SelectionChangeCommitted);
-            
             // 
             // label12
             // 
@@ -551,7 +542,13 @@ namespace WareHouseApplication.Forms.Magazyn
             this.SaveChangesButton.TabIndex = 55;
             this.SaveChangesButton.Text = "Zatwierdź Zmiany";
             this.SaveChangesButton.UseVisualStyleBackColor = true;
-          
+            // 
+            // BarNumberNumeric
+            // 
+            this.BarNumberNumeric.Location = new System.Drawing.Point(1078, 374);
+            this.BarNumberNumeric.Name = "BarNumberNumeric";
+            this.BarNumberNumeric.Size = new System.Drawing.Size(231, 25);
+            this.BarNumberNumeric.TabIndex = 56;
             // 
             // EditWareHouse
             // 
@@ -559,10 +556,10 @@ namespace WareHouseApplication.Forms.Magazyn
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1349, 954);
+            this.Controls.Add(this.BarNumberNumeric);
             this.Controls.Add(this.SaveChangesButton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.NumerKreskowyTBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.MetodaZakupuCyfraCBox);
             this.Controls.Add(this.MetodaZakupuWyrazCBox);
@@ -600,6 +597,7 @@ namespace WareHouseApplication.Forms.Magazyn
             ((System.ComponentModel.ISupportInitialize)(this.AmountNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuyPriceNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarNumberNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,7 +626,6 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.Button DeletButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox NumerKreskowyTBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox MetodaZakupuCyfraCBox;
         private System.Windows.Forms.ComboBox MetodaZakupuWyrazCBox;
@@ -639,5 +636,6 @@ namespace WareHouseApplication.Forms.Magazyn
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button SaveChangesButton;
+        private System.Windows.Forms.NumericUpDown BarNumberNumeric;
     }
 }
