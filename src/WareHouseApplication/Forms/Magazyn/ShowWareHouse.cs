@@ -197,8 +197,8 @@ public partial class ShowWareHouse : Form
 
         bs.DataSource = dataGridView1.DataSource;
 
-
-        //bs.Filter = "Purchase_Method_Description like '%" + buyingMethod + "%'";
+ 
+       
         bs.Filter = GetFilter();
         dataGridView1.DataSource = null;
         dataGridView1.ResetBindings();
@@ -218,7 +218,7 @@ public partial class ShowWareHouse : Form
         bs.DataSource = dataGridView1.DataSource;
         dataGridView1.DataSource = null;
 
-        // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
+   
         bs.Filter = GetFilter();
         dataGridView1.DataSource = null;
         dataGridView1.ResetBindings();

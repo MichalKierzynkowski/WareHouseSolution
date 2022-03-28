@@ -106,11 +106,11 @@ public partial class EditWareHouse : Form
     {
         var parts = new List<string>();
         if (string.IsNullOrWhiteSpace(ProductTypeDescription) == false)
-            parts.Add($"Product_Type_Description like '%{ProductTypeDescription}%'");
+            parts.Add($"ProductTypeDescription like '%{ProductTypeDescription}%'");
 
         if (string.IsNullOrWhiteSpace(BuyingMethodDescription) == false)
-            parts.Add($"Purchase_Method_Description like '%{BuyingMethodDescription}%'");
-        if (BarNumberInt != null) parts.Add($"Bar_Number = {BarNumberInt}");
+            parts.Add($"PurchaseMethodDescription like '%{BuyingMethodDescription}%'");
+        if (BarNumberInt != null) parts.Add($"BarNumber = {BarNumberInt}");
 
 
         var stringResult = string.Join(" and ", parts);
@@ -150,7 +150,7 @@ public partial class EditWareHouse : Form
         bs.DataSource = dataGridView1.DataSource;
 
 
-        //bs.Filter = "Purchase_Method_Description like '%" + buyingMethod + "%'";
+      
         bs.Filter = GetFilter();
         dataGridView1.DataSource = null;
         dataGridView1.ResetBindings();
@@ -170,7 +170,7 @@ public partial class EditWareHouse : Form
         bs.DataSource = dataGridView1.DataSource;
         dataGridView1.DataSource = null;
 
-        // bs.Filter = "Purchase_Method_Description like '%" + buyingMethod+ "%'";
+   
         bs.Filter = GetFilter();
         dataGridView1.DataSource = null;
         dataGridView1.ResetBindings();
@@ -188,7 +188,7 @@ public partial class EditWareHouse : Form
         var list = dataGridView1.DataSource;
 
         bs.DataSource = dataGridView1.DataSource;
-        // bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+      
         bs.Filter = GetFilter();
         dataGridView1.DataSource = null;
 
