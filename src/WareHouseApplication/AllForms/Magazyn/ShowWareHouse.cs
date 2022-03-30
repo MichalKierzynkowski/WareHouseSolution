@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
-using WareHouse.Data.Repository;
-using WareHouse.Domain.ProductDto;
-using WareHouse.Logic.ShowWareHouseClasses.Converter;
-using WareHouse.Logic.ShowWareHouseClasses.Validation;
+
 
 namespace WareHouseApplication.Forms.Magazyn;
 
@@ -15,73 +11,24 @@ public partial class ShowWareHouse : Form
 {
     private int? BarNumberInt;
     private string BuyingMethodDescription;
-    private readonly IProductRepository productRepository;
+
 
     private string ProductTypeDescription;
 
     public ShowWareHouse(MainMenu objMainMenu)
     {
         InitializeComponent();
-        productRepository = new ProductRepository();
+     
 
         AutoScaleMode = AutoScaleMode.Font;
         ObjMainMenu = objMainMenu;
-        StoreProductsInDataGridView(productRepository.GetProducts());
+      
         BarNumberNumeric.Controls[0].Visible = false;
     }
 
     public MainMenu ObjMainMenu { get; }
 
-    private void StoreProductsInDataGridView(IEnumerable<ShowAllProductsDto> product)
-    {
-        dataGridView1.DataSource = null;
-        dataGridView1.Rows.Clear();
-
-
-        dataGridView1.ReadOnly = true;
-        dataGridView1.AutoGenerateColumns = false;
-        dataGridView1.ColumnCount = 9;
-        dataGridView1.Columns[0].HeaderText = "Numer Ewidencyjny";
-        dataGridView1.Columns[0].DataPropertyName = "BarNumber";
-        dataGridView1.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[1].HeaderText = "Opis Produktu";
-        dataGridView1.Columns[1].DataPropertyName = "DescriptionProduct";
-        dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[2].HeaderText = "Ilość";
-        dataGridView1.Columns[2].DataPropertyName = "Quantity";
-        dataGridView1.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[3].HeaderText = "Cena Sprzedaży";
-        dataGridView1.Columns[3].DataPropertyName = "CurrentSellingPrice";
-        dataGridView1.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[4].HeaderText = "Cena Zakupu";
-        dataGridView1.Columns[4].DataPropertyName = "PurchasePrice";
-        dataGridView1.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[5].HeaderText = "Metoda Zakupu";
-        dataGridView1.Columns[5].DataPropertyName = "PurchaseMethodDescription";
-        dataGridView1.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[6].HeaderText = "Rodzaj Produktu";
-        dataGridView1.Columns[6].DataPropertyName = "ProductTypeDescription";
-        dataGridView1.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[7].HeaderText = "Zwrócony";
-        dataGridView1.Columns[7].DataPropertyName = "IsReturned";
-        dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.Columns[8].HeaderText = "Data Dodania";
-        dataGridView1.Columns[8].DataPropertyName = "AddedAt";
-        dataGridView1.Columns[8].SortMode = DataGridViewColumnSortMode.NotSortable;
-        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        dataGridView1.AllowUserToAddRows = false;
-        dataGridView1.BackgroundColor = SystemColors.Control;
-        dataGridView1.RowHeadersVisible = false;
-        dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Bold);
-        dataGridView1.RowsDefaultCellStyle.Font = new Font("Arial", 7);
-        dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        dataGridView1.AllowUserToResizeColumns = false;
-        dataGridView1.AllowUserToResizeRows = false;
-
-        var productDataSet = product.ToDataSet();
-        dataGridView1.DataSource = productDataSet.Tables[0];
-    }
+    
 
     private void RodzajProdCBox_SelectedValueChanged(object sender, EventArgs e)
     {
@@ -108,7 +55,7 @@ public partial class ShowWareHouse : Form
         ProductTypeDescription = string.Empty;
         BuyingMethodDescription = string.Empty;
         BarNumberInt = null;
-        StoreProductsInDataGridView(productRepository.GetProducts());
+      
     }
 
     private void ClearingOptions()
@@ -130,20 +77,7 @@ public partial class ShowWareHouse : Form
 
     private void SzukajButton_Click(object sender, EventArgs e)
     {
-        var barNumberObj = new BarNumberModel
-        {
-            BarNumber = BarNumberNumeric.Value
-        };
-
-
-        var validationbarNumber = new ShowProductsFromBarNumberValidation(barNumberObj);
-        var result = validationbarNumber.ReturnValidatingResult();
-
-        if (!result.IsValid)
-            MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-        else
-            StoreProductsInDataGridView(productRepository.ReturnProductsById(barNumberObj.BarNumber));
+      
     }
 
     private void comboBox3_SelectionChangeCommitted(object sender, EventArgs e)

@@ -1,16 +1,14 @@
-﻿using ClassesLibrary.AddItemClasses.Queries;
-using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
+﻿
 using System;
 using System.Windows.Forms;
-using WareHouse.Data.SqlModels;
-using WareHouse.Logic.AddItemClasses.Validation;
+
 
 namespace WareHouseApplication.Forms.Magazyn;
 
 public partial class AddItemFormcs : Form
 {
 
-    private CreateProductAndPurchase _createProductAndPurchase { get; set; }
+  
     public AddItemFormcs(MainMenu objMainMenu)
     {
         InitializeComponent();
@@ -69,23 +67,7 @@ public partial class AddItemFormcs : Form
 
     public void DostepnoscButton_Click(object sender, EventArgs e)
     {
-        var barNumberObj = new BarNumberModel()
-        {
-            BarNumber = BarNumberTBox.Value
-        };
-
-        ValidationBarNumber validationBarNumber = new ValidationBarNumber(barNumberObj);
-        var result = validationBarNumber.ReturnValidatingResult();
-        if (!result.IsValid)
-        {
-            MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        else
-        {
-            MessageBox.Show("Podany numer kodu kreskowego nie jest przypisany do żadnego produktu!", "Informacja",
-               MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        
 
 
     }
@@ -124,49 +106,7 @@ public partial class AddItemFormcs : Form
 
     private void AddProductButton_Click(object sender, EventArgs e)
     {
-        Guid idProductGuid = Guid.NewGuid();
-        var product = new Product()
-        {
-            IdProduct = idProductGuid,
-            DescriptionProduct = ProductDescriptionTBox.Text,
-            IdTypeProduct = ProductTypeDigitCBox.Text,
-            BarNumber = (int)BarNumberTBox.Value,
-            CurrentSellingPrice = CurrentSellingPriceBox.Value,
-            IsReturned = false,
-            Quantity = (int)AmountOfProductTBox.Value,
-            IdPurchaseMethod = BuyMethodDigitCBox.Text,
-            AddedAt = DateTime.Now,
-            Purchase = new Purchase
-            {
-                Amount = (int)AmountOfProductTBox.Value,
-                DatePurchase = DateTime.Now,
-                PurchasePrice = PurchasePriceBox.Value,
-                IdPurchase = Guid.NewGuid(),
-                IdProduct = idProductGuid
-            }
-        };
-
-
-
-        ValidateAddProduct validateAddProduct = new ValidateAddProduct(product);
-
-        var result = validateAddProduct.ReturnValidatingResult();
-        if (!result.IsValid)
-        {
-
-            MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-        }
-        else
-        {
-
-            _createProductAndPurchase = new CreateProductAndPurchase(product);
-            SuccessfullyProductAdded();
-
-
-        }
+       
 
     }
 

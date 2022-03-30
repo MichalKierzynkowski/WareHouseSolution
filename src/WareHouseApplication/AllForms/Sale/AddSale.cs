@@ -9,9 +9,9 @@ namespace WareHouseApplication.Forms.Sale;
 
 public partial class AddSale : Form
 {
-    private SqlDataAdapter DAdapter { get; set; }
+
     private DataSet Ds { get; set; }
-    private SqlCommand Cmd { get; set; }
+    
     public string ConnectionString { get; }
     private int? BarNumberInt;
     private string BuyingMethodDescription;
@@ -23,92 +23,13 @@ public partial class AddSale : Form
     {
         InitializeComponent();
 
-        DefaultFillingGridView();
+       
         SellItemButton.Enabled = false;
 
     }
-    private void DefaultFillingGridView()
-    {
-        dataGridView1.DataSource = null;
-        dataGridView1.Rows.Clear();
-        using (var conn = new SqlConnection(ConnectionString))
-        {
-            //retrieve the SQL Server instance version
-            var query =
-                @"SELECT Product.Description_Product, Purchase_Methods.Purchase_Method_Description, Product.Quantity, Product.Offer_Price, Purchase.Price, Product_Type.Product_Type_Description,Product.Bar_Number,Product. IsReturned
-                    FROM     Product INNER JOIN
-                  Product_Type ON Product.Type_Product = Product_Type.Type_Product INNER JOIN
-                  Purchase ON Product.Id_Product = Purchase.Id_Product INNER JOIN
-                  Purchase_Methods ON Product.Purchase_Method = Purchase_Methods.Purchase_Method
-				  where Purchase.From_Product_Create='Tak'";
-
-
-            //define the SqlCommand object
-            Cmd = new SqlCommand(query, conn);
-
-            //Set the SqlDataAdapter object
-            DAdapter = new SqlDataAdapter(Cmd);
-
-            //define dataset
-            Ds = new DataSet();
-
-            //fill dataset with query results
-            DAdapter.Fill(Ds);
-
-            //set DataGridView control to read-only
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnCount = 8;
-            dataGridView1.Columns[0].HeaderText = "Opis";
-            dataGridView1.Columns[0].DataPropertyName = "Description_Product";
-            dataGridView1.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns[1].HeaderText = "Rodzaj Produktu";
-            dataGridView1.Columns[1].DataPropertyName = "Product_Type_Description";
-            dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns[2].HeaderText = "Metoda Zakupu";
-            dataGridView1.Columns[2].DataPropertyName = "Purchase_Method_Description";
-            dataGridView1.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns[3].HeaderText = "Ilość";
-            dataGridView1.Columns[3].DataPropertyName = "Quantity";
-            dataGridView1.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns[4].HeaderText = "Cena zakupu";
-            dataGridView1.Columns[4].DataPropertyName = "Price";
-            dataGridView1.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns[5].HeaderText = "Cena sprzedaży";
-            dataGridView1.Columns[5].DataPropertyName = "Offer_Price";
-            dataGridView1.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns[6].HeaderText = "Kod Kreskowy";
-            dataGridView1.Columns[6].DataPropertyName = "Bar_Number";
-            dataGridView1.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns[7].HeaderText = "Towar Zwrócony";
-            dataGridView1.Columns[7].DataPropertyName = "IsReturned";
-            dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.BackgroundColor = SystemColors.Control;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 8F, FontStyle.Bold);
-            dataGridView1.RowsDefaultCellStyle.Font = new Font("Arial", 7);
-            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //set the DataGridView control's data source/data table
-            dataGridView1.DataSource = Ds.Tables[0];
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-
-            dataGridView1.Columns[3].Width = 70;
-            dataGridView1.Columns[4].Width = 100;
-            dataGridView1.Columns[5].Width = 130;
-            dataGridView1.Columns[6].Width = 100;
-            dataGridView1.Columns[7].Width = 130;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
-            //dataGridView1.Columns[]
-            //close connection
-            conn.Close();
-        }
-    }
+  
+      
+    
     public void ResetSortingFields()
     {
         RodzajProdSortowanieCyfraCBox.SelectedIndex = -1;
@@ -119,7 +40,7 @@ public partial class AddSale : Form
     }
     private void ResetButton_Click(object sender, EventArgs e)
     {
-        DefaultFillingGridView();
+       
         ResetSortingFields();
     }
 
