@@ -6,5 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="AddItemClasses\Validation\" />
+  </ItemGroup>
  
 </Project>
