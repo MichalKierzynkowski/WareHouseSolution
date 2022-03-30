@@ -1,43 +1,33 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassesLibrary.AddItemClasses.Validation;
-using Dapper;
-using Xunit;
-using FluentAssertions;
-using Microsoft.Data.SqlClient;
-using WareHouse.Data.SqlModels;
-
-using ClassesLibrary.AddItemClasses.Queries;
+﻿using ClassesLibrary.AddItemClasses.Validation;
 using ClassesLibrary.AddItemClasses.Validation.ValidationModels;
+using FluentAssertions;
+using System;
+using WareHouse.Data.SqlModels;
 using WareHouse.Logic.AddItemClasses.Validation;
+using Xunit;
 
 namespace WareHouseApplicationTests.Forms.Product;
 
 public class AddProductTesting
 {
     public WareHouse.Data.SqlModels.Product Product { get; set; }
-   
+
 
     public AddProductTesting()
     {
-        
-       
+
+
 
         Product = new WareHouse.Data.SqlModels.Product()
         {
             IdProduct = Guid.NewGuid(),
-            DescriptionProduct ="sa sd",
+            DescriptionProduct = "sa sd",
             IdTypeProduct = "1",
             BarNumber = 3,
             CurrentSellingPrice = 3,
             IsReturned = false,
             Quantity = 2,
-            IdPurchaseMethod ="2",
+            IdPurchaseMethod = "2",
             Purchase = new Purchase()
             {
                 Amount = 2,
@@ -46,8 +36,8 @@ public class AddProductTesting
                 IdPurchase = new Guid(),
                 PurchasePrice = 0
             }
-            
-           
+
+
 
         };
     }
@@ -59,7 +49,7 @@ public class AddProductTesting
         var errros = result.Errors;
         result.IsValid.Should().BeFalse();
     }
-  
+
     [Fact]
     public void DataBaseShouldContainsThatBarNumbers()
     {
@@ -72,5 +62,5 @@ public class AddProductTesting
         var result = validationBarNumber.ReturnValidatingResult();
         var errors = result.Errors;
     }
-    
+
 }

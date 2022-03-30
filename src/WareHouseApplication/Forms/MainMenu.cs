@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using WareHouseApplication.Forms.Magazyn;
 using WareHouseApplication.Forms.Program;
 using WareHouseApplication.Forms.Sale;
@@ -14,19 +11,19 @@ public partial class MainMenu : Form
     int mov;
     int movX;
     int movY;
-   
+
 
     public MainMenu ObjMainMenu { get; private set; }
-   
-   
 
-   
+
+
+
     public MainMenu()
     {
         InitializeComponent();
-       
-        
-    }       
+
+
+    }
 
     private void wyjścieToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -45,7 +42,7 @@ public partial class MainMenu : Form
     {
         var obj = new AddItemFormcs(ObjMainMenu);
         obj.Show();
-       
+
 
 
     }
@@ -104,8 +101,8 @@ public partial class MainMenu : Form
 
     private void edycjaMagazynuToolStripMenuItem_Click(object sender, EventArgs e)
     {
-       //var obj = new EditWareHouse();
-       //obj.Show();
+        var obj = new EditWareHouse();
+        obj.Show();
     }
 
     private void informacjeOWersjiToolStripMenuItem_Click(object sender, EventArgs e)

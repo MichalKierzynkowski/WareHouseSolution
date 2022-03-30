@@ -7,6 +7,6 @@ public class AddSaleTests
     [Fact()]
     public void SortingButton_ClickTest()
     {
-            
+
     }
 }

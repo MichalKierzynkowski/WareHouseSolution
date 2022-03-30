@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WareHouse.Domain.ProductDto
+﻿namespace WareHouse.Domain.ProductDto
 {
     public class ShowAllProductsDto
     {
@@ -16,6 +10,7 @@ namespace WareHouse.Domain.ProductDto
         public string PurchaseMethodDescription { get; set; }
         public string ProductTypeDescription { get; set; }
         public bool IsReturned { get; set; }
+        public DateTime AddedAt { get; set; }
 
     }
 }

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
-using Microsoft.Data.SqlClient;
-
+﻿
 using WareHouse.Data.Repository;
 
 namespace ClassesLibrary.AddItemClasses.Validation
@@ -15,26 +7,26 @@ namespace ClassesLibrary.AddItemClasses.Validation
     {
 
         ProductRepository productRepository { get; set; }
-        public BarNumberExistingValidation(decimal  barNumber)
+        public BarNumberExistingValidation(decimal barNumber)
         {
             BarNumber = barNumber;
-            productRepository =  new ProductRepository();
-          
+            productRepository = new ProductRepository();
+
         }
-        public decimal  BarNumber { get; set; }
-
-        
-        
+        public decimal BarNumber { get; set; }
 
 
-        public bool IsGivenBarNumberExist( )
+
+
+
+        public bool IsGivenBarNumberExist()
         {
 
             return productRepository.CheckExistenceOfBarNumber(BarNumber);
-            
-            
 
-            
+
+
+
         }
     }
 }

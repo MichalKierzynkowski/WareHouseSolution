@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FluentValidation;
+using System;
 using System.Linq;
-using FluentValidation;
 using WareHouse.Data.SqlModels;
 
 namespace ClassesLibrary.AddItemClasses.Validation;
@@ -9,13 +9,13 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
 {
     public AddProductAndPurchaseValidate()
     {
-        
+
         RuleFor(x => x.DescriptionProduct).NotEmpty().WithMessage("Pole Opis Produktu nie może być puste!");
         RuleFor(x => x.DescriptionProduct).Must(DescriptionProduct => IsStringContainsNumbers(DescriptionProduct))
             .WithMessage("Pole Opis Produktu nie może zawierać cyfr!");
 
         RuleFor(x => x.IdTypeProduct).NotEmpty().WithMessage("Pole Rodzaj Produktu nie może być puste!");
-        
+
         RuleFor(x => x.BarNumber).NotEmpty()
 
             .WithMessage("Pole numer kreskowy nie może być puste!").DependentRules(() =>
@@ -45,10 +45,10 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
     private bool IsStringContainsNumbers(string value)
     {
         string valueToCheck = String.Concat(value.Where(c => !Char.IsWhiteSpace(c)));
-        return System.Text.RegularExpressions.Regex.IsMatch(valueToCheck, @"^[a-zA-Z]+$");
+        return System.Text.RegularExpressions.Regex.IsMatch(valueToCheck, @"^[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻżxX]+$");
     }
 
-    
+
 
     private bool IsPriceIsGreaterThan0(decimal value)
     {
@@ -57,9 +57,9 @@ public class AddProductAndPurchaseValidate : AbstractValidator<Product>
         return false;
     }
 
-    
 
-    private bool IsExistingBarNumberNotExist(int barNumber)
+
+    private bool IsExistingBarNumberNotExist(decimal barNumber)
     {
         var barNumberValidate = new BarNumberExistingValidation(barNumber);
         var result = barNumberValidate.IsGivenBarNumberExist();
