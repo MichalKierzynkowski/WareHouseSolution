@@ -17,7 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     
-    <ProjectReference Include="..\WareHouse.Logic\WareHouse.Logic.csproj" />
+    <ProjectReference Include="..\WareHouse.Logic\Application.csproj" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
