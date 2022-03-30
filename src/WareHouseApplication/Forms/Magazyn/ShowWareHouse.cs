@@ -157,13 +157,13 @@ public partial class ShowWareHouse : Form
         var list = dataGridView1.DataSource;
 
         bs.DataSource = dataGridView1.DataSource;
-        // bs.Filter = "Product_Type_Description like '%" + prodType + "%'";
+      
         bs.Filter = GetFilter();
         dataGridView1.DataSource = null;
 
         dataGridView1.DataSource = bs;
 
-        var list2 = dataGridView1.DataSource;
+        
     }
 
     private void RodzajProdCBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -203,7 +203,7 @@ public partial class ShowWareHouse : Form
         dataGridView1.DataSource = null;
         dataGridView1.ResetBindings();
         dataGridView1.DataSource = bs;
-        var list2 = dataGridView1.DataSource;
+       
     }
 
     private void MetodaKupnaWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)

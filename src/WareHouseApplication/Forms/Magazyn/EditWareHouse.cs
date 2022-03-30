@@ -120,13 +120,13 @@ public partial class EditWareHouse : Form
 
     private void RodzajProdSortowanieCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
     {
-        int selectedItemComboBox2 = Convert.ToInt16(RodzajProdSortowanieCyfraCBox.SelectedIndex);
-        RodzajProdSortowanieWyrazCBox.SelectedIndex = selectedItemComboBox2;
-        ProductTypeDescription = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
+        int selectedItemComboBox2 = Convert.ToInt16(ProductTypeIdNumberCBox.SelectedIndex);
+        ProductTypeSortWordBox.SelectedIndex = selectedItemComboBox2;
+        ProductTypeDescription = ProductTypeSortWordBox.SelectedItem.ToString();
 
         var list = dataGridView1.DataSource;
 
-        var prodType = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
+        var prodType = ProductTypeSortWordBox.SelectedItem.ToString();
 
         var bs = new BindingSource();
         bs.DataSource = dataGridView1.DataSource;
@@ -136,66 +136,11 @@ public partial class EditWareHouse : Form
 
         dataGridView1.DataSource = bs;
     }
-
-    private void MetodaZakupuCyfraCBox_SelectionChangeCommitted(object sender, EventArgs e)
-    {
-        int selectedItemMetodaKupnaCyfra = Convert.ToInt16(MetodaZakupuCyfraCBox.SelectedIndex);
-        MetodaZakupuWyrazCBox.SelectedIndex = selectedItemMetodaKupnaCyfra;
-        var list = dataGridView1.DataSource;
-
-        BuyingMethodDescription = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-        var buyingMethod = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-        var bs = new BindingSource();
-
-        bs.DataSource = dataGridView1.DataSource;
-
-
-      
-        bs.Filter = GetFilter();
-        dataGridView1.DataSource = null;
-        dataGridView1.ResetBindings();
-        dataGridView1.DataSource = bs;
-        var list2 = dataGridView1.DataSource;
-    }
-
-    private void MetodaZakupuWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
-    {
-        int selectedItemMetodaKupnaWyraz = Convert.ToInt16(MetodaZakupuWyrazCBox.SelectedIndex);
-        MetodaZakupuCyfraCBox.SelectedIndex = selectedItemMetodaKupnaWyraz;
-        BuyingMethodDescription = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-        var buyingMethod = MetodaZakupuWyrazCBox.SelectedItem.ToString();
-        var bs = new BindingSource();
-
-
-        bs.DataSource = dataGridView1.DataSource;
-        dataGridView1.DataSource = null;
 
    
-        bs.Filter = GetFilter();
-        dataGridView1.DataSource = null;
-        dataGridView1.ResetBindings();
-        dataGridView1.DataSource = bs;
-    }
 
-    private void RodzajProdSortowanieWyrazCBox_SelectionChangeCommitted(object sender, EventArgs e)
-    {
-        int selectedItemComboBox3 = Convert.ToInt16(RodzajProdSortowanieWyrazCBox.SelectedIndex);
-        RodzajProdSortowanieCyfraCBox.SelectedIndex = selectedItemComboBox3;
-        ProductTypeDescription = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
-
-        var prodType = RodzajProdSortowanieWyrazCBox.SelectedItem.ToString();
-        var bs = new BindingSource();
-        var list = dataGridView1.DataSource;
-
-        bs.DataSource = dataGridView1.DataSource;
-      
-        bs.Filter = GetFilter();
-        dataGridView1.DataSource = null;
-
-        dataGridView1.DataSource = bs;
-
-        var list2 = dataGridView1.DataSource;
-    }
+    
+   
 
     
 
@@ -211,10 +156,10 @@ public partial class EditWareHouse : Form
 
     public void ResetSortingFields()
     {
-        RodzajProdSortowanieCyfraCBox.SelectedIndex = -1;
-        RodzajProdSortowanieWyrazCBox.SelectedIndex = -1;
-        MetodaZakupuCyfraCBox.SelectedIndex = -1;
-        MetodaZakupuWyrazCBox.SelectedIndex = -1;
+        ProductTypeIdNumberCBox.SelectedIndex = -1;
+        ProductTypeSortWordBox.SelectedIndex = -1;
+        BuyMethodIdNumberBox.SelectedIndex = -1;
+        BuyMethodWordBox.SelectedIndex = -1;
         BarNumberNumeric.Value = 0;
         StoreProductsInDataGridView(productRepository.GetProducts());
     }
@@ -289,7 +234,24 @@ public partial class EditWareHouse : Form
         }
     }
 
-  
+    private void ProductTypeSortWordBox_SelectionChangeCommitted(object sender, EventArgs e)
+    {
+
+        int selectedItemComboBox3 = Convert.ToInt16(ProductTypeSortWordBox.SelectedIndex);
+        ProductTypeIdNumberCBox.SelectedIndex = selectedItemComboBox3;
+        ProductTypeDescription = ProductTypeSortWordBox.SelectedItem.ToString();
+
+        var prodType = ProductTypeSortWordBox.SelectedItem.ToString();
+        var bs = new BindingSource();
+        var list = dataGridView1.DataSource;
+
+        bs.DataSource = dataGridView1.DataSource;
+
+        bs.Filter = GetFilter();
+        dataGridView1.DataSource = null;
+
+        dataGridView1.DataSource = bs;
+    }
 }
 
 
