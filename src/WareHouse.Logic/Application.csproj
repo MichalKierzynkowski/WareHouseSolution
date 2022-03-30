@@ -22,8 +22,8 @@
     <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WareHouse.Data\WareHouse.Data.csproj" />
-    <ProjectReference Include="..\WareHouse.Domain\WareHouse.Domain.csproj" />
+    <ProjectReference Include="..\WareHouse.Data\Infrastructure.csproj" />
+    <ProjectReference Include="..\WareHouse.Domain\Domain.csproj" />
   </ItemGroup>
  
 </Project>
