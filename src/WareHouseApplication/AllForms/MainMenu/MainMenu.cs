@@ -116,4 +116,6 @@ public partial class MainMenu : Form
         var obj = new AddSale();
         obj.Show();
     }
+
+   
 }
