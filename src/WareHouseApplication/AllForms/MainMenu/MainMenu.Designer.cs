@@ -29,6 +29,7 @@ namespace WareHouseApplication.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.PanelTitleBar = new System.Windows.Forms.Panel();
             this.btnHelp = new System.Windows.Forms.Button();
@@ -38,12 +39,22 @@ namespace WareHouseApplication.Forms
             this.btnProducts = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UpPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.PicturePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelDekstopPane = new System.Windows.Forms.Panel();
+            this.lblsecond = new System.Windows.Forms.Label();
+            this.lblDay = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.DropDownMenu = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
+            this.sdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PanelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UpPanel.SuspendLayout();
             this.PicturePanel.SuspendLayout();
+            this.panelDekstopPane.SuspendLayout();
+            this.DropDownMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelTitleBar
@@ -173,24 +184,24 @@ namespace WareHouseApplication.Forms
             // UpPanel
             // 
             this.UpPanel.BackColor = System.Drawing.SystemColors.Highlight;
-            this.UpPanel.Controls.Add(this.label1);
+            this.UpPanel.Controls.Add(this.lblTitle);
             this.UpPanel.Location = new System.Drawing.Point(248, 0);
             this.UpPanel.Name = "UpPanel";
             this.UpPanel.Size = new System.Drawing.Size(1171, 112);
             this.UpPanel.TabIndex = 1;
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(285, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(577, 56);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cudeńka - Aplikacja Magazynowa";
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTitle.Location = new System.Drawing.Point(285, 22);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(577, 56);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Cudeńka - Aplikacja Magazynowa";
             // 
             // PicturePanel
             // 
@@ -201,6 +212,79 @@ namespace WareHouseApplication.Forms
             this.PicturePanel.Size = new System.Drawing.Size(250, 250);
             this.PicturePanel.TabIndex = 0;
             // 
+            // panelDekstopPane
+            // 
+            this.panelDekstopPane.Controls.Add(this.lblsecond);
+            this.panelDekstopPane.Controls.Add(this.lblDay);
+            this.panelDekstopPane.Controls.Add(this.lblDate);
+            this.panelDekstopPane.Controls.Add(this.lblTime);
+            this.panelDekstopPane.Location = new System.Drawing.Point(248, 112);
+            this.panelDekstopPane.Name = "panelDekstopPane";
+            this.panelDekstopPane.Size = new System.Drawing.Size(1168, 715);
+            this.panelDekstopPane.TabIndex = 3;
+            // 
+            // lblsecond
+            // 
+            this.lblsecond.AutoSize = true;
+            this.lblsecond.Font = new System.Drawing.Font("Segoe UI Semibold", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblsecond.Location = new System.Drawing.Point(720, 200);
+            this.lblsecond.Name = "lblsecond";
+            this.lblsecond.Size = new System.Drawing.Size(106, 81);
+            this.lblsecond.TabIndex = 3;
+            this.lblsecond.Text = "0:1";
+            // 
+            // lblDay
+            // 
+            this.lblDay.AutoSize = true;
+            this.lblDay.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay.Location = new System.Drawing.Point(730, 302);
+            this.lblDay.Name = "lblDay";
+            this.lblDay.Size = new System.Drawing.Size(210, 89);
+            this.lblDay.TabIndex = 2;
+            this.lblDay.Text = "Dzien";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDate.Location = new System.Drawing.Point(321, 302);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(403, 89);
+            this.lblDate.TabIndex = 1;
+            this.lblDate.Text = "Styczen 2:01";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 90F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTime.Location = new System.Drawing.Point(321, 137);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(364, 159);
+            this.lblTime.TabIndex = 0;
+            this.lblTime.Text = "22:22";
+            // 
+            // DropDownMenu
+            // 
+            this.DropDownMenu.IsMainMenu = false;
+            this.DropDownMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sdfToolStripMenuItem});
+            this.DropDownMenu.MenuItemHeight = 25;
+            this.DropDownMenu.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.DropDownMenu.Name = "DropDownMenu";
+            this.DropDownMenu.PrimaryColor = System.Drawing.Color.Empty;
+            this.DropDownMenu.Size = new System.Drawing.Size(91, 26);
+            // 
+            // sdfToolStripMenuItem
+            // 
+            this.sdfToolStripMenuItem.Name = "sdfToolStripMenuItem";
+            this.sdfToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
+            this.sdfToolStripMenuItem.Text = "sdf";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -209,6 +293,7 @@ namespace WareHouseApplication.Forms
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1416, 825);
+            this.Controls.Add(this.panelDekstopPane);
             this.Controls.Add(this.PicturePanel);
             this.Controls.Add(this.UpPanel);
             this.Controls.Add(this.PanelTitleBar);
@@ -223,6 +308,9 @@ namespace WareHouseApplication.Forms
             this.UpPanel.ResumeLayout(false);
             this.UpPanel.PerformLayout();
             this.PicturePanel.ResumeLayout(false);
+            this.panelDekstopPane.ResumeLayout(false);
+            this.panelDekstopPane.PerformLayout();
+            this.DropDownMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -231,7 +319,7 @@ namespace WareHouseApplication.Forms
 
         private System.Windows.Forms.Panel PanelTitleBar;
         private System.Windows.Forms.Panel UpPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.FlowLayoutPanel PicturePanel;
@@ -239,6 +327,14 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.Button btnWareHouse;
+        private System.Windows.Forms.Panel panelDekstopPane;
+        private RJCodeAdvance.RJControls.RJDropdownMenu DropDownMenu;
+        private System.Windows.Forms.ToolStripMenuItem sdfToolStripMenuItem;
+        private System.Windows.Forms.Label lblsecond;
+        private System.Windows.Forms.Label lblDay;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
