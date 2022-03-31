@@ -31,9 +31,9 @@ namespace WareHouseApplication.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.PanelTitleBar = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnSales = new System.Windows.Forms.Button();
             this.btnWareHouse = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -49,75 +49,83 @@ namespace WareHouseApplication.Forms
             // PanelTitleBar
             // 
             this.PanelTitleBar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.PanelTitleBar.Controls.Add(this.button4);
-            this.PanelTitleBar.Controls.Add(this.button3);
-            this.PanelTitleBar.Controls.Add(this.button2);
+            this.PanelTitleBar.Controls.Add(this.btnHelp);
+            this.PanelTitleBar.Controls.Add(this.btnSettings);
+            this.PanelTitleBar.Controls.Add(this.btnSales);
             this.PanelTitleBar.Controls.Add(this.btnWareHouse);
             this.PanelTitleBar.Controls.Add(this.btnProducts);
+            this.PanelTitleBar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PanelTitleBar.Location = new System.Drawing.Point(0, 249);
             this.PanelTitleBar.Name = "PanelTitleBar";
             this.PanelTitleBar.Size = new System.Drawing.Size(250, 578);
             this.PanelTitleBar.TabIndex = 0;
             // 
-            // button4
+            // btnHelp
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 240);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(250, 60);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Pomoc";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHelp.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Location = new System.Drawing.Point(0, 240);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnHelp.Size = new System.Drawing.Size(250, 60);
+            this.btnHelp.TabIndex = 5;
+            this.btnHelp.Text = "Pomoc";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
-            // button3
+            // btnSettings
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 180);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(250, 60);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Ustawienia";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(0, 180);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(250, 60);
+            this.btnSettings.TabIndex = 4;
+            this.btnSettings.Text = "Ustawienia";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // button2
+            // btnSales
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 120);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(250, 60);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Sprzedaż";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSales.FlatAppearance.BorderSize = 0;
+            this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSales.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSales.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSales.Image = ((System.Drawing.Image)(resources.GetObject("btnSales.Image")));
+            this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSales.Location = new System.Drawing.Point(0, 120);
+            this.btnSales.Name = "btnSales";
+            this.btnSales.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSales.Size = new System.Drawing.Size(250, 60);
+            this.btnSales.TabIndex = 3;
+            this.btnSales.Text = "Sprzedaż";
+            this.btnSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSales.UseVisualStyleBackColor = true;
+            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
             // 
             // btnWareHouse
             // 
             this.btnWareHouse.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnWareHouse.FlatAppearance.BorderSize = 0;
             this.btnWareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnWareHouse.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnWareHouse.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnWareHouse.Image = ((System.Drawing.Image)(resources.GetObject("btnWareHouse.Image")));
             this.btnWareHouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,12 +138,14 @@ namespace WareHouseApplication.Forms
             this.btnWareHouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWareHouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnWareHouse.UseVisualStyleBackColor = true;
+            this.btnWareHouse.Click += new System.EventHandler(this.btnWareHouse_Click);
             // 
             // btnProducts
             // 
             this.btnProducts.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProducts.FlatAppearance.BorderSize = 0;
             this.btnProducts.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProducts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnProducts.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,6 +158,7 @@ namespace WareHouseApplication.Forms
             this.btnProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProducts.UseVisualStyleBackColor = true;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // pictureBox1
             // 
@@ -161,19 +172,21 @@ namespace WareHouseApplication.Forms
             // 
             // UpPanel
             // 
-            this.UpPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.UpPanel.BackColor = System.Drawing.SystemColors.Highlight;
             this.UpPanel.Controls.Add(this.label1);
             this.UpPanel.Location = new System.Drawing.Point(248, 0);
             this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(1168, 112);
+            this.UpPanel.Size = new System.Drawing.Size(1171, 112);
             this.UpPanel.TabIndex = 1;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(284, 22);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(285, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(577, 56);
             this.label1.TabIndex = 0;
@@ -205,7 +218,6 @@ namespace WareHouseApplication.Forms
             this.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.PanelTitleBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.UpPanel.ResumeLayout(false);
@@ -223,9 +235,9 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.FlowLayoutPanel PicturePanel;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.Button btnWareHouse;
     }
 }
