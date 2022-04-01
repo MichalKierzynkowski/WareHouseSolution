@@ -1,6 +1,6 @@
 ﻿namespace WareHouseApplication.NewForms
 {
-    partial class AddProduct
+    partial class Product
     {
         /// <summary>
         /// Required designer variable.

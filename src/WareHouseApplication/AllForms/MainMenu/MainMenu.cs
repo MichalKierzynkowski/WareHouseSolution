@@ -93,7 +93,7 @@ public partial class MainMenu : Form
 
     private void btnProducts_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new NewForms.AddProduct(), sender);
+        OpenChildForm(new NewForms.Product(), sender);
         //Open_DropdownMenu(DropDownMenu,sender);
     }
 
