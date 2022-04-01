@@ -1,6 +1,6 @@
-﻿namespace WareHouseApplication.NewForms
+﻿namespace WareHouseApplication.AllForms.NewForms.Help
 {
-    partial class Product
+    partial class Help
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
-            // Product
+            // Help
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Name = "Product";
-            this.Text = "AddProduct";
+            this.Name = "Help";
+            this.Text = "Pomoc";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
     }
 }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WareHouseApplication.NewForms
+namespace WareHouseApplication.AllForms.NewForms.WareHouse
 {
-    public partial class Product : Form
+    public partial class WareHouse : Form
     {
-        public Product()
+        public WareHouse()
         {
             InitializeComponent();
         }
