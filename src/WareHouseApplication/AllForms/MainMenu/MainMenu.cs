@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WareHouseApplication.Desing;
-
+using WareHouseApplication.AllForms;
 namespace WareHouseApplication.Forms;
 
 public partial class MainMenu : Form
@@ -94,17 +94,18 @@ public partial class MainMenu : Form
     private void btnProducts_Click(object sender, EventArgs e)
     {
         OpenChildForm(new NewForms.Product(), sender);
-        //Open_DropdownMenu(DropDownMenu,sender);
+        
     }
 
     private void btnWareHouse_Click(object sender, EventArgs e)
     {
-        //ActivateButton(sender);
+        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(), sender);
+       
     }
 
     private void btnSales_Click(object sender, EventArgs e)
     {
-        // ActivateButton(sender);
+        OpenChildForm(new AllForms.NewForms.Sale.Sale(), sender);
     }
 
     private void btnSettings_Click(object sender, EventArgs e)
@@ -114,7 +115,7 @@ public partial class MainMenu : Form
 
     private void btnHelp_Click(object sender, EventArgs e)
     {
-        // ActivateButton(sender);
+        OpenChildForm(new AllForms.NewForms.Help.Help(), sender);
     }
 
     private void Open_DropdownMenu(RJDropdownMenu dropdownMenu, object sender)
