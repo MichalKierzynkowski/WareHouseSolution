@@ -61,11 +61,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AllForms\" />
-    <Folder Include="NewForms\Sale\" />
-    <Folder Include="NewForms\WareHouse\" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="RJCodeAdvance.RJControls" Version="1.0.0" />
   </ItemGroup>
 </Project>
