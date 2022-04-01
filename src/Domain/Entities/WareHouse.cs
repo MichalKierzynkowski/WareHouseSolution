@@ -13,6 +13,8 @@ namespace Domain.Entities
         public decimal PurchasePrice { get; set; }
         public decimal SellingPrice { get; set; }
         public DateTime AddedAt { get; set; }
+        public Product Product { get; set; }
+        public bool IsReturned { get; set; }
 
     }
 }
