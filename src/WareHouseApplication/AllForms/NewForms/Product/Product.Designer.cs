@@ -100,6 +100,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
@@ -622,12 +623,12 @@
             this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
             this.rjToggleButton1.TabIndex = 2;
             this.rjToggleButton1.UseVisualStyleBackColor = false;
-          
             this.rjToggleButton1.Click += new System.EventHandler(this.rjToggleButton1_Click);
             // 
             // ExtraDescriptionTBox
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.ExtraDescriptionTBox, 2);
+            this.ExtraDescriptionTBox.Enabled = false;
             this.ExtraDescriptionTBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExtraDescriptionTBox.Location = new System.Drawing.Point(14, 374);
             this.ExtraDescriptionTBox.Name = "ExtraDescriptionTBox";
@@ -909,6 +910,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1317, 901);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
