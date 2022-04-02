@@ -11,6 +11,7 @@ namespace Domain.Entities
         public int Id { get; set; }
         public int ProductDetailId { get; set; }
         public int RegistrationNumber { get; set; }
+        public string ExtraDescription { get; set; }
         public DateTime AddedAt { get; set; }
 
 
