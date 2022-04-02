@@ -15,14 +15,26 @@ namespace WareHouseApplication.NewForms
         public Product()
         {
             InitializeComponent();
+            SetDateTimePicker();
+
         }
 
+        private void SetDateTimePicker()
+        {
+            rjDatePicker1.Value=DateTime.Now;
+            rjDatePicker1.Enabled = false;  
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
         private void rjButton9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Product_Load(object sender, EventArgs e)
         {
 
         }

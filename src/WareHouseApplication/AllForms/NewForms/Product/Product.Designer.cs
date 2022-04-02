@@ -42,18 +42,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.rjButton9 = new RJCodeAdvance.RJControls.RJButton();
+            this.rjButton8 = new RJCodeAdvance.RJControls.RJButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rjDatePicker1 = new RJCodeAdvance.RJControls.RJDatePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.rjButton7 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton6 = new RJCodeAdvance.RJControls.RJButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.rjButton8 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton9 = new RJCodeAdvance.RJControls.RJButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,10 +75,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.rjButton12 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton13 = new RJCodeAdvance.RJControls.RJButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.rjDatePicker1 = new RJCodeAdvance.RJControls.RJDatePicker();
-            this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -79,10 +82,13 @@
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -315,6 +321,9 @@
             this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.rjDatePicker1, 0, 9);
             this.tableLayoutPanel2.Controls.Add(this.label9, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox3, 0, 10);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox4, 1, 10);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox5, 2, 10);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 4);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -337,6 +346,72 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(451, 720);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.label2, 2);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(14, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(217, 48);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Numer Ewidencyjny";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.rjButton9);
+            this.panel5.Controls.Add(this.rjButton8);
+            this.panel5.Location = new System.Drawing.Point(296, 163);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(144, 52);
+            this.panel5.TabIndex = 2;
+            // 
+            // rjButton9
+            // 
+            this.rjButton9.BackColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton9.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton9.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton9.BorderRadius = 0;
+            this.rjButton9.BorderSize = 0;
+            this.rjButton9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rjButton9.FlatAppearance.BorderSize = 0;
+            this.rjButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton9.ForeColor = System.Drawing.Color.White;
+            this.rjButton9.Image = ((System.Drawing.Image)(resources.GetObject("rjButton9.Image")));
+            this.rjButton9.Location = new System.Drawing.Point(0, 0);
+            this.rjButton9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rjButton9.Name = "rjButton9";
+            this.rjButton9.Size = new System.Drawing.Size(62, 52);
+            this.rjButton9.TabIndex = 7;
+            this.rjButton9.TextColor = System.Drawing.Color.White;
+            this.rjButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.rjButton9.UseVisualStyleBackColor = false;
+            // 
+            // rjButton8
+            // 
+            this.rjButton8.BackColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton8.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton8.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton8.BorderRadius = 0;
+            this.rjButton8.BorderSize = 0;
+            this.rjButton8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rjButton8.FlatAppearance.BorderSize = 0;
+            this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton8.ForeColor = System.Drawing.Color.White;
+            this.rjButton8.Image = ((System.Drawing.Image)(resources.GetObject("rjButton8.Image")));
+            this.rjButton8.Location = new System.Drawing.Point(62, 0);
+            this.rjButton8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rjButton8.Name = "rjButton8";
+            this.rjButton8.Size = new System.Drawing.Size(82, 52);
+            this.rjButton8.TabIndex = 6;
+            this.rjButton8.TextColor = System.Drawing.Color.White;
+            this.rjButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.rjButton8.UseVisualStyleBackColor = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -350,17 +425,123 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // label2
+            // numericUpDown1
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label2, 2);
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(14, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 48);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Numer Ewidencyjny";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tableLayoutPanel2.SetColumnSpan(this.numericUpDown1, 2);
+            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDown1.Location = new System.Drawing.Point(14, 63);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(265, 31);
+            this.numericUpDown1.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.label3, 2);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(14, 215);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 52);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Nazwa:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // textBox2
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.textBox2, 2);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(14, 270);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(265, 31);
+            this.textBox2.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.label8, 2);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(14, 319);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(272, 52);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Rodzaj Produktu:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comboBox1
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.comboBox1, 2);
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(14, 374);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(272, 33);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // rjDatePicker1
+            // 
+            this.rjDatePicker1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjDatePicker1.BorderSize = 0;
+            this.tableLayoutPanel2.SetColumnSpan(this.rjDatePicker1, 2);
+            this.rjDatePicker1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjDatePicker1.Location = new System.Drawing.Point(14, 478);
+            this.rjDatePicker1.MinimumSize = new System.Drawing.Size(0, 35);
+            this.rjDatePicker1.Name = "rjDatePicker1";
+            this.rjDatePicker1.Size = new System.Drawing.Size(272, 35);
+            this.rjDatePicker1.SkinColor = System.Drawing.Color.RoyalBlue;
+            this.rjDatePicker1.TabIndex = 2;
+            this.rjDatePicker1.TextColor = System.Drawing.Color.White;
+            // 
+            // label9
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.label9, 2);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(14, 423);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(272, 52);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Data Dodania Produkut:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(14, 531);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.tableLayoutPanel2.SetRowSpan(this.pictureBox3, 3);
+            this.pictureBox3.Size = new System.Drawing.Size(136, 148);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(157, 531);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.tableLayoutPanel2.SetRowSpan(this.pictureBox4, 3);
+            this.pictureBox4.Size = new System.Drawing.Size(136, 148);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(301, 531);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.tableLayoutPanel2.SetRowSpan(this.pictureBox5, 3);
+            this.pictureBox5.Size = new System.Drawing.Size(136, 148);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 16;
+            this.pictureBox5.TabStop = false;
             // 
             // panel2
             // 
@@ -428,91 +609,6 @@
             this.rjButton6.TextColor = System.Drawing.Color.White;
             this.rjButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.rjButton6.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.rjButton9);
-            this.panel5.Controls.Add(this.rjButton8);
-            this.panel5.Location = new System.Drawing.Point(296, 163);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(144, 52);
-            this.panel5.TabIndex = 2;
-            // 
-            // rjButton8
-            // 
-            this.rjButton8.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton8.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton8.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton8.BorderRadius = 0;
-            this.rjButton8.BorderSize = 0;
-            this.rjButton8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rjButton8.FlatAppearance.BorderSize = 0;
-            this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton8.ForeColor = System.Drawing.Color.White;
-            this.rjButton8.Image = ((System.Drawing.Image)(resources.GetObject("rjButton8.Image")));
-            this.rjButton8.Location = new System.Drawing.Point(62, 0);
-            this.rjButton8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rjButton8.Name = "rjButton8";
-            this.rjButton8.Size = new System.Drawing.Size(82, 52);
-            this.rjButton8.TabIndex = 6;
-            this.rjButton8.TextColor = System.Drawing.Color.White;
-            this.rjButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton8.UseVisualStyleBackColor = false;
-            // 
-            // rjButton9
-            // 
-            this.rjButton9.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton9.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton9.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton9.BorderRadius = 0;
-            this.rjButton9.BorderSize = 0;
-            this.rjButton9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rjButton9.FlatAppearance.BorderSize = 0;
-            this.rjButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton9.ForeColor = System.Drawing.Color.White;
-            this.rjButton9.Image = ((System.Drawing.Image)(resources.GetObject("rjButton9.Image")));
-            this.rjButton9.Location = new System.Drawing.Point(0, 0);
-            this.rjButton9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rjButton9.Name = "rjButton9";
-            this.rjButton9.Size = new System.Drawing.Size(62, 52);
-            this.rjButton9.TabIndex = 7;
-            this.rjButton9.TextColor = System.Drawing.Color.White;
-            this.rjButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton9.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label3, 2);
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 215);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 52);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Nazwa:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numericUpDown1
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.numericUpDown1, 2);
-            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericUpDown1.Location = new System.Drawing.Point(14, 63);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(265, 31);
-            this.numericUpDown1.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.textBox2, 2);
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(14, 270);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(265, 31);
-            this.textBox2.TabIndex = 10;
             // 
             // label4
             // 
@@ -588,7 +684,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(0, 52);
+            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -690,7 +786,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(0, 52);
+            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -718,54 +814,6 @@
             this.rjButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.rjButton13.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.comboBox1, 2);
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(14, 374);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(272, 33);
-            this.comboBox1.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label8, 2);
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(14, 319);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(272, 52);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Rodzaj Produktu:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rjDatePicker1
-            // 
-            this.rjDatePicker1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjDatePicker1.BorderSize = 0;
-            this.tableLayoutPanel2.SetColumnSpan(this.rjDatePicker1, 2);
-            this.rjDatePicker1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker1.Location = new System.Drawing.Point(14, 478);
-            this.rjDatePicker1.MinimumSize = new System.Drawing.Size(0, 35);
-            this.rjDatePicker1.Name = "rjDatePicker1";
-            this.rjDatePicker1.Size = new System.Drawing.Size(272, 35);
-            this.rjDatePicker1.SkinColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjDatePicker1.TabIndex = 2;
-            this.rjDatePicker1.TextColor = System.Drawing.Color.White;
-            // 
-            // label9
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label9, 2);
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(14, 423);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(272, 52);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Rodzaj Produktu:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -777,6 +825,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Product";
             this.Text = "Produkty";
+            this.Load += new System.EventHandler(this.Product_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.PnlSearch.ResumeLayout(false);
             this.PnlSearch.PerformLayout();
@@ -786,10 +835,13 @@
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -843,5 +895,8 @@
         private System.Windows.Forms.Panel panel7;
         private RJCodeAdvance.RJControls.RJButton rjButton12;
         private RJCodeAdvance.RJControls.RJButton rjButton13;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
