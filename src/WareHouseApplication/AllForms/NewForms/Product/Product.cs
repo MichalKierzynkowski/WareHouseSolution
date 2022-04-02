@@ -16,9 +16,13 @@ namespace WareHouseApplication.NewForms
         {
             InitializeComponent();
             SetDateTimePicker();
+            HidingArrowsInNumerics();
 
         }
-
+        private void HidingArrowsInNumerics()
+        {
+            BarNumber.Controls[0].Visible = false;
+        }
         private void SetDateTimePicker()
         {
             rjDatePicker1.Value=DateTime.Now;

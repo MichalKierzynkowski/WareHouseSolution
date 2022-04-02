@@ -42,21 +42,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rjButton9 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton8 = new RJCodeAdvance.RJControls.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.BarNumber = new System.Windows.Forms.NumericUpDown();
             this.rjDatePicker1 = new RJCodeAdvance.RJControls.RJDatePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rjToggleButton1 = new RJCodeAdvance.RJControls.RJToggleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.rjButton7 = new RJCodeAdvance.RJControls.RJButton();
@@ -75,6 +77,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.rjButton12 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton13 = new RJCodeAdvance.RJControls.RJButton();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,7 +87,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -311,19 +314,22 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel5, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.BarNumber, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.rjDatePicker1, 0, 9);
             this.tableLayoutPanel2.Controls.Add(this.label9, 0, 8);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox3, 0, 10);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox4, 1, 10);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox5, 2, 10);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.rjToggleButton1, 2, 7);
+            this.tableLayoutPanel2.Controls.Add(this.textBox5, 0, 7);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 4);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -343,8 +349,77 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(451, 720);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.label10, 2);
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(14, 215);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(272, 52);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Rodzaj Produktu:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comboBox1
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.comboBox1, 2);
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Bluzka",
+            "Bluza",
+            "Spodnie",
+            "Dres",
+            "Sukienka",
+            "Sweter",
+            "Spódnica",
+            "Spodenki",
+            "Kurtka",
+            "Body",
+            "Buty",
+            "Czapka",
+            "Gumka do Włosów",
+            "Kamizelka",
+            "Klapki",
+            "Kombinezon",
+            "Komin/Szalik",
+            "Komplet Odzieży",
+            "Koszula",
+            "Koszulka",
+            "Leginsy",
+            "Marynarka/Żakiet",
+            "Opaska",
+            "Plecak",
+            "Płaszcz",
+            "Rękawiczki",
+            "Szalik",
+            "T_Shirt",
+            "Top",
+            "Torebka",
+            "Tunika",
+            "Bransoletka",
+            "Broszka",
+            "Kolczyki",
+            "Naszyjnik",
+            "Pierścionki",
+            "Komplet Biżuterii",
+            "Okulary",
+            "Pasek",
+            "Brelok",
+            "Pudełko",
+            "Zegarek",
+            "Apaszka",
+            "Perfumy"});
+            this.comboBox1.Location = new System.Drawing.Point(14, 270);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(272, 33);
+            this.comboBox1.TabIndex = 17;
             // 
             // label2
             // 
@@ -425,58 +500,15 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // numericUpDown1
+            // BarNumber
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.numericUpDown1, 2);
-            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericUpDown1.Location = new System.Drawing.Point(14, 63);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(265, 31);
-            this.numericUpDown1.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label3, 2);
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 215);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 52);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Nazwa:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBox2
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.textBox2, 2);
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(14, 270);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(265, 31);
-            this.textBox2.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label8, 2);
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(14, 319);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(272, 52);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Rodzaj Produktu:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBox1
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.comboBox1, 2);
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(14, 374);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(272, 33);
-            this.comboBox1.TabIndex = 11;
+            this.tableLayoutPanel2.SetColumnSpan(this.BarNumber, 2);
+            this.BarNumber.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BarNumber.Location = new System.Drawing.Point(14, 63);
+            this.BarNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BarNumber.Name = "BarNumber";
+            this.BarNumber.Size = new System.Drawing.Size(265, 31);
+            this.BarNumber.TabIndex = 9;
             // 
             // rjDatePicker1
             // 
@@ -542,6 +574,54 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 16;
             this.pictureBox5.TabStop = false;
+            // 
+            // label3
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.label3, 2);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(14, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 52);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Nazwa:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // textBox2
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.textBox2, 2);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(14, 166);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(265, 31);
+            this.textBox2.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.label8, 2);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(14, 319);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(272, 52);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Opis Dodatkowy:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rjToggleButton1
+            // 
+            this.rjToggleButton1.AutoSize = true;
+            this.rjToggleButton1.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.rjToggleButton1.Location = new System.Drawing.Point(299, 374);
+            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.Name = "rjToggleButton1";
+            this.rjToggleButton1.OffBackColor = System.Drawing.Color.MediumVioletRed;
+            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjToggleButton1.OnBackColor = System.Drawing.Color.Chartreuse;
+            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjToggleButton1.Size = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.TabIndex = 2;
+            this.rjToggleButton1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -684,7 +764,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton10.Size = new System.Drawing.Size(0, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -786,7 +866,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton12.Size = new System.Drawing.Size(0, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -814,6 +894,15 @@
             this.rjButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.rjButton13.UseVisualStyleBackColor = false;
             // 
+            // textBox5
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.textBox5, 2);
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox5.Location = new System.Drawing.Point(14, 374);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(279, 30);
+            this.textBox5.TabIndex = 19;
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -837,7 +926,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -874,11 +963,10 @@
         private System.Windows.Forms.Panel panel5;
         private RJCodeAdvance.RJControls.RJButton rjButton8;
         private RJCodeAdvance.RJControls.RJButton rjButton9;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown BarNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
         private RJCodeAdvance.RJControls.RJDatePicker rjDatePicker1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
@@ -898,5 +986,9 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private RJCodeAdvance.RJControls.RJToggleButton rjToggleButton1;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
