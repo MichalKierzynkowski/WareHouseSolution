@@ -28,19 +28,15 @@ namespace WareHouseApplication.NewForms
             rjDatePicker1.Value=DateTime.Now;
             rjDatePicker1.Enabled = false;  
         }
-        private void label1_Click(object sender, EventArgs e)
+
+       
+
+      
+
+        private void rjToggleButton1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void rjButton9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Product_Load(object sender, EventArgs e)
-        {
-
+            var statusOfButon = ExtraDescriptionTBox.Enabled;
+            ExtraDescriptionTBox.Enabled = !statusOfButon;
         }
     }
 }
