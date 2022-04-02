@@ -21,5 +21,10 @@ namespace WareHouseApplication.NewForms
         {
 
         }
+
+        private void rjButton9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
