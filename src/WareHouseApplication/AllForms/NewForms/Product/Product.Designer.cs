@@ -37,12 +37,13 @@
             this.btnAddProduct = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             this.PnlSearch = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PnlAdd = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.TLPnlAdd = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.ProductTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.rjButton8 = new RJCodeAdvance.RJControls.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtBarNumber = new System.Windows.Forms.NumericUpDown();
-            this.rjDatePicker1 = new RJCodeAdvance.RJControls.RJDatePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -239,23 +239,25 @@
             // PnlSearch
             // 
             this.PnlSearch.BackColor = System.Drawing.SystemColors.Highlight;
-            this.PnlSearch.Controls.Add(this.textBox1);
+            this.PnlSearch.Controls.Add(this.TxtSearch);
             this.PnlSearch.Controls.Add(this.panel3);
             this.PnlSearch.Location = new System.Drawing.Point(605, 5);
             this.PnlSearch.Name = "PnlSearch";
             this.PnlSearch.Size = new System.Drawing.Size(296, 37);
             this.PnlSearch.TabIndex = 6;
             // 
-            // textBox1
+            // TxtSearch
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(3, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 22);
-            this.textBox1.TabIndex = 1;
+            this.TxtSearch.BackColor = System.Drawing.SystemColors.Menu;
+            this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtSearch.ForeColor = System.Drawing.Color.Black;
+            this.TxtSearch.Location = new System.Drawing.Point(3, 7);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(247, 22);
+            this.TxtSearch.TabIndex = 1;
+            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_Click);
+            this.TxtSearch.Leave += new System.EventHandler(this.TxtSearch_Leave);
             // 
             // panel3
             // 
@@ -306,13 +308,13 @@
             this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.TLPnlAdd.Controls.Add(this.dateTimePicker1, 0, 9);
             this.TLPnlAdd.Controls.Add(this.label10, 0, 4);
             this.TLPnlAdd.Controls.Add(this.ProductTypeComboBox, 0, 4);
             this.TLPnlAdd.Controls.Add(this.label2, 0, 0);
             this.TLPnlAdd.Controls.Add(this.panel5, 2, 3);
             this.TLPnlAdd.Controls.Add(this.pictureBox2, 2, 0);
             this.TLPnlAdd.Controls.Add(this.txtBarNumber, 0, 1);
-            this.TLPnlAdd.Controls.Add(this.rjDatePicker1, 0, 9);
             this.TLPnlAdd.Controls.Add(this.label9, 0, 8);
             this.TLPnlAdd.Controls.Add(this.pictureBox3, 0, 10);
             this.TLPnlAdd.Controls.Add(this.pictureBox4, 1, 10);
@@ -344,12 +346,27 @@
             this.TLPnlAdd.Size = new System.Drawing.Size(395, 540);
             this.TLPnlAdd.TabIndex = 0;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.PaleVioletRed;
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.PaleVioletRed;
+            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.PaleVioletRed;
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.PaleVioletRed;
+            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.PaleVioletRed;
+            this.TLPnlAdd.SetColumnSpan(this.dateTimePicker1, 2);
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Location = new System.Drawing.Point(13, 359);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(243, 25);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
             // label10
             // 
             this.TLPnlAdd.SetColumnSpan(this.label10, 2);
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(13, 161);
+            this.label10.Location = new System.Drawing.Point(13, 239);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(238, 39);
             this.label10.TabIndex = 18;
@@ -412,7 +429,6 @@
             this.ProductTypeComboBox.Name = "ProductTypeComboBox";
             this.ProductTypeComboBox.Size = new System.Drawing.Size(238, 27);
             this.ProductTypeComboBox.TabIndex = 17;
-           
             // 
             // label2
             // 
@@ -506,21 +522,6 @@
             this.txtBarNumber.Leave += new System.EventHandler(this.txtBarNumber_Leave);
             this.txtBarNumber.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBarNumber_MouseClick);
             // 
-            // rjDatePicker1
-            // 
-            this.rjDatePicker1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjDatePicker1.BorderSize = 0;
-            this.TLPnlAdd.SetColumnSpan(this.rjDatePicker1, 2);
-            this.rjDatePicker1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker1.Location = new System.Drawing.Point(13, 358);
-            this.rjDatePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rjDatePicker1.MinimumSize = new System.Drawing.Size(4, 35);
-            this.rjDatePicker1.Name = "rjDatePicker1";
-            this.rjDatePicker1.Size = new System.Drawing.Size(243, 35);
-            this.rjDatePicker1.SkinColor = System.Drawing.Color.RoyalBlue;
-            this.rjDatePicker1.TabIndex = 2;
-            this.rjDatePicker1.TextColor = System.Drawing.Color.White;
-            // 
             // label9
             // 
             this.TLPnlAdd.SetColumnSpan(this.label9, 2);
@@ -598,7 +599,7 @@
             this.TLPnlAdd.SetColumnSpan(this.label8, 2);
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(13, 239);
+            this.label8.Location = new System.Drawing.Point(13, 161);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(238, 39);
             this.label8.TabIndex = 12;
@@ -774,7 +775,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(0, 52);
+            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -876,7 +877,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(0, 52);
+            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -961,7 +962,7 @@
         private System.Windows.Forms.Panel PnlSearch;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel TLPnlAdd;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -973,7 +974,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label8;
-        private RJCodeAdvance.RJControls.RJDatePicker rjDatePicker1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
@@ -997,5 +997,6 @@
         private RJCodeAdvance.RJControls.RJToggleButton rjToggleButton1;
         private System.Windows.Forms.TextBox ExtraDescriptionTBox;
         private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -46,8 +46,10 @@ namespace WareHouseApplication.NewForms
 
         private void SetDateTimePicker()
         {
-            rjDatePicker1.Value = DateTime.Now;
-           // rjDatePicker1.Enabled = false;
+          dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker1.BackColor = Color.PaleVioletRed;
+
+
         }
 
         #endregion AdjustmentWinFormsControls
@@ -58,13 +60,13 @@ namespace WareHouseApplication.NewForms
             {
                 for (int i = 0; i < 5; i++)
                     PnlAdd.Width = PnlAdd.Width - 79;
-                    //TLPnlAdd.Visible = true;
+                
             }
             else
             {
                 for (int i = 0; i <5; i++)
                     PnlAdd.Width = PnlAdd.Width +79;
-                //TLPnlAdd.Visible = false;
+                
             }
             Timer.Stop();
         }
@@ -124,6 +126,16 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
+        }
+
+        private void TxtSearch_Click(object sender, EventArgs e)
+        {
+            SelectTxt(TxtSearch);
+        }
+
+        private void TxtSearch_Leave(object sender, EventArgs e)
+        {
+            LeaveTxt(TxtSearch);
         }
     }
 }
