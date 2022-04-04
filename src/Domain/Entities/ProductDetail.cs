@@ -12,5 +12,6 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string Type { get; set; }
         public DateTime LastChangedAt { get; set; }
+        public string ExtraDescription { get; set; }
     }
 }

@@ -126,6 +126,14 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
+            dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
+            dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
+            dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
+            dataGridView1.Rows.Add(new object[] { "1200", "test", "test", "test", "---" });
+            dataGridView1.Rows.Add(new object[] { "112300", "test", "test", "test", "---" });
+            dataGridView1.Rows.Add(new object[] { "121300", "test", "test", "test", "---" });
+            dataGridView1.Rows.Add(new object[] { "1200", "test", "test", "test", "---" });
+            dataGridView1.Rows.Add(new object[] { "1100", "test", "test", "test", "---" });
         }
 
         private void TxtSearch_Click(object sender, EventArgs e)
