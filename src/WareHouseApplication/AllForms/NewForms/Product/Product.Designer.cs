@@ -282,6 +282,7 @@
             this.PnlAdd.BackColor = System.Drawing.SystemColors.Highlight;
             this.PnlAdd.Controls.Add(this.panel4);
             this.PnlAdd.Controls.Add(this.panel2);
+            this.PnlAdd.Dock = System.Windows.Forms.DockStyle.Right;
             this.PnlAdd.Location = new System.Drawing.Point(757, 62);
             this.PnlAdd.Name = "PnlAdd";
             this.PnlAdd.Size = new System.Drawing.Size(395, 614);
@@ -295,7 +296,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(395, 543);
             this.panel4.TabIndex = 3;
-            this.panel4.Visible = false;
             // 
             // TLPnlAdd
             // 
@@ -412,8 +412,7 @@
             this.ProductTypeComboBox.Name = "ProductTypeComboBox";
             this.ProductTypeComboBox.Size = new System.Drawing.Size(238, 27);
             this.ProductTypeComboBox.TabIndex = 17;
-            this.ProductTypeComboBox.Click += new System.EventHandler(this.ProductTypeComboBox_Click);
-            this.ProductTypeComboBox.Leave += new System.EventHandler(this.ProductTypeComboBox_Leave);
+           
             // 
             // label2
             // 
@@ -517,7 +516,7 @@
             this.rjDatePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjDatePicker1.MinimumSize = new System.Drawing.Size(4, 35);
             this.rjDatePicker1.Name = "rjDatePicker1";
-            this.rjDatePicker1.Size = new System.Drawing.Size(238, 35);
+            this.rjDatePicker1.Size = new System.Drawing.Size(243, 35);
             this.rjDatePicker1.SkinColor = System.Drawing.Color.RoyalBlue;
             this.rjDatePicker1.TabIndex = 2;
             this.rjDatePicker1.TextColor = System.Drawing.Color.White;

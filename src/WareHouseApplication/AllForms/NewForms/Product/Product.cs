@@ -20,10 +20,7 @@ namespace WareHouseApplication.NewForms
             txt.BackColor = Color.FromArgb(139, 199, 255);
         }
 
-        private void SelectComboBox(ComboBox cBox)
-        {
-            cBox.BackColor = Color.FromArgb(139, 199, 255);
-        }
+       
 
         private void SelectBarNumber(NumericUpDown numeric)
         {
@@ -40,10 +37,7 @@ namespace WareHouseApplication.NewForms
             text.BackColor = Color.White;
         }
 
-        private void LeaveComboBox(ComboBox cBox)
-        {
-            cBox.BackColor = Color.White;
-        }
+       
 
         private void HidingArrowsInNumerics()
         {
@@ -53,7 +47,7 @@ namespace WareHouseApplication.NewForms
         private void SetDateTimePicker()
         {
             rjDatePicker1.Value = DateTime.Now;
-            rjDatePicker1.Enabled = false;
+           // rjDatePicker1.Enabled = false;
         }
 
         #endregion AdjustmentWinFormsControls
@@ -64,13 +58,13 @@ namespace WareHouseApplication.NewForms
             {
                 for (int i = 0; i < 5; i++)
                     PnlAdd.Width = PnlAdd.Width - 79;
-                    TLPnlAdd.Visible = true;
+                    //TLPnlAdd.Visible = true;
             }
             else
             {
                 for (int i = 0; i <5; i++)
                     PnlAdd.Width = PnlAdd.Width +79;
-                TLPnlAdd.Visible = false;
+                //TLPnlAdd.Visible = false;
             }
             Timer.Stop();
         }
@@ -86,10 +80,7 @@ namespace WareHouseApplication.NewForms
             SelectBarNumber(txtBarNumber);
         }
 
-        private void ProductTypeComboBox_Click(object sender, EventArgs e)
-        {
-            SelectComboBox(ProductTypeComboBox);
-        }
+        
 
         private void txtName_Click(object sender, EventArgs e)
         {
@@ -111,10 +102,7 @@ namespace WareHouseApplication.NewForms
             LeaveTxt(txtName);
         }
 
-        private void ProductTypeComboBox_Leave(object sender, EventArgs e)
-        {
-            LeaveComboBox(ProductTypeComboBox);
-        }
+       
 
         private void ExtraDescriptionTBox_Leave(object sender, EventArgs e)
         {
