@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WareHouseApplication.Desing;
-using WareHouseApplication.AllForms;
+
 namespace WareHouseApplication.Forms;
 
 public partial class MainMenu : Form
@@ -35,47 +35,36 @@ public partial class MainMenu : Form
 
     private void ActivateButton(object btnSender)
     {
-
         if (btnSender != null)
         {
             if (currentButton != (Button)btnSender)
             {
-
-                Task.Run(() => {
+                Task.Run(() =>
+                {
                     DisableButton();
                     Color color = SelectThemeColor();
 
                     UpPanel.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
 
-
-
                     this.Invoke((Action)delegate
                     {
-
                         currentButton = (Button)btnSender;
                         currentButton.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 
                         currentButton.BackColor = color;
                         currentButton.ForeColor = Color.White;
-
                     });
-
                 });
-
-
             }
-
         }
     }
 
     private void DisableButton()
     {
-        Task.Run(() => {
-
-
+        Task.Run(() =>
+        {
             this.Invoke((Action)delegate
             {
-
                 foreach (Control previousBtn in PanelTitleBar.Controls)
                 {
                     if (previousBtn.GetType() == typeof(Button))
@@ -85,22 +74,18 @@ public partial class MainMenu : Form
                         previousBtn.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                     }
                 }
-
             });
-
         });
     }
 
     private void btnProducts_Click(object sender, EventArgs e)
     {
         OpenChildForm(new NewForms.Product(), sender);
-        
     }
 
     private void btnWareHouse_Click(object sender, EventArgs e)
     {
         OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(), sender);
-       
     }
 
     private void btnSales_Click(object sender, EventArgs e)

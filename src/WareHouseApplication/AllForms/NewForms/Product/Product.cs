@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WareHouseApplication.NewForms
@@ -17,26 +11,131 @@ namespace WareHouseApplication.NewForms
             InitializeComponent();
             SetDateTimePicker();
             HidingArrowsInNumerics();
+        }
 
-        }
-        private void HidingArrowsInNumerics()
+        #region AdjustmentWinFormsControls
+
+        private void SelectTxt(TextBox txt)
         {
-            BarNumber.Controls[0].Visible = false;
-        }
-        private void SetDateTimePicker()
-        {
-            rjDatePicker1.Value=DateTime.Now;
-            rjDatePicker1.Enabled = false;  
+            txt.BackColor = Color.FromArgb(139, 199, 255);
         }
 
        
 
-      
+        private void SelectBarNumber(NumericUpDown numeric)
+        {
+            numeric.BackColor = Color.FromArgb(139, 199, 255);
+        }
+
+        private void LeaveNumeric(NumericUpDown numeric)
+        {
+            numeric.BackColor = Color.White;
+        }
+
+        private void LeaveTxt(TextBox text)
+        {
+            text.BackColor = Color.White;
+        }
+
+       
+
+        private void HidingArrowsInNumerics()
+        {
+            txtBarNumber.Controls[0].Visible = false;
+        }
+
+        private void SetDateTimePicker()
+        {
+          dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker1.BackColor = Color.PaleVioletRed;
+
+
+        }
+
+        #endregion AdjustmentWinFormsControls
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if(PnlAdd.Width==395)
+            {
+                for (int i = 0; i < 5; i++)
+                    PnlAdd.Width = PnlAdd.Width - 79;
+                
+            }
+            else
+            {
+                for (int i = 0; i <5; i++)
+                    PnlAdd.Width = PnlAdd.Width +79;
+                
+            }
+            Timer.Stop();
+        }
 
         private void rjToggleButton1_Click(object sender, EventArgs e)
         {
             var statusOfButon = ExtraDescriptionTBox.Enabled;
             ExtraDescriptionTBox.Enabled = !statusOfButon;
+        }
+
+        private void txtBarNumber_MouseClick(object sender, MouseEventArgs e)
+        {
+            SelectBarNumber(txtBarNumber);
+        }
+
+        
+
+        private void txtName_Click(object sender, EventArgs e)
+        {
+            SelectTxt(txtName);
+        }
+
+        private void ExtraDescriptionTBox_Click(object sender, EventArgs e)
+        {
+            SelectTxt(ExtraDescriptionTBox);
+        }
+
+        private void txtBarNumber_Leave(object sender, EventArgs e)
+        {
+            LeaveNumeric(txtBarNumber);
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            LeaveTxt(txtName);
+        }
+
+       
+
+        private void ExtraDescriptionTBox_Leave(object sender, EventArgs e)
+        {
+            LeaveTxt(ExtraDescriptionTBox);
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            Timer.Start();
+            TLPnlTop.Enabled = false;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Timer.Start();
+            TLPnlTop.Enabled = true;
+        }
+
+        private void Product_Load(object sender, EventArgs e)
+        {
+            PnlAdd.Width = 0;
+        }
+
+        private void TxtSearch_Click(object sender, EventArgs e)
+        {
+            SelectTxt(TxtSearch);
+        }
+
+        private void TxtSearch_Leave(object sender, EventArgs e)
+        {
+            LeaveTxt(TxtSearch);
         }
     }
 }
