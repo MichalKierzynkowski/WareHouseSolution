@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TLPnlTop = new System.Windows.Forms.TableLayoutPanel();
             this.rjButton5 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton4 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton3 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnAddProduct = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             this.PnlSearch = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PnlAdd = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.TLPnlAdd = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.ProductTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.rjButton7 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton6 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -78,13 +79,14 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.rjButton12 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton13 = new RJCodeAdvance.RJControls.RJButton();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.PnlAdd.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.TLPnlAdd.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarNumber)).BeginInit();
@@ -98,30 +100,30 @@
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // TLPnlTop
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 550F));
-            this.tableLayoutPanel1.Controls.Add(this.rjButton5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rjButton4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rjButton3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rjButton2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.rjButton1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PnlSearch, 5, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1152, 62);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.TLPnlTop.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.TLPnlTop.ColumnCount = 6;
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 550F));
+            this.TLPnlTop.Controls.Add(this.rjButton5, 0, 0);
+            this.TLPnlTop.Controls.Add(this.rjButton4, 0, 0);
+            this.TLPnlTop.Controls.Add(this.rjButton3, 0, 0);
+            this.TLPnlTop.Controls.Add(this.btnAddProduct, 0, 0);
+            this.TLPnlTop.Controls.Add(this.rjButton1, 0, 0);
+            this.TLPnlTop.Controls.Add(this.PnlSearch, 5, 0);
+            this.TLPnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TLPnlTop.Location = new System.Drawing.Point(0, 0);
+            this.TLPnlTop.Name = "TLPnlTop";
+            this.TLPnlTop.Padding = new System.Windows.Forms.Padding(2);
+            this.TLPnlTop.RowCount = 1;
+            this.TLPnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TLPnlTop.Size = new System.Drawing.Size(1152, 62);
+            this.TLPnlTop.TabIndex = 0;
             // 
             // rjButton5
             // 
@@ -189,27 +191,28 @@
             this.rjButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.rjButton3.UseVisualStyleBackColor = false;
             // 
-            // rjButton2
+            // btnAddProduct
             // 
-            this.rjButton2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton2.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 0;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Image = ((System.Drawing.Image)(resources.GetObject("rjButton2.Image")));
-            this.rjButton2.Location = new System.Drawing.Point(5, 5);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(114, 52);
-            this.rjButton2.TabIndex = 2;
-            this.rjButton2.Text = "Dodaj";
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnAddProduct.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddProduct.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddProduct.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAddProduct.BorderRadius = 0;
+            this.btnAddProduct.BorderSize = 0;
+            this.btnAddProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddProduct.FlatAppearance.BorderSize = 0;
+            this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProduct.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddProduct.ForeColor = System.Drawing.Color.White;
+            this.btnAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProduct.Image")));
+            this.btnAddProduct.Location = new System.Drawing.Point(5, 5);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(114, 52);
+            this.btnAddProduct.TabIndex = 2;
+            this.btnAddProduct.Text = "Dodaj";
+            this.btnAddProduct.TextColor = System.Drawing.Color.White;
+            this.btnAddProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // rjButton1
             // 
@@ -274,76 +277,76 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel1
+            // PnlAdd
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(757, 62);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(395, 614);
-            this.panel1.TabIndex = 1;
+            this.PnlAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.PnlAdd.Controls.Add(this.panel4);
+            this.PnlAdd.Controls.Add(this.panel2);
+            this.PnlAdd.Location = new System.Drawing.Point(757, 62);
+            this.PnlAdd.Name = "PnlAdd";
+            this.PnlAdd.Size = new System.Drawing.Size(395, 614);
+            this.PnlAdd.TabIndex = 1;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.tableLayoutPanel2);
+            this.panel4.Controls.Add(this.TLPnlAdd);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 71);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(395, 543);
             this.panel4.TabIndex = 3;
+            this.panel4.Visible = false;
             // 
-            // tableLayoutPanel2
+            // TLPnlAdd
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TLPnlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.ProductTypeComboBox, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.txtBarNumber, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.rjDatePicker1, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 8);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox3, 0, 10);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox4, 1, 10);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox5, 2, 10);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.txtName, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.rjToggleButton1, 2, 7);
-            this.tableLayoutPanel2.Controls.Add(this.ExtraDescriptionTBox, 0, 7);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.tableLayoutPanel2.RowCount = 14;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(395, 540);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.TLPnlAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.TLPnlAdd.ColumnCount = 3;
+            this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.TLPnlAdd.Controls.Add(this.label10, 0, 4);
+            this.TLPnlAdd.Controls.Add(this.ProductTypeComboBox, 0, 4);
+            this.TLPnlAdd.Controls.Add(this.label2, 0, 0);
+            this.TLPnlAdd.Controls.Add(this.panel5, 2, 3);
+            this.TLPnlAdd.Controls.Add(this.pictureBox2, 2, 0);
+            this.TLPnlAdd.Controls.Add(this.txtBarNumber, 0, 1);
+            this.TLPnlAdd.Controls.Add(this.rjDatePicker1, 0, 9);
+            this.TLPnlAdd.Controls.Add(this.label9, 0, 8);
+            this.TLPnlAdd.Controls.Add(this.pictureBox3, 0, 10);
+            this.TLPnlAdd.Controls.Add(this.pictureBox4, 1, 10);
+            this.TLPnlAdd.Controls.Add(this.pictureBox5, 2, 10);
+            this.TLPnlAdd.Controls.Add(this.label3, 0, 2);
+            this.TLPnlAdd.Controls.Add(this.txtName, 0, 3);
+            this.TLPnlAdd.Controls.Add(this.label8, 0, 4);
+            this.TLPnlAdd.Controls.Add(this.rjToggleButton1, 2, 7);
+            this.TLPnlAdd.Controls.Add(this.ExtraDescriptionTBox, 0, 7);
+            this.TLPnlAdd.Location = new System.Drawing.Point(0, 3);
+            this.TLPnlAdd.Name = "TLPnlAdd";
+            this.TLPnlAdd.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.TLPnlAdd.RowCount = 14;
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.TLPnlAdd.Size = new System.Drawing.Size(395, 540);
+            this.TLPnlAdd.TabIndex = 0;
             // 
             // label10
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label10, 2);
+            this.TLPnlAdd.SetColumnSpan(this.label10, 2);
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(13, 161);
@@ -355,7 +358,7 @@
             // 
             // ProductTypeComboBox
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.ProductTypeComboBox, 2);
+            this.TLPnlAdd.SetColumnSpan(this.ProductTypeComboBox, 2);
             this.ProductTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProductTypeComboBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductTypeComboBox.FormattingEnabled = true;
@@ -414,7 +417,7 @@
             // 
             // label2
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label2, 2);
+            this.TLPnlAdd.SetColumnSpan(this.label2, 2);
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(13, 5);
@@ -482,7 +485,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(262, 8);
             this.pictureBox2.Name = "pictureBox2";
-            this.tableLayoutPanel2.SetRowSpan(this.pictureBox2, 3);
+            this.TLPnlAdd.SetRowSpan(this.pictureBox2, 3);
             this.pictureBox2.Size = new System.Drawing.Size(120, 111);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
@@ -490,7 +493,7 @@
             // 
             // txtBarNumber
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.txtBarNumber, 2);
+            this.TLPnlAdd.SetColumnSpan(this.txtBarNumber, 2);
             this.txtBarNumber.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBarNumber.Location = new System.Drawing.Point(13, 47);
             this.txtBarNumber.Maximum = new decimal(new int[] {
@@ -508,7 +511,7 @@
             // 
             this.rjDatePicker1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjDatePicker1.BorderSize = 0;
-            this.tableLayoutPanel2.SetColumnSpan(this.rjDatePicker1, 2);
+            this.TLPnlAdd.SetColumnSpan(this.rjDatePicker1, 2);
             this.rjDatePicker1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rjDatePicker1.Location = new System.Drawing.Point(13, 358);
             this.rjDatePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -521,7 +524,7 @@
             // 
             // label9
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label9, 2);
+            this.TLPnlAdd.SetColumnSpan(this.label9, 2);
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(13, 317);
@@ -537,7 +540,7 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(13, 398);
             this.pictureBox3.Name = "pictureBox3";
-            this.tableLayoutPanel2.SetRowSpan(this.pictureBox3, 3);
+            this.TLPnlAdd.SetRowSpan(this.pictureBox3, 3);
             this.pictureBox3.Size = new System.Drawing.Size(118, 111);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 14;
@@ -549,7 +552,7 @@
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(137, 398);
             this.pictureBox4.Name = "pictureBox4";
-            this.tableLayoutPanel2.SetRowSpan(this.pictureBox4, 3);
+            this.TLPnlAdd.SetRowSpan(this.pictureBox4, 3);
             this.pictureBox4.Size = new System.Drawing.Size(119, 111);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 15;
@@ -561,7 +564,7 @@
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(263, 398);
             this.pictureBox5.Name = "pictureBox5";
-            this.tableLayoutPanel2.SetRowSpan(this.pictureBox5, 3);
+            this.TLPnlAdd.SetRowSpan(this.pictureBox5, 3);
             this.pictureBox5.Size = new System.Drawing.Size(119, 111);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 16;
@@ -569,7 +572,7 @@
             // 
             // label3
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label3, 2);
+            this.TLPnlAdd.SetColumnSpan(this.label3, 2);
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(13, 83);
@@ -581,7 +584,7 @@
             // 
             // txtName
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.txtName, 2);
+            this.TLPnlAdd.SetColumnSpan(this.txtName, 2);
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.Location = new System.Drawing.Point(13, 124);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -593,7 +596,7 @@
             // 
             // label8
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.label8, 2);
+            this.TLPnlAdd.SetColumnSpan(this.label8, 2);
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(13, 239);
@@ -622,7 +625,7 @@
             // 
             // ExtraDescriptionTBox
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.ExtraDescriptionTBox, 2);
+            this.TLPnlAdd.SetColumnSpan(this.ExtraDescriptionTBox, 2);
             this.ExtraDescriptionTBox.Enabled = false;
             this.ExtraDescriptionTBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExtraDescriptionTBox.Location = new System.Drawing.Point(13, 280);
@@ -637,7 +640,7 @@
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.rjButton7);
-            this.panel2.Controls.Add(this.rjButton6);
+            this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -676,26 +679,27 @@
             this.rjButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.rjButton7.UseVisualStyleBackColor = false;
             // 
-            // rjButton6
+            // btnCancel
             // 
-            this.rjButton6.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton6.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton6.BorderRadius = 0;
-            this.rjButton6.BorderSize = 0;
-            this.rjButton6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rjButton6.FlatAppearance.BorderSize = 0;
-            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Image = ((System.Drawing.Image)(resources.GetObject("rjButton6.Image")));
-            this.rjButton6.Location = new System.Drawing.Point(0, 0);
-            this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Size = new System.Drawing.Size(72, 71);
-            this.rjButton6.TabIndex = 3;
-            this.rjButton6.TextColor = System.Drawing.Color.White;
-            this.rjButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton6.UseVisualStyleBackColor = false;
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancel.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.BorderRadius = 0;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(0, 0);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(72, 71);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label4
             // 
@@ -771,7 +775,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton10.Size = new System.Drawing.Size(0, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -873,7 +877,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton12.Size = new System.Drawing.Size(0, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -901,26 +905,32 @@
             this.rjButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.rjButton13.UseVisualStyleBackColor = false;
             // 
+            // Timer
+            // 
+            this.Timer.Interval = 500;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1152, 676);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.PnlAdd);
+            this.Controls.Add(this.TLPnlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Product";
             this.Text = "Produkty";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.Product_Load);
+            this.TLPnlTop.ResumeLayout(false);
             this.PnlSearch.ResumeLayout(false);
             this.PnlSearch.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.PnlAdd.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.TLPnlAdd.ResumeLayout(false);
+            this.TLPnlAdd.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarNumber)).EndInit();
@@ -938,23 +948,23 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel TLPnlTop;
         private RJCodeAdvance.RJControls.RJButton rjButton1;
         private RJCodeAdvance.RJControls.RJButton rjButton5;
         private RJCodeAdvance.RJControls.RJButton rjButton4;
         private RJCodeAdvance.RJControls.RJButton rjButton3;
-        private RJCodeAdvance.RJControls.RJButton rjButton2;
-        private System.Windows.Forms.Panel panel1;
+        private RJCodeAdvance.RJControls.RJButton btnAddProduct;
+        private System.Windows.Forms.Panel PnlAdd;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private RJCodeAdvance.RJControls.RJButton rjButton7;
-        private RJCodeAdvance.RJControls.RJButton rjButton6;
+        private RJCodeAdvance.RJControls.RJButton btnCancel;
         private System.Windows.Forms.Panel PnlSearch;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel TLPnlAdd;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
@@ -987,5 +997,6 @@
         private System.Windows.Forms.ComboBox ProductTypeComboBox;
         private RJCodeAdvance.RJControls.RJToggleButton rjToggleButton1;
         private System.Windows.Forms.TextBox ExtraDescriptionTBox;
+        private System.Windows.Forms.Timer Timer;
     }
 }
