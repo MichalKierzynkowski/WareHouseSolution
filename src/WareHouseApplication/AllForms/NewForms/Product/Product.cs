@@ -141,5 +141,14 @@ namespace WareHouseApplication.NewForms
         {
             LeaveTxt(TxtSearch);
         }
+
+        private void btnResetValues_Click(object sender, EventArgs e)
+        {
+            txtBarNumber.Value = 0;
+            txtName.Clear();
+            ProductTypeComboBox.SelectedIndex = -1;
+            ExtraDescriptionTBox.Clear();
+            btnIsExtraDescriptionOn.Checked = false;
+        }
     }
 }

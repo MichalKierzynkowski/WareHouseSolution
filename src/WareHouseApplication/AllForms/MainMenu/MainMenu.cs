@@ -42,12 +42,8 @@ public partial class MainMenu : BaseForm
             {
                 Task.Run(() =>
                 {
-
                     Color color = SelectThemeColor();
-
                     UpPanel.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-
-
                 });
             }
         }
@@ -92,10 +88,7 @@ public partial class MainMenu : BaseForm
 
     private void OpenChildForm(Form childForm, object btnSender)
     {
-        //if (activeForm != null)
-        //{
-        //    ActiveForm.Close();
-        //}
+
         ActivateButton(btnSender);
 
         activeForm = childForm;
@@ -116,7 +109,7 @@ public partial class MainMenu : BaseForm
 
     private void btnExit_Click(object sender, EventArgs e)
     {
-        if (MessageBox.Show("Jesteś pewny wyjścia z programu?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+        if (MessageBox.Show("Jesteś pewny wyjścia z programu?", "Wyjście", MessageBoxButtons.OKCancel) == DialogResult.OK)
         {
             Application.Exit();
         }

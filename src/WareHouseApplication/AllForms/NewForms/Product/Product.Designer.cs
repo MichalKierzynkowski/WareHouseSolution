@@ -51,7 +51,7 @@
             this.ProductTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.rjButton9 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnResetValues = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton8 = new RJCodeAdvance.RJControls.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtBarNumber = new System.Windows.Forms.NumericUpDown();
@@ -62,7 +62,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.rjToggleButton1 = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.btnIsExtraDescriptionOn = new RJCodeAdvance.RJControls.RJToggleButton();
             this.ExtraDescriptionTBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -334,7 +334,7 @@
             this.TLPnlAdd.Controls.Add(this.label3, 0, 2);
             this.TLPnlAdd.Controls.Add(this.txtName, 0, 3);
             this.TLPnlAdd.Controls.Add(this.label8, 0, 4);
-            this.TLPnlAdd.Controls.Add(this.rjToggleButton1, 2, 7);
+            this.TLPnlAdd.Controls.Add(this.btnIsExtraDescriptionOn, 2, 7);
             this.TLPnlAdd.Controls.Add(this.ExtraDescriptionTBox, 0, 7);
             this.TLPnlAdd.Location = new System.Drawing.Point(0, 3);
             this.TLPnlAdd.Name = "TLPnlAdd";
@@ -456,7 +456,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.rjButton9);
+            this.panel5.Controls.Add(this.btnResetValues);
             this.panel5.Controls.Add(this.rjButton8);
             this.panel5.Location = new System.Drawing.Point(259, 122);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
@@ -464,26 +464,27 @@
             this.panel5.Size = new System.Drawing.Size(126, 39);
             this.panel5.TabIndex = 2;
             // 
-            // rjButton9
+            // btnResetValues
             // 
-            this.rjButton9.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton9.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton9.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton9.BorderRadius = 0;
-            this.rjButton9.BorderSize = 0;
-            this.rjButton9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rjButton9.FlatAppearance.BorderSize = 0;
-            this.rjButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton9.ForeColor = System.Drawing.Color.White;
-            this.rjButton9.Image = ((System.Drawing.Image)(resources.GetObject("rjButton9.Image")));
-            this.rjButton9.Location = new System.Drawing.Point(0, 0);
-            this.rjButton9.Name = "rjButton9";
-            this.rjButton9.Size = new System.Drawing.Size(54, 39);
-            this.rjButton9.TabIndex = 7;
-            this.rjButton9.TextColor = System.Drawing.Color.White;
-            this.rjButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton9.UseVisualStyleBackColor = false;
+            this.btnResetValues.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnResetValues.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btnResetValues.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnResetValues.BorderRadius = 0;
+            this.btnResetValues.BorderSize = 0;
+            this.btnResetValues.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnResetValues.FlatAppearance.BorderSize = 0;
+            this.btnResetValues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetValues.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnResetValues.ForeColor = System.Drawing.Color.White;
+            this.btnResetValues.Image = ((System.Drawing.Image)(resources.GetObject("btnResetValues.Image")));
+            this.btnResetValues.Location = new System.Drawing.Point(0, 0);
+            this.btnResetValues.Name = "btnResetValues";
+            this.btnResetValues.Size = new System.Drawing.Size(54, 39);
+            this.btnResetValues.TabIndex = 7;
+            this.btnResetValues.TextColor = System.Drawing.Color.White;
+            this.btnResetValues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnResetValues.UseVisualStyleBackColor = false;
+            this.btnResetValues.Click += new System.EventHandler(this.btnResetValues_Click);
             // 
             // rjButton8
             // 
@@ -618,22 +619,22 @@
             this.label8.Text = "Rodzaj Produktu:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rjToggleButton1
+            // btnIsExtraDescriptionOn
             // 
-            this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.rjToggleButton1.Location = new System.Drawing.Point(262, 280);
-            this.rjToggleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(39, 16);
-            this.rjToggleButton1.Name = "rjToggleButton1";
-            this.rjToggleButton1.OffBackColor = System.Drawing.Color.MediumVioletRed;
-            this.rjToggleButton1.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleButton1.OnBackColor = System.Drawing.Color.Chartreuse;
-            this.rjToggleButton1.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rjToggleButton1.Size = new System.Drawing.Size(39, 16);
-            this.rjToggleButton1.TabIndex = 2;
-            this.rjToggleButton1.UseVisualStyleBackColor = false;
-            this.rjToggleButton1.Click += new System.EventHandler(this.rjToggleButton1_Click);
+            this.btnIsExtraDescriptionOn.AutoSize = true;
+            this.btnIsExtraDescriptionOn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnIsExtraDescriptionOn.Location = new System.Drawing.Point(262, 280);
+            this.btnIsExtraDescriptionOn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnIsExtraDescriptionOn.MinimumSize = new System.Drawing.Size(39, 16);
+            this.btnIsExtraDescriptionOn.Name = "btnIsExtraDescriptionOn";
+            this.btnIsExtraDescriptionOn.OffBackColor = System.Drawing.Color.MediumVioletRed;
+            this.btnIsExtraDescriptionOn.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.btnIsExtraDescriptionOn.OnBackColor = System.Drawing.Color.Chartreuse;
+            this.btnIsExtraDescriptionOn.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIsExtraDescriptionOn.Size = new System.Drawing.Size(39, 16);
+            this.btnIsExtraDescriptionOn.TabIndex = 2;
+            this.btnIsExtraDescriptionOn.UseVisualStyleBackColor = false;
+            this.btnIsExtraDescriptionOn.Click += new System.EventHandler(this.rjToggleButton1_Click);
             // 
             // ExtraDescriptionTBox
             // 
@@ -1132,5 +1133,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExtraDescriptionDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddedAtDG;
+        private RJCodeAdvance.RJControls.RJButton btnResetValues;
+        private RJCodeAdvance.RJControls.RJToggleButton btnIsExtraDescriptionOn;
     }
 }
