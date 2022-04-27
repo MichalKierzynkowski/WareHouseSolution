@@ -149,4 +149,17 @@ public partial class MainMenu : Form
         childForm.Show();
         lblTitle.Text = childForm.Text;
     }
+
+    private void btnMinimalize_Click(object sender, EventArgs e)
+    {
+        this.WindowState = FormWindowState.Minimized;
+    }
+
+    private void btnExit_Click(object sender, EventArgs e)
+    {
+        if (MessageBox.Show("Jesteś pewny wyjścia z programu?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+        {
+            Application.Exit();
+        }
+    }
 }
