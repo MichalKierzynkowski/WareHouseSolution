@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.Data;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -20,7 +21,7 @@ namespace WareHouseApplication.NewForms
             txt.BackColor = Color.FromArgb(139, 199, 255);
         }
 
-       
+
 
         private void SelectBarNumber(NumericUpDown numeric)
         {
@@ -37,7 +38,7 @@ namespace WareHouseApplication.NewForms
             text.BackColor = Color.White;
         }
 
-       
+
 
         private void HidingArrowsInNumerics()
         {
@@ -46,7 +47,7 @@ namespace WareHouseApplication.NewForms
 
         private void SetDateTimePicker()
         {
-          dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker1.Value = DateTime.Now;
             dateTimePicker1.BackColor = Color.PaleVioletRed;
 
 
@@ -56,17 +57,17 @@ namespace WareHouseApplication.NewForms
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if(PnlAdd.Width==395)
+            if (PnlAdd.Width == 395)
             {
                 for (int i = 0; i < 5; i++)
                     PnlAdd.Width = PnlAdd.Width - 79;
-                
+
             }
             else
             {
-                for (int i = 0; i <5; i++)
-                    PnlAdd.Width = PnlAdd.Width +79;
-                
+                for (int i = 0; i < 5; i++)
+                    PnlAdd.Width = PnlAdd.Width + 79;
+
             }
             Timer.Stop();
         }
@@ -82,7 +83,7 @@ namespace WareHouseApplication.NewForms
             SelectBarNumber(txtBarNumber);
         }
 
-        
+
 
         private void txtName_Click(object sender, EventArgs e)
         {
@@ -104,7 +105,7 @@ namespace WareHouseApplication.NewForms
             LeaveTxt(txtName);
         }
 
-       
+
 
         private void ExtraDescriptionTBox_Leave(object sender, EventArgs e)
         {
@@ -129,11 +130,7 @@ namespace WareHouseApplication.NewForms
             dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "1200", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "112300", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "121300", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "1200", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "1100", "test", "test", "test", "---" });
+
         }
 
         private void TxtSearch_Click(object sender, EventArgs e)
@@ -144,6 +141,16 @@ namespace WareHouseApplication.NewForms
         private void TxtSearch_Leave(object sender, EventArgs e)
         {
             LeaveTxt(TxtSearch);
+        }
+
+        private void btnResetValues_Click(object sender, EventArgs e)
+        {
+            txtBarNumber.Value = 0;
+            txtName.Clear();
+            ProductTypeComboBox.SelectedIndex = -1;
+            ExtraDescriptionTBox.Clear();
+            btnIsExtraDescriptionOn.Checked = false;
+            SqlLiteDataAccess test = new SqlLiteDataAccess();
         }
     }
 }

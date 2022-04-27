@@ -3,11 +3,12 @@ using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WareHouseApplication.AllForms.NewForms.BaseForm;
 using WareHouseApplication.Desing;
 
 namespace WareHouseApplication.Forms;
 
-public partial class MainMenu : Form
+public partial class MainMenu : BaseForm
 {
     private Button currentButton;
     private Random random;
@@ -41,42 +42,14 @@ public partial class MainMenu : Form
             {
                 Task.Run(() =>
                 {
-                    DisableButton();
                     Color color = SelectThemeColor();
-
                     UpPanel.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-
-                    this.Invoke((Action)delegate
-                    {
-                        currentButton = (Button)btnSender;
-                        currentButton.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-
-                        currentButton.BackColor = color;
-                        currentButton.ForeColor = Color.White;
-                    });
                 });
             }
         }
     }
 
-    private void DisableButton()
-    {
-        Task.Run(() =>
-        {
-            this.Invoke((Action)delegate
-            {
-                foreach (Control previousBtn in PanelTitleBar.Controls)
-                {
-                    if (previousBtn.GetType() == typeof(Button))
-                    {
-                        previousBtn.BackColor = SystemColors.Highlight;
-                        previousBtn.ForeColor = Color.Gainsboro;
-                        previousBtn.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-                    }
-                }
-            });
-        });
-    }
+
 
     private void btnProducts_Click(object sender, EventArgs e)
     {
@@ -103,25 +76,7 @@ public partial class MainMenu : Form
         OpenChildForm(new AllForms.NewForms.Help.Help(), sender);
     }
 
-    private void Open_DropdownMenu(RJDropdownMenu dropdownMenu, object sender)
-    {
-        Control control = (Control)sender;
-        dropdownMenu.VisibleChanged += new EventHandler((sender2, ev)
-            => rjDropdownMenu1_VisibleChanged(sender2, ev, control));
-        dropdownMenu.Show(control, control.Width, 0);
-    }
 
-    private void rjDropdownMenu1_VisibleChanged(object sender, EventArgs e, Control control)
-    {
-        RJDropdownMenu dropdownMenu = (RJDropdownMenu)sender;
-        if (!DesignMode)
-        {
-            if (dropdownMenu.Visible)
-                control.BackColor = Color.FromArgb(159, 161, 224);
-            else
-                control.BackColor = Color.FromArgb(98, 102, 224);
-        }
-    }
 
     private void timer1_Tick(object sender, EventArgs e)
     {
@@ -133,10 +88,7 @@ public partial class MainMenu : Form
 
     private void OpenChildForm(Form childForm, object btnSender)
     {
-        //if (activeForm != null)
-        //{
-        //    ActiveForm.Close();
-        //}
+
         ActivateButton(btnSender);
 
         activeForm = childForm;
@@ -148,5 +100,18 @@ public partial class MainMenu : Form
         childForm.BringToFront();
         childForm.Show();
         lblTitle.Text = childForm.Text;
+    }
+
+    private void btnMinimalize_Click(object sender, EventArgs e)
+    {
+        this.WindowState = FormWindowState.Minimized;
+    }
+
+    private void btnExit_Click(object sender, EventArgs e)
+    {
+        if (MessageBox.Show("Jesteś pewny wyjścia z programu?", "Wyjście", MessageBoxButtons.OKCancel) == DialogResult.OK)
+        {
+            Application.Exit();
+        }
     }
 }
