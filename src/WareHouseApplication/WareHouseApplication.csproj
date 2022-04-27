@@ -63,4 +63,7 @@
   <ItemGroup>
     <PackageReference Include="RJCodeAdvance.RJControls" Version="1.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
 </Project>
