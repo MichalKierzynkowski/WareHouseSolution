@@ -382,7 +382,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(238, 39);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Rodzaj Produktu:";
+            this.label10.Text = "Opis Dodatkowy:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ProductTypeComboBox
@@ -615,7 +615,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(238, 39);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Opis Dodatkowy:";
+            this.label8.Text = "Rodzaj Produktu:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // rjToggleButton1
