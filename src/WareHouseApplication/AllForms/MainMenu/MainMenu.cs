@@ -3,11 +3,12 @@ using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WareHouseApplication.AllForms.NewForms.BaseForm;
 using WareHouseApplication.Desing;
 
 namespace WareHouseApplication.Forms;
 
-public partial class MainMenu : Form
+public partial class MainMenu : BaseForm
 {
     private Button currentButton;
     private Random random;
