@@ -116,6 +116,7 @@ namespace WareHouseApplication.NewForms
         {
             Timer.Start();
             TLPnlTop.Enabled = false;
+            lblRightPanelMainName.Text = "Dodaj produkt";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -152,5 +153,15 @@ namespace WareHouseApplication.NewForms
             btnIsExtraDescriptionOn.Checked = false;
             SqlLiteDataAccess test = new SqlLiteDataAccess();
         }
+
+        private void btnEditProduct_Click(object sender, EventArgs e)
+        {
+            Timer.Start();
+            TLPnlTop.Enabled = false;
+            lblRightPanelMainName.Text = "Edytuj Produkt";
+
+        }
+
+
     }
 }
