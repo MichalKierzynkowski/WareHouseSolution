@@ -13,7 +13,7 @@ namespace Infrastructure.SqlLiteConnectionSettings
         public string ReturnConnectionString()
         {
 
-            return ConfigurationManager.ConnectionStrings["Default"].ConnectionString.ToString();
+            return @"Data Source=C:\Users\Integra\source\repos\MichalKierzynkowski\WareHouseSolution\SqlLiteDataBase\DataBase.db;Version=3;";
 
         }
     }

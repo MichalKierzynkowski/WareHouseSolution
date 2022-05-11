@@ -12,7 +12,7 @@ namespace Domain.Entities
         public int ProductDetailId { get; set; }
         public int RegistrationNumber { get; set; }
         public DateTime AddedAt { get; set; }
-        public ProductDetail Detail { get; set; }
+
 
 
 

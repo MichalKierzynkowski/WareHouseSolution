@@ -1,4 +1,5 @@
 ﻿
+using Infrastructure.SqlLiteConnectionSettings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -34,6 +35,7 @@ public static class Program
                 {
 
                     services.AddTransient<MainMenu>();
+                    services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
                 });
         }
 
