@@ -1,5 +1,4 @@
-﻿using Dapper;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.SqlLiteConnectionSettings;
 using System;
