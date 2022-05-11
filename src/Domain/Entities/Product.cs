@@ -12,7 +12,7 @@ namespace Domain.Entities
         public int ProductDetailId { get; set; }
         public int RegistrationNumber { get; set; }
         public DateTime AddedAt { get; set; }
-        public virtual List<ProductDetail>? Details { get; set; } = new List<ProductDetail>();
+        public ProductDetail Detail { get; set; }
 
 
 
