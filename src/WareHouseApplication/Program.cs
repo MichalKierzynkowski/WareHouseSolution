@@ -1,4 +1,5 @@
 ﻿
+using Infrastructure.Data;
 using Infrastructure.SqlLiteConnectionSettings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,7 +34,7 @@ public static class Program
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-
+                    services.AddEntityFrameworkSqlite().AddDbContext<WareHouseDbContext>();
                     services.AddTransient<MainMenu>();
                     services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
                 });

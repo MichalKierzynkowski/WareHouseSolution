@@ -14,9 +14,16 @@ namespace Infrastructure.Data
         {
 
         }
+        public WareHouseDbContext()
+        {
+
+        }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetail { get; set; }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=WareHouse.db;");
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()
