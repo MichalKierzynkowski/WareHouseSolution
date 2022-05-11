@@ -13,6 +13,5 @@ namespace Domain.Entities
         public int RegistrationNumber { get; set; }
         public DateTime AddedAt { get; set; }
 
-
     }
 }
