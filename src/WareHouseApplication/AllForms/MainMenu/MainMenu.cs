@@ -1,5 +1,4 @@
-﻿using RJCodeAdvance.RJControls;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,11 +14,13 @@ public partial class MainMenu : BaseForm
     private int tempIndex;
     private Form activeForm;
 
+
     public MainMenu()
     {
         InitializeComponent();
         random = new Random();
         timer1.Start();
+
     }
 
     private Color SelectThemeColor()

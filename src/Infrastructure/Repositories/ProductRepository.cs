@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
+using Infrastructure.Data;
 using Infrastructure.SqlLiteConnectionSettings;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,16 @@ namespace Infrastructure.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ISqlLiteDataAccess _sqlLiteDataAccess;
-        public ProductRepository(ISqlLiteDataAccess sqlLiteDataAccess)
+        private readonly WareHouseDbContext _context;
+
+        public ProductRepository(WareHouseDbContext context)
         {
-            _sqlLiteDataAccess = sqlLiteDataAccess;
+            _context = context;
         }
         public IEnumerable<Product> GetAll()
         {
-
-            throw new NotImplementedException();
+           
+            return _context.Products.ToList();
         }
         public Product GetById(int id)
         {
