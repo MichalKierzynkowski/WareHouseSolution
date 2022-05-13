@@ -20,6 +20,7 @@ namespace Infrastructure.Repositories
         }
         public IEnumerable<Product> GetAll()
         {
+
             throw new NotImplementedException();
         }
         public Product GetById(int id)
