@@ -22,7 +22,6 @@ namespace Infrastructure.Repositories
         }
         public IEnumerable<Product> GetAll()
         {
-           
             return _context.Products.ToList();
         }
         public Product GetById(int id)

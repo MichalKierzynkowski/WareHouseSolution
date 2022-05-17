@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Infrastructure.Data;
+using Infrastructure.Repositories;
+using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +22,9 @@ public partial class MainMenu : BaseForm
         InitializeComponent();
         random = new Random();
         timer1.Start();
+        var context = new WareHouseDbContext();
+        ProductRepository objProd = new ProductRepository(context);
+        objProd.GetAll();
 
     }
 
