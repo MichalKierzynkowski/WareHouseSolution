@@ -26,22 +26,26 @@ namespace Infrastructure.Repositories
         }
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Products.SingleOrDefault(x => x.Id == id);
         }
 
         public Product Add(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            return product;
         }
 
         public void Delete(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Remove(product);
+            _context.SaveChanges();
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Update(product);
+            _context.SaveChanges();
         }
     }
 }
