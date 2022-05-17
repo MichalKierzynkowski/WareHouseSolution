@@ -22,10 +22,6 @@ public partial class MainMenu : BaseForm
         InitializeComponent();
         random = new Random();
         timer1.Start();
-        var context = new WareHouseDbContext();
-        ProductRepository objProd = new ProductRepository(context);
-        objProd.GetAll();
-
     }
 
     private Color SelectThemeColor()
