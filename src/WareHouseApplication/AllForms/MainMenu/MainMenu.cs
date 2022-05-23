@@ -15,17 +15,12 @@ public partial class MainMenu : BaseForm
     private Random random;
     private int tempIndex;
     private Form activeForm;
-    private readonly WareHouseDbContext _context;
 
-    public MainMenu(WareHouseDbContext context)
+    public MainMenu()
     {
         InitializeComponent();
         random = new Random();
         timer1.Start();
-        _context = context;
-        var productRepo = new ProductRepository(context);
-        var products = productRepo.GetAll();
-        int x = 5;
     }
 
     private Color SelectThemeColor()
