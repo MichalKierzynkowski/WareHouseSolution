@@ -1,5 +1,7 @@
 ﻿using ApplicationLayer.Dto.Product;
 using ApplicationLayer.Interfaces;
+using AutoMapper;
+using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,21 @@ using System.Threading.Tasks;
 namespace ApplicationLayer.Services
 {
     public class ProductService : IProductService
+
     {
+        private readonly IProductRepository _repository;
+        private readonly IMapper _mapper;
+
+        public ProductService(IProductRepository productRepository, IMapper mapper)
+        {
+            _mapper = mapper;
+            _repository = productRepository;
+        }
+
         public IEnumerable<ProductDto> GetAllProducts()
         {
-            throw new NotImplementedException();
+            var products = _repository.GetAll();
+            return _mapper.Map<IEnumerable<ProductDto>>(products);
         }
 
         public ProductDto GetProductById(int id)
