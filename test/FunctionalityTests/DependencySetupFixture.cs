@@ -11,11 +11,14 @@ namespace FunctionalityTests
 {
     public class DependencySetupFixture
     {
+        public ServiceProvider ServiceProvider { get; private set; }
+
         public DependencySetupFixture()
         {
             var services = new ServiceCollection();
             services.AddEntityFrameworkSqlite().AddDbContext<WareHouseDbContext>();
             services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
+            ServiceProvider = services.BuildServiceProvider();
         }
     }
 }
