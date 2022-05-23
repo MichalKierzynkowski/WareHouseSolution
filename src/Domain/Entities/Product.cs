@@ -12,6 +12,5 @@ namespace Domain.Entities
         public int RegistrationNumber { get; set; }
         public ProductDetail ProductDetail { get; set; }
         public DateTime AddedAt { get; set; }
-
     }
 }

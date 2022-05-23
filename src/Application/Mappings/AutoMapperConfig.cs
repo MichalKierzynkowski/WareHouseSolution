@@ -9,7 +9,7 @@ using WareHouseApplication.NewForms;
 
 namespace Application.Mappings
 {
-    public class AutoMaperConfig
+    public class AutoMapperConfig
     {
         public static IMapper Initialize() => new MapperConfiguration(cfg =>
                  {
