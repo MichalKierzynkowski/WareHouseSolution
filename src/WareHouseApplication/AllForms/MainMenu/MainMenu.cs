@@ -15,13 +15,17 @@ public partial class MainMenu : BaseForm
     private Random random;
     private int tempIndex;
     private Form activeForm;
+    private readonly WareHouseDbContext _context;
 
-
-    public MainMenu()
+    public MainMenu(WareHouseDbContext context)
     {
         InitializeComponent();
         random = new Random();
         timer1.Start();
+        _context = context;
+        var productRepo = new ProductRepository(context);
+        var products = productRepo.GetAll();
+        int x = 5;
     }
 
     private Color SelectThemeColor()
@@ -51,8 +55,6 @@ public partial class MainMenu : BaseForm
         }
     }
 
-
-
     private void btnProducts_Click(object sender, EventArgs e)
     {
         OpenChildForm(new NewForms.Product(), sender);
@@ -78,8 +80,6 @@ public partial class MainMenu : BaseForm
         OpenChildForm(new AllForms.NewForms.Help.Help(), sender);
     }
 
-
-
     private void timer1_Tick(object sender, EventArgs e)
     {
         lblTime.Text = DateTime.Now.ToString("HH:mm");
@@ -90,7 +90,6 @@ public partial class MainMenu : BaseForm
 
     private void OpenChildForm(Form childForm, object btnSender)
     {
-
         ActivateButton(btnSender);
 
         activeForm = childForm;

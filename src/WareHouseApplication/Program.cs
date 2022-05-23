@@ -1,4 +1,4 @@
-﻿
+﻿using ApplicationLayer.Mappings;
 using Infrastructure.Data;
 using Infrastructure.SqlLiteConnectionSettings;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,18 +7,14 @@ using System;
 using System.Windows.Forms;
 using WareHouseApplication.Forms;
 
-
 namespace WareHouseApplication;
 
 public static class Program
 {
     public static IServiceProvider ServiceProvider { get; private set; }
 
-    /// <summary>
-    /// The main entry point for the application.
-    /// </summary>
     [STAThread]
-    static void Main()
+    private static void Main()
     {
         Application.SetHighDpiMode(HighDpiMode.PerMonitor);
         Application.EnableVisualStyles();
@@ -28,7 +24,6 @@ public static class Program
 
         Application.Run(ServiceProvider.GetRequiredService<MainMenu>());
 
-
         static IHostBuilder CreateHostBuilder()
         {
             return Host.CreateDefaultBuilder()
@@ -37,11 +32,8 @@ public static class Program
                     services.AddEntityFrameworkSqlite().AddDbContext<WareHouseDbContext>();
                     services.AddTransient<MainMenu>();
                     services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
+                    services.AddSingleton(AutoMapperConfig.Initialize());
                 });
         }
-
     }
-
-
-
 }

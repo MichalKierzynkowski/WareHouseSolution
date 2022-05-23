@@ -9,12 +9,9 @@ namespace Infrastructure.SqlLiteConnectionSettings
 {
     public class SqlLiteDataAccess : ISqlLiteDataAccess
     {
-
         public string ReturnConnectionString()
         {
-
-            return @"Data Source=C:\Users\Integra\source\repos\MichalKierzynkowski\WareHouseSolution\SqlLiteDataBase\DataBase.db;Version=3;";
-
+            return @"C:\Users\Integra\Source\Repos\MichalKierzynkowski\WareHouseSolution\src\WareHouseApplication\WareHouse.db;Version=3;";
         }
     }
 }
