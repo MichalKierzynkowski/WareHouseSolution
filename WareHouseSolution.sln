@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{F88AAB0D-A2A3-4E9C-A21A-32D3E5BBEC2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{FC2F944A-1738-425D-938B-A0B1E37136A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationLayer", "src\Application\ApplicationLayer.csproj", "{FC2F944A-1738-425D-938B-A0B1E37136A0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormsLogic", "src\FormsLogic\FormsLogic.csproj", "{A78CB5C7-2F29-48AE-BC89-FA935C78CC07}"
 EndProject

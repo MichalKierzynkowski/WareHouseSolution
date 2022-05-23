@@ -1,4 +1,5 @@
-﻿using Infrastructure.Data;
+﻿using ApplicationLayer.Mappings;
+using Infrastructure.Data;
 using Infrastructure.SqlLiteConnectionSettings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,9 +13,6 @@ public static class Program
 {
     public static IServiceProvider ServiceProvider { get; private set; }
 
-    /// <summary>
-    /// The main entry point for the application.
-    /// </summary>
     [STAThread]
     private static void Main()
     {
