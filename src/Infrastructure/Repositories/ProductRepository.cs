@@ -20,10 +20,12 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
+
         public IEnumerable<Product> GetAll()
         {
             return _context.Products.ToList();
         }
+
         public Product GetById(int id)
         {
             return _context.Products.SingleOrDefault(x => x.Id == id);

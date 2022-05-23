@@ -31,7 +31,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductDetail", b =>
@@ -63,7 +63,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductDetail");
+                    b.ToTable("ProductDetail", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductDetail", b =>
