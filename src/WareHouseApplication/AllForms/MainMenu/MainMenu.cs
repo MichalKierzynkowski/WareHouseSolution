@@ -23,9 +23,6 @@ public partial class MainMenu : BaseForm
         random = new Random();
         timer1.Start();
         _context = context;
-        var productRepo = new ProductRepository(context);
-        var products = productRepo.GetAll();
-        int x = 5;
     }
 
     private Color SelectThemeColor()

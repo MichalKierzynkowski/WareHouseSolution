@@ -31,7 +31,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductDetail", b =>
@@ -41,10 +41,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ExtraDescription")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("LastChangedAt")
+                    b.Property<DateTime?>("LastChangedAt")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -63,7 +62,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductDetail", (string)null);
+                    b.ToTable("ProductDetail");
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductDetail", b =>
