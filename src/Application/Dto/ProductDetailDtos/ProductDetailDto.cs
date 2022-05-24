@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationLayer.Dto.ProductDetail
+namespace ApplicationLayer.Dto.ProductDetailDtos
 {
     public class ProductDetailDto
     {

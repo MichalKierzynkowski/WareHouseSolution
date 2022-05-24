@@ -2,6 +2,7 @@
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.SqlLiteConnectionSettings;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,7 +24,7 @@ namespace Infrastructure.Repositories
 
         public IEnumerable<Product> GetAll()
         {
-            return _context.Products.ToList();
+            return _context.Products.Include(x => x.ProductDetail);
         }
 
         public Product GetById(int id)

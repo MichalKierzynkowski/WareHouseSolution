@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationLayer.Dto.Product
+namespace ApplicationLayer.Dto.ProductDtos
 {
     public class UpdateProductDto
     {

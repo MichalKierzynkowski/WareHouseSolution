@@ -1,4 +1,4 @@
-﻿using ApplicationLayer.Dto.ProductDetail;
+﻿using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Interfaces;
 using AutoMapper;
 using Domain.Interfaces;
