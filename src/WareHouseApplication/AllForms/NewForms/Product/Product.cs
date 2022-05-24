@@ -125,10 +125,10 @@ namespace WareHouseApplication.NewForms
         {
             PnlAdd.Width = 0;
             var products = ReturnDataFromDataBase();
-
-            dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
+            foreach (var item in products)
+            {
+                dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
+            }
         }
 
         private void TxtSearch_Click(object sender, EventArgs e)
