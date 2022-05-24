@@ -1,4 +1,4 @@
-﻿using ApplicationLayer.Dto.Product;
+﻿using ApplicationLayer.Dto.ProductDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

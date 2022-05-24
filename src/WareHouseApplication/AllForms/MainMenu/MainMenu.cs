@@ -1,4 +1,5 @@
-﻿using Infrastructure.Data;
+﻿using ApplicationLayer.Interfaces;
+using Infrastructure.Data;
 using Infrastructure.Repositories;
 using System;
 using System.Drawing;
@@ -11,26 +12,28 @@ namespace WareHouseApplication.Forms;
 
 public partial class MainMenu : BaseForm
 {
-    private Button currentButton;
-    private Random random;
-    private int tempIndex;
-    private Form activeForm;
+    private Button _currentButton;
+    private Random _random;
+    private int _tempIndex;
+    private Form _activeForm;
+    public IProductService ProductService { get; set; }
 
-    public MainMenu()
+    public MainMenu(IProductService productService)
     {
         InitializeComponent();
-        random = new Random();
+        _random = new Random();
         timer1.Start();
+        ProductService = productService;
     }
 
     private Color SelectThemeColor()
     {
-        int index = random.Next(Desing.ThemeColor.ColorList.Count);
-        while (tempIndex == index)
+        int index = _random.Next(Desing.ThemeColor.ColorList.Count);
+        while (_tempIndex == index)
         {
-            random.Next(Desing.ThemeColor.ColorList.Count);
+            _random.Next(Desing.ThemeColor.ColorList.Count);
         }
-        tempIndex = index;
+        _tempIndex = index;
         string color = ThemeColor.ColorList[index];
         return ColorTranslator.FromHtml(color);
     }
@@ -39,7 +42,7 @@ public partial class MainMenu : BaseForm
     {
         if (btnSender != null)
         {
-            if (currentButton != (Button)btnSender)
+            if (_currentButton != (Button)btnSender)
             {
                 Task.Run(() =>
                 {
@@ -52,7 +55,7 @@ public partial class MainMenu : BaseForm
 
     private void btnProducts_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new NewForms.Product(), sender);
+        OpenChildForm(new NewForms.Product(ProductService), sender);
     }
 
     private void btnWareHouse_Click(object sender, EventArgs e)
@@ -87,7 +90,7 @@ public partial class MainMenu : BaseForm
     {
         ActivateButton(btnSender);
 
-        activeForm = childForm;
+        _activeForm = childForm;
         childForm.TopLevel = false;
         childForm.FormBorderStyle = FormBorderStyle.None;
         childForm.Dock = DockStyle.Fill;

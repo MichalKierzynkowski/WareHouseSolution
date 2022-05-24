@@ -1,4 +1,4 @@
-﻿using ApplicationLayer.Dto.Product;
+﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using AutoMapper;
 using Domain.Interfaces;
@@ -24,8 +24,8 @@ namespace ApplicationLayer.Services
 
         public IEnumerable<ProductDto> GetAllProducts()
         {
-            var products = _repository.GetAll();
-            return _mapper.Map<IEnumerable<ProductDto>>(products);
+            var products = _repository.GetAll().ToList();
+            return _mapper.Map<List<ProductDto>>(products);
         }
 
         public ProductDto GetProductById(int id)
