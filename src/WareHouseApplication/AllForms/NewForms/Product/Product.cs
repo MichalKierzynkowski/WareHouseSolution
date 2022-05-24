@@ -125,6 +125,7 @@ namespace WareHouseApplication.NewForms
         {
             PnlAdd.Width = 0;
             var products = ReturnDataFromDataBase();
+
             dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
