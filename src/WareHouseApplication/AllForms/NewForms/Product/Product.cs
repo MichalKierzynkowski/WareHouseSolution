@@ -1,6 +1,7 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.ProductForm.Validation;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -161,6 +162,13 @@ namespace WareHouseApplication.NewForms
         {
             var dataReturn = new ReturnDataFromDb(ProductService);
             return dataReturn.Products;
+        }
+
+        private void btnCheckAvailability_Click(object sender, EventArgs e)
+        {
+            var checkAvailability = new CheckRegisterNumberAvailability(txtBarNumber.Value);
+            MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
