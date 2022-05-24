@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories
 
         public Product GetById(int id)
         {
-            return _context.Products.SingleOrDefault(x => x.Id == id);
+            return _context.Products.Include(x => x.ProductDetail).SingleOrDefault(x => x.Id == id);
         }
 
         public Product Add(Product product)

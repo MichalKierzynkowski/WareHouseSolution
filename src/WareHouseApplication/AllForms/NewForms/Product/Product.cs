@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FormsLogic.ProductForm.Logic.Data;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -20,8 +21,6 @@ namespace WareHouseApplication.NewForms
             txt.BackColor = Color.FromArgb(139, 199, 255);
         }
 
-
-
         private void SelectBarNumber(NumericUpDown numeric)
         {
             numeric.BackColor = Color.FromArgb(139, 199, 255);
@@ -37,8 +36,6 @@ namespace WareHouseApplication.NewForms
             text.BackColor = Color.White;
         }
 
-
-
         private void HidingArrowsInNumerics()
         {
             txtBarNumber.Controls[0].Visible = false;
@@ -48,8 +45,6 @@ namespace WareHouseApplication.NewForms
         {
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker1.BackColor = Color.PaleVioletRed;
-
-
         }
 
         #endregion AdjustmentWinFormsControls
@@ -60,13 +55,11 @@ namespace WareHouseApplication.NewForms
             {
                 for (int i = 0; i < 5; i++)
                     PnlAdd.Width = PnlAdd.Width - 79;
-
             }
             else
             {
                 for (int i = 0; i < 5; i++)
                     PnlAdd.Width = PnlAdd.Width + 79;
-
             }
             Timer.Stop();
         }
@@ -81,8 +74,6 @@ namespace WareHouseApplication.NewForms
         {
             SelectBarNumber(txtBarNumber);
         }
-
-
 
         private void txtName_Click(object sender, EventArgs e)
         {
@@ -103,8 +94,6 @@ namespace WareHouseApplication.NewForms
         {
             LeaveTxt(txtName);
         }
-
-
 
         private void ExtraDescriptionTBox_Leave(object sender, EventArgs e)
         {
@@ -127,10 +116,10 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
+
             dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
-
         }
 
         private void TxtSearch_Click(object sender, EventArgs e)
@@ -150,7 +139,6 @@ namespace WareHouseApplication.NewForms
             ProductTypeComboBox.SelectedIndex = -1;
             ExtraDescriptionTBox.Clear();
             btnIsExtraDescriptionOn.Checked = false;
-
         }
 
         private void btnEditProduct_Click(object sender, EventArgs e)
@@ -158,9 +146,11 @@ namespace WareHouseApplication.NewForms
             Timer.Start();
             TLPnlTop.Enabled = false;
             lblRightPanelMainName.Text = "Edytuj Produkt";
-
         }
 
-
+        private void LoadDataFromDb()
+        {
+            var dataAccess = new ReturnDataFromDb();
+        }
     }
 }

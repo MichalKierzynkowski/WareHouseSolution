@@ -33,7 +33,7 @@
 			<Isolated>False</Isolated>
 			<EmbedInteropTypes>True</EmbedInteropTypes>
 		</COMReference>
-		<COMReference Include="Microsoft.Office.Interop.Excel">
+		<COMReference Include="Microsoft		.Office.Interop.Excel">
 			<Guid>{00020813-0000-0000-C000-000000000046}</Guid>
 			<VersionMajor>1</VersionMajor>
 			<VersionMinor>9</VersionMinor>
@@ -69,6 +69,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Application\ApplicationLayer.csproj" />
+		<ProjectReference Include="..\FormsLogic\FormsLogic.csproj" />
 		<ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>
 </Project>
