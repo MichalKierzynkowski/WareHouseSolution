@@ -1,6 +1,10 @@
-﻿using FormsLogic.ProductForm.Logic.Data;
+﻿using ApplicationLayer.Dto.ProductDtos;
+using ApplicationLayer.Interfaces;
+using FormsLogic.ProductForm.Logic.Data;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WareHouseApplication.NewForms
@@ -8,12 +12,14 @@ namespace WareHouseApplication.NewForms
     public partial class Product : Form
     {
         public ReturnDataFromDb dataReturn { get; set; }
+        public IProductService ProductService { get; set; }
 
-        public Product()
+        public Product(IProductService productService)
         {
             InitializeComponent();
             SetDateTimePicker();
             HidingArrowsInNumerics();
+            ProductService = productService;
         }
 
         #region AdjustmentWinFormsControls
@@ -118,6 +124,7 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
+            var products = ReturnDataFromDataBase();
             dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
@@ -147,6 +154,12 @@ namespace WareHouseApplication.NewForms
             Timer.Start();
             TLPnlTop.Enabled = false;
             lblRightPanelMainName.Text = "Edytuj Produkt";
+        }
+
+        public IEnumerable<ProductDto> ReturnDataFromDataBase()
+        {
+            var dataReturn = new ReturnDataFromDb(ProductService);
+            return dataReturn.Products;
         }
     }
 }

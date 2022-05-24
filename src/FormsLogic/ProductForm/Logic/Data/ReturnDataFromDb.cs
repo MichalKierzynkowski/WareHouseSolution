@@ -1,4 +1,6 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
+using ApplicationLayer.Interfaces;
+using ApplicationLayer.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,11 @@ namespace FormsLogic.ProductForm.Logic.Data
 {
     public class ReturnDataFromDb
     {
-        public IQueryable<ProductDto> Products { get; set; }
+        public IEnumerable<ProductDto> Products { get; set; }
 
-        public ReturnDataFromDb()
+        public ReturnDataFromDb(IProductService productService)
         {
+            Products = productService.GetAllProducts().ToList();
         }
     }
 }

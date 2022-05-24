@@ -1,5 +1,9 @@
-﻿using ApplicationLayer.Mappings;
+﻿using ApplicationLayer.Interfaces;
+using ApplicationLayer.Mappings;
+using ApplicationLayer.Services;
+using Domain.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Repositories;
 using Infrastructure.SqlLiteConnectionSettings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,7 +33,9 @@ public static class Program
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
+                    services.AddScoped<IProductService, ProductService>();
                     services.AddEntityFrameworkSqlite().AddDbContext<WareHouseDbContext>();
+                    services.AddScoped<IProductRepository, ProductRepository>();
                     services.AddTransient<MainMenu>();
                     services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
                     services.AddSingleton(AutoMapperConfig.Initialize());

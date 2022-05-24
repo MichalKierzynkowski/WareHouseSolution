@@ -9,7 +9,7 @@ namespace Domain.Interfaces
 {
     public interface IProductRepository
     {
-        IQueryable<Product> GetAll();
+        IEnumerable<Product> GetAll();
 
         Product GetById(int id);
 
