@@ -7,6 +7,8 @@ namespace WareHouseApplication.NewForms
 {
     public partial class Product : Form
     {
+        public ReturnDataFromDb dataReturn { get; set; }
+
         public Product()
         {
             InitializeComponent();
@@ -116,7 +118,6 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
-
             dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
             dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
@@ -146,11 +147,6 @@ namespace WareHouseApplication.NewForms
             Timer.Start();
             TLPnlTop.Enabled = false;
             lblRightPanelMainName.Text = "Edytuj Produkt";
-        }
-
-        private void LoadDataFromDb()
-        {
-            var dataAccess = new ReturnDataFromDb();
         }
     }
 }

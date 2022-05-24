@@ -22,10 +22,10 @@ namespace ApplicationLayer.Services
             _repository = productRepository;
         }
 
-        public IEnumerable<ProductDto> GetAllProducts()
+        public IQueryable<ProductDto> GetAllProducts()
         {
             var products = _repository.GetAll();
-            return _mapper.Map<IEnumerable<ProductDto>>(products);
+            return _mapper.Map<IQueryable<ProductDto>>(products);
         }
 
         public ProductDto GetProductById(int id)

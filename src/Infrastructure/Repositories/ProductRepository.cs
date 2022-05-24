@@ -22,7 +22,7 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public IEnumerable<Product> GetAll()
+        public IQueryable<Product> GetAll()
         {
             return _context.Products.Include(x => x.ProductDetail);
         }

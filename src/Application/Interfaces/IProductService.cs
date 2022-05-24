@@ -9,7 +9,7 @@ namespace ApplicationLayer.Interfaces
 {
     public interface IProductService
     {
-        IEnumerable<ProductDto> GetAllProducts();
+        IQueryable<ProductDto> GetAllProducts();
 
         ProductDto GetProductById(int id);
 
