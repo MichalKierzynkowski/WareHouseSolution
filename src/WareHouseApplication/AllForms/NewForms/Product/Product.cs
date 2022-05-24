@@ -1,6 +1,7 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.ProductForm.Validation;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -125,9 +126,10 @@ namespace WareHouseApplication.NewForms
         {
             PnlAdd.Width = 0;
             var products = ReturnDataFromDataBase();
-            dataGridView1.Rows.Add(new object[] { "100", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "1", "test", "test", "test", "---" });
-            dataGridView1.Rows.Add(new object[] { "10", "test", "test", "test", "---" });
+            foreach (var item in products)
+            {
+                dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
+            }
         }
 
         private void TxtSearch_Click(object sender, EventArgs e)
@@ -160,6 +162,13 @@ namespace WareHouseApplication.NewForms
         {
             var dataReturn = new ReturnDataFromDb(ProductService);
             return dataReturn.Products;
+        }
+
+        private void btnCheckAvailability_Click(object sender, EventArgs e)
+        {
+            var checkAvailability = new CheckRegisterNumberAvailability(txtBarNumber.Value);
+            MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

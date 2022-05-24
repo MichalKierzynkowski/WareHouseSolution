@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using ApplicationLayer.Dto.ProductDetailDtos;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace ApplicationLayer.Dto.ProductDtos
     public class ProductDto
     {
         public int RegistrationNumber { get; set; }
-        public ProductDetail ProductDetail { get; set; }
+        public ProductDetailDto ProductDetailDto { get; set; }
         public DateTime AddedAt { get; set; }
     }
 }
