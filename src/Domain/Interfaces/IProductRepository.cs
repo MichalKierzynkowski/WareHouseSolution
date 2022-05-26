@@ -11,6 +11,8 @@ namespace Domain.Interfaces
     {
         IEnumerable<Product> GetAll();
 
+        Product GetByRegistrationNumber(int registrationNumber);
+
         Product GetById(int id);
 
         Product Add(Product product);

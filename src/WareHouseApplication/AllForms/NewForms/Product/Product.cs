@@ -166,9 +166,17 @@ namespace WareHouseApplication.NewForms
 
         private void btnCheckAvailability_Click(object sender, EventArgs e)
         {
-            var checkAvailability = new CheckRegisterNumberAvailability(txtBarNumber.Value);
-            MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
-             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var checkAvailability = new CheckRegisterNumberAvailability(txtBarNumber.Value, ProductService);
+            if (checkAvailability.StatusCode == "Failed")
+            {
+                MessageBox.Show(checkAvailability.AvailabilityInformation, "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (checkAvailability.StatusCode == "Success")
+            {
+                MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

@@ -13,6 +13,8 @@ namespace ApplicationLayer.Interfaces
 
         ProductDto GetProductById(int id);
 
+        ProductDto GetProductByRegistrationNumber(int registrationNumber);
+
         ProductDto AddNewProduct(CreateProductDto newProduct);
 
         void UpdateProduct(int id, UpdateProductDto product);

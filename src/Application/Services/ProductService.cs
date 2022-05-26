@@ -28,6 +28,12 @@ namespace ApplicationLayer.Services
             return _mapper.Map<List<ProductDto>>(products);
         }
 
+        public ProductDto GetProductByRegistrationNumber(int registrationNumber)
+        {
+            var product = _repository.GetByRegistrationNumber(registrationNumber);
+            return _mapper.Map<ProductDto>(product);
+        }
+
         public ProductDto GetProductById(int id)
         {
             throw new NotImplementedException();
