@@ -14,6 +14,7 @@ namespace WareHouseApplication.NewForms
     {
         public ReturnDataFromDb dataReturn { get; set; }
         public IProductService ProductService { get; set; }
+        public EditProductDto EditProductDto { get; set; }
 
         public Product(IProductService productService)
         {
@@ -21,6 +22,7 @@ namespace WareHouseApplication.NewForms
             SetDateTimePicker();
             HidingArrowsInNumerics();
             ProductService = productService;
+            EditProductDto = new EditProductDto();
         }
 
         #region AdjustmentWinFormsControls
@@ -176,6 +178,22 @@ namespace WareHouseApplication.NewForms
             {
                 MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int digitOfSelectedRow = e.RowIndex;
+            if (digitOfSelectedRow >= 0)
+            {
+                var validateDesctription = new DescriptionValidation(selectedRow.Cells[3].Value.ToString());
+                var selectedRow = dataGridView1.Rows[digitOfSelectedRow];
+                EditProductDto.RegistrationNumber = (int)selectedRow.Cells[0].Value;
+                EditProductDto.EditProductDetailDto.Name = selectedRow.Cells[1].Value.ToString();
+                EditProductDto.EditProductDetailDto.Type = selectedRow.Cells[2].Value.ToString();
+            }
+            else
+            {
             }
         }
     }
