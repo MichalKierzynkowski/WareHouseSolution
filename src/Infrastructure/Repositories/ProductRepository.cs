@@ -32,6 +32,11 @@ namespace Infrastructure.Repositories
             return _context.Products.Include(x => x.ProductDetail).SingleOrDefault(x => x.Id == id);
         }
 
+        public Product GetByRegistrationNumber(int registrationNumber)
+        {
+            return _context.Products.Include(x => x.ProductDetail).SingleOrDefault(x => x.RegistrationNumber == registrationNumber);
+        }
+
         public Product Add(Product product)
         {
             _context.Products.Add(product);
