@@ -158,9 +158,47 @@ namespace WareHouseApplication.NewForms
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            Timer.Start();
+            SetTimer();
+            RightPanelEditAdjustment();
+        }
+
+        private void AssignmentDataFromEditProductDtoToEditInputs()
+        {
+            txtBarNumber.Enabled = false;
+            txtBarNumber.Value = EditProductDto.RegistrationNumber;
+            txtName.Text = EditProductDto.EditProductDetailDto.Name;
+            ProductTypeComboBox.SelectedItem = EditProductDto.EditProductDetailDto.Type;
+            dateTimePicker1.Value = EditProductDto.AddedAt;
+            CheckExistenceOfDescriptionInEditPanel();
+        }
+
+        private void CheckExistenceOfDescriptionInEditPanel()
+        {
+            ExtraDescriptionTBox.Clear();
+            if (EditProductDto.EditProductDetailDto.ExtraDescription == null)
+            {
+                ExtraDescriptionTBox.Enabled = false;
+                btnIsExtraDescriptionOn.Checked = false;
+            }
+            else
+            {
+                ExtraDescriptionTBox.Enabled = true;
+                btnIsExtraDescriptionOn.Checked = true;
+                ExtraDescriptionTBox.Text = EditProductDto.EditProductDetailDto.ExtraDescription;
+            }
+        }
+
+        private void RightPanelEditAdjustment()
+        {
             TLPnlTop.Enabled = false;
             lblRightPanelMainName.Text = "Edytuj Produkt";
+            btnResetValues.Enabled = false;
+            btnCheckAvailability.Enabled = false;
+        }
+
+        private void SetTimer()
+        {
+            Timer.Start();
         }
 
         public IEnumerable<ProductDto> ReturnDataFromDataBase()
@@ -187,6 +225,7 @@ namespace WareHouseApplication.NewForms
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             AssignmentDataToEditProductDto(e.RowIndex);
+            AssignmentDataFromEditProductDtoToEditInputs();
         }
 
         private void AssignmentDataToEditProductDto(int digitOfSelectedRow)
@@ -204,6 +243,10 @@ namespace WareHouseApplication.NewForms
             else
             {
             }
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
         }
     }
 }
