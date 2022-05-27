@@ -12,5 +12,10 @@ namespace ApplicationLayer.Dto.ProductDtos
         public int RegistrationNumber { get; set; }
         public EditProductDetailDto EditProductDetailDto { get; set; }
         public DateTime AddedAt { get; set; }
+
+        public EditProductDto(EditProductDetailDto editProductDetailDto)
+        {
+            EditProductDetailDto = editProductDetailDto;
+        }
     }
 }

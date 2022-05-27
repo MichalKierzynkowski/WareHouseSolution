@@ -1,4 +1,5 @@
-﻿using ApplicationLayer.Dto.ProductDtos;
+﻿using ApplicationLayer.Dto.ProductDetailDtos;
+using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Validation;
@@ -15,6 +16,7 @@ namespace WareHouseApplication.NewForms
         public ReturnDataFromDb dataReturn { get; set; }
         public IProductService ProductService { get; set; }
         public EditProductDto EditProductDto { get; set; }
+        public EditProductDetailDto EditProductDetailDto { get; set; }
 
         public Product(IProductService productService)
         {
@@ -22,7 +24,8 @@ namespace WareHouseApplication.NewForms
             SetDateTimePicker();
             HidingArrowsInNumerics();
             ProductService = productService;
-            EditProductDto = new EditProductDto();
+            EditProductDetailDto = new EditProductDetailDto();
+            EditProductDto = new EditProductDto(EditProductDetailDto);
         }
 
         #region AdjustmentWinFormsControls
@@ -155,9 +158,47 @@ namespace WareHouseApplication.NewForms
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            Timer.Start();
+            SetTimer();
+            RightPanelEditAdjustment();
+        }
+
+        private void AssignmentDataFromEditProductDtoToEditInputs()
+        {
+            txtBarNumber.Enabled = false;
+            txtBarNumber.Value = EditProductDto.RegistrationNumber;
+            txtName.Text = EditProductDto.EditProductDetailDto.Name;
+            ProductTypeComboBox.SelectedItem = EditProductDto.EditProductDetailDto.Type;
+            dateTimePicker1.Value = EditProductDto.AddedAt;
+            CheckExistenceOfDescriptionInEditPanel();
+        }
+
+        private void CheckExistenceOfDescriptionInEditPanel()
+        {
+            ExtraDescriptionTBox.Clear();
+            if (EditProductDto.EditProductDetailDto.ExtraDescription == null)
+            {
+                ExtraDescriptionTBox.Enabled = false;
+                btnIsExtraDescriptionOn.Checked = false;
+            }
+            else
+            {
+                ExtraDescriptionTBox.Enabled = true;
+                btnIsExtraDescriptionOn.Checked = true;
+                ExtraDescriptionTBox.Text = EditProductDto.EditProductDetailDto.ExtraDescription;
+            }
+        }
+
+        private void RightPanelEditAdjustment()
+        {
             TLPnlTop.Enabled = false;
             lblRightPanelMainName.Text = "Edytuj Produkt";
+            btnResetValues.Enabled = false;
+            btnCheckAvailability.Enabled = false;
+        }
+
+        private void SetTimer()
+        {
+            Timer.Start();
         }
 
         public IEnumerable<ProductDto> ReturnDataFromDataBase()
@@ -183,18 +224,29 @@ namespace WareHouseApplication.NewForms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int digitOfSelectedRow = e.RowIndex;
+            AssignmentDataToEditProductDto(e.RowIndex);
+            AssignmentDataFromEditProductDtoToEditInputs();
+        }
+
+        private void AssignmentDataToEditProductDto(int digitOfSelectedRow)
+        {
             if (digitOfSelectedRow >= 0)
             {
-                var validateDesctription = new DescriptionValidation(selectedRow.Cells[3].Value.ToString());
                 var selectedRow = dataGridView1.Rows[digitOfSelectedRow];
                 EditProductDto.RegistrationNumber = (int)selectedRow.Cells[0].Value;
                 EditProductDto.EditProductDetailDto.Name = selectedRow.Cells[1].Value.ToString();
                 EditProductDto.EditProductDetailDto.Type = selectedRow.Cells[2].Value.ToString();
+                var validateDesctription = new DescriptionValidation(selectedRow.Cells[3].Value.ToString());
+                EditProductDto.EditProductDetailDto.ExtraDescription = validateDesctription.ReturnValidateDescription();
+                EditProductDto.AddedAt = (DateTime)selectedRow.Cells[4].Value;
             }
             else
             {
             }
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
         }
     }
 }
