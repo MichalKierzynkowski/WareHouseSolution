@@ -120,8 +120,7 @@ namespace WareHouseApplication.NewForms
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             Timer.Start();
-            TLPnlTop.Enabled = false;
-            lblRightPanelMainName.Text = "Dodaj produkt";
+            RightPanelAddProductAdjustment();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -202,6 +201,14 @@ namespace WareHouseApplication.NewForms
             lblRightPanelMainName.Text = "Edytuj Produkt";
             btnResetValues.Enabled = false;
             btnCheckAvailability.Enabled = false;
+        }
+
+        private void RightPanelAddProductAdjustment()
+        {
+            TLPnlTop.Enabled = false;
+            lblRightPanelMainName.Text = "Dodaj produkt";
+            btnResetValues.Enabled = true;
+            btnCheckAvailability.Enabled = true;
         }
 
         private void SetTimer()
@@ -287,6 +294,9 @@ namespace WareHouseApplication.NewForms
                 SwapProductWithEditProduct swapProducts = new SwapProductWithEditProduct(ProductService, UpdateProductDto);
                 MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetValuesInDataGridAndFillWithValuesAgain();
+                Timer.Start();
+                TLPnlTop.Enabled = true;
             }
         }
 
@@ -311,11 +321,16 @@ namespace WareHouseApplication.NewForms
         {
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void ResetValuesInDataGridAndFillWithValuesAgain()
         {
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
             LoadProductsToDataGridView();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ResetValuesInDataGridAndFillWithValuesAgain();
         }
     }
 }
