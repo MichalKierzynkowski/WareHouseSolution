@@ -1,7 +1,9 @@
 ﻿using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
+using FluentValidation;
 using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.ProductForm.Logic.Edit;
 using FormsLogic.ProductForm.Validation;
 using System;
 using System.Collections.Generic;
@@ -247,6 +249,42 @@ namespace WareHouseApplication.NewForms
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+
+            DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny?", "Informacja", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (lblRightPanelMainName.Text == "Dodaj produkt")
+                {
+                    AddNewProductPreValidation();
+                }
+                else
+                {
+                    EditProductPreValidation();
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+
+        }
+        private void EditProductPreValidation()
+        {
+            EditProductDtoValidation productValidation = new EditProductDtoValidation();
+            var result = productValidation.Validate(EditProductDto);
+            if (!result.IsValid)
+            {
+                MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SwapProductWithEditProduct swapProducts = new SwapProductWithEditProduct();
+            }
+        }
+        private void AddNewProductPreValidation()
+        {
+
         }
     }
 }
