@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FormsLogic.ProductForm.Validation
 {
-    public class EditProductDtoValidation : AbstractValidator<EditProductDto>
+    public class EditProductDtoValidation : AbstractValidator<UpdateProductDto>
     {
         public bool IsExtraDescriptionOpen { get; set; }
 

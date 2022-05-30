@@ -51,7 +51,6 @@ namespace ApplicationLayer.Services
 
         public void UpdateProduct(int id, UpdateProductDto product)
         {
-            throw new NotImplementedException();
         }
     }
 }
