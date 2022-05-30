@@ -1,4 +1,5 @@
-﻿using ApplicationLayer.Dto.ProductDtos;
+﻿using ApplicationLayer.AssignValues;
+using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using AutoMapper;
 using Domain.Interfaces;
@@ -52,8 +53,8 @@ namespace ApplicationLayer.Services
         public void UpdateProduct(int registrationNumber, UpdateProductDto product)
         {
             var existingProduct = _repository.GetByRegistrationNumber(registrationNumber);
-            var postProduct = _mapper.Map(product, existingProduct);
-            _repository.Update(postProduct);
+            var assignValues = new AssignProductEditDtoToProduct(existingProduct, product);
+            _repository.Update(assignValues.ExistingProduct);
         }
     }
 }
