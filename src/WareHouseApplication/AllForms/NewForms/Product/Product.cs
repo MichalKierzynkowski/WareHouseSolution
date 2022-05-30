@@ -19,6 +19,7 @@ namespace WareHouseApplication.NewForms
         public IProductService ProductService { get; set; }
         public EditProductDto EditProductDto { get; set; }
         public EditProductDetailDto EditProductDetailDto { get; set; }
+        public bool IsExtraDescriptionOpen { get; set; }
 
         public Product(IProductService productService)
         {
@@ -249,7 +250,6 @@ namespace WareHouseApplication.NewForms
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-
             DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny?", "Informacja", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -264,13 +264,13 @@ namespace WareHouseApplication.NewForms
             }
             else if (dialogResult == DialogResult.No)
             {
-
             }
-
         }
+
         private void EditProductPreValidation()
         {
-            EditProductDtoValidation productValidation = new EditProductDtoValidation();
+            AssignedValuesFromInputsToEditProductDto();
+            EditProductDtoValidation productValidation = new EditProductDtoValidation(IsExtraDescriptionOpen);
             var result = productValidation.Validate(EditProductDto);
             if (!result.IsValid)
             {
@@ -282,9 +282,26 @@ namespace WareHouseApplication.NewForms
                 SwapProductWithEditProduct swapProducts = new SwapProductWithEditProduct();
             }
         }
+
+        private void AssignedValuesFromInputsToEditProductDto()
+        {
+            EditProductDto.EditProductDetailDto.Name = txtName.Text;
+            EditProductDto.EditProductDetailDto.Type = ProductTypeComboBox.Text;
+            EditProductDto.EditProductDetailDto.LastChangedAt = DateTime.Now;
+            if (btnIsExtraDescriptionOn.Checked == true)
+            {
+                EditProductDto.EditProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
+                IsExtraDescriptionOpen = true;
+            }
+            else
+            {
+                EditProductDto.EditProductDetailDto.ExtraDescription = null;
+                IsExtraDescriptionOpen = false;
+            }
+        }
+
         private void AddNewProductPreValidation()
         {
-
         }
     }
 }
