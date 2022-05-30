@@ -133,6 +133,11 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
+            LoadProductsToDataGridView();
+        }
+
+        private void LoadProductsToDataGridView()
+        {
             var products = ReturnDataFromDataBase();
             foreach (var item in products)
             {
@@ -304,6 +309,13 @@ namespace WareHouseApplication.NewForms
 
         private void AddNewProductPreValidation()
         {
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            LoadProductsToDataGridView();
         }
     }
 }
