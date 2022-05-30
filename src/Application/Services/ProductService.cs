@@ -49,8 +49,11 @@ namespace ApplicationLayer.Services
             throw new NotImplementedException();
         }
 
-        public void UpdateProduct(int id, UpdateProductDto product)
+        public void UpdateProduct(int registrationNumber, UpdateProductDto product)
         {
+            var existingProduct = _repository.GetByRegistrationNumber(registrationNumber);
+            var postProduct = _mapper.Map(product, existingProduct);
+            _repository.Update(postProduct);
         }
     }
 }

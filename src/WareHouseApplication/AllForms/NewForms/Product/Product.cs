@@ -279,7 +279,9 @@ namespace WareHouseApplication.NewForms
             }
             else
             {
-                SwapProductWithEditProduct swapProducts = new SwapProductWithEditProduct(ProductService);
+                SwapProductWithEditProduct swapProducts = new SwapProductWithEditProduct(ProductService, UpdateProductDto);
+                MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
