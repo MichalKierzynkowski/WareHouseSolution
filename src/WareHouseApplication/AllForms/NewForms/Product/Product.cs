@@ -170,6 +170,7 @@ namespace WareHouseApplication.NewForms
             txtName.Clear();
             ProductTypeComboBox.SelectedIndex = -1;
             ExtraDescriptionTBox.Clear();
+            ExtraDescriptionTBox.Enabled = false;
             btnIsExtraDescriptionOn.Checked = false;
         }
 
@@ -348,6 +349,8 @@ namespace WareHouseApplication.NewForms
                 ResetValuesInDataGridAndFillWithValuesAgain();
                 Timer.Start();
                 TLPnlTop.Enabled = true;
+                rjToggleButton1.Enabled = false;
+                ExtraDescriptionTBox.Enabled = false;
             }
         }
 
