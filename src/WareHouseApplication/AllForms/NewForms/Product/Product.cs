@@ -257,9 +257,6 @@ namespace WareHouseApplication.NewForms
                 AssignmentDataToEditProductDto(e.RowIndex);
                 AssignmentDataFromEditProductDtoToEditInputs();
             }
-            else
-            {
-            }
         }
 
         private void AssignmentDataToEditProductDto(int digitOfSelectedRow)
@@ -273,9 +270,6 @@ namespace WareHouseApplication.NewForms
                 var validateDesctription = new DescriptionValidation(selectedRow.Cells[3].Value.ToString());
                 UpdateProductDto.EditProductDetailDto.ExtraDescription = validateDesctription.ReturnValidateDescription();
                 UpdateProductDto.AddedAt = (DateTime)selectedRow.Cells[4].Value;
-            }
-            else
-            {
             }
         }
 
@@ -348,14 +342,22 @@ namespace WareHouseApplication.NewForms
             }
             else
             {
+                AddNewProductToDataBase newProduct = new AddNewProductToDataBase(CreateProductDto, ProductService);
+                MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetValuesInDataGridAndFillWithValuesAgain();
+                Timer.Start();
+                TLPnlTop.Enabled = true;
             }
         }
 
         private void AssignedValuesFromInputsToCreateProductDto()
         {
+            CreateProductDto.RegistrationNumber = (int)txtBarNumber.Value;
             CreateProductDetailDto.Name = txtName.Text;
             CreateProductDetailDto.Type = ProductTypeComboBox.Text;
             CreateProductDto.AddedAt = DateTime.Now;
+            CreateProductDetailDto.CreateProductDto = CreateProductDto;
             if (btnIsExtraDescriptionOn.Checked == true)
             {
                 CreateProductDto.CreateProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;

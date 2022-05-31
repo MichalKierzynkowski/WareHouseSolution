@@ -2,6 +2,7 @@
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using AutoMapper;
+using Domain.Entities;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,9 @@ namespace ApplicationLayer.Services
 
         public ProductDto AddNewProduct(CreateProductDto newProduct)
         {
-            throw new NotImplementedException();
+            var product = _mapper.Map<Product>(newProduct);
+            _repository.Add(product);
+            return _mapper.Map<ProductDto>(product);
         }
 
         public void DeleteProduct(int id)
