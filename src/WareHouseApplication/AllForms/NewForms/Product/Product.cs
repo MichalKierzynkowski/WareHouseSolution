@@ -18,7 +18,9 @@ namespace WareHouseApplication.NewForms
         public ReturnDataFromDb dataReturn { get; set; }
         public IProductService ProductService { get; set; }
         public UpdateProductDto UpdateProductDto { get; set; }
-        public UpdateProductDetailDto EditProductDetailDto { get; set; }
+        public UpdateProductDetailDto UpdateProductDetailDto { get; set; }
+        public CreateProductDto CreateProductDto { get; set; }
+        public CreateProductDetailDto CreateProductDetailDto { get; set; }
         public bool IsExtraDescriptionOpen { get; set; }
 
         public Product(IProductService productService)
@@ -27,8 +29,10 @@ namespace WareHouseApplication.NewForms
             SetDateTimePicker();
             HidingArrowsInNumerics();
             ProductService = productService;
-            EditProductDetailDto = new UpdateProductDetailDto();
-            UpdateProductDto = new UpdateProductDto(EditProductDetailDto);
+            UpdateProductDetailDto = new UpdateProductDetailDto();
+            UpdateProductDto = new UpdateProductDto(UpdateProductDetailDto);
+            CreateProductDetailDto = new CreateProductDetailDto();
+            CreateProductDto = new CreateProductDto(CreateProductDetailDto);
         }
 
         #region AdjustmentWinFormsControls
@@ -157,6 +161,11 @@ namespace WareHouseApplication.NewForms
 
         private void btnResetValues_Click(object sender, EventArgs e)
         {
+            ResetValuesInInputs();
+        }
+
+        private void ResetValuesInInputs()
+        {
             txtBarNumber.Value = 0;
             txtName.Clear();
             ProductTypeComboBox.SelectedIndex = -1;
@@ -210,6 +219,9 @@ namespace WareHouseApplication.NewForms
             lblRightPanelMainName.Text = "Dodaj produkt";
             btnResetValues.Enabled = true;
             btnCheckAvailability.Enabled = true;
+            txtBarNumber.Enabled = true;
+            dateTimePicker1.Value = DateTime.Now;
+            ResetValuesInInputs();
         }
 
         private void SetTimer()
@@ -240,8 +252,14 @@ namespace WareHouseApplication.NewForms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            AssignmentDataToEditProductDto(e.RowIndex);
-            AssignmentDataFromEditProductDtoToEditInputs();
+            if (lblRightPanelMainName.Text == "Edytuj Produkt")
+            {
+                AssignmentDataToEditProductDto(e.RowIndex);
+                AssignmentDataFromEditProductDtoToEditInputs();
+            }
+            else
+            {
+            }
         }
 
         private void AssignmentDataToEditProductDto(int digitOfSelectedRow)
@@ -320,6 +338,34 @@ namespace WareHouseApplication.NewForms
 
         private void AddNewProductPreValidation()
         {
+            AssignedValuesFromInputsToCreateProductDto();
+            CreateProductDtoValidation productValidation = new CreateProductDtoValidation(IsExtraDescriptionOpen);
+            var result = productValidation.Validate(CreateProductDto);
+            if (!result.IsValid)
+            {
+                MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+            }
+        }
+
+        private void AssignedValuesFromInputsToCreateProductDto()
+        {
+            CreateProductDetailDto.Name = txtName.Text;
+            CreateProductDetailDto.Type = ProductTypeComboBox.Text;
+            CreateProductDto.AddedAt = DateTime.Now;
+            if (btnIsExtraDescriptionOn.Checked == true)
+            {
+                CreateProductDto.CreateProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
+                IsExtraDescriptionOpen = true;
+            }
+            else
+            {
+                CreateProductDto.CreateProductDetailDto.ExtraDescription = null;
+                IsExtraDescriptionOpen = false;
+            }
         }
 
         private void ResetValuesInDataGridAndFillWithValuesAgain()
