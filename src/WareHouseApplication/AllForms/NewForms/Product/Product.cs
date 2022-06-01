@@ -170,6 +170,7 @@ namespace WareHouseApplication.NewForms
             txtName.Clear();
             ProductTypeComboBox.SelectedIndex = -1;
             ExtraDescriptionTBox.Clear();
+            ExtraDescriptionTBox.Enabled = false;
             btnIsExtraDescriptionOn.Checked = false;
         }
 
@@ -333,7 +334,7 @@ namespace WareHouseApplication.NewForms
         private void AddNewProductPreValidation()
         {
             AssignedValuesFromInputsToCreateProductDto();
-            CreateProductDtoValidation productValidation = new CreateProductDtoValidation(IsExtraDescriptionOpen);
+            CreateProductDtoValidation productValidation = new CreateProductDtoValidation(IsExtraDescriptionOpen, ProductService);
             var result = productValidation.Validate(CreateProductDto);
             if (!result.IsValid)
             {
@@ -348,6 +349,8 @@ namespace WareHouseApplication.NewForms
                 ResetValuesInDataGridAndFillWithValuesAgain();
                 Timer.Start();
                 TLPnlTop.Enabled = true;
+
+                ExtraDescriptionTBox.Enabled = false;
             }
         }
 
