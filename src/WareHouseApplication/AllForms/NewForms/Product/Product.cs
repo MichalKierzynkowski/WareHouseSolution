@@ -1,21 +1,19 @@
 ﻿using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
-using FluentValidation;
 using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Logic.Edit;
 using FormsLogic.ProductForm.Validation;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace WareHouseApplication.NewForms
 {
     public partial class Product : Form
     {
-        public ReturnDataFromDb dataReturn { get; set; }
+
         public IProductService ProductService { get; set; }
         public UpdateProductDto UpdateProductDto { get; set; }
         public UpdateProductDetailDto UpdateProductDetailDto { get; set; }
@@ -70,25 +68,84 @@ namespace WareHouseApplication.NewForms
 
         #endregion AdjustmentWinFormsControls
 
-        private void Timer_Tick(object sender, EventArgs e)
+        #region MenuButtons
+        private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (PnlAdd.Width == 395)
+            DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny?", "Informacja", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                for (int i = 0; i < 5; i++)
-                    PnlAdd.Width = PnlAdd.Width - 79;
+                if (lblRightPanelMainName.Text == "Dodaj produkt")
+                {
+                    AddNewProductPreValidation();
+                }
+                else if (lblRightPanelMainName.Text == "Edytuj Produkt")
+                {
+                    EditProductPreValidation();
+                }
+                else if (lblRightPanelMainName.Text == "Usuń Produkt")
+                {
+                    DeleteProduct();
+                }
             }
-            else
+            else if (dialogResult == DialogResult.No)
             {
-                for (int i = 0; i < 5; i++)
-                    PnlAdd.Width = PnlAdd.Width + 79;
             }
-            Timer.Stop();
+        }
+
+        private void btnCheckAvailability_Click(object sender, EventArgs e)
+        {
+            var checkAvailability = new CheckRegisterNumberAvailability(txtBarNumber.Value, ProductService);
+            if (checkAvailability.StatusCode == "Failed")
+            {
+                MessageBox.Show(checkAvailability.AvailabilityInformation, "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (checkAvailability.StatusCode == "Success")
+            {
+                MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ResetValuesInDataGridAndFillWithValuesAgain();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            SetTimer();
+            RightPanelDeleteProductAdjustment();
+
         }
 
         private void rjToggleButton1_Click(object sender, EventArgs e)
         {
             var statusOfButon = ExtraDescriptionTBox.Enabled;
             ExtraDescriptionTBox.Enabled = !statusOfButon;
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            Timer.Start();
+            RightPanelAddProductAdjustment();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Timer.Start();
+            TLPnlTop.Enabled = true;
+        }
+
+        private void btnResetValues_Click(object sender, EventArgs e)
+        {
+            ResetValuesInInputs();
+        }
+
+        private void btnEditProduct_Click(object sender, EventArgs e)
+        {
+            SetTimer();
+            RightPanelEditAdjustment();
         }
 
         private void txtBarNumber_MouseClick(object sender, MouseEventArgs e)
@@ -106,106 +163,49 @@ namespace WareHouseApplication.NewForms
             SelectTxt(ExtraDescriptionTBox);
         }
 
-        private void txtBarNumber_Leave(object sender, EventArgs e)
-        {
-            LeaveNumeric(txtBarNumber);
-        }
-
-        private void txtName_Leave(object sender, EventArgs e)
-        {
-            LeaveTxt(txtName);
-        }
-
-        private void ExtraDescriptionTBox_Leave(object sender, EventArgs e)
-        {
-            LeaveTxt(ExtraDescriptionTBox);
-        }
-
-        private void btnAddProduct_Click(object sender, EventArgs e)
-        {
-            Timer.Start();
-            RightPanelAddProductAdjustment();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Timer.Start();
-            TLPnlTop.Enabled = true;
-        }
-
-        private void Product_Load(object sender, EventArgs e)
-        {
-            PnlAdd.Width = 0;
-            LoadProductsToDataGridView();
-            dataGridView1.ClearSelection();
-        }
-
-        private void LoadProductsToDataGridView()
-        {
-            var products = ReturnDataFromDataBase();
-            foreach (var item in products)
-            {
-                dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
-            }
-        }
-
         private void TxtSearch_Click(object sender, EventArgs e)
         {
             SelectTxt(TxtSearch);
         }
 
-        private void TxtSearch_Leave(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LeaveTxt(TxtSearch);
-        }
-
-        private void btnResetValues_Click(object sender, EventArgs e)
-        {
-            ResetValuesInInputs();
-        }
-
-        private void ResetValuesInInputs()
-        {
-            txtBarNumber.Value = 0;
-            txtName.Clear();
-            ProductTypeComboBox.SelectedIndex = -1;
-            ExtraDescriptionTBox.Clear();
-            ExtraDescriptionTBox.Enabled = false;
-            btnIsExtraDescriptionOn.Checked = false;
-        }
-
-        private void btnEditProduct_Click(object sender, EventArgs e)
-        {
-            SetTimer();
-            RightPanelEditAdjustment();
-        }
-
-        private void AssignmentDataFromEditProductDtoToEditInputs()
-        {
-            txtBarNumber.Enabled = false;
-            txtBarNumber.Value = UpdateProductDto.RegistrationNumber;
-            txtName.Text = UpdateProductDto.EditProductDetailDto.Name;
-            ProductTypeComboBox.SelectedItem = UpdateProductDto.EditProductDetailDto.Type;
-            dateTimePicker1.Value = UpdateProductDto.AddedAt;
-            CheckExistenceOfDescriptionInEditPanel();
-        }
-
-        private void CheckExistenceOfDescriptionInEditPanel()
-        {
-            ExtraDescriptionTBox.Clear();
-            if (UpdateProductDto.EditProductDetailDto.ExtraDescription == null)
+            if (lblRightPanelMainName.Text == "Edytuj Produkt")
             {
+                AssignmentDataToEditProductDto(e.RowIndex);
+                AssignmentDataFromEditProductDtoToEditInputs();
+            }
+            else if (lblRightPanelMainName.Text == "Usuń Produkt")
+            {
+                AssignmentDataToEditProductDto(e.RowIndex);
+                AssignmentDataFromEditProductDtoToEditInputs();
                 ExtraDescriptionTBox.Enabled = false;
-                btnIsExtraDescriptionOn.Checked = false;
+            }
+        }
+        #endregion
+
+        #region TimerSettings
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (PnlAdd.Width == 395)
+            {
+                for (int i = 0; i < 5; i++)
+                    PnlAdd.Width = PnlAdd.Width - 79;
             }
             else
             {
-                ExtraDescriptionTBox.Enabled = true;
-                btnIsExtraDescriptionOn.Checked = true;
-                ExtraDescriptionTBox.Text = UpdateProductDto.EditProductDetailDto.ExtraDescription;
+                for (int i = 0; i < 5; i++)
+                    PnlAdd.Width = PnlAdd.Width + 79;
             }
+            Timer.Stop();
         }
+        private void SetTimer()
+        {
+            Timer.Start();
+        }
+        #endregion
 
+        #region RighPanelAdjustment
         private void RightPanelEditAdjustment()
         {
             TLPnlTop.Enabled = false;
@@ -224,42 +224,77 @@ namespace WareHouseApplication.NewForms
             dateTimePicker1.Value = DateTime.Now;
             ResetValuesInInputs();
         }
-
-        private void SetTimer()
+        private void RightPanelDeleteProductAdjustment()
         {
-            Timer.Start();
+            TLPnlTop.Enabled = false;
+            lblRightPanelMainName.Text = "Usuń Produkt";
+            btnResetValues.Enabled = false;
+            btnCheckAvailability.Enabled = false;
+            txtBarNumber.Enabled = false;
+            txtName.Enabled = false;
+            btnIsExtraDescriptionOn.Enabled = false;
+            ProductTypeComboBox.Enabled = false;
+
+
+        }
+        #endregion
+
+        #region LeaveFunctions
+        private void TxtSearch_Leave(object sender, EventArgs e)
+        {
+            LeaveTxt(TxtSearch);
+        }
+        private void txtBarNumber_Leave(object sender, EventArgs e)
+        {
+            LeaveNumeric(txtBarNumber);
         }
 
-        public IEnumerable<ProductDto> ReturnDataFromDataBase()
+        private void txtName_Leave(object sender, EventArgs e)
         {
-            var dataReturn = new ReturnDataFromDb(ProductService);
-            return dataReturn.Products;
+            LeaveTxt(txtName);
         }
 
-        private void btnCheckAvailability_Click(object sender, EventArgs e)
+        private void ExtraDescriptionTBox_Leave(object sender, EventArgs e)
         {
-            var checkAvailability = new CheckRegisterNumberAvailability(txtBarNumber.Value, ProductService);
-            if (checkAvailability.StatusCode == "Failed")
+            LeaveTxt(ExtraDescriptionTBox);
+        }
+        #endregion
+
+        #region AssignmentFunctions
+        private void AssignedValuesFromInputsToCreateProductDto()
+        {
+            CreateProductDto.RegistrationNumber = (int)txtBarNumber.Value;
+            CreateProductDetailDto.Name = txtName.Text;
+            CreateProductDetailDto.Type = ProductTypeComboBox.Text;
+            CreateProductDto.AddedAt = DateTime.Now;
+            CreateProductDetailDto.CreateProductDto = CreateProductDto;
+            if (btnIsExtraDescriptionOn.Checked == true)
             {
-                MessageBox.Show(checkAvailability.AvailabilityInformation, "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateProductDto.CreateProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
+                IsExtraDescriptionOpen = true;
             }
-            else if (checkAvailability.StatusCode == "Success")
+            else
             {
-                MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CreateProductDto.CreateProductDetailDto.ExtraDescription = null;
+                IsExtraDescriptionOpen = false;
             }
         }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void AssignedValuesFromInputsToEditProductDto()
         {
-            if (lblRightPanelMainName.Text == "Edytuj Produkt")
+            UpdateProductDto.EditProductDetailDto.Name = txtName.Text;
+            UpdateProductDto.EditProductDetailDto.Type = ProductTypeComboBox.Text;
+            UpdateProductDto.EditProductDetailDto.LastChangedAt = DateTime.Now;
+            if (btnIsExtraDescriptionOn.Checked == true)
             {
-                AssignmentDataToEditProductDto(e.RowIndex);
-                AssignmentDataFromEditProductDtoToEditInputs();
+                UpdateProductDto.EditProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
+                IsExtraDescriptionOpen = true;
+            }
+            else
+            {
+                UpdateProductDto.EditProductDetailDto.ExtraDescription = null;
+                IsExtraDescriptionOpen = false;
             }
         }
-
         private void AssignmentDataToEditProductDto(int digitOfSelectedRow)
         {
             if (digitOfSelectedRow >= 0)
@@ -273,26 +308,36 @@ namespace WareHouseApplication.NewForms
                 UpdateProductDto.AddedAt = (DateTime)selectedRow.Cells[4].Value;
             }
         }
-
-        private void btnAccept_Click(object sender, EventArgs e)
+        private void AssignmentDataFromEditProductDtoToEditInputs()
         {
-            DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny?", "Informacja", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                if (lblRightPanelMainName.Text == "Dodaj produkt")
-                {
-                    AddNewProductPreValidation();
-                }
-                else
-                {
-                    EditProductPreValidation();
-                }
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-            }
+            txtBarNumber.Enabled = false;
+            txtBarNumber.Value = UpdateProductDto.RegistrationNumber;
+            txtName.Text = UpdateProductDto.EditProductDetailDto.Name;
+            ProductTypeComboBox.SelectedItem = UpdateProductDto.EditProductDetailDto.Type;
+            dateTimePicker1.Value = UpdateProductDto.AddedAt;
+            CheckExistenceOfDescriptionInEditPanel();
         }
+        #endregion
 
+        #region ResetValuesFunctions
+        private void ResetValuesInDataGridAndFillWithValuesAgain()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            LoadProductsToDataGridView();
+        }
+        private void ResetValuesInInputs()
+        {
+            txtBarNumber.Value = 0;
+            txtName.Clear();
+            ProductTypeComboBox.SelectedIndex = -1;
+            ExtraDescriptionTBox.Clear();
+            ExtraDescriptionTBox.Enabled = false;
+            btnIsExtraDescriptionOn.Checked = false;
+        }
+        #endregion
+
+        #region PreValidations
         private void EditProductPreValidation()
         {
             AssignedValuesFromInputsToEditProductDto();
@@ -313,24 +358,6 @@ namespace WareHouseApplication.NewForms
                 TLPnlTop.Enabled = true;
             }
         }
-
-        private void AssignedValuesFromInputsToEditProductDto()
-        {
-            UpdateProductDto.EditProductDetailDto.Name = txtName.Text;
-            UpdateProductDto.EditProductDetailDto.Type = ProductTypeComboBox.Text;
-            UpdateProductDto.EditProductDetailDto.LastChangedAt = DateTime.Now;
-            if (btnIsExtraDescriptionOn.Checked == true)
-            {
-                UpdateProductDto.EditProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
-                IsExtraDescriptionOpen = true;
-            }
-            else
-            {
-                UpdateProductDto.EditProductDetailDto.ExtraDescription = null;
-                IsExtraDescriptionOpen = false;
-            }
-        }
-
         private void AddNewProductPreValidation()
         {
             AssignedValuesFromInputsToCreateProductDto();
@@ -353,36 +380,58 @@ namespace WareHouseApplication.NewForms
                 ExtraDescriptionTBox.Enabled = false;
             }
         }
+        #endregion
 
-        private void AssignedValuesFromInputsToCreateProductDto()
+        #region LoadData
+        public IEnumerable<ProductDto> ReturnDataFromDataBase()
         {
-            CreateProductDto.RegistrationNumber = (int)txtBarNumber.Value;
-            CreateProductDetailDto.Name = txtName.Text;
-            CreateProductDetailDto.Type = ProductTypeComboBox.Text;
-            CreateProductDto.AddedAt = DateTime.Now;
-            CreateProductDetailDto.CreateProductDto = CreateProductDto;
-            if (btnIsExtraDescriptionOn.Checked == true)
+            var dataReturn = new ReturnDataFromDb(ProductService);
+            return dataReturn.Products;
+        }
+        private void Product_Load(object sender, EventArgs e)
+        {
+            PnlAdd.Width = 0;
+            LoadProductsToDataGridView();
+            dataGridView1.ClearSelection();
+        }
+
+        private void LoadProductsToDataGridView()
+        {
+            var products = ReturnDataFromDataBase();
+            foreach (var item in products)
             {
-                CreateProductDto.CreateProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
-                IsExtraDescriptionOpen = true;
+                dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
+            }
+        }
+        #endregion
+
+        #region CheckExistence
+        private void CheckExistenceOfDescriptionInEditPanel()
+        {
+            ExtraDescriptionTBox.Clear();
+            if (UpdateProductDto.EditProductDetailDto.ExtraDescription == null)
+            {
+                ExtraDescriptionTBox.Enabled = false;
+                btnIsExtraDescriptionOn.Checked = false;
             }
             else
             {
-                CreateProductDto.CreateProductDetailDto.ExtraDescription = null;
-                IsExtraDescriptionOpen = false;
+                ExtraDescriptionTBox.Enabled = true;
+                btnIsExtraDescriptionOn.Checked = true;
+                ExtraDescriptionTBox.Text = UpdateProductDto.EditProductDetailDto.ExtraDescription;
             }
         }
+        #endregion
 
-        private void ResetValuesInDataGridAndFillWithValuesAgain()
+        #region DeleteData
+        public void DeleteProduct()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            LoadProductsToDataGridView();
-        }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            ResetValuesInDataGridAndFillWithValuesAgain();
         }
+        #endregion
+
+
+
+
     }
 }
