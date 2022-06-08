@@ -13,14 +13,16 @@ namespace WareHouseApplication.NewForms
 {
     public partial class Product : Form
     {
-
+        #region Properties
         public IProductService ProductService { get; set; }
         public UpdateProductDto UpdateProductDto { get; set; }
         public UpdateProductDetailDto UpdateProductDetailDto { get; set; }
         public CreateProductDto CreateProductDto { get; set; }
         public CreateProductDetailDto CreateProductDetailDto { get; set; }
         public bool IsExtraDescriptionOpen { get; set; }
+        #endregion
 
+        #region Constructor
         public Product(IProductService productService)
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace WareHouseApplication.NewForms
             CreateProductDetailDto = new CreateProductDetailDto();
             CreateProductDto = new CreateProductDto(CreateProductDetailDto);
         }
+        #endregion
 
         #region AdjustmentWinFormsControls
 
@@ -261,6 +264,10 @@ namespace WareHouseApplication.NewForms
         #endregion
 
         #region AssignmentFunctions
+        private void AssignedValuesFromInputsToDeleteProductDto
+        {
+
+        }
         private void AssignedValuesFromInputsToCreateProductDto()
         {
             CreateProductDto.RegistrationNumber = (int)txtBarNumber.Value;
