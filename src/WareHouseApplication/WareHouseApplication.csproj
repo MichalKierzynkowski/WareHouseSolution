@@ -17,7 +17,7 @@
 			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
 		</None>
 		<None Update="WareHouse.db">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 	<ItemGroup>
