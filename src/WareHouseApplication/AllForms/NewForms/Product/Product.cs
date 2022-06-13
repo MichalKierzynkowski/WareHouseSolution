@@ -92,7 +92,7 @@ namespace WareHouseApplication.NewForms
                 }
                 else if (lblRightPanelMainName.Text == "Usuń Produkt")
                 {
-                    DeleteProduct();
+                    DeleteProductPreValidation();
                 }
             }
             else if (dialogResult == DialogResult.No)
@@ -412,6 +412,26 @@ namespace WareHouseApplication.NewForms
                 ExtraDescriptionTBox.Enabled = false;
             }
         }
+        public void DeleteProductPreValidation()
+        {
+            var deleteProductValidation = new DeleteProductValidation(DeleteProductDto);
+            if (deleteProductValidation.IsFormatCorrect)
+            {
+                var deleteProduct = new DeleteProductFromDataBase(DeleteProductDto.RegistrationNumber, ProductService);
+                MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetValuesInDataGridAndFillWithValuesAgain();
+                Timer.Start();
+                TLPnlTop.Enabled = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano produktu do usunięcia!", "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
         #endregion
 
         #region LoadData
@@ -470,16 +490,6 @@ namespace WareHouseApplication.NewForms
             }
         }
         #endregion
-
-        #region DeleteData
-        public void DeleteProduct()
-        {
-
-        }
-        #endregion
-
-
-
 
     }
 }

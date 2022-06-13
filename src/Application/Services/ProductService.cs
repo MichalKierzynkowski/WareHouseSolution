@@ -48,9 +48,14 @@ namespace ApplicationLayer.Services
             return _mapper.Map<ProductDto>(product);
         }
 
-        public void DeleteProduct(int id)
+        public void DeleteProductById(int id)
         {
             throw new NotImplementedException();
+        }
+        public void DeleteProductByRegistrationNumber(int registrationNumber)
+        {
+            var product = _repository.GetByRegistrationNumber(registrationNumber);
+            _repository.Delete(product);
         }
 
         public void UpdateProduct(int registrationNumber, UpdateProductDto product)

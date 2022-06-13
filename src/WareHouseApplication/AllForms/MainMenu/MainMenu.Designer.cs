@@ -67,7 +67,7 @@ namespace WareHouseApplication.Forms
             // 
             // PanelTitleBar
             // 
-            this.PanelTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.PanelTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PanelTitleBar.BackColor = System.Drawing.SystemColors.Highlight;
             this.PanelTitleBar.Controls.Add(this.btnHelp);
@@ -192,8 +192,8 @@ namespace WareHouseApplication.Forms
             // 
             // UpPanel
             // 
-            this.UpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.UpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UpPanel.BackColor = System.Drawing.SystemColors.Highlight;
             this.UpPanel.Controls.Add(this.tableLayoutPanel1);
@@ -265,7 +265,7 @@ namespace WareHouseApplication.Forms
             // 
             // panelDekstopPane
             // 
-            this.panelDekstopPane.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panelDekstopPane.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDekstopPane.Controls.Add(this.tableLayoutPanel2);
             this.panelDekstopPane.Location = new System.Drawing.Point(248, 127);
@@ -299,7 +299,6 @@ namespace WareHouseApplication.Forms
             this.lblDay.Name = "lblDay";
             this.lblDay.Size = new System.Drawing.Size(515, 256);
             this.lblDay.TabIndex = 2;
-            this.lblDay.Text = "s";
             this.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblsecond
@@ -311,7 +310,6 @@ namespace WareHouseApplication.Forms
             this.lblsecond.Name = "lblsecond";
             this.lblsecond.Size = new System.Drawing.Size(515, 255);
             this.lblsecond.TabIndex = 3;
-            this.lblsecond.Text = "s";
             this.lblsecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDate
@@ -323,7 +321,6 @@ namespace WareHouseApplication.Forms
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(514, 256);
             this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "s";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTime
@@ -335,7 +332,6 @@ namespace WareHouseApplication.Forms
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(514, 255);
             this.lblTime.TabIndex = 0;
-            this.lblTime.Text = "s";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DropDownMenu
