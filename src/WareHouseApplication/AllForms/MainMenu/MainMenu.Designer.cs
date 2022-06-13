@@ -45,8 +45,9 @@ namespace WareHouseApplication.Forms
             this.lblTitle = new System.Windows.Forms.Label();
             this.PicturePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDekstopPane = new System.Windows.Forms.Panel();
-            this.lblsecond = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDay = new System.Windows.Forms.Label();
+            this.lblsecond = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.DropDownMenu = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
@@ -60,11 +61,14 @@ namespace WareHouseApplication.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.PicturePanel.SuspendLayout();
             this.panelDekstopPane.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.DropDownMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelTitleBar
             // 
+            this.PanelTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.PanelTitleBar.BackColor = System.Drawing.SystemColors.Highlight;
             this.PanelTitleBar.Controls.Add(this.btnHelp);
             this.PanelTitleBar.Controls.Add(this.btnSettings);
@@ -72,10 +76,9 @@ namespace WareHouseApplication.Forms
             this.PanelTitleBar.Controls.Add(this.btnWareHouse);
             this.PanelTitleBar.Controls.Add(this.btnProducts);
             this.PanelTitleBar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PanelTitleBar.Location = new System.Drawing.Point(0, 332);
-            this.PanelTitleBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PanelTitleBar.Location = new System.Drawing.Point(0, 282);
             this.PanelTitleBar.Name = "PanelTitleBar";
-            this.PanelTitleBar.Size = new System.Drawing.Size(283, 767);
+            this.PanelTitleBar.Size = new System.Drawing.Size(248, 653);
             this.PanelTitleBar.TabIndex = 0;
             // 
             // btnHelp
@@ -87,11 +90,10 @@ namespace WareHouseApplication.Forms
             this.btnHelp.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 320);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHelp.Location = new System.Drawing.Point(0, 272);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(283, 80);
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnHelp.Size = new System.Drawing.Size(248, 68);
             this.btnHelp.TabIndex = 5;
             this.btnHelp.Text = "Pomoc";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,11 +110,10 @@ namespace WareHouseApplication.Forms
             this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(0, 240);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSettings.Location = new System.Drawing.Point(0, 204);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnSettings.Size = new System.Drawing.Size(283, 80);
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(248, 68);
             this.btnSettings.TabIndex = 4;
             this.btnSettings.Text = "Ustawienia";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -129,11 +130,10 @@ namespace WareHouseApplication.Forms
             this.btnSales.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnSales.Image = ((System.Drawing.Image)(resources.GetObject("btnSales.Image")));
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSales.Location = new System.Drawing.Point(0, 160);
-            this.btnSales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSales.Location = new System.Drawing.Point(0, 136);
             this.btnSales.Name = "btnSales";
-            this.btnSales.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnSales.Size = new System.Drawing.Size(283, 80);
+            this.btnSales.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSales.Size = new System.Drawing.Size(248, 68);
             this.btnSales.TabIndex = 3;
             this.btnSales.Text = "Sprzedaż";
             this.btnSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -150,11 +150,10 @@ namespace WareHouseApplication.Forms
             this.btnWareHouse.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnWareHouse.Image = ((System.Drawing.Image)(resources.GetObject("btnWareHouse.Image")));
             this.btnWareHouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWareHouse.Location = new System.Drawing.Point(0, 80);
-            this.btnWareHouse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWareHouse.Location = new System.Drawing.Point(0, 68);
             this.btnWareHouse.Name = "btnWareHouse";
-            this.btnWareHouse.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnWareHouse.Size = new System.Drawing.Size(283, 80);
+            this.btnWareHouse.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnWareHouse.Size = new System.Drawing.Size(248, 68);
             this.btnWareHouse.TabIndex = 2;
             this.btnWareHouse.Text = "Magazyn";
             this.btnWareHouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,10 +171,9 @@ namespace WareHouseApplication.Forms
             this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducts.Location = new System.Drawing.Point(0, 0);
-            this.btnProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnProducts.Size = new System.Drawing.Size(283, 80);
+            this.btnProducts.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnProducts.Size = new System.Drawing.Size(248, 68);
             this.btnProducts.TabIndex = 1;
             this.btnProducts.Text = "Produkty";
             this.btnProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,19 +186,21 @@ namespace WareHouseApplication.Forms
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 333);
+            this.pictureBox1.Size = new System.Drawing.Size(245, 283);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // UpPanel
             // 
+            this.UpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UpPanel.BackColor = System.Drawing.SystemColors.Highlight;
             this.UpPanel.Controls.Add(this.tableLayoutPanel1);
             this.UpPanel.Controls.Add(this.lblTitle);
-            this.UpPanel.Location = new System.Drawing.Point(283, 0);
-            this.UpPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UpPanel.Location = new System.Drawing.Point(248, 0);
             this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(1339, 149);
+            this.UpPanel.Size = new System.Drawing.Size(1171, 127);
             this.UpPanel.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -210,11 +210,11 @@ namespace WareHouseApplication.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btnMinimalize, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnExit, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1152, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1008, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 64);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(142, 54);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnMinimalize
@@ -223,7 +223,7 @@ namespace WareHouseApplication.Forms
             this.btnMinimalize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimalize.Image")));
             this.btnMinimalize.Location = new System.Drawing.Point(3, 3);
             this.btnMinimalize.Name = "btnMinimalize";
-            this.btnMinimalize.Size = new System.Drawing.Size(84, 58);
+            this.btnMinimalize.Size = new System.Drawing.Size(65, 48);
             this.btnMinimalize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnMinimalize.TabIndex = 1;
             this.btnMinimalize.TabStop = false;
@@ -233,9 +233,9 @@ namespace WareHouseApplication.Forms
             // 
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(93, 3);
+            this.btnExit.Location = new System.Drawing.Point(74, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(85, 58);
+            this.btnExit.Size = new System.Drawing.Size(65, 48);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnExit.TabIndex = 0;
             this.btnExit.TabStop = false;
@@ -248,9 +248,9 @@ namespace WareHouseApplication.Forms
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTitle.Location = new System.Drawing.Point(326, 29);
+            this.lblTitle.Location = new System.Drawing.Point(284, 25);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(719, 70);
+            this.lblTitle.Size = new System.Drawing.Size(645, 63);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Cudeńka - Aplikacja Magazynowa";
             // 
@@ -259,58 +259,80 @@ namespace WareHouseApplication.Forms
             this.PicturePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(76)))), ((int)(((byte)(138)))));
             this.PicturePanel.Controls.Add(this.pictureBox1);
             this.PicturePanel.Location = new System.Drawing.Point(0, 0);
-            this.PicturePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(283, 333);
+            this.PicturePanel.Size = new System.Drawing.Size(248, 283);
             this.PicturePanel.TabIndex = 0;
             // 
             // panelDekstopPane
             // 
-            this.panelDekstopPane.Controls.Add(this.lblsecond);
-            this.panelDekstopPane.Controls.Add(this.lblDay);
-            this.panelDekstopPane.Controls.Add(this.lblDate);
-            this.panelDekstopPane.Controls.Add(this.lblTime);
-            this.panelDekstopPane.Location = new System.Drawing.Point(283, 149);
-            this.panelDekstopPane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelDekstopPane.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDekstopPane.Controls.Add(this.tableLayoutPanel2);
+            this.panelDekstopPane.Location = new System.Drawing.Point(248, 127);
             this.panelDekstopPane.Name = "panelDekstopPane";
-            this.panelDekstopPane.Size = new System.Drawing.Size(1333, 950);
+            this.panelDekstopPane.Size = new System.Drawing.Size(1171, 808);
             this.panelDekstopPane.TabIndex = 3;
             // 
-            // lblsecond
+            // tableLayoutPanel2
             // 
-            this.lblsecond.AutoSize = true;
-            this.lblsecond.Font = new System.Drawing.Font("Segoe UI Semibold", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblsecond.Location = new System.Drawing.Point(823, 267);
-            this.lblsecond.Name = "lblsecond";
-            this.lblsecond.Size = new System.Drawing.Size(0, 100);
-            this.lblsecond.TabIndex = 3;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.lblDay, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblsecond, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblDate, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblTime, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(78, 155);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1041, 511);
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
             // lblDay
             // 
             this.lblDay.AutoSize = true;
+            this.lblDay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDay.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDay.Location = new System.Drawing.Point(834, 403);
+            this.lblDay.Location = new System.Drawing.Point(523, 255);
             this.lblDay.Name = "lblDay";
-            this.lblDay.Size = new System.Drawing.Size(0, 112);
+            this.lblDay.Size = new System.Drawing.Size(515, 256);
             this.lblDay.TabIndex = 2;
+            this.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblsecond
+            // 
+            this.lblsecond.AutoSize = true;
+            this.lblsecond.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblsecond.Font = new System.Drawing.Font("Segoe UI Semibold", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblsecond.Location = new System.Drawing.Point(523, 0);
+            this.lblsecond.Name = "lblsecond";
+            this.lblsecond.Size = new System.Drawing.Size(515, 255);
+            this.lblsecond.TabIndex = 3;
+            this.lblsecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
+            this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.Location = new System.Drawing.Point(367, 403);
+            this.lblDate.Location = new System.Drawing.Point(3, 255);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(0, 112);
+            this.lblDate.Size = new System.Drawing.Size(514, 256);
             this.lblDate.TabIndex = 1;
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
+            this.lblTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 90F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTime.Location = new System.Drawing.Point(367, 183);
+            this.lblTime.Location = new System.Drawing.Point(3, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(0, 199);
+            this.lblTime.Size = new System.Drawing.Size(514, 255);
             this.lblTime.TabIndex = 0;
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DropDownMenu
             // 
@@ -322,12 +344,12 @@ namespace WareHouseApplication.Forms
             this.DropDownMenu.MenuItemTextColor = System.Drawing.Color.Empty;
             this.DropDownMenu.Name = "DropDownMenu";
             this.DropDownMenu.PrimaryColor = System.Drawing.Color.Empty;
-            this.DropDownMenu.Size = new System.Drawing.Size(99, 28);
+            this.DropDownMenu.Size = new System.Drawing.Size(95, 26);
             // 
             // sdfToolStripMenuItem
             // 
             this.sdfToolStripMenuItem.Name = "sdfToolStripMenuItem";
-            this.sdfToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.sdfToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.sdfToolStripMenuItem.Text = "sdf";
             // 
             // timer1
@@ -337,19 +359,19 @@ namespace WareHouseApplication.Forms
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1618, 1100);
+            this.ClientSize = new System.Drawing.Size(1416, 935);
             this.Controls.Add(this.panelDekstopPane);
             this.Controls.Add(this.PicturePanel);
             this.Controls.Add(this.UpPanel);
             this.Controls.Add(this.PanelTitleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainMenu";
-            this.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.PanelTitleBar.ResumeLayout(false);
@@ -362,7 +384,8 @@ namespace WareHouseApplication.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             this.PicturePanel.ResumeLayout(false);
             this.panelDekstopPane.ResumeLayout(false);
-            this.panelDekstopPane.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.DropDownMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -391,6 +414,7 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox btnMinimalize;
         private System.Windows.Forms.PictureBox btnExit;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
 

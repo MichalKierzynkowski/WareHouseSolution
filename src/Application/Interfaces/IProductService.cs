@@ -19,6 +19,7 @@ namespace ApplicationLayer.Interfaces
 
         void UpdateProduct(int id, UpdateProductDto product);
 
-        void DeleteProduct(int id);
+        void DeleteProductById(int id);
+        void DeleteProductByRegistrationNumber(int registrationNumber);
     }
 }

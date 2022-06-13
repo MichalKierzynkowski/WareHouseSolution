@@ -15,6 +15,8 @@ namespace WareHouseApplication.NewForms
     {
         #region Properties
         public IProductService ProductService { get; set; }
+        public DeleteProductDto DeleteProductDto { get; set; }
+        public DeleteProductDetailDto DeleteProductDetailDto { get; set; }
         public UpdateProductDto UpdateProductDto { get; set; }
         public UpdateProductDetailDto UpdateProductDetailDto { get; set; }
         public CreateProductDto CreateProductDto { get; set; }
@@ -33,6 +35,9 @@ namespace WareHouseApplication.NewForms
             UpdateProductDto = new UpdateProductDto(UpdateProductDetailDto);
             CreateProductDetailDto = new CreateProductDetailDto();
             CreateProductDto = new CreateProductDto(CreateProductDetailDto);
+            DeleteProductDetailDto = new DeleteProductDetailDto();
+            DeleteProductDto = new DeleteProductDto(DeleteProductDetailDto);
+
         }
         #endregion
 
@@ -87,7 +92,7 @@ namespace WareHouseApplication.NewForms
                 }
                 else if (lblRightPanelMainName.Text == "Usuń Produkt")
                 {
-                    DeleteProduct();
+                    DeleteProductPreValidation();
                 }
             }
             else if (dialogResult == DialogResult.No)
@@ -180,8 +185,9 @@ namespace WareHouseApplication.NewForms
             }
             else if (lblRightPanelMainName.Text == "Usuń Produkt")
             {
-                AssignmentDataToEditProductDto(e.RowIndex);
-                AssignmentDataFromEditProductDtoToEditInputs();
+
+                AssigmentDataToDeleteProductDto(e.RowIndex);
+                AssignmentDataFromDeleteProductDtoToDeleteInputs();
                 ExtraDescriptionTBox.Enabled = false;
             }
         }
@@ -264,9 +270,15 @@ namespace WareHouseApplication.NewForms
         #endregion
 
         #region AssignmentFunctions
-        private void AssignedValuesFromInputsToDeleteProductDto
-        {
 
+        private void AssignmentDataFromDeleteProductDtoToDeleteInputs()
+        {
+            txtBarNumber.Enabled = false;
+            txtBarNumber.Value = DeleteProductDto.RegistrationNumber;
+            txtName.Text = DeleteProductDto.DeleteProductDetailDto.Name;
+            ProductTypeComboBox.SelectedItem = DeleteProductDto.DeleteProductDetailDto.Type;
+            dateTimePicker1.Value = DeleteProductDto.AddedAt;
+            CheckExistenceOfDescriptionInDeletePanel();
         }
         private void AssignedValuesFromInputsToCreateProductDto()
         {
@@ -313,6 +325,19 @@ namespace WareHouseApplication.NewForms
                 var validateDesctription = new DescriptionValidation(selectedRow.Cells[3].Value.ToString());
                 UpdateProductDto.EditProductDetailDto.ExtraDescription = validateDesctription.ReturnValidateDescription();
                 UpdateProductDto.AddedAt = (DateTime)selectedRow.Cells[4].Value;
+            }
+        }
+        private void AssigmentDataToDeleteProductDto(int digitOfSelectedRow)
+        {
+            if (digitOfSelectedRow >= 0)
+            {
+                var selectedRow = dataGridView1.Rows[digitOfSelectedRow];
+                DeleteProductDto.RegistrationNumber = (int)selectedRow.Cells[0].Value;
+                DeleteProductDto.DeleteProductDetailDto.Name = selectedRow.Cells[1].Value.ToString();
+                DeleteProductDto.DeleteProductDetailDto.Type = selectedRow.Cells[2].Value.ToString();
+                var validateDesctription = new DescriptionValidation(selectedRow.Cells[3].Value.ToString());
+                DeleteProductDto.DeleteProductDetailDto.ExtraDescription = validateDesctription.ReturnValidateDescription();
+                DeleteProductDto.AddedAt = (DateTime)selectedRow.Cells[4].Value;
             }
         }
         private void AssignmentDataFromEditProductDtoToEditInputs()
@@ -387,6 +412,26 @@ namespace WareHouseApplication.NewForms
                 ExtraDescriptionTBox.Enabled = false;
             }
         }
+        public void DeleteProductPreValidation()
+        {
+            var deleteProductValidation = new DeleteProductValidation(DeleteProductDto);
+            if (deleteProductValidation.IsFormatCorrect)
+            {
+                var deleteProduct = new DeleteProductFromDataBase(DeleteProductDto.RegistrationNumber, ProductService);
+                MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetValuesInDataGridAndFillWithValuesAgain();
+                Timer.Start();
+                TLPnlTop.Enabled = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano produktu do usunięcia!", "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
         #endregion
 
         #region LoadData
@@ -413,6 +458,22 @@ namespace WareHouseApplication.NewForms
         #endregion
 
         #region CheckExistence
+
+        private void CheckExistenceOfDescriptionInDeletePanel()
+        {
+            ExtraDescriptionTBox.Clear();
+            if (DeleteProductDto.DeleteProductDetailDto.ExtraDescription == null)
+            {
+                ExtraDescriptionTBox.Enabled = false;
+                btnIsExtraDescriptionOn.Checked = false;
+            }
+            else
+            {
+                ExtraDescriptionTBox.Enabled = true;
+                btnIsExtraDescriptionOn.Checked = true;
+                ExtraDescriptionTBox.Text = DeleteProductDto.DeleteProductDetailDto.ExtraDescription;
+            }
+        }
         private void CheckExistenceOfDescriptionInEditPanel()
         {
             ExtraDescriptionTBox.Clear();
@@ -429,16 +490,6 @@ namespace WareHouseApplication.NewForms
             }
         }
         #endregion
-
-        #region DeleteData
-        public void DeleteProduct()
-        {
-
-        }
-        #endregion
-
-
-
 
     }
 }
