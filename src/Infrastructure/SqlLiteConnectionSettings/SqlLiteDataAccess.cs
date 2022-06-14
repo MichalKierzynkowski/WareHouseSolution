@@ -11,7 +11,7 @@ namespace Infrastructure.SqlLiteConnectionSettings
     {
         public string ReturnConnectionString()
         {
-            return @"C:\Users\Integra\Source\Repos\MichalKierzynkowski\WareHouseSolution\src\WareHouseApplication\WareHouse.db;Version=3;";
+            return @"Data Source=.\WareHouse.db;Version=3;";
         }
     }
 }
