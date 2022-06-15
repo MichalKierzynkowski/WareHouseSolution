@@ -35,14 +35,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLPnlTop = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton4 = new RJCodeAdvance.RJControls.RJButton();
-            this.btnDelete = new RJCodeAdvance.RJControls.RJButton();
-            this.btnAddProduct = new RJCodeAdvance.RJControls.RJButton();
-            this.btnEditProduct = new RJCodeAdvance.RJControls.RJButton();
             this.PnlSearch = new System.Windows.Forms.Panel();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rjButton4 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnDelete = new RJCodeAdvance.RJControls.RJButton();
+            this.btnAddProduct = new RJCodeAdvance.RJControls.RJButton();
+            this.btnEditProduct = new RJCodeAdvance.RJControls.RJButton();
             this.PnlAdd = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.TLPnlAdd = new System.Windows.Forms.TableLayoutPanel();
@@ -90,6 +90,7 @@
             this.TypeDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExtraDescriptionDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddedAtDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -122,12 +123,13 @@
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLPnlTop.Controls.Add(this.btnRefresh, 0, 0);
+            this.TLPnlTop.Controls.Add(this.PnlSearch, 5, 0);
             this.TLPnlTop.Controls.Add(this.rjButton4, 0, 0);
             this.TLPnlTop.Controls.Add(this.btnDelete, 0, 0);
             this.TLPnlTop.Controls.Add(this.btnAddProduct, 0, 0);
             this.TLPnlTop.Controls.Add(this.btnEditProduct, 0, 0);
-            this.TLPnlTop.Controls.Add(this.PnlSearch, 5, 0);
             this.TLPnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.TLPnlTop.Location = new System.Drawing.Point(0, 0);
             this.TLPnlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -161,6 +163,56 @@
             this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // PnlSearch
+            // 
+            this.PnlSearch.BackColor = System.Drawing.SystemColors.Highlight;
+            this.PnlSearch.Controls.Add(this.comboBox1);
+            this.PnlSearch.Controls.Add(this.TxtSearch);
+            this.PnlSearch.Controls.Add(this.panel3);
+            this.PnlSearch.Location = new System.Drawing.Point(690, 7);
+            this.PnlSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PnlSearch.Name = "PnlSearch";
+            this.PnlSearch.Size = new System.Drawing.Size(590, 69);
+            this.PnlSearch.TabIndex = 6;
+            // 
+            // TxtSearch
+            // 
+            this.TxtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtSearch.BackColor = System.Drawing.SystemColors.Menu;
+            this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtSearch.ForeColor = System.Drawing.Color.Black;
+            this.TxtSearch.Location = new System.Drawing.Point(311, 17);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtSearch.Multiline = true;
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(195, 38);
+            this.TxtSearch.TabIndex = 1;
+            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_Click);
+            this.TxtSearch.Leave += new System.EventHandler(this.TxtSearch_Leave);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(544, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(46, 69);
+            this.panel3.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 69);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // rjButton4
             // 
@@ -198,7 +250,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(279, 7);
+            this.btnDelete.Location = new System.Drawing.Point(5, 7);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(131, 69);
@@ -222,7 +274,7 @@
             this.btnAddProduct.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddProduct.ForeColor = System.Drawing.Color.White;
             this.btnAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProduct.Image")));
-            this.btnAddProduct.Location = new System.Drawing.Point(5, 7);
+            this.btnAddProduct.Location = new System.Drawing.Point(142, 7);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(131, 69);
@@ -246,7 +298,7 @@
             this.btnEditProduct.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEditProduct.ForeColor = System.Drawing.Color.White;
             this.btnEditProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnEditProduct.Image")));
-            this.btnEditProduct.Location = new System.Drawing.Point(142, 7);
+            this.btnEditProduct.Location = new System.Drawing.Point(279, 7);
             this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(131, 69);
@@ -256,53 +308,6 @@
             this.btnEditProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditProduct.UseVisualStyleBackColor = false;
             this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
-            // 
-            // PnlSearch
-            // 
-            this.PnlSearch.BackColor = System.Drawing.SystemColors.Highlight;
-            this.PnlSearch.Controls.Add(this.TxtSearch);
-            this.PnlSearch.Controls.Add(this.panel3);
-            this.PnlSearch.Location = new System.Drawing.Point(690, 7);
-            this.PnlSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PnlSearch.Name = "PnlSearch";
-            this.PnlSearch.Size = new System.Drawing.Size(338, 49);
-            this.PnlSearch.TabIndex = 6;
-            // 
-            // TxtSearch
-            // 
-            this.TxtSearch.BackColor = System.Drawing.SystemColors.Menu;
-            this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtSearch.ForeColor = System.Drawing.Color.Black;
-            this.TxtSearch.Location = new System.Drawing.Point(3, 9);
-            this.TxtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(282, 27);
-            this.TxtSearch.TabIndex = 1;
-            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_Click);
-            this.TxtSearch.Leave += new System.EventHandler(this.TxtSearch_Leave);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(292, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(46, 49);
-            this.panel3.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 49);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // PnlAdd
             // 
@@ -814,7 +819,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton10.Size = new System.Drawing.Size(0, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -916,7 +921,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton12.Size = new System.Drawing.Size(0, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -1066,6 +1071,18 @@
             this.AddedAtDG.ReadOnly = true;
             this.AddedAtDG.Width = 144;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.ItemHeight = 30;
+            this.comboBox1.Location = new System.Drawing.Point(42, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(195, 36);
+            this.comboBox1.TabIndex = 2;
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1119,10 +1136,6 @@
         private System.Windows.Forms.Label lblRightPanelMainName;
         private RJCodeAdvance.RJControls.RJButton btnAccept;
         private RJCodeAdvance.RJControls.RJButton btnCancel;
-        private System.Windows.Forms.Panel PnlSearch;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel TLPnlAdd;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1167,5 +1180,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AddedAtDG;
         private RJCodeAdvance.RJControls.RJButton btnResetValues;
         private RJCodeAdvance.RJControls.RJToggleButton btnIsExtraDescriptionOn;
+        private System.Windows.Forms.Panel PnlSearch;
+        private System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
