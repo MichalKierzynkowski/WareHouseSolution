@@ -221,6 +221,10 @@ namespace WareHouseApplication.NewForms
             lblRightPanelMainName.Text = "Edytuj Produkt";
             btnResetValues.Enabled = false;
             btnCheckAvailability.Enabled = false;
+            txtBarNumber.Enabled = true;
+            txtName.Enabled = true;
+            btnIsExtraDescriptionOn.Enabled = true;
+            ProductTypeComboBox.Enabled = true;
         }
 
         private void RightPanelAddProductAdjustment()
@@ -244,8 +248,8 @@ namespace WareHouseApplication.NewForms
             btnIsExtraDescriptionOn.Enabled = false;
             ProductTypeComboBox.Enabled = false;
 
-
         }
+
         #endregion
 
         #region LeaveFunctions
