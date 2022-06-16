@@ -38,7 +38,7 @@
             this.PnlSearch = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBoxSearchByCategory = new System.Windows.Forms.ComboBox();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
@@ -171,7 +171,7 @@
             // 
             this.PnlSearch.BackColor = System.Drawing.SystemColors.Highlight;
             this.PnlSearch.Controls.Add(this.panel1);
-            this.PnlSearch.Controls.Add(this.comboBox1);
+            this.PnlSearch.Controls.Add(this.CBoxSearchByCategory);
             this.PnlSearch.Controls.Add(this.TxtSearch);
             this.PnlSearch.Controls.Add(this.panel3);
             this.PnlSearch.Location = new System.Drawing.Point(690, 7);
@@ -212,17 +212,23 @@
             this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // CBoxSearchByCategory
             // 
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 30;
-            this.comboBox1.Location = new System.Drawing.Point(42, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 36);
-            this.comboBox1.TabIndex = 2;
+            this.CBoxSearchByCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBoxSearchByCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBoxSearchByCategory.FormattingEnabled = true;
+            this.CBoxSearchByCategory.ItemHeight = 17;
+            this.CBoxSearchByCategory.Items.AddRange(new object[] {
+            "Wszystko",
+            "Numer Ewidencyjny",
+            "Nazwa",
+            "Rodzaj",
+            "Opis",
+            "Data Dodania"});
+            this.CBoxSearchByCategory.Location = new System.Drawing.Point(45, 23);
+            this.CBoxSearchByCategory.Name = "CBoxSearchByCategory";
+            this.CBoxSearchByCategory.Size = new System.Drawing.Size(195, 25);
+            this.CBoxSearchByCategory.TabIndex = 2;
             // 
             // TxtSearch
             // 
@@ -1228,7 +1234,7 @@
         private RJCodeAdvance.RJControls.RJToggleButton btnIsExtraDescriptionOn;
         private System.Windows.Forms.Panel PnlSearch;
         private System.Windows.Forms.TextBox TxtSearch;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBoxSearchByCategory;
         private RJCodeAdvance.RJControls.RJButton rjButton1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;

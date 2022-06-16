@@ -449,6 +449,8 @@ namespace WareHouseApplication.NewForms
             PnlAdd.Width = 0;
             LoadProductsToDataGridView();
             dataGridView1.ClearSelection();
+
+
         }
 
         private void LoadProductsToDataGridView()
@@ -494,6 +496,9 @@ namespace WareHouseApplication.NewForms
             }
         }
         #endregion
+
+
+
 
     }
 }
