@@ -12,12 +12,15 @@ namespace WareHouseApplication.Forms;
 
 public partial class MainMenu : BaseForm
 {
+    #region Properties
     private Button _currentButton;
     private Random _random;
     private int _tempIndex;
     private Form _activeForm;
     public IProductService ProductService { get; set; }
+    #endregion
 
+    #region Constructor
     public MainMenu(IProductService productService)
     {
         InitializeComponent();
@@ -25,19 +28,9 @@ public partial class MainMenu : BaseForm
         timer1.Start();
         ProductService = productService;
     }
+    #endregion
 
-    private Color SelectThemeColor()
-    {
-        int index = _random.Next(Desing.ThemeColor.ColorList.Count);
-        while (_tempIndex == index)
-        {
-            _random.Next(Desing.ThemeColor.ColorList.Count);
-        }
-        _tempIndex = index;
-        string color = ThemeColor.ColorList[index];
-        return ColorTranslator.FromHtml(color);
-    }
-
+    #region ButtonsClickEvents
     private void ActivateButton(object btnSender)
     {
         if (btnSender != null)
@@ -52,7 +45,6 @@ public partial class MainMenu : BaseForm
             }
         }
     }
-
     private void btnProducts_Click(object sender, EventArgs e)
     {
         OpenChildForm(new NewForms.Product(ProductService), sender);
@@ -77,30 +69,6 @@ public partial class MainMenu : BaseForm
     {
         OpenChildForm(new AllForms.NewForms.Help.Help(), sender);
     }
-
-    private void timer1_Tick(object sender, EventArgs e)
-    {
-        lblTime.Text = DateTime.Now.ToString("HH:mm");
-        lblsecond.Text = DateTime.Now.ToString("ss");
-        lblDate.Text = DateTime.Now.ToString("MM dd yyyy");
-        lblDay.Text = DateTime.Now.ToString("dddd");
-    }
-
-    private void OpenChildForm(Form childForm, object btnSender)
-    {
-        ActivateButton(btnSender);
-
-        _activeForm = childForm;
-        childForm.TopLevel = false;
-        childForm.FormBorderStyle = FormBorderStyle.None;
-        childForm.Dock = DockStyle.Fill;
-        this.panelDekstopPane.Controls.Add(childForm);
-        this.panelDekstopPane.Tag = childForm;
-        childForm.BringToFront();
-        childForm.Show();
-        lblTitle.Text = childForm.Text;
-    }
-
     private void btnMinimalize_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;
@@ -113,6 +81,46 @@ public partial class MainMenu : BaseForm
             Application.Exit();
         }
     }
+    #endregion
 
-    
+    #region Theme
+    private Color SelectThemeColor()
+    {
+        int index = _random.Next(Desing.ThemeColor.ColorList.Count);
+        while (_tempIndex == index)
+        {
+            _random.Next(Desing.ThemeColor.ColorList.Count);
+        }
+        _tempIndex = index;
+        string color = ThemeColor.ColorList[index];
+        return ColorTranslator.FromHtml(color);
+    }
+    #endregion
+
+    #region Timer
+    private void timer1_Tick(object sender, EventArgs e)
+    {
+        lblTime.Text = DateTime.Now.ToString("HH:mm");
+        lblsecond.Text = DateTime.Now.ToString("ss");
+        lblDate.Text = DateTime.Now.ToString("MM dd yyyy");
+        lblDay.Text = DateTime.Now.ToString("dddd");
+    }
+    #endregion
+
+    #region OpenForms
+    private void OpenChildForm(Form childForm, object btnSender)
+    {
+        ActivateButton(btnSender);
+        _activeForm = childForm;
+        childForm.TopLevel = false;
+        childForm.FormBorderStyle = FormBorderStyle.None;
+        childForm.Dock = DockStyle.Fill;
+        this.panelDekstopPane.Controls.Add(childForm);
+        this.panelDekstopPane.Tag = childForm;
+        childForm.BringToFront();
+        childForm.Show();
+        lblTitle.Text = childForm.Text;
+    }
+    #endregion
+
 }

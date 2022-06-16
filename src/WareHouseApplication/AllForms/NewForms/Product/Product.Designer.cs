@@ -35,14 +35,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLPnlTop = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
+            this.PnlSearch = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            this.CBoxSearchByCategory = new System.Windows.Forms.ComboBox();
+            this.TxtSearch = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton4 = new RJCodeAdvance.RJControls.RJButton();
             this.btnDelete = new RJCodeAdvance.RJControls.RJButton();
             this.btnAddProduct = new RJCodeAdvance.RJControls.RJButton();
             this.btnEditProduct = new RJCodeAdvance.RJControls.RJButton();
-            this.PnlSearch = new System.Windows.Forms.Panel();
-            this.TxtSearch = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PnlAdd = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.TLPnlAdd = new System.Windows.Forms.TableLayoutPanel();
@@ -92,8 +95,8 @@
             this.AddedAtDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PnlAdd.SuspendLayout();
             this.panel4.SuspendLayout();
             this.TLPnlAdd.SuspendLayout();
@@ -122,12 +125,13 @@
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.TLPnlTop.Controls.Add(this.btnRefresh, 0, 0);
-            this.TLPnlTop.Controls.Add(this.rjButton4, 0, 0);
-            this.TLPnlTop.Controls.Add(this.btnDelete, 0, 0);
+            this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TLPnlTop.Controls.Add(this.btnRefresh, 3, 0);
+            this.TLPnlTop.Controls.Add(this.PnlSearch, 5, 0);
+            this.TLPnlTop.Controls.Add(this.rjButton4, 4, 0);
+            this.TLPnlTop.Controls.Add(this.btnDelete, 1, 0);
             this.TLPnlTop.Controls.Add(this.btnAddProduct, 0, 0);
             this.TLPnlTop.Controls.Add(this.btnEditProduct, 0, 0);
-            this.TLPnlTop.Controls.Add(this.PnlSearch, 5, 0);
             this.TLPnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.TLPnlTop.Location = new System.Drawing.Point(0, 0);
             this.TLPnlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -135,6 +139,7 @@
             this.TLPnlTop.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TLPnlTop.RowCount = 1;
             this.TLPnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TLPnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLPnlTop.Size = new System.Drawing.Size(1317, 83);
             this.TLPnlTop.TabIndex = 0;
             // 
@@ -161,6 +166,117 @@
             this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // PnlSearch
+            // 
+            this.PnlSearch.BackColor = System.Drawing.SystemColors.Highlight;
+            this.PnlSearch.Controls.Add(this.panel1);
+            this.PnlSearch.Controls.Add(this.CBoxSearchByCategory);
+            this.PnlSearch.Controls.Add(this.TxtSearch);
+            this.PnlSearch.Controls.Add(this.panel3);
+            this.PnlSearch.Location = new System.Drawing.Point(690, 7);
+            this.PnlSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PnlSearch.Name = "PnlSearch";
+            this.PnlSearch.Size = new System.Drawing.Size(590, 69);
+            this.PnlSearch.TabIndex = 6;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rjButton1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(498, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(46, 69);
+            this.panel1.TabIndex = 3;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 0;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
+            this.rjButton1.Location = new System.Drawing.Point(0, 0);
+            this.rjButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(46, 69);
+            this.rjButton1.TabIndex = 8;
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
+            // CBoxSearchByCategory
+            // 
+            this.CBoxSearchByCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBoxSearchByCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CBoxSearchByCategory.FormattingEnabled = true;
+            this.CBoxSearchByCategory.ItemHeight = 17;
+            this.CBoxSearchByCategory.Items.AddRange(new object[] {
+            "Wszystko",
+            "Numer Ewidencyjny",
+            "Nazwa",
+            "Rodzaj",
+            "Opis",
+            "Data Dodania"});
+            this.CBoxSearchByCategory.Location = new System.Drawing.Point(45, 23);
+            this.CBoxSearchByCategory.Name = "CBoxSearchByCategory";
+            this.CBoxSearchByCategory.Size = new System.Drawing.Size(195, 25);
+            this.CBoxSearchByCategory.TabIndex = 2;
+            // 
+            // TxtSearch
+            // 
+            this.TxtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtSearch.BackColor = System.Drawing.SystemColors.Menu;
+            this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtSearch.ForeColor = System.Drawing.Color.Black;
+            this.TxtSearch.Location = new System.Drawing.Point(272, 17);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtSearch.Multiline = true;
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(195, 38);
+            this.TxtSearch.TabIndex = 1;
+            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_Click);
+            this.TxtSearch.Leave += new System.EventHandler(this.TxtSearch_Leave);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.rjButton2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(544, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(46, 69);
+            this.panel3.TabIndex = 0;
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton2.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Image = ((System.Drawing.Image)(resources.GetObject("rjButton2.Image")));
+            this.rjButton2.Location = new System.Drawing.Point(0, 0);
+            this.rjButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(46, 69);
+            this.rjButton2.TabIndex = 9;
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.rjButton2.UseVisualStyleBackColor = false;
             // 
             // rjButton4
             // 
@@ -257,53 +373,6 @@
             this.btnEditProduct.UseVisualStyleBackColor = false;
             this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
-            // PnlSearch
-            // 
-            this.PnlSearch.BackColor = System.Drawing.SystemColors.Highlight;
-            this.PnlSearch.Controls.Add(this.TxtSearch);
-            this.PnlSearch.Controls.Add(this.panel3);
-            this.PnlSearch.Location = new System.Drawing.Point(690, 7);
-            this.PnlSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PnlSearch.Name = "PnlSearch";
-            this.PnlSearch.Size = new System.Drawing.Size(338, 49);
-            this.PnlSearch.TabIndex = 6;
-            // 
-            // TxtSearch
-            // 
-            this.TxtSearch.BackColor = System.Drawing.SystemColors.Menu;
-            this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtSearch.ForeColor = System.Drawing.Color.Black;
-            this.TxtSearch.Location = new System.Drawing.Point(3, 9);
-            this.TxtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(282, 27);
-            this.TxtSearch.TabIndex = 1;
-            this.TxtSearch.Click += new System.EventHandler(this.TxtSearch_Click);
-            this.TxtSearch.Leave += new System.EventHandler(this.TxtSearch_Leave);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(292, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(46, 49);
-            this.panel3.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 49);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // PnlAdd
             // 
             this.PnlAdd.BackColor = System.Drawing.SystemColors.Highlight;
@@ -328,7 +397,7 @@
             // 
             // TLPnlAdd
             // 
-            this.TLPnlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TLPnlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TLPnlAdd.BackColor = System.Drawing.SystemColors.Highlight;
             this.TLPnlAdd.ColumnCount = 3;
@@ -761,7 +830,7 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.Highlight;
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -814,7 +883,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton10.Size = new System.Drawing.Size(0, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -863,7 +932,7 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.BackColor = System.Drawing.SystemColors.Highlight;
             this.tableLayoutPanel4.ColumnCount = 3;
@@ -916,7 +985,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton12.Size = new System.Drawing.Size(0, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -1083,8 +1152,8 @@
             this.TLPnlTop.ResumeLayout(false);
             this.PnlSearch.ResumeLayout(false);
             this.PnlSearch.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PnlAdd.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.TLPnlAdd.ResumeLayout(false);
@@ -1119,10 +1188,6 @@
         private System.Windows.Forms.Label lblRightPanelMainName;
         private RJCodeAdvance.RJControls.RJButton btnAccept;
         private RJCodeAdvance.RJControls.RJButton btnCancel;
-        private System.Windows.Forms.Panel PnlSearch;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel TLPnlAdd;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1167,5 +1232,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AddedAtDG;
         private RJCodeAdvance.RJControls.RJButton btnResetValues;
         private RJCodeAdvance.RJControls.RJToggleButton btnIsExtraDescriptionOn;
+        private System.Windows.Forms.Panel PnlSearch;
+        private System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.ComboBox CBoxSearchByCategory;
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private RJCodeAdvance.RJControls.RJButton rjButton2;
     }
 }
