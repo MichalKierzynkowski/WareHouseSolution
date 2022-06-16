@@ -36,9 +36,12 @@
             this.TLPnlTop = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
             this.PnlSearch = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton4 = new RJCodeAdvance.RJControls.RJButton();
             this.btnDelete = new RJCodeAdvance.RJControls.RJButton();
             this.btnAddProduct = new RJCodeAdvance.RJControls.RJButton();
@@ -90,11 +93,10 @@
             this.TypeDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExtraDescriptionDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddedAtDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PnlAdd.SuspendLayout();
             this.panel4.SuspendLayout();
             this.TLPnlAdd.SuspendLayout();
@@ -124,10 +126,10 @@
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 629F));
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLPnlTop.Controls.Add(this.btnRefresh, 0, 0);
+            this.TLPnlTop.Controls.Add(this.btnRefresh, 3, 0);
             this.TLPnlTop.Controls.Add(this.PnlSearch, 5, 0);
-            this.TLPnlTop.Controls.Add(this.rjButton4, 0, 0);
-            this.TLPnlTop.Controls.Add(this.btnDelete, 0, 0);
+            this.TLPnlTop.Controls.Add(this.rjButton4, 4, 0);
+            this.TLPnlTop.Controls.Add(this.btnDelete, 1, 0);
             this.TLPnlTop.Controls.Add(this.btnAddProduct, 0, 0);
             this.TLPnlTop.Controls.Add(this.btnEditProduct, 0, 0);
             this.TLPnlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -137,6 +139,7 @@
             this.TLPnlTop.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TLPnlTop.RowCount = 1;
             this.TLPnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TLPnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLPnlTop.Size = new System.Drawing.Size(1317, 83);
             this.TLPnlTop.TabIndex = 0;
             // 
@@ -167,6 +170,7 @@
             // PnlSearch
             // 
             this.PnlSearch.BackColor = System.Drawing.SystemColors.Highlight;
+            this.PnlSearch.Controls.Add(this.panel1);
             this.PnlSearch.Controls.Add(this.comboBox1);
             this.PnlSearch.Controls.Add(this.TxtSearch);
             this.PnlSearch.Controls.Add(this.panel3);
@@ -176,6 +180,50 @@
             this.PnlSearch.Size = new System.Drawing.Size(590, 69);
             this.PnlSearch.TabIndex = 6;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rjButton1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(498, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(46, 69);
+            this.panel1.TabIndex = 3;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 0;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
+            this.rjButton1.Location = new System.Drawing.Point(0, 0);
+            this.rjButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(46, 69);
+            this.rjButton1.TabIndex = 8;
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.ItemHeight = 30;
+            this.comboBox1.Location = new System.Drawing.Point(42, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(195, 36);
+            this.comboBox1.TabIndex = 2;
+            // 
             // TxtSearch
             // 
             this.TxtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -183,7 +231,7 @@
             this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TxtSearch.ForeColor = System.Drawing.Color.Black;
-            this.TxtSearch.Location = new System.Drawing.Point(311, 17);
+            this.TxtSearch.Location = new System.Drawing.Point(272, 17);
             this.TxtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtSearch.Multiline = true;
             this.TxtSearch.Name = "TxtSearch";
@@ -194,7 +242,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.rjButton2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(544, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -202,17 +250,27 @@
             this.panel3.Size = new System.Drawing.Size(46, 69);
             this.panel3.TabIndex = 0;
             // 
-            // pictureBox1
+            // rjButton2
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 69);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.rjButton2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton2.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Image = ((System.Drawing.Image)(resources.GetObject("rjButton2.Image")));
+            this.rjButton2.Location = new System.Drawing.Point(0, 0);
+            this.rjButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(46, 69);
+            this.rjButton2.TabIndex = 9;
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.rjButton2.UseVisualStyleBackColor = false;
             // 
             // rjButton4
             // 
@@ -250,7 +308,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(5, 7);
+            this.btnDelete.Location = new System.Drawing.Point(279, 7);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(131, 69);
@@ -274,7 +332,7 @@
             this.btnAddProduct.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddProduct.ForeColor = System.Drawing.Color.White;
             this.btnAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProduct.Image")));
-            this.btnAddProduct.Location = new System.Drawing.Point(142, 7);
+            this.btnAddProduct.Location = new System.Drawing.Point(5, 7);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(131, 69);
@@ -298,7 +356,7 @@
             this.btnEditProduct.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEditProduct.ForeColor = System.Drawing.Color.White;
             this.btnEditProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnEditProduct.Image")));
-            this.btnEditProduct.Location = new System.Drawing.Point(279, 7);
+            this.btnEditProduct.Location = new System.Drawing.Point(142, 7);
             this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(131, 69);
@@ -333,7 +391,7 @@
             // 
             // TLPnlAdd
             // 
-            this.TLPnlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TLPnlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TLPnlAdd.BackColor = System.Drawing.SystemColors.Highlight;
             this.TLPnlAdd.ColumnCount = 3;
@@ -766,7 +824,7 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.Highlight;
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -868,7 +926,7 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.BackColor = System.Drawing.SystemColors.Highlight;
             this.tableLayoutPanel4.ColumnCount = 3;
@@ -1071,18 +1129,6 @@
             this.AddedAtDG.ReadOnly = true;
             this.AddedAtDG.Width = 144;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 30;
-            this.comboBox1.Location = new System.Drawing.Point(42, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 36);
-            this.comboBox1.TabIndex = 2;
-            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1100,8 +1146,8 @@
             this.TLPnlTop.ResumeLayout(false);
             this.PnlSearch.ResumeLayout(false);
             this.PnlSearch.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PnlAdd.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.TLPnlAdd.ResumeLayout(false);
@@ -1182,8 +1228,10 @@
         private RJCodeAdvance.RJControls.RJToggleButton btnIsExtraDescriptionOn;
         private System.Windows.Forms.Panel PnlSearch;
         private System.Windows.Forms.TextBox TxtSearch;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private RJCodeAdvance.RJControls.RJButton rjButton2;
     }
 }
