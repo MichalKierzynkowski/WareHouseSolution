@@ -37,7 +37,7 @@
             this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
             this.PnlSearch = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnClearFilters = new RJCodeAdvance.RJControls.RJButton();
             this.CBoxSearchByCategory = new System.Windows.Forms.ComboBox();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -182,7 +182,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.rjButton1);
+            this.panel1.Controls.Add(this.btnClearFilters);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(498, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -190,27 +190,28 @@
             this.panel1.Size = new System.Drawing.Size(46, 69);
             this.panel1.TabIndex = 3;
             // 
-            // rjButton1
+            // btnClearFilters
             // 
-            this.rjButton1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
-            this.rjButton1.Location = new System.Drawing.Point(0, 0);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(46, 69);
-            this.rjButton1.TabIndex = 8;
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnClearFilters.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClearFilters.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btnClearFilters.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnClearFilters.BorderRadius = 0;
+            this.btnClearFilters.BorderSize = 0;
+            this.btnClearFilters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClearFilters.FlatAppearance.BorderSize = 0;
+            this.btnClearFilters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearFilters.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClearFilters.ForeColor = System.Drawing.Color.White;
+            this.btnClearFilters.Image = ((System.Drawing.Image)(resources.GetObject("btnClearFilters.Image")));
+            this.btnClearFilters.Location = new System.Drawing.Point(0, 0);
+            this.btnClearFilters.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClearFilters.Name = "btnClearFilters";
+            this.btnClearFilters.Size = new System.Drawing.Size(46, 69);
+            this.btnClearFilters.TabIndex = 8;
+            this.btnClearFilters.TextColor = System.Drawing.Color.White;
+            this.btnClearFilters.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnClearFilters.UseVisualStyleBackColor = false;
+            this.btnClearFilters.Click += new System.EventHandler(this.btnClearFilters_Click);
             // 
             // CBoxSearchByCategory
             // 
@@ -229,6 +230,7 @@
             this.CBoxSearchByCategory.Name = "CBoxSearchByCategory";
             this.CBoxSearchByCategory.Size = new System.Drawing.Size(195, 25);
             this.CBoxSearchByCategory.TabIndex = 2;
+            this.CBoxSearchByCategory.SelectionChangeCommitted += new System.EventHandler(this.CBoxSearchByCategory_SelectionChangeCommitted);
             // 
             // TxtSearch
             // 
@@ -397,7 +399,7 @@
             // 
             // TLPnlAdd
             // 
-            this.TLPnlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.TLPnlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TLPnlAdd.BackColor = System.Drawing.SystemColors.Highlight;
             this.TLPnlAdd.ColumnCount = 3;
@@ -505,7 +507,7 @@
             "Płaszcz",
             "Rękawiczki",
             "Szalik",
-            "T_Shirt",
+            "T-Shirt",
             "Top",
             "Torebka",
             "Tunika",
@@ -830,7 +832,7 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.Highlight;
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -883,7 +885,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(0, 52);
+            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -932,7 +934,7 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.BackColor = System.Drawing.SystemColors.Highlight;
             this.tableLayoutPanel4.ColumnCount = 3;
@@ -985,7 +987,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(0, 52);
+            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -1235,7 +1237,7 @@
         private System.Windows.Forms.Panel PnlSearch;
         private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.ComboBox CBoxSearchByCategory;
-        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private RJCodeAdvance.RJControls.RJButton btnClearFilters;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private RJCodeAdvance.RJControls.RJButton rjButton2;

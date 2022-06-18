@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp;
 
 namespace WareHouseApplication.NewForms
 {
@@ -191,6 +192,12 @@ namespace WareHouseApplication.NewForms
                 ExtraDescriptionTBox.Enabled = false;
             }
         }
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            TxtSearch.Clear();
+            CBoxSearchByCategory.SelectedIndex = 0;
+        }
+
         #endregion
 
         #region TimerSettings
@@ -449,7 +456,7 @@ namespace WareHouseApplication.NewForms
             PnlAdd.Width = 0;
             LoadProductsToDataGridView();
             dataGridView1.ClearSelection();
-
+            CBoxSearchByCategory.SelectedIndex = 0;
 
         }
 
@@ -495,10 +502,27 @@ namespace WareHouseApplication.NewForms
                 ExtraDescriptionTBox.Text = UpdateProductDto.EditProductDetailDto.ExtraDescription;
             }
         }
+
+
+
+
+
         #endregion
 
+        #region SelectionChangeCommitted 
+        private void CBoxSearchByCategory_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (CBoxSearchByCategory.SelectedItem == "Data Dodania")
+            {
+                DatePicker datePicker = new DatePicker();
+                datePicker.Show();
+            }
+            else
+            {
 
-
+            }
+        }
+        #endregion
 
     }
 }
