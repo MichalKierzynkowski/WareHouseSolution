@@ -14,7 +14,10 @@ namespace WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp
 {
     public partial class DatePicker : Form
     {
+        #region Properties
         public bool IsFormatCorrect { get; set; }
+        public SelectedDate SelectedDate { get; set; }
+        #endregion
 
         #region Constructor
         public DatePicker()
@@ -32,9 +35,9 @@ namespace WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp
         private void btnAccept_Click(object sender, EventArgs e)
         {
 
-            var date = new SelectedDate(dTPickerDateFrom.Value, dTPickerDateTo.Value);
+            SelectedDate = new SelectedDate(dTPickerDateFrom.Value, dTPickerDateTo.Value);
             var dateValidation = new SelectedDateValidation();
-            var result = dateValidation.Validate(date);
+            var result = dateValidation.Validate(SelectedDate);
             if (!result.IsValid)
             {
                 IsFormatCorrect = false;
