@@ -514,12 +514,21 @@ namespace WareHouseApplication.NewForms
         {
             if (CBoxSearchByCategory.SelectedItem == "Data Dodania")
             {
-                DatePicker datePicker = new DatePicker();
-                datePicker.Show();
+                TxtSearch.Enabled = false;
+                TxtSearch.Clear();
+
+                using (DatePicker datePicker = new DatePicker())
+                {
+                    if (datePicker.ShowDialog() == DialogResult.OK && datePicker.IsFormatCorrect)
+                    {
+
+                    }
+                }
+
             }
             else
             {
-
+                TxtSearch.Enabled = true;
             }
         }
         #endregion

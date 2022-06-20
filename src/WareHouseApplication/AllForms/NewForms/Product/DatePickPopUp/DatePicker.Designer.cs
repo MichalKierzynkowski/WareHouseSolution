@@ -137,6 +137,7 @@
             this.btnAccept.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnAccept.BorderRadius = 0;
             this.btnAccept.BorderSize = 0;
+            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAccept.FlatAppearance.BorderSize = 0;
             this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -150,6 +151,7 @@
             this.btnAccept.TextColor = System.Drawing.Color.White;
             this.btnAccept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAccept.UseVisualStyleBackColor = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // DatePicker
             // 

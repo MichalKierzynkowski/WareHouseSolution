@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FormsLogic.ProductForm.DatePickPopUp.Entities;
+using FormsLogic.ProductForm.DatePickPopUp.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp
 {
     public partial class DatePicker : Form
     {
+        public bool IsFormatCorrect { get; set; }
 
         #region Constructor
         public DatePicker()
@@ -23,7 +26,27 @@ namespace WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp
         #region MenuButtons
         private void btnCancel_Click(object sender, EventArgs e)
         {
+
             this.Close();
+        }
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+
+            var date = new SelectedDate(dTPickerDateFrom.Value, dTPickerDateTo.Value);
+            var dateValidation = new SelectedDateValidation();
+            var result = dateValidation.Validate(date);
+            if (!result.IsValid)
+            {
+                IsFormatCorrect = false;
+                MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                IsFormatCorrect = true;
+
+            }
+
         }
         #endregion
 
@@ -32,8 +55,8 @@ namespace WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp
         {
             dTPickerDateFrom.Value = DateTime.Today;
         }
-        #endregion
 
+        #endregion
 
     }
 }
