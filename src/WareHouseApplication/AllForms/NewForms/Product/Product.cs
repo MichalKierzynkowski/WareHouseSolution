@@ -1,13 +1,16 @@
 ﻿using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
+using FormsLogic.ProductForm.DatePickPopUp.Entities;
 using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Logic.Edit;
+using FormsLogic.ProductForm.Logic.Filtering;
 using FormsLogic.ProductForm.Validation;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp;
 
 namespace WareHouseApplication.NewForms
 {
@@ -191,6 +194,13 @@ namespace WareHouseApplication.NewForms
                 ExtraDescriptionTBox.Enabled = false;
             }
         }
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            TxtSearch.Clear();
+            CBoxSearchByCategory.SelectedIndex = 0;
+            ResetValuesInDataGridAndFillWithValuesAgain();
+        }
+
         #endregion
 
         #region TimerSettings
@@ -360,7 +370,8 @@ namespace WareHouseApplication.NewForms
         {
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            LoadProductsToDataGridView();
+            var products = ReturnDataFromDataBase();
+            LoadProductsToDataGridView(products);
         }
         private void ResetValuesInInputs()
         {
@@ -447,15 +458,17 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
-            LoadProductsToDataGridView();
+            var products = ReturnDataFromDataBase();
+            LoadProductsToDataGridView(products);
             dataGridView1.ClearSelection();
-
+            CBoxSearchByCategory.SelectedIndex = 0;
 
         }
 
-        private void LoadProductsToDataGridView()
+        private void LoadProductsToDataGridView(IEnumerable<ProductDto> products)
         {
-            var products = ReturnDataFromDataBase();
+            dataGridView1.Rows.Clear();
+            dataGridView1.DataSource = null;
             foreach (var item in products)
             {
                 dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
@@ -495,10 +508,39 @@ namespace WareHouseApplication.NewForms
                 ExtraDescriptionTBox.Text = UpdateProductDto.EditProductDetailDto.ExtraDescription;
             }
         }
+
+
+
+
+
         #endregion
 
+        #region SelectionChangeCommitted 
+        private void CBoxSearchByCategory_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (CBoxSearchByCategory.SelectedItem == "Data Dodania")
+            {
+                TxtSearch.Enabled = false;
+                TxtSearch.Clear();
 
+                using (DatePicker datePicker = new DatePicker())
+                {
+                    if (datePicker.ShowDialog() == DialogResult.OK && datePicker.IsFormatCorrect)
+                    {
+                        var filteringDataByDate = new FilteringDataGridViewByDate(datePicker.SelectedDate, ProductService);
+                        var products = filteringDataByDate.ProductsAfterFiltering;
+                        LoadProductsToDataGridView(products);
 
+                    }
+                }
+
+            }
+            else
+            {
+                TxtSearch.Enabled = true;
+            }
+        }
+        #endregion
 
     }
 }
