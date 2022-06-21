@@ -4,11 +4,14 @@ using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.DatePickPopUp.Entities;
 using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Logic.Edit;
+using FormsLogic.ProductForm.Logic.Entities;
 using FormsLogic.ProductForm.Logic.Filtering;
+using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 using FormsLogic.ProductForm.Validation;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp;
 
@@ -80,6 +83,19 @@ namespace WareHouseApplication.NewForms
         #endregion AdjustmentWinFormsControls
 
         #region MenuButtons
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var filteringOption = new FilteringOptionsManagement(CBoxSearchByCategory.SelectedItem.ToString(), TxtSearch.Text, ProductService);
+            if ((filteringOption.ErrorMessages != null) && (filteringOption.ErrorMessages.Any()))
+            {
+                MessageBox.Show(string.Join("\n", filteringOption.ErrorMessages), "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                LoadProductsToDataGridView(filteringOption.ProductsAfterFiltering);
+            }
+        }
         private void btnAccept_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny?", "Informacja", MessageBoxButtons.YesNo);
@@ -541,6 +557,7 @@ namespace WareHouseApplication.NewForms
             }
         }
         #endregion
+
 
     }
 }
