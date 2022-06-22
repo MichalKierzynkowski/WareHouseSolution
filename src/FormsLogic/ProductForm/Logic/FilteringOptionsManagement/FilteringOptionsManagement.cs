@@ -37,7 +37,6 @@ namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
                 if (!result.IsValid)
                 {
                     ErrorMessages = result.Errors;
-
                 }
                 else
                 {
@@ -57,7 +56,18 @@ namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
             }
             else if (FilterOption == "Rodzaj")
             {
-
+                var filterOption = new FilteringOption(Input);
+                InputProductTypeValidation productTypeValidation = new InputProductTypeValidation();
+                var result = productTypeValidation.Validate(filterOption);
+                if (!result.IsValid)
+                {
+                    ErrorMessages = result.Errors;
+                }
+                else
+                {
+                    var filterByProductType = new FilteringDataGridViewByProductType(filterOption.Input, ProductService);
+                    ProductsAfterFiltering = filterByProductType.ReturnFilteringProductsByProductType();
+                }
             }
         }
 
