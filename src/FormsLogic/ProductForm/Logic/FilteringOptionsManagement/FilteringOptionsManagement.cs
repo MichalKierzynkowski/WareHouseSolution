@@ -82,7 +82,18 @@ namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
             }
             else if (FilterOption == "Opis")
             {
-
+                var filterOption = new FilteringOption(Input);
+                InputProductDescriptionValidation productDescriptionValidation = new InputProductDescriptionValidation();
+                var result = productDescriptionValidation.Validate(filterOption);
+                if (!result.IsValid)
+                {
+                    ErrorMessages = result.Errors;
+                }
+                else
+                {
+                    var filterByProductDescription = new FilteringDataGridViewByProductDescription(filterOption.Input, ProductService);
+                    ProductsAfterFiltering = filterByProductDescription.ReturnFilteringProductsByProductDescription();
+                }
             }
         }
 
