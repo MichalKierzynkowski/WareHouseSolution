@@ -44,7 +44,6 @@ namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
                     ProductsAfterFiltering = filterByRegistrationNumber.ReturnFilteringProductsByRegistrationNumber();
                 }
 
-
             }
             else if (FilterOption == "Wszystko")
             {
@@ -52,6 +51,18 @@ namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
             }
             else if (FilterOption == "Nazwa")
             {
+                var filterOption = new FilteringOption(Input);
+                InputProductNameValidation productNameValidation = new InputProductNameValidation();
+                var result = productNameValidation.Validate(filterOption);
+                if (!result.IsValid)
+                {
+                    ErrorMessages = result.Errors;
+                }
+                else
+                {
+                    var filterByProductName = new FilteringDataGridViewByProductName(filterOption.Input, ProductService);
+                    ProductsAfterFiltering = filterByProductName.ReturnFilteringProductsByProductName();
+                }
 
             }
             else if (FilterOption == "Rodzaj")
@@ -68,6 +79,10 @@ namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
                     var filterByProductType = new FilteringDataGridViewByProductType(filterOption.Input, ProductService);
                     ProductsAfterFiltering = filterByProductType.ReturnFilteringProductsByProductType();
                 }
+            }
+            else if (FilterOption == "Opis")
+            {
+
             }
         }
 
