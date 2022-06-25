@@ -47,6 +47,27 @@ namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
             }
             else if (FilterOption == "Wszystko")
             {
+                var filterOption = new FilteringOption(Input);
+                InputFilterByAllValidation filterByAllValidation = new InputFilterByAllValidation();
+                var result = filterByAllValidation.Validate(filterOption);
+                if (!result.IsValid)
+                {
+                    ErrorMessages = result.Errors;
+                }
+                else
+                {
+                    if (Input.All(char.IsDigit))
+                    {
+                        var filterByRegistrationNumber = new FilteringDataGridViewByRegistrationNumber(Convert.ToInt32(filterOption.Input), ProductService);
+                        ProductsAfterFiltering = filterByRegistrationNumber.ReturnFilteringProductsByRegistrationNumber();
+                    }
+                    else
+                    {
+                        var filterAllCategoriesByString = new FilteringDataGridViewByVerbalCategories(filterOption.Input, ProductService);
+                        ProductsAfterFiltering = filterAllCategoriesByString.ProductsAfterFilteringByAllConditions;
+                    }
+                }
+
 
             }
             else if (FilterOption == "Nazwa")
