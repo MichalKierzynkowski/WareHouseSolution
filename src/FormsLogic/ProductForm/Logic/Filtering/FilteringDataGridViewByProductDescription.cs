@@ -21,7 +21,7 @@ namespace FormsLogic.ProductForm.Logic.Filtering
         }
         public IEnumerable<ProductDto> ReturnFilteringProductsByProductDescription()
         {
-            return Products.Where(x => x.ProductDetailDto.ExtraDescription.ToLower().StartsWith(ProductDescription.ToLower())).ToList();
+            return Products.Where(x => x.ProductDetailDto.ExtraDescription.ToLower().Contains(ProductDescription.ToLower())).ToList();
         }
     }
 }
