@@ -42,6 +42,8 @@ namespace FunctionalityTests.ProductFormTests.FilteringValidationTests
         [InlineData("23")]
         [InlineData("Koszulkaaa")]
         [InlineData("123")]
+        [InlineData("Ł")]
+        [InlineData("Łasdsad")]
         public void ShouldNotHaveErorWhenInputDontHaveCombinedDigitsAndLetters(string value)
         {
             var model = new FilteringOption(value);
