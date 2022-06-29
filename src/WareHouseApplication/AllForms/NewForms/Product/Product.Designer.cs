@@ -42,7 +42,7 @@
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSearch = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton4 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnSaveProducts = new RJCodeAdvance.RJControls.RJButton();
             this.btnDelete = new RJCodeAdvance.RJControls.RJButton();
             this.btnAddProduct = new RJCodeAdvance.RJControls.RJButton();
             this.btnEditProduct = new RJCodeAdvance.RJControls.RJButton();
@@ -128,7 +128,7 @@
             this.TLPnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLPnlTop.Controls.Add(this.btnRefresh, 3, 0);
             this.TLPnlTop.Controls.Add(this.PnlSearch, 5, 0);
-            this.TLPnlTop.Controls.Add(this.rjButton4, 4, 0);
+            this.TLPnlTop.Controls.Add(this.btnSaveProducts, 4, 0);
             this.TLPnlTop.Controls.Add(this.btnDelete, 1, 0);
             this.TLPnlTop.Controls.Add(this.btnAddProduct, 0, 0);
             this.TLPnlTop.Controls.Add(this.btnEditProduct, 0, 0);
@@ -281,28 +281,29 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // rjButton4
+            // btnSaveProducts
             // 
-            this.rjButton4.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton4.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 0;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Image = ((System.Drawing.Image)(resources.GetObject("rjButton4.Image")));
-            this.rjButton4.Location = new System.Drawing.Point(553, 7);
-            this.rjButton4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(131, 69);
-            this.rjButton4.TabIndex = 4;
-            this.rjButton4.Text = "Zapisz";
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.btnSaveProducts.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSaveProducts.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btnSaveProducts.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSaveProducts.BorderRadius = 0;
+            this.btnSaveProducts.BorderSize = 0;
+            this.btnSaveProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveProducts.FlatAppearance.BorderSize = 0;
+            this.btnSaveProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveProducts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveProducts.ForeColor = System.Drawing.Color.White;
+            this.btnSaveProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveProducts.Image")));
+            this.btnSaveProducts.Location = new System.Drawing.Point(553, 7);
+            this.btnSaveProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSaveProducts.Name = "btnSaveProducts";
+            this.btnSaveProducts.Size = new System.Drawing.Size(131, 69);
+            this.btnSaveProducts.TabIndex = 4;
+            this.btnSaveProducts.Text = "Zapisz";
+            this.btnSaveProducts.TextColor = System.Drawing.Color.White;
+            this.btnSaveProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSaveProducts.UseVisualStyleBackColor = false;
+            this.btnSaveProducts.Click += new System.EventHandler(this.btnSaveProducts_Click);
             // 
             // btnDelete
             // 
@@ -1183,7 +1184,7 @@
         private System.Windows.Forms.TableLayoutPanel TLPnlTop;
         private RJCodeAdvance.RJControls.RJButton btnEditProduct;
         private RJCodeAdvance.RJControls.RJButton btnRefresh;
-        private RJCodeAdvance.RJControls.RJButton rjButton4;
+        private RJCodeAdvance.RJControls.RJButton btnSaveProducts;
         private RJCodeAdvance.RJControls.RJButton btnDelete;
         private RJCodeAdvance.RJControls.RJButton btnAddProduct;
         private System.Windows.Forms.Panel PnlAdd;

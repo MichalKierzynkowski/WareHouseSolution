@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp;
+using WareHouseApplication.AllForms.NewForms.Product.SaveProducts;
 
 namespace WareHouseApplication.NewForms
 {
@@ -83,6 +84,20 @@ namespace WareHouseApplication.NewForms
         #endregion AdjustmentWinFormsControls
 
         #region MenuButtons
+        private void btnSaveProducts_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count <= 0)
+            {
+                MessageBox.Show("Brak produktów do zapisu!", "Błąd",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SavingProducts savingProducts = new SavingProducts();
+                savingProducts.Show();
+            }
+
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             var filteringOption = new FilteringOptionsManagement(CBoxSearchByCategory.SelectedItem.ToString(), TxtSearch.Text, ProductService);
@@ -556,6 +571,7 @@ namespace WareHouseApplication.NewForms
                 TxtSearch.Enabled = true;
             }
         }
+
         #endregion
 
 
