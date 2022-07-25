@@ -65,6 +65,9 @@
 		</Compile>
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="FlaUI.Core" Version="3.2.0" />
+		<PackageReference Include="FlaUI.UIA2" Version="3.2.0" />
+		<PackageReference Include="FlaUI.UIA3" Version="3.2.0" />
 		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.6" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
 			<PrivateAssets>all</PrivateAssets>

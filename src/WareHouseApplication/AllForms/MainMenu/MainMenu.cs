@@ -6,16 +6,14 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WareHouseApplication.AllForms.NewForms.BaseForm;
-using WareHouseApplication.Desing;
+
 
 namespace WareHouseApplication.Forms;
 
 public partial class MainMenu : BaseForm
 {
     #region Properties
-    private Button _currentButton;
     private Random _random;
-    private int _tempIndex;
     private Form _activeForm;
     public IProductService ProductService { get; set; }
     #endregion
@@ -31,43 +29,30 @@ public partial class MainMenu : BaseForm
     #endregion
 
     #region ButtonsClickEvents
-    private void ActivateButton(object btnSender)
-    {
-        if (btnSender != null)
-        {
-            if (_currentButton != (Button)btnSender)
-            {
-                Task.Run(() =>
-                {
-                    Color color = SelectThemeColor();
-                    UpPanel.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                });
-            }
-        }
-    }
+
     private void btnProducts_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new NewForms.Product(ProductService), sender);
+        OpenChildForm(new NewForms.Product(ProductService));
     }
 
     private void btnWareHouse_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(), sender);
+        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse());
     }
 
     private void btnSales_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new AllForms.NewForms.Sale.Sale(), sender);
+        OpenChildForm(new AllForms.NewForms.Sale.Sale());
     }
 
     private void btnSettings_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new NewForms.Settings(), sender);
+        OpenChildForm(new NewForms.Settings());
     }
 
     private void btnHelp_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new AllForms.NewForms.Help.Help(), sender);
+        OpenChildForm(new AllForms.NewForms.Help.Help());
     }
     private void btnMinimalize_Click(object sender, EventArgs e)
     {
@@ -83,19 +68,7 @@ public partial class MainMenu : BaseForm
     }
     #endregion
 
-    #region Theme
-    private Color SelectThemeColor()
-    {
-        int index = _random.Next(Desing.ThemeColor.ColorList.Count);
-        while (_tempIndex == index)
-        {
-            _random.Next(Desing.ThemeColor.ColorList.Count);
-        }
-        _tempIndex = index;
-        string color = ThemeColor.ColorList[index];
-        return ColorTranslator.FromHtml(color);
-    }
-    #endregion
+
 
     #region Timer
     private void timer1_Tick(object sender, EventArgs e)
@@ -108,9 +81,9 @@ public partial class MainMenu : BaseForm
     #endregion
 
     #region OpenForms
-    private void OpenChildForm(Form childForm, object btnSender)
+    private void OpenChildForm(Form childForm)
     {
-        ActivateButton(btnSender);
+
         _activeForm = childForm;
         childForm.TopLevel = false;
         childForm.FormBorderStyle = FormBorderStyle.None;
@@ -120,6 +93,7 @@ public partial class MainMenu : BaseForm
         childForm.BringToFront();
         childForm.Show();
         lblTitle.Text = childForm.Text;
+
     }
     #endregion
 
