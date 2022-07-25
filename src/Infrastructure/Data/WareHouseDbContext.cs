@@ -23,7 +23,7 @@ namespace Infrastructure.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source=C:\Users\Michal\source\repos\MichalKierzynkowski\WareHouseSolution\src\WareHouseApplication/WareHouse.db");
+            optionsBuilder.UseSqlite(@"Data Source=C:\Users\michu\source\repos\WareHouseSolution\src\WareHouseApplication/WareHouse.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

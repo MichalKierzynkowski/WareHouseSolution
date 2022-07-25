@@ -44,12 +44,23 @@ namespace WareHouseApplication.NewForms
             CreateProductDto = new CreateProductDto(CreateProductDetailDto);
             DeleteProductDetailDto = new DeleteProductDetailDto();
             DeleteProductDto = new DeleteProductDto(DeleteProductDetailDto);
+            SetOffDeleteAndEditButtons();
 
         }
         #endregion
 
         #region AdjustmentWinFormsControls
 
+        private void SetOffDeleteAndEditButtons()
+        {
+            btnDelete.Enabled = false;
+            btnEditProduct.Enabled = false;
+        }
+        private void SetOnDeleteAndEditButtons()
+        {
+            btnDelete.Enabled = true;
+            btnEditProduct.Enabled = true;
+        }
         private void SelectTxt(TextBox txt)
         {
             txt.BackColor = Color.FromArgb(139, 199, 255);
@@ -210,6 +221,7 @@ namespace WareHouseApplication.NewForms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            SetOnDeleteAndEditButtons();
             if (lblRightPanelMainName.Text == "Edytuj Produkt")
             {
                 AssignmentDataToEditProductDto(e.RowIndex);
@@ -260,10 +272,11 @@ namespace WareHouseApplication.NewForms
             lblRightPanelMainName.Text = "Edytuj Produkt";
             btnResetValues.Enabled = false;
             btnCheckAvailability.Enabled = false;
-            txtBarNumber.Enabled = true;
+            txtBarNumber.Enabled = false;
             txtName.Enabled = true;
             btnIsExtraDescriptionOn.Enabled = true;
             ProductTypeComboBox.Enabled = true;
+
         }
 
         private void RightPanelAddProductAdjustment()
