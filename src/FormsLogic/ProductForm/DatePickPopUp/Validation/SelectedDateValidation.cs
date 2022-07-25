@@ -19,7 +19,7 @@ namespace FormsLogic.ProductForm.DatePickPopUp.Validation
             RuleFor(x => new { x.DateFrom, x.DateTo }).Must(x => CheckIfDateFromIsNotBiggerThanDateTo(x.DateFrom, x.DateTo)).WithMessage("Data od musi być starsza od daty do!");
         }
 
-        public bool CheckIfDateFromIsNotBiggerThanDateTo(DateOnly dateFrom, DateOnly dateTo)
+        public bool CheckIfDateFromIsNotBiggerThanDateTo(DateTime dateFrom, DateTime dateTo)
         {
             if (dateFrom <= dateTo)
             {
@@ -27,10 +27,9 @@ namespace FormsLogic.ProductForm.DatePickPopUp.Validation
             }
             return false;
         }
-        public bool CheckIfSelectedDataIsExistings(DateOnly date)
+        public bool CheckIfSelectedDataIsExistings(DateTime date)
         {
-            var dateNow = DateOnly.FromDateTime(DateTime.Now);
-            if (dateNow >= date)
+            if (DateTime.Now >= date)
             {
                 return true;
             }

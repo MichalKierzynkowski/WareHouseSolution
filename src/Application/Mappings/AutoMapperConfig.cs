@@ -12,7 +12,6 @@ namespace ApplicationLayer.Mappings
                                                 .ForPath(d => d.ProductDetailDto.Name, opt => opt.MapFrom(d => d.ProductDetail.Name))
                                                 .ForPath(d => d.ProductDetailDto.Type, opt => opt.MapFrom(d => d.ProductDetail.Type))
                                                 .ForPath(d => d.ProductDetailDto.ExtraDescription, opt => opt.MapFrom(d => d.ProductDetail.ExtraDescription))
-                                                .ForPath(d => d.AddedAt, opt => opt.MapFrom(d => DateOnly.FromDateTime(d.AddedAt)))
                                                 .ForPath(d => d.ProductDetailDto.ExtraDescription, act => act.MapFrom(
                                                 src => (src.ProductDetail.ExtraDescription != null ? src.ProductDetail.ExtraDescription : "------")
                                                 ));
