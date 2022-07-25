@@ -35,7 +35,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp
         private void btnAccept_Click(object sender, EventArgs e)
         {
 
-            SelectedDate = new SelectedDate(dTPickerDateFrom.Value, dTPickerDateTo.Value);
+            SelectedDate = new SelectedDate(DateOnly.FromDateTime(dTPickerDateFrom.Value), DateOnly.FromDateTime(dTPickerDateTo.Value));
             var dateValidation = new SelectedDateValidation();
             var result = dateValidation.Validate(SelectedDate);
             if (!result.IsValid)

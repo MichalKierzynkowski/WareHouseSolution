@@ -129,9 +129,7 @@ namespace WareHouseApplication.NewForms
                     DeleteProductPreValidation();
                 }
             }
-            else if (dialogResult == DialogResult.No)
-            {
-            }
+
         }
 
         private void btnCheckAvailability_Click(object sender, EventArgs e)
@@ -332,7 +330,7 @@ namespace WareHouseApplication.NewForms
             CreateProductDetailDto.Type = ProductTypeComboBox.Text;
             CreateProductDto.AddedAt = DateTime.Now;
             CreateProductDetailDto.CreateProductDto = CreateProductDto;
-            if (btnIsExtraDescriptionOn.Checked == true)
+            if (btnIsExtraDescriptionOn.Checked)
             {
                 CreateProductDto.CreateProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
                 IsExtraDescriptionOpen = true;
@@ -348,7 +346,7 @@ namespace WareHouseApplication.NewForms
             UpdateProductDto.EditProductDetailDto.Name = txtName.Text;
             UpdateProductDto.EditProductDetailDto.Type = ProductTypeComboBox.Text;
             UpdateProductDto.EditProductDetailDto.LastChangedAt = DateTime.Now;
-            if (btnIsExtraDescriptionOn.Checked == true)
+            if (btnIsExtraDescriptionOn.Checked)
             {
                 UpdateProductDto.EditProductDetailDto.ExtraDescription = ExtraDescriptionTBox.Text;
                 IsExtraDescriptionOpen = true;
@@ -549,26 +547,29 @@ namespace WareHouseApplication.NewForms
         #region SelectionChangeCommitted 
         private void CBoxSearchByCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (CBoxSearchByCategory.SelectedItem == "Data Dodania")
+            switch (CBoxSearchByCategory.SelectedItem)
             {
-                TxtSearch.Enabled = false;
-                TxtSearch.Clear();
-
-                using (DatePicker datePicker = new DatePicker())
-                {
-                    if (datePicker.ShowDialog() == DialogResult.OK && datePicker.IsFormatCorrect)
+                case "Data Dodania":
                     {
-                        var filteringDataByDate = new FilteringDataGridViewByDate(datePicker.SelectedDate, ProductService);
-                        var products = filteringDataByDate.ProductsAfterFiltering;
-                        LoadProductsToDataGridView(products);
+                        TxtSearch.Enabled = false;
+                        TxtSearch.Clear();
 
+                        using (DatePicker datePicker = new DatePicker())
+                        {
+                            if (datePicker.ShowDialog() == DialogResult.OK && datePicker.IsFormatCorrect)
+                            {
+                                var filteringDataByDate = new FilteringDataGridViewByDate(datePicker.SelectedDate, ProductService);
+                                var products = filteringDataByDate.ProductsAfterFiltering;
+                                LoadProductsToDataGridView(products);
+
+                            }
+                        }
+                        break;
                     }
-                }
 
-            }
-            else
-            {
-                TxtSearch.Enabled = true;
+                default:
+                    TxtSearch.Enabled = true;
+                    break;
             }
         }
 
