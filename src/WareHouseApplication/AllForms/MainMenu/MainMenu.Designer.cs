@@ -39,10 +39,11 @@ namespace WareHouseApplication.Forms
             this.btnProducts = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UpPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnMinimalize = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.PictureBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.PicturePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDekstopPane = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,6 +57,7 @@ namespace WareHouseApplication.Forms
             this.PanelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UpPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimalize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
@@ -196,12 +198,35 @@ namespace WareHouseApplication.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UpPanel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.UpPanel.Controls.Add(this.panel1);
             this.UpPanel.Controls.Add(this.tableLayoutPanel1);
-            this.UpPanel.Controls.Add(this.lblTitle);
             this.UpPanel.Location = new System.Drawing.Point(248, 0);
             this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(1171, 112);
+            this.UpPanel.Size = new System.Drawing.Size(1171, 72);
             this.UpPanel.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Location = new System.Drawing.Point(334, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(567, 51);
+            this.panel1.TabIndex = 2;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(577, 56);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Cudeńka - Aplikacja Magazynowa";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -241,19 +266,6 @@ namespace WareHouseApplication.Forms
             this.btnExit.TabStop = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTitle.Location = new System.Drawing.Point(284, 22);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(577, 56);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Cudeńka - Aplikacja Magazynowa";
-            // 
             // PicturePanel
             // 
             this.PicturePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(76)))), ((int)(((byte)(138)))));
@@ -265,12 +277,10 @@ namespace WareHouseApplication.Forms
             // 
             // panelDekstopPane
             // 
-            this.panelDekstopPane.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDekstopPane.Controls.Add(this.tableLayoutPanel2);
-            this.panelDekstopPane.Location = new System.Drawing.Point(248, 112);
+            this.panelDekstopPane.Location = new System.Drawing.Point(248, 65);
             this.panelDekstopPane.Name = "panelDekstopPane";
-            this.panelDekstopPane.Size = new System.Drawing.Size(1171, 713);
+            this.panelDekstopPane.Size = new System.Drawing.Size(1171, 760);
             this.panelDekstopPane.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -377,7 +387,8 @@ namespace WareHouseApplication.Forms
             this.PanelTitleBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.UpPanel.ResumeLayout(false);
-            this.UpPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimalize)).EndInit();
@@ -415,6 +426,7 @@ namespace WareHouseApplication.Forms
         private System.Windows.Forms.PictureBox btnMinimalize;
         private System.Windows.Forms.PictureBox btnExit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

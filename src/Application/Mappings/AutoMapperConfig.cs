@@ -4,7 +4,7 @@ using Domain.Entities;
 
 namespace ApplicationLayer.Mappings
 {
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
         public static IMapper Initialize() => new MapperConfiguration(cfg =>
                                             {
@@ -24,6 +24,6 @@ namespace ApplicationLayer.Mappings
                                                 .ForPath(d => d.ProductDetail.Type, opt => opt.MapFrom(d => d.CreateProductDetailDto.Type))
                                                 .ForPath(d => d.ProductDetail.ExtraDescription, opt => opt.MapFrom(d => d.CreateProductDetailDto.ExtraDescription));
                                             }
-                ).CreateMapper();
+                                            ).CreateMapper();
     }
 }

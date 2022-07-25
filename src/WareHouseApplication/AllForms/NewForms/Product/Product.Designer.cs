@@ -174,14 +174,14 @@
             this.PnlSearch.Controls.Add(this.panel3);
             this.PnlSearch.Location = new System.Drawing.Point(605, 5);
             this.PnlSearch.Name = "PnlSearch";
-            this.PnlSearch.Size = new System.Drawing.Size(516, 52);
+            this.PnlSearch.Size = new System.Drawing.Size(544, 52);
             this.PnlSearch.TabIndex = 6;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnClearFilters);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(436, 0);
+            this.panel1.Location = new System.Drawing.Point(464, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(40, 52);
             this.panel1.TabIndex = 3;
@@ -235,7 +235,7 @@
             this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TxtSearch.ForeColor = System.Drawing.Color.Black;
-            this.TxtSearch.Location = new System.Drawing.Point(238, 13);
+            this.TxtSearch.Location = new System.Drawing.Point(252, 13);
             this.TxtSearch.Multiline = true;
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(171, 28);
@@ -247,7 +247,7 @@
             // 
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(476, 0);
+            this.panel3.Location = new System.Drawing.Point(504, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(40, 52);
             this.panel3.TabIndex = 0;
@@ -866,7 +866,7 @@
             this.rjButton10.Location = new System.Drawing.Point(0, 0);
             this.rjButton10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton10.Name = "rjButton10";
-            this.rjButton10.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton10.Size = new System.Drawing.Size(0, 52);
             this.rjButton10.TabIndex = 7;
             this.rjButton10.TextColor = System.Drawing.Color.White;
             this.rjButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -968,7 +968,7 @@
             this.rjButton12.Location = new System.Drawing.Point(0, 0);
             this.rjButton12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rjButton12.Name = "rjButton12";
-            this.rjButton12.Size = new System.Drawing.Size(-14, 52);
+            this.rjButton12.Size = new System.Drawing.Size(0, 52);
             this.rjButton12.TabIndex = 7;
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -1128,7 +1128,7 @@
             this.Controls.Add(this.TLPnlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Product";
-            this.Text = "Produkty";
+            this.Text = "Cudeńka - Produkty";
             this.Load += new System.EventHandler(this.Product_Load);
             this.TLPnlTop.ResumeLayout(false);
             this.PnlSearch.ResumeLayout(false);

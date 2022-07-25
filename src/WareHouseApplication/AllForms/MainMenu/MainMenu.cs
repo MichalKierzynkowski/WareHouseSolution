@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WareHouseApplication.AllForms.NewForms.BaseForm;
-using WareHouseApplication.Desing;
+
 
 namespace WareHouseApplication.Forms;
 
@@ -93,6 +93,7 @@ public partial class MainMenu : BaseForm
         childForm.BringToFront();
         childForm.Show();
         lblTitle.Text = childForm.Text;
+
     }
     #endregion
 
