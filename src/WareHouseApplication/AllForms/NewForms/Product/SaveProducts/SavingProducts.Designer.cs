@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SavingProducts));
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnExcel = new RJCodeAdvance.RJControls.RJButton();
+            this.btnTxt = new RJCodeAdvance.RJControls.RJButton();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -71,47 +71,49 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // rjButton1
+            // btnExcel
             // 
-            this.rjButton1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton1.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 0;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Image = ((System.Drawing.Image)(resources.GetObject("rjButton1.Image")));
-            this.rjButton1.Location = new System.Drawing.Point(255, 165);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(82, 95);
-            this.rjButton1.TabIndex = 8;
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnExcel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnExcel.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btnExcel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnExcel.BorderRadius = 0;
+            this.btnExcel.BorderSize = 0;
+            this.btnExcel.FlatAppearance.BorderSize = 0;
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.Location = new System.Drawing.Point(255, 165);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(82, 95);
+            this.btnExcel.TabIndex = 8;
+            this.btnExcel.TextColor = System.Drawing.Color.White;
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
-            // rjButton2
+            // btnTxt
             // 
-            this.rjButton2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton2.BackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 0;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Image = ((System.Drawing.Image)(resources.GetObject("rjButton2.Image")));
-            this.rjButton2.Location = new System.Drawing.Point(405, 165);
-            this.rjButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(82, 95);
-            this.rjButton2.TabIndex = 9;
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnTxt.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnTxt.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btnTxt.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnTxt.BorderRadius = 0;
+            this.btnTxt.BorderSize = 0;
+            this.btnTxt.FlatAppearance.BorderSize = 0;
+            this.btnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTxt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTxt.ForeColor = System.Drawing.Color.White;
+            this.btnTxt.Image = ((System.Drawing.Image)(resources.GetObject("btnTxt.Image")));
+            this.btnTxt.Location = new System.Drawing.Point(405, 165);
+            this.btnTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTxt.Name = "btnTxt";
+            this.btnTxt.Size = new System.Drawing.Size(82, 95);
+            this.btnTxt.TabIndex = 9;
+            this.btnTxt.TextColor = System.Drawing.Color.White;
+            this.btnTxt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnTxt.UseVisualStyleBackColor = false;
+            this.btnTxt.Click += new System.EventHandler(this.btnTxt_Click);
             // 
             // SavingProducts
             // 
@@ -119,8 +121,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(616, 315);
-            this.Controls.Add(this.rjButton2);
-            this.Controls.Add(this.rjButton1);
+            this.Controls.Add(this.btnTxt);
+            this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -136,7 +138,7 @@
 
         private System.Windows.Forms.Label lblTitle;
         private RJCodeAdvance.RJControls.RJButton btnCancel;
-        private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private RJCodeAdvance.RJControls.RJButton rjButton2;
+        private RJCodeAdvance.RJControls.RJButton btnExcel;
+        private RJCodeAdvance.RJControls.RJButton btnTxt;
     }
 }
