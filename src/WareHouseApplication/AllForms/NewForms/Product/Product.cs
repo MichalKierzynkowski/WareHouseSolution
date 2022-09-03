@@ -104,20 +104,8 @@ namespace WareHouseApplication.NewForms
             }
             else
             {
-                List<ExportProductDto> products = new List<ExportProductDto>();
-                foreach (DataGridViewRow dr in dataGridView1.Rows)
-                {
-                    ExportProductDetailDto productDetail = new ExportProductDetailDto();
-                    ExportProductDto product = new ExportProductDto(productDetail);
-                    product.RegistrationNumber = (int)dr.Cells[0].Value;
-                    product.ProductDetailDto.Name = dr.Cells[1].Value.ToString();
-                    product.ProductDetailDto.Type = dr.Cells[2].Value.ToString();
-                    product.ProductDetailDto.ExtraDescription = (string)(string.IsNullOrEmpty(dr.Cells[3].Value.ToString()) ? "" : dr.Cells[3].Value);
-                    product.AddedAt = (DateTime)dr.Cells[4].Value;
 
-                    products.Add(product);
-                }
-                SavingProducts savingProducts = new SavingProducts(products);
+                SavingProducts savingProducts = new SavingProducts(dataGridView1);
                 savingProducts.Show();
             }
 

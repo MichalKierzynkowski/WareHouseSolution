@@ -28,8 +28,8 @@ namespace FunctionalityTests.FlaUITests.ProductFormTests
             ConditionFactory cf = new ConditionFactory(new UIA3PropertyLibrary());
 
             mainWindow.FindFirstDescendant(cf.ByName("Produkty")).AsButton().Click();
-            mainWindow.FindFirstDescendant(cf.ByAutomationId("btnExit")).AsButton().Click();
-            mainWindow.FindFirstDescendant(cf.ByName("OK")).AsButton().Click();
+            //mainWindow.FindFirstDescendant(cf.ByAutomationId("btnExit")).AsButton().Click();
+            //mainWindow.FindFirstDescendant(cf.ByName("OK")).AsButton().Click();
         }
 
 
