@@ -1,0 +1,20 @@
+﻿using ApplicationLayer.Dto.ProductDetailDtos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ApplicationLayer.Dto.ProductDtos
+{
+    public class ExportProductDto
+    {
+        public int RegistrationNumber { get; set; }
+        public ExportProductDetailDto ProductDetailDto { get; set; }
+        public DateTime AddedAt { get; set; }
+        public ExportProductDto(ExportProductDetailDto exportProduct)
+        {
+            ProductDetailDto = exportProduct;
+        }
+    }
+}

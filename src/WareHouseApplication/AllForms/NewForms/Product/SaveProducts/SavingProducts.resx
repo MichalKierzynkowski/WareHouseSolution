@@ -80,7 +80,7 @@
         7wB3UwF3eP+0dwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="rjButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAuhJREFUWEft
         mT1oFEEUgC/+HBoLUwStDNgoRiXFgSKIoK1op2AgFhYiNpaiSNAqIohIREypNlZpxMpCQSv/sLD0DwtR
@@ -98,7 +98,7 @@
         PZvoeaCWdv+GeGTpgtRqfwBFaLaPMiZCPwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="rjButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnTxt.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAfhJREFUWEft
         mM0rRFEYh2fjWz5C9nZWFmMhC1L+ADULlJSNhRQbO2tZKNnxR1DKSllIoRSyU1ayUbKXj/H85rwzDRYz

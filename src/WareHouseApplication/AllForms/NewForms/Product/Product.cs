@@ -104,7 +104,8 @@ namespace WareHouseApplication.NewForms
             }
             else
             {
-                SavingProducts savingProducts = new SavingProducts();
+
+                SavingProducts savingProducts = new SavingProducts(dataGridView1);
                 savingProducts.Show();
             }
 
