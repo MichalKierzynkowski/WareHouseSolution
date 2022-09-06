@@ -1,10 +1,8 @@
 ﻿using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
-using FormsLogic.ProductForm.DatePickPopUp.Entities;
 using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Logic.Edit;
-using FormsLogic.ProductForm.Logic.Entities;
 using FormsLogic.ProductForm.Logic.Filtering;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 using FormsLogic.ProductForm.Validation;

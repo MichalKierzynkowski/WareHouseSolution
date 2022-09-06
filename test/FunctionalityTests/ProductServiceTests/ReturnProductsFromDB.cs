@@ -1,6 +1,4 @@
-﻿using ApplicationLayer.Dto.ProductDetailDtos;
-using ApplicationLayer.Dto.ProductDtos;
-using ApplicationLayer.Interfaces;
+﻿using ApplicationLayer.Interfaces;
 using ApplicationLayer.Mappings;
 using ApplicationLayer.Services;
 using AutoMapper;
@@ -8,10 +6,6 @@ using Domain.Entities;
 using Domain.Interfaces;
 using NSubstitute;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace FunctionalityTests.ProductServiceTests

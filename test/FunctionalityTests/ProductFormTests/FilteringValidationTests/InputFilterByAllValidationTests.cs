@@ -1,11 +1,6 @@
 ﻿using FluentAssertions;
 using FormsLogic.ProductForm.Logic.Entities;
 using FormsLogic.ProductForm.Validation.FilteringValidations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 namespace FunctionalityTests.ProductFormTests.FilteringValidationTests
 {

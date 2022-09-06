@@ -3,11 +3,6 @@ using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Entities;
 using FormsLogic.ProductForm.Logic.Filtering;
 using FormsLogic.ProductForm.Validation.FilteringValidations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FormsLogic.ProductForm.Logic.FilteringOptionsManagement
 {
