@@ -1,9 +1,5 @@
 ﻿using ApplicationLayer.Interfaces;
-using Infrastructure.Data;
-using Infrastructure.Repositories;
 using System;
-using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WareHouseApplication.AllForms.NewForms.BaseForm;
 

@@ -1,12 +1,6 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
-using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Logic.DistinctComparer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FormsLogic.ProductForm.Logic.Filtering
 {
