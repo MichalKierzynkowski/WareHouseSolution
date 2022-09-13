@@ -65,7 +65,6 @@ public partial class MainMenu : BaseForm
     #endregion
 
 
-
     #region Timer
     private void timer1_Tick(object sender, EventArgs e)
     {
