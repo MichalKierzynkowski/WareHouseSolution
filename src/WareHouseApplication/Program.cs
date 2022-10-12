@@ -33,7 +33,7 @@ public static class Program
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-                    services.AddScoped<IProductService, ProductService>();
+                    services.AddScoped<IProductService, ProductService>();;
                     services.AddEntityFrameworkSqlite().AddDbContext<WareHouseDbContext>();
                     services.AddScoped<IProductRepository, ProductRepository>();
                     services.AddTransient<MainMenu>();
