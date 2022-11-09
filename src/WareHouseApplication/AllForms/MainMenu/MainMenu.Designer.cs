@@ -223,26 +223,25 @@ namespace WareHouseApplication.Forms
             // 
             // UpPanel
             // 
-            this.UpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.UpPanel.BackColor = System.Drawing.SystemColors.Highlight;
             this.UpPanel.Controls.Add(this.UpTitlePanel);
             this.UpPanel.Controls.Add(this.tableLayoutPanel1);
             this.UpPanel.Location = new System.Drawing.Point(283, 0);
             this.UpPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(1338, 96);
+            this.UpPanel.Size = new System.Drawing.Size(1432, 84);
             this.UpPanel.TabIndex = 1;
             // 
             // UpTitlePanel
             // 
             this.UpTitlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.UpTitlePanel.Controls.Add(this.lblTitle);
-            this.UpTitlePanel.Location = new System.Drawing.Point(382, 8);
+            this.UpTitlePanel.Location = new System.Drawing.Point(429, 8);
             this.UpTitlePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UpTitlePanel.Name = "UpTitlePanel";
-            this.UpTitlePanel.Size = new System.Drawing.Size(648, 68);
+            this.UpTitlePanel.Size = new System.Drawing.Size(648, 56);
             this.UpTitlePanel.TabIndex = 2;
             // 
             // lblTitle
@@ -266,12 +265,12 @@ namespace WareHouseApplication.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btnMinimalize, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnExit, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1152, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1279, 8);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(162, 64);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(118, 58);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnMinimalize
@@ -281,7 +280,7 @@ namespace WareHouseApplication.Forms
             this.btnMinimalize.Location = new System.Drawing.Point(3, 4);
             this.btnMinimalize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimalize.Name = "btnMinimalize";
-            this.btnMinimalize.Size = new System.Drawing.Size(75, 56);
+            this.btnMinimalize.Size = new System.Drawing.Size(53, 50);
             this.btnMinimalize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnMinimalize.TabIndex = 1;
             this.btnMinimalize.TabStop = false;
@@ -291,11 +290,10 @@ namespace WareHouseApplication.Forms
             // 
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(84, 4);
+            this.btnExit.Location = new System.Drawing.Point(62, 4);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 56);
-            this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnExit.Size = new System.Drawing.Size(53, 50);
             this.btnExit.TabIndex = 0;
             this.btnExit.TabStop = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -313,10 +311,10 @@ namespace WareHouseApplication.Forms
             // panelDekstopPane
             // 
             this.panelDekstopPane.Controls.Add(this.tableLayoutPanel2);
-            this.panelDekstopPane.Location = new System.Drawing.Point(283, 87);
+            this.panelDekstopPane.Location = new System.Drawing.Point(283, 82);
             this.panelDekstopPane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelDekstopPane.Name = "panelDekstopPane";
-            this.panelDekstopPane.Size = new System.Drawing.Size(1335, 1013);
+            this.panelDekstopPane.Size = new System.Drawing.Size(1432, 1018);
             this.panelDekstopPane.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -411,7 +409,7 @@ namespace WareHouseApplication.Forms
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1618, 1100);
+            this.ClientSize = new System.Drawing.Size(1714, 1100);
             this.Controls.Add(this.panelDekstopPane);
             this.Controls.Add(this.PicturePanel);
             this.Controls.Add(this.UpPanel);

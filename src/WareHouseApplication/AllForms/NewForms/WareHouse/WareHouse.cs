@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿
+using System.Windows.Forms;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse
 {
