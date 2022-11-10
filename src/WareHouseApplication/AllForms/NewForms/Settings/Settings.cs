@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace WareHouseApplication.NewForms
+namespace WareHouseApplication.AllForms.NewForms.Settings
 {
     public partial class Settings : Form
     {

@@ -1,4 +1,9 @@
-﻿using ApplicationLayer.Dto.ProductDetailDtos;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
@@ -6,15 +11,10 @@ using FormsLogic.ProductForm.Logic.Edit;
 using FormsLogic.ProductForm.Logic.Filtering;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 using FormsLogic.ProductForm.Validation;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 using WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp;
 using WareHouseApplication.AllForms.NewForms.Product.SaveProducts;
 
-namespace WareHouseApplication.NewForms
+namespace WareHouseApplication.AllForms.NewForms.Product
 {
     public partial class Product : Form
     {

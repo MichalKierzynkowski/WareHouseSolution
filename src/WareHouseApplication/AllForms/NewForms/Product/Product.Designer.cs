@@ -1,4 +1,4 @@
-﻿namespace WareHouseApplication.NewForms
+﻿namespace WareHouseApplication.AllForms.NewForms.Product
 {
     partial class Product
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllForms.NewForms.WareHouse.WareHouse));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,6 +49,7 @@
             this.PnlAdd = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.TLPnlAdd = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.ProductTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -59,7 +60,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtBarNumber = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -100,10 +100,10 @@
             this.PnlAdd.SuspendLayout();
             this.panel4.SuspendLayout();
             this.TLPnlAdd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
@@ -409,15 +409,13 @@
             this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.TLPnlAdd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.TLPnlAdd.Controls.Add(this.pictureBox3, 0, 10);
             this.TLPnlAdd.Controls.Add(this.dateTimePicker1, 0, 9);
-            this.TLPnlAdd.Controls.Add(this.label10, 0, 4);
-            this.TLPnlAdd.Controls.Add(this.ProductTypeComboBox, 0, 4);
             this.TLPnlAdd.Controls.Add(this.label2, 0, 0);
             this.TLPnlAdd.Controls.Add(this.panel5, 2, 3);
             this.TLPnlAdd.Controls.Add(this.pictureBox2, 2, 0);
             this.TLPnlAdd.Controls.Add(this.txtBarNumber, 0, 1);
             this.TLPnlAdd.Controls.Add(this.label9, 0, 8);
-            this.TLPnlAdd.Controls.Add(this.pictureBox3, 0, 10);
             this.TLPnlAdd.Controls.Add(this.pictureBox4, 1, 10);
             this.TLPnlAdd.Controls.Add(this.pictureBox5, 2, 10);
             this.TLPnlAdd.Controls.Add(this.label3, 0, 2);
@@ -425,6 +423,8 @@
             this.TLPnlAdd.Controls.Add(this.label8, 0, 4);
             this.TLPnlAdd.Controls.Add(this.btnIsExtraDescriptionOn, 2, 7);
             this.TLPnlAdd.Controls.Add(this.ExtraDescriptionTBox, 0, 7);
+            this.TLPnlAdd.Controls.Add(this.label10, 0, 6);
+            this.TLPnlAdd.Controls.Add(this.ProductTypeComboBox, 0, 5);
             this.TLPnlAdd.Location = new System.Drawing.Point(0, 4);
             this.TLPnlAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TLPnlAdd.Name = "TLPnlAdd";
@@ -445,8 +445,22 @@
             this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLPnlAdd.Size = new System.Drawing.Size(451, 720);
             this.TLPnlAdd.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(15, 531);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.TLPnlAdd.SetRowSpan(this.pictureBox3, 3);
+            this.pictureBox3.Size = new System.Drawing.Size(135, 148);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 20;
+            this.pictureBox3.TabStop = false;
             // 
             // dateTimePicker1
             // 
@@ -641,19 +655,6 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Data Dodania Produktu:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(15, 531);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.TLPnlAdd.SetRowSpan(this.pictureBox3, 3);
-            this.pictureBox3.Size = new System.Drawing.Size(135, 148);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -1163,10 +1164,10 @@
             this.panel4.ResumeLayout(false);
             this.TLPnlAdd.ResumeLayout(false);
             this.TLPnlAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -1219,7 +1220,6 @@
         private System.Windows.Forms.Panel panel7;
         private RJCodeAdvance.RJControls.RJButton rjButton12;
         private RJCodeAdvance.RJControls.RJButton rjButton13;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label10;
@@ -1244,5 +1244,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private RJCodeAdvance.RJControls.RJButton btnSearch;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

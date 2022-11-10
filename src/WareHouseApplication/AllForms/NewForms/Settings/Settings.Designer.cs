@@ -1,4 +1,4 @@
-﻿namespace WareHouseApplication.NewForms
+﻿namespace WareHouseApplication.AllForms.NewForms.Settings
 {
     partial class Settings
     {

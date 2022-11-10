@@ -1,5 +1,5 @@
 ﻿
-namespace WareHouseApplication.Forms
+namespace WareHouseApplication.AllForms.MainMenu
 {
     partial class MainMenu
     {
