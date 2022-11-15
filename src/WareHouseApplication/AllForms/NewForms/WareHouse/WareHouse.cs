@@ -9,5 +9,11 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
         {
             InitializeComponent();
         }
+
+        private void btnSelectProduct_Click(object sender, System.EventArgs e)
+        {
+            SelectProduct selectProduct = new SelectProduct();
+            selectProduct.Show();
+        }
     }
 }
