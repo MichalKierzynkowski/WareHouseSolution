@@ -34,7 +34,7 @@ public partial class MainMenu : BaseForm
 
     private void btnWareHouse_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse());
+        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(ProductService));
     }
 
     private void btnSales_Click(object sender, EventArgs e)

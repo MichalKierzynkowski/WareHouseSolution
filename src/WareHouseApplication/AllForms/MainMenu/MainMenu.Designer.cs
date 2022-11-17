@@ -80,10 +80,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.PanelTitleBar.Controls.Add(this.btnWareHouse);
             this.PanelTitleBar.Controls.Add(this.btnProducts);
             this.PanelTitleBar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PanelTitleBar.Location = new System.Drawing.Point(0, 332);
-            this.PanelTitleBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PanelTitleBar.Location = new System.Drawing.Point(0, 249);
             this.PanelTitleBar.Name = "PanelTitleBar";
-            this.PanelTitleBar.Size = new System.Drawing.Size(283, 768);
+            this.PanelTitleBar.Size = new System.Drawing.Size(248, 576);
             this.PanelTitleBar.TabIndex = 0;
             // 
             // btnSettings
@@ -95,11 +94,10 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(0, 400);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSettings.Location = new System.Drawing.Point(0, 300);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnSettings.Size = new System.Drawing.Size(283, 80);
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(248, 60);
             this.btnSettings.TabIndex = 4;
             this.btnSettings.Text = "Ustawienia";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -116,11 +114,10 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnHelp.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 320);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHelp.Location = new System.Drawing.Point(0, 240);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(283, 80);
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnHelp.Size = new System.Drawing.Size(248, 60);
             this.btnHelp.TabIndex = 5;
             this.btnHelp.Text = "Pomoc";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -137,11 +134,10 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnReports.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnReports.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.Image")));
             this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.Location = new System.Drawing.Point(0, 240);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReports.Location = new System.Drawing.Point(0, 180);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnReports.Size = new System.Drawing.Size(283, 80);
+            this.btnReports.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnReports.Size = new System.Drawing.Size(248, 60);
             this.btnReports.TabIndex = 6;
             this.btnReports.Text = "Raporty";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,11 +153,10 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnSales.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnSales.Image = ((System.Drawing.Image)(resources.GetObject("btnSales.Image")));
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSales.Location = new System.Drawing.Point(0, 160);
-            this.btnSales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSales.Location = new System.Drawing.Point(0, 120);
             this.btnSales.Name = "btnSales";
-            this.btnSales.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnSales.Size = new System.Drawing.Size(283, 80);
+            this.btnSales.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnSales.Size = new System.Drawing.Size(248, 60);
             this.btnSales.TabIndex = 3;
             this.btnSales.Text = "Sprzedaż";
             this.btnSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,11 +173,10 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnWareHouse.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnWareHouse.Image = ((System.Drawing.Image)(resources.GetObject("btnWareHouse.Image")));
             this.btnWareHouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWareHouse.Location = new System.Drawing.Point(0, 80);
-            this.btnWareHouse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWareHouse.Location = new System.Drawing.Point(0, 60);
             this.btnWareHouse.Name = "btnWareHouse";
-            this.btnWareHouse.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnWareHouse.Size = new System.Drawing.Size(283, 80);
+            this.btnWareHouse.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnWareHouse.Size = new System.Drawing.Size(248, 60);
             this.btnWareHouse.TabIndex = 2;
             this.btnWareHouse.Text = "Magazyn";
             this.btnWareHouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -200,10 +194,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducts.Location = new System.Drawing.Point(0, 0);
-            this.btnProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnProducts.Size = new System.Drawing.Size(283, 80);
+            this.btnProducts.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnProducts.Size = new System.Drawing.Size(248, 60);
             this.btnProducts.TabIndex = 1;
             this.btnProducts.Text = "Produkty";
             this.btnProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -214,10 +207,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 333);
+            this.pictureBox1.Size = new System.Drawing.Size(245, 250);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -228,20 +220,18 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.UpPanel.BackColor = System.Drawing.SystemColors.Highlight;
             this.UpPanel.Controls.Add(this.UpTitlePanel);
             this.UpPanel.Controls.Add(this.tableLayoutPanel1);
-            this.UpPanel.Location = new System.Drawing.Point(283, 0);
-            this.UpPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UpPanel.Location = new System.Drawing.Point(248, 0);
             this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(1432, 84);
+            this.UpPanel.Size = new System.Drawing.Size(1253, 63);
             this.UpPanel.TabIndex = 1;
             // 
             // UpTitlePanel
             // 
             this.UpTitlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.UpTitlePanel.Controls.Add(this.lblTitle);
-            this.UpTitlePanel.Location = new System.Drawing.Point(429, 8);
-            this.UpTitlePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UpTitlePanel.Location = new System.Drawing.Point(375, 6);
             this.UpTitlePanel.Name = "UpTitlePanel";
-            this.UpTitlePanel.Size = new System.Drawing.Size(648, 56);
+            this.UpTitlePanel.Size = new System.Drawing.Size(567, 42);
             this.UpTitlePanel.TabIndex = 2;
             // 
             // lblTitle
@@ -253,7 +243,7 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(439, 70);
+            this.lblTitle.Size = new System.Drawing.Size(352, 56);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Cudeńka - Magazyn";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -265,22 +255,20 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btnMinimalize, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnExit, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1279, 8);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1131, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(118, 58);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(118, 54);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnMinimalize
             // 
             this.btnMinimalize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMinimalize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimalize.Image")));
-            this.btnMinimalize.Location = new System.Drawing.Point(3, 4);
-            this.btnMinimalize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMinimalize.Location = new System.Drawing.Point(3, 3);
             this.btnMinimalize.Name = "btnMinimalize";
-            this.btnMinimalize.Size = new System.Drawing.Size(53, 50);
+            this.btnMinimalize.Size = new System.Drawing.Size(53, 48);
             this.btnMinimalize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnMinimalize.TabIndex = 1;
             this.btnMinimalize.TabStop = false;
@@ -290,10 +278,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             // 
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(62, 4);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExit.Location = new System.Drawing.Point(62, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(53, 50);
+            this.btnExit.Size = new System.Drawing.Size(53, 48);
             this.btnExit.TabIndex = 0;
             this.btnExit.TabStop = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -303,18 +290,16 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.PicturePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(76)))), ((int)(((byte)(138)))));
             this.PicturePanel.Controls.Add(this.pictureBox1);
             this.PicturePanel.Location = new System.Drawing.Point(0, 0);
-            this.PicturePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(283, 333);
+            this.PicturePanel.Size = new System.Drawing.Size(248, 250);
             this.PicturePanel.TabIndex = 0;
             // 
             // panelDekstopPane
             // 
             this.panelDekstopPane.Controls.Add(this.tableLayoutPanel2);
-            this.panelDekstopPane.Location = new System.Drawing.Point(283, 82);
-            this.panelDekstopPane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelDekstopPane.Location = new System.Drawing.Point(248, 62);
             this.panelDekstopPane.Name = "panelDekstopPane";
-            this.panelDekstopPane.Size = new System.Drawing.Size(1432, 1018);
+            this.panelDekstopPane.Size = new System.Drawing.Size(1253, 764);
             this.panelDekstopPane.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -326,13 +311,12 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.tableLayoutPanel2.Controls.Add(this.lblsecond, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblDate, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblTime, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(89, 183);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(78, 137);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1190, 601);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1041, 451);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // lblDay
@@ -340,9 +324,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.lblDay.AutoSize = true;
             this.lblDay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDay.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDay.Location = new System.Drawing.Point(598, 300);
+            this.lblDay.Location = new System.Drawing.Point(523, 225);
             this.lblDay.Name = "lblDay";
-            this.lblDay.Size = new System.Drawing.Size(589, 301);
+            this.lblDay.Size = new System.Drawing.Size(515, 226);
             this.lblDay.TabIndex = 2;
             this.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -351,9 +335,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.lblsecond.AutoSize = true;
             this.lblsecond.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblsecond.Font = new System.Drawing.Font("Segoe UI Semibold", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblsecond.Location = new System.Drawing.Point(598, 0);
+            this.lblsecond.Location = new System.Drawing.Point(523, 0);
             this.lblsecond.Name = "lblsecond";
-            this.lblsecond.Size = new System.Drawing.Size(589, 300);
+            this.lblsecond.Size = new System.Drawing.Size(515, 225);
             this.lblsecond.TabIndex = 3;
             this.lblsecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -362,9 +346,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.lblDate.AutoSize = true;
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.Location = new System.Drawing.Point(3, 300);
+            this.lblDate.Location = new System.Drawing.Point(3, 225);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(589, 301);
+            this.lblDate.Size = new System.Drawing.Size(514, 226);
             this.lblDate.TabIndex = 1;
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -375,7 +359,7 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 90F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTime.Location = new System.Drawing.Point(3, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(589, 300);
+            this.lblTime.Size = new System.Drawing.Size(514, 225);
             this.lblTime.TabIndex = 0;
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -389,12 +373,12 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.DropDownMenu.MenuItemTextColor = System.Drawing.Color.Empty;
             this.DropDownMenu.Name = "DropDownMenu";
             this.DropDownMenu.PrimaryColor = System.Drawing.Color.Empty;
-            this.DropDownMenu.Size = new System.Drawing.Size(99, 28);
+            this.DropDownMenu.Size = new System.Drawing.Size(91, 26);
             // 
             // sdfToolStripMenuItem
             // 
             this.sdfToolStripMenuItem.Name = "sdfToolStripMenuItem";
-            this.sdfToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.sdfToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
             this.sdfToolStripMenuItem.Text = "sdf";
             // 
             // timer1
@@ -404,20 +388,19 @@ namespace WareHouseApplication.AllForms.MainMenu
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1714, 1100);
+            this.ClientSize = new System.Drawing.Size(1500, 825);
             this.Controls.Add(this.panelDekstopPane);
             this.Controls.Add(this.PicturePanel);
             this.Controls.Add(this.UpPanel);
             this.Controls.Add(this.PanelTitleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainMenu";
-            this.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.PanelTitleBar.ResumeLayout(false);
