@@ -58,6 +58,9 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
+		<Compile Update="AllForms\NewForms\WareHouse\WareHouse.cs">
+		  <SubType>Form</SubType>
+		</Compile>
 		<Compile Update="Properties\Settings.Designer.cs">
 			<DesignTimeSharedInput>True</DesignTimeSharedInput>
 			<AutoGen>True</AutoGen>

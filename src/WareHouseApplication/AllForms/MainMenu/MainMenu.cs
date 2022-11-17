@@ -1,10 +1,11 @@
-﻿using ApplicationLayer.Interfaces;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using ApplicationLayer.Interfaces;
 using WareHouseApplication.AllForms.NewForms.BaseForm;
+using WareHouseApplication.AllForms.NewForms.Product;
+using WareHouseApplication.AllForms.NewForms.Settings;
 
-
-namespace WareHouseApplication.Forms;
+namespace WareHouseApplication.AllForms.MainMenu;
 
 public partial class MainMenu : BaseForm
 {
@@ -28,12 +29,12 @@ public partial class MainMenu : BaseForm
 
     private void btnProducts_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new NewForms.Product(ProductService));
+        OpenChildForm(new Product(ProductService));
     }
 
     private void btnWareHouse_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse());
+        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(ProductService));
     }
 
     private void btnSales_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ public partial class MainMenu : BaseForm
 
     private void btnSettings_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new NewForms.Settings());
+        OpenChildForm(new Settings());
     }
 
     private void btnHelp_Click(object sender, EventArgs e)

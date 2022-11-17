@@ -1,4 +1,9 @@
-﻿using ApplicationLayer.Dto.ProductDetailDtos;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
@@ -6,15 +11,11 @@ using FormsLogic.ProductForm.Logic.Edit;
 using FormsLogic.ProductForm.Logic.Filtering;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 using FormsLogic.ProductForm.Validation;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 using WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp;
 using WareHouseApplication.AllForms.NewForms.Product.SaveProducts;
+using WareHouseApplication.AllForms.NewForms.WareHouse;
 
-namespace WareHouseApplication.NewForms
+namespace WareHouseApplication.AllForms.NewForms.Product
 {
     public partial class Product : Form
     {
@@ -159,7 +160,14 @@ namespace WareHouseApplication.NewForms
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            ResetValuesInDataGridAndFillWithValuesAgain();
+            progressBar.Visible = true;
+            progressBar.Style = ProgressBarStyle.Marquee;
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            System.Threading.Thread thread =
+                new System.Threading.Thread(new System.Threading.ThreadStart(LoadTable));
+            thread.Start();
+            //ResetValuesInDataGridAndFillWithValuesAgain();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -168,7 +176,31 @@ namespace WareHouseApplication.NewForms
             RightPanelDeleteProductAdjustment();
 
         }
+        private void LoadTable()
+        {
+            var products = ReturnDataFromDataBase();
+            SetDataSource(products);
+            dataGridView1.ClearSelection();
+        }
 
+        internal delegate void SetDataSourceDelegate(IEnumerable<ProductDto> products);
+        private void SetDataSource(IEnumerable<ProductDto> products)
+        {
+            // Invoke method if required:
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new SelectProduct.SetDataSourceDelegate(SetDataSource), products);
+            }
+            else
+            {
+                dataGridView1.DataSource = null;
+                foreach (var item in products)
+                {
+                    dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
+                }
+                progressBar.Visible = false;
+            }
+        }
         private void rjToggleButton1_Click(object sender, EventArgs e)
         {
             var statusOfButon = ExtraDescriptionTBox.Enabled;
@@ -499,11 +531,7 @@ namespace WareHouseApplication.NewForms
         private void Product_Load(object sender, EventArgs e)
         {
             PnlAdd.Width = 0;
-            var products = ReturnDataFromDataBase();
-            LoadProductsToDataGridView(products);
-            dataGridView1.ClearSelection();
             CBoxSearchByCategory.SelectedIndex = 0;
-
         }
 
         private void LoadProductsToDataGridView(IEnumerable<ProductDto> products)
