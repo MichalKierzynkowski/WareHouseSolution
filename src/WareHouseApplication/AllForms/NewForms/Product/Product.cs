@@ -186,7 +186,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product
         internal delegate void SetDataSourceDelegate(IEnumerable<ProductDto> products);
         private void SetDataSource(IEnumerable<ProductDto> products)
         {
-            // Invoke method if required:
+            
             if (this.InvokeRequired)
             {
                 this.Invoke(new SelectProduct.SetDataSourceDelegate(SetDataSource), products);
@@ -577,8 +577,6 @@ namespace WareHouseApplication.AllForms.NewForms.Product
                 ExtraDescriptionTBox.Text = UpdateProductDto.EditProductDetailDto.ExtraDescription;
             }
         }
-
-
 
 
 

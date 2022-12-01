@@ -7,21 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse
 {
     public partial class SelectProduct : Form
     {
         public IProductService ProductService { get; set; }
+        public GetProductDto GetProductDto { get; set; }
 
         public SelectProduct(IProductService productService)
         {
             InitializeComponent();
             this.TopMost = true;
             ProductService = productService;
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -32,7 +36,6 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
         internal delegate void SetDataSourceDelegate(IEnumerable<ProductDto> products);
         private void SetDataSource(IEnumerable<ProductDto> products)
         {
-            // Invoke method if required:
             if (this.InvokeRequired)
             {
                 this.Invoke(new SetDataSourceDelegate(SetDataSource), products);
@@ -69,6 +72,7 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
             System.Threading.Thread thread =
                 new System.Threading.Thread(new System.Threading.ThreadStart(LoadTable));
             thread.Start();
+            btnPick.Enabled = true;
         }
 
         private void LoadTable()
@@ -78,6 +82,65 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
             dataGridView1.ClearSelection();
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var filteringOption = new FilteringOptionsManagement(CBoxSearchByCategory.SelectedItem.ToString(), TxtSearch.Text, ProductService);
+            if ((filteringOption.ErrorMessages != null) && (filteringOption.ErrorMessages.Any()))
+            {
+                MessageBox.Show(string.Join("\n", filteringOption.ErrorMessages), "Błąd",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                LoadProductsToDataGridView(filteringOption.ProductsAfterFiltering);
+            }
+        }
+        private void LoadProductsToDataGridView(IEnumerable<ProductDto> products)
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.DataSource = null;
+            foreach (var item in products)
+            {
+                dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
+            }
+        }
 
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            TxtSearch.Clear();
+            CBoxSearchByCategory.SelectedIndex = 0;
+            ResetValuesInDataGridAndFillWithValuesAgain();
+        }
+        private void ResetValuesInDataGridAndFillWithValuesAgain()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            var products = ReturnDataFromDataBase();
+            LoadProductsToDataGridView(products);
+        }
+
+        private void btnPick_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pomyślnie wybrano produkt!", "Sukces!",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AssignmentDataToGetProductDto(e.RowIndex);
+        }
+
+        private void AssignmentDataToGetProductDto( int digitOfSelectedRow)
+        {
+            if (digitOfSelectedRow >= 0)
+            {
+                GetProductDto = new GetProductDto();
+                var selectedRow = dataGridView1.Rows[digitOfSelectedRow];
+                GetProductDto.RegistrationNumber = (int) selectedRow.Cells[0].Value;
+                GetProductDto.Name= selectedRow.Cells[1].Value.ToString();
+                GetProductDto.Type=selectedRow.Cells[2].Value.ToString();
+            }
+        }
     }
 }
