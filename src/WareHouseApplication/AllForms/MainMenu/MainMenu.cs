@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using ApplicationLayer.Interfaces;
+using Domain.Interfaces;
+using Infrastructure.Repositories;
 using WareHouseApplication.AllForms.NewForms.BaseForm;
 using WareHouseApplication.AllForms.NewForms.Product;
 using WareHouseApplication.AllForms.NewForms.Settings;
@@ -9,19 +11,24 @@ namespace WareHouseApplication.AllForms.MainMenu;
 
 public partial class MainMenu : BaseForm
 {
+    private readonly IProductRepository _productRepository;
+
     #region Properties
     private Random _random;
     private Form _activeForm;
     public IProductService ProductService { get; set; }
+    public IWareHouseService WareHouseService { get; set; }
     #endregion
 
     #region Constructor
-    public MainMenu(IProductService productService)
+    public MainMenu(IProductService productService, IWareHouseService wareHouseService,IProductRepository productRepository)
     {
+        _productRepository = productRepository;
         InitializeComponent();
         _random = new Random();
         timer1.Start();
         ProductService = productService;
+        WareHouseService = wareHouseService;
     }
     #endregion
 
@@ -34,7 +41,7 @@ public partial class MainMenu : BaseForm
 
     private void btnWareHouse_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(ProductService));
+        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(ProductService,WareHouseService,_productRepository));
     }
 
     private void btnSales_Click(object sender, EventArgs e)

@@ -95,7 +95,6 @@
             this.ExtraDescriptionDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddedAtDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
@@ -966,7 +965,6 @@
             this.ExtraDescriptionDG,
             this.AddedAtDG,
             this.Column1,
-            this.Column2,
             this.Column3});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -1064,14 +1062,6 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Narzut";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
             // 
             // Column3
             // 
@@ -1189,7 +1179,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ExtraDescriptionDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddedAtDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

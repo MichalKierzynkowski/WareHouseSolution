@@ -4,20 +4,20 @@
 
 namespace Infrastructure.Migrations
 {
-    public partial class DeleteRegistrationNumber : Migration
+    public partial class DeleteFieldOverHead : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "RegistrationNumber",
-                table: "Products");
+                name: "Overhead",
+                table: "WareHouse");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "RegistrationNumber",
-                table: "Products",
+                name: "Overhead",
+                table: "WareHouse",
                 type: "INTEGER",
                 nullable: false,
                 defaultValue: 0);

@@ -2,7 +2,11 @@
 using System;
 using System.Windows.Forms;
 using ApplicationLayer.Dto.ProductDtos;
+using ApplicationLayer.Dto.WareHouse;
 using ApplicationLayer.Interfaces;
+using Domain.Interfaces;
+using FormsLogic.WareHouse.Logic.Data;
+using FormsLogic.WareHouse.Validation;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse
 {
@@ -10,10 +14,16 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
     {
         public IProductService ProductService { get; set; }
         public GetProductDto GetProductDto { get; set; }
-        public WareHouse(IProductService productService)
+        public CreateWareHouseDto CreateWareHouseDto { get; set; }
+        public IWareHouseService WareHouseService { get; set; }
+        public IProductRepository ProductRepository { get; set; }
+        public WareHouse(IProductService productService, IWareHouseService wareHouseService, IProductRepository productRepository)
         {
             InitializeComponent();
             ProductService=productService;
+            WareHouseService = wareHouseService;
+            ProductRepository = productRepository;
+            CreateWareHouseDto = new CreateWareHouseDto();
             SetOffDeleteAndEditButtons();
         }
         private void SetOffDeleteAndEditButtons()
@@ -43,9 +53,9 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
 
         private void AssigneDataToInputs()
         {
-            txtRegistrationNumber.Text = GetProductDto.Name;
+            txtRegistrationNumber.Text = GetProductDto.RegistrationNumber.ToString();
             txtProductType.Text = GetProductDto.Type;
-            txtName.Text = GetProductDto.RegistrationNumber.ToString();
+            txtName.Text = GetProductDto.Name.ToString();
         }
 
         
@@ -120,24 +130,61 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
             DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny?", "Informacja", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (lblRightPanelMainName.Text == "Dodaj produkt")
+                if (lblRightPanelMainName.Text == "Dodaj dostawe")
                 {
                     AddNewDeliveryPreValidation();
                 }
-                else if (lblRightPanelMainName.Text == "Edytuj Produkt")
+                else if (lblRightPanelMainName.Text == "Edytuj dostawe")
                 {
-                    
+                    EditNewDeliveryPreValidation();
                 }
-                else if (lblRightPanelMainName.Text == "Usuń Produkt")
+                else if (lblRightPanelMainName.Text == "Usuń dostawe")
                 {
-                    
+                    DeleteNewDeliveryPreValidation();
                 }
             }
         }
 
+        private void DeleteNewDeliveryPreValidation()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void EditNewDeliveryPreValidation()
+        {
+            throw new NotImplementedException();
+        }
+
         private void AddNewDeliveryPreValidation()
         {
-            
+            AssignedValuesFromInputsToCreateWareHouse();
+            CreateWareHouseDtoValidation wareHouseValidation = new CreateWareHouseDtoValidation();
+            var result = wareHouseValidation.Validate(CreateWareHouseDto);
+            if (!result.IsValid)
+            {
+                MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                AddNewWareHouseToDataBase newWareHouse = new AddNewWareHouseToDataBase(CreateWareHouseDto,WareHouseService,ProductRepository);
+                MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Timer.Start();
+                TLPnlTop.Enabled = true;
+
+            }
+        }
+
+        private void AssignedValuesFromInputsToCreateWareHouse()
+        {
+            CreateWareHouseDto.ProductRegistrationNumber = Convert.ToInt32(txtRegistrationNumber.Text);
+            CreateWareHouseDto.Date=DateTime.Now;
+            CreateWareHouseDto.PurchasePrice = buyPriceNumeric.Value;
+            CreateWareHouseDto.SellPrice = sellPriceNumeric.Value;
+            CreateWareHouseDto.Quantity = Convert.ToInt32(quantityNumeric.Value);
+            CreateWareHouseDto.Overhead = (CreateWareHouseDto.SellPrice - CreateWareHouseDto.PurchasePrice) / CreateWareHouseDto.PurchasePrice * 100;
+
         }
     }
 }

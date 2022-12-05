@@ -34,8 +34,10 @@ public static class Program
                 .ConfigureServices((context, services) =>
                 {
                     services.AddScoped<IProductService, ProductService>();
+                    services.AddScoped<IWareHouseService, WareHouseService>();
                     services.AddEntityFrameworkSqlite().AddDbContext<WareHouseDbContext>();
                     services.AddScoped<IProductRepository, ProductRepository>();
+                    services.AddScoped<IWareHouseRepository, WareHouseRepository>();
                     services.AddTransient<MainMenu>();
                     services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
                     services.AddSingleton(AutoMapperConfig.Initialize());

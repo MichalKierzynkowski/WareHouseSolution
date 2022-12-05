@@ -53,11 +53,6 @@
 		</COMReference>
 	</ItemGroup>
 	<ItemGroup>
-		<Content Include="WareHouse.db">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-	<ItemGroup>
 		<Compile Update="AllForms\NewForms\WareHouse\WareHouse.cs">
 		  <SubType>Form</SubType>
 		</Compile>
