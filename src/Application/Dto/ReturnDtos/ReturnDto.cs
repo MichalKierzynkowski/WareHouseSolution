@@ -1,9 +1,8 @@
-﻿using ApplicationLayer.Dto.ProductDtos;
-using Domain.Entities;
+﻿using Domain.Entities;
 
-namespace ApplicationLayer.Dto.WareHouse
+namespace ApplicationLayer.Dto.ReturnDtos
 {
-    public  class WareHouseDto
+    public class ReturnDto
     {
         public ICollection<Product> Products { get; set; }
         public int Quantity { get; set; }
@@ -12,9 +11,9 @@ namespace ApplicationLayer.Dto.WareHouse
         public decimal SellPrice { get; set; }
         public DateTime Date { get; set; }
 
-        public WareHouseDto()
+        public ReturnDto()
         {
-                
+
         }
     }
 }

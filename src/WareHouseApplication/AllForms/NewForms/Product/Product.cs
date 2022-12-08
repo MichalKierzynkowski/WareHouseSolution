@@ -189,7 +189,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             
             if (this.InvokeRequired)
             {
-                this.Invoke(new SelectProduct.SetDataSourceDelegate(SetDataSource), products);
+                this.Invoke(new SetDataSourceDelegate(SetDataSource), products);
             }
             else
             {

@@ -22,7 +22,6 @@ namespace Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
-
         public WareHouse Add(WareHouse wareHouse)
         {
             _context.WareHouse.Add(wareHouse);

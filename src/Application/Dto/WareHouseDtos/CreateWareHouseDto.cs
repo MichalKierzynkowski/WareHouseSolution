@@ -10,7 +10,6 @@ namespace ApplicationLayer.Dto.WareHouse
         public int Quantity { get; set; }
         public decimal PurchasePrice { get; set; }
         public decimal SellPrice { get; set; }
-        public decimal Overhead { get; set; }
         public DateTime Date { get; set; }
         public string Unit { get; set; }
 
