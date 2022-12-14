@@ -16,23 +16,11 @@ namespace FormsLogic.WareHouse.Logic.Data
             _productRepository = productRepository;
             var products = GetAllProducts();
             WareHouses = wareHouseService.GetAllWareHouses();
-            EinrichWareHouse(products);
-           
         }
 
         private IEnumerable<Product> GetAllProducts()
         {
             return _productRepository.GetAll();
-        }
-
-        private void EinrichWareHouse(IEnumerable<Product> products)
-        {
-            foreach (var item in WareHouses)
-            {
-                
-            }
-
-           
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ApplicationLayer.Dto.WareHouse
         public decimal SellPrice { get; set; }
         public DateTime Date { get; set; }
         public string Unit { get; set; }
-
+        public bool IsReturned { get; set; }
         public CreateWareHouseDto()
         {
                 

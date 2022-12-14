@@ -10,7 +10,7 @@ namespace ApplicationLayer.Dto.WareHouse
         public decimal PurchasePrice { get; set; }
         public decimal SellPrice { get; set; }
         public DateTime Date { get; set; }
-
+        public string IsReturned { get; set; }
         public WareHouseDto()
         {
                 

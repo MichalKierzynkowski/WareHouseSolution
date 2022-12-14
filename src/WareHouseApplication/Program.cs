@@ -41,6 +41,8 @@ public static class Program
                     services.AddTransient<MainMenu>();
                     services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
                     services.AddSingleton(AutoMapperConfig.Initialize());
+                    services.AddScoped<IReturnService, ReturnService>();
+                    services.AddScoped<IReturnRepository, ReturnRepository>();
                 });
         }
     }

@@ -4,32 +4,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using ApplicationLayer.Dto.ProductDtos;
+using ApplicationLayer.Dto.ReturnDtos;
 using ApplicationLayer.Dto.WareHouse;
 using ApplicationLayer.Interfaces;
 using Domain.Interfaces;
-using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.Return.Logic.Data;
+using FormsLogic.Return.Validation;
 using FormsLogic.WareHouse.Logic.Data;
 using FormsLogic.WareHouse.Validation;
-using System.Data.Entity;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse
 {
     public partial class WareHouse : Form
     {
+        private readonly IReturnService _returnService;
         public IProductService ProductService { get; set; }
         public GetProductDto GetProductDto { get; set; }
         public CreateWareHouseDto CreateWareHouseDto { get; set; }
         public IWareHouseService WareHouseService { get; set; }
         public IProductRepository ProductRepository { get; set; }
+        public CreateReturnDto CreateReturnDto { get; set; }
 
         public WareHouse(IProductService productService, IWareHouseService wareHouseService,
-            IProductRepository productRepository)
+            IProductRepository productRepository,IReturnService returnService)
         {
+            _returnService = returnService;
             InitializeComponent();
             ProductService = productService;
             WareHouseService = wareHouseService;
             ProductRepository = productRepository;
             CreateWareHouseDto = new CreateWareHouseDto();
+            CreateReturnDto= new CreateReturnDto();
             SetOffDeleteAndEditButtons();
         }
 
@@ -195,8 +200,8 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
         private void AddNewDeliveryWithReturnedItemPreValidation()
         {
             AssignedValuesFromInputsToCreateReturn();
-            CreateWareHouseDtoValidation wareHouseValidation = new CreateWareHouseDtoValidation();
-            var result = wareHouseValidation.Validate(CreateWareHouseDto);
+            CreateReturnValidation returnValidation = new CreateReturnValidation();
+            var result = returnValidation.Validate(CreateReturnDto);
             if (!result.IsValid)
             {
                 MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
@@ -204,8 +209,8 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
             }
             else
             {
-                AddNewWareHouseToDataBase newWareHouse =
-                    new AddNewWareHouseToDataBase(CreateWareHouseDto, WareHouseService, ProductRepository);
+                AddNewReturnToDataBase newReturn =
+                    new AddNewReturnToDataBase(CreateReturnDto, _returnService, ProductRepository);
                 MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Timer.Start();
@@ -216,12 +221,12 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
 
         private void AssignedValuesFromInputsToCreateReturn()
         {
-            //zmiana
-            CreateWareHouseDto.ProductRegistrationNumber = Convert.ToInt32(txtRegistrationNumber.Text);
-            CreateWareHouseDto.Date = DateTime.Now;
-            CreateWareHouseDto.PurchasePrice = buyPriceNumeric.Value;
-            CreateWareHouseDto.SellPrice = sellPriceNumeric.Value;
-            CreateWareHouseDto.Quantity = Convert.ToInt32(quantityNumeric.Value);
+            CreateReturnDto.ProductRegistrationNumber = Convert.ToInt32(txtRegistrationNumber.Text);
+            CreateReturnDto.Date = DateTime.Now;
+            CreateReturnDto.PurchasePrice = buyPriceNumeric.Value;
+            CreateReturnDto.SellPrice = sellPriceNumeric.Value;
+            CreateReturnDto.Quantity = Convert.ToInt32(quantityNumeric.Value);
+            CreateReturnDto.IsReturned= true;
         }
 
         private void AddNewDeliveryPreValidation()
@@ -253,6 +258,7 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
             CreateWareHouseDto.PurchasePrice = buyPriceNumeric.Value;
             CreateWareHouseDto.SellPrice = sellPriceNumeric.Value;
             CreateWareHouseDto.Quantity = Convert.ToInt32(quantityNumeric.Value);
+            CreateWareHouseDto.IsReturned =false;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -269,15 +275,24 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
         private void LoadTable()
         {
             var wareHouses = ReturnDataFromWareHouse();
-            SetDataSource(wareHouses);
+            var returns = ReturnDataFromReturns();
+            SetDataSource(wareHouses,returns);
             dataGridView1.ClearSelection();
         }
-        internal delegate void SetDataSourceDelegate(IEnumerable<WareHouseDto> wareHouses);
-        private void SetDataSource(IEnumerable<WareHouseDto> wareHouses)
+
+        private IEnumerable<ReturnDto> ReturnDataFromReturns()
+        {
+            var dataReturn = new ReturnReturnItemFromDB(_returnService, ProductRepository);
+
+            return dataReturn.Returns;
+        }
+
+        internal delegate void SetDataSourceDelegate(IEnumerable<WareHouseDto> wareHouses, IEnumerable<ReturnDto> returns);
+        private void SetDataSource(IEnumerable<WareHouseDto> wareHouses, IEnumerable<ReturnDto> returns)
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(new SetDataSourceDelegate(SetDataSource), wareHouses);
+                this.Invoke(new SetDataSourceDelegate(SetDataSource), wareHouses,returns);
             }
             else
             {
@@ -292,7 +307,22 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
                             product.Name,
                             product.Product.RegistrationNumber,
                             product.Type, item.Quantity,
-                            item.Unit, item.PurchasePrice, item.SellPrice, item.Date
+                            item.Unit, item.PurchasePrice, item.SellPrice, item.IsReturned
+                        });
+                    }
+                }
+                foreach (var item in returns)
+                {
+                    var productDetail = item.Products.Select(x => x.ProductDetail);
+                    foreach (var product in productDetail)
+                    {
+                        dataGridView1.Rows.Add(new object[]
+                        {
+                            product.Name,
+                            product.Product.RegistrationNumber,
+                            product.Type, item.Quantity,
+                            item.Unit, item.PurchasePrice, item.SellPrice,
+                            item.IsReturned
                         });
                     }
                 }

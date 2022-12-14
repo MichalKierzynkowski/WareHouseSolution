@@ -1,4 +1,5 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
+using ApplicationLayer.Dto.ReturnDtos;
 using ApplicationLayer.Dto.WareHouse;
 using AutoMapper;
 using Domain.Entities;
@@ -31,15 +32,36 @@ namespace ApplicationLayer.Mappings
             .ForPath(d => d.PurchasePrice, opt => opt.MapFrom(d => d.PurchasePrice))
             .ForPath(d => d.Date, opt => opt.MapFrom(d => d.Date))
             .ForPath(d => d.Quantity, opt => opt.MapFrom(d => d.Quantity))
-            .ForPath(d => d.Products, opt => opt.MapFrom(d => d.Products));
+            .ForPath(d => d.Products, opt => opt.MapFrom(d => d.Products))
+            .ForPath(d => d.IsReturned, opt => opt.MapFrom(src => (src.IsReturned ? "Tak" : "Nie")));
 
             cfg.CreateMap<CreateWareHouseDto, WareHouse>()
-                .ForPath(d => d.Date, opt => opt.MapFrom(d => d.Date))
-                .ForPath(d => d.Products, opt => opt.MapFrom(d => d.Products))
-                .ForPath(d => d.PurchasePrice, opt => opt.MapFrom(d => d.PurchasePrice))
-                .ForPath(d => d.Quantity, opt => opt.MapFrom(d => d.Quantity))
-                .ForPath(d => d.SellPrice, opt => opt.MapFrom(d => d.SellPrice))
-                .ForPath(d => d.Unit, opt => opt.MapFrom(d => d.Unit));
+            .ForPath(d => d.Date, opt => opt.MapFrom(d => d.Date))
+            .ForPath(d => d.Products, opt => opt.MapFrom(d => d.Products))
+            .ForPath(d => d.PurchasePrice, opt => opt.MapFrom(d => d.PurchasePrice))
+            .ForPath(d => d.Quantity, opt => opt.MapFrom(d => d.Quantity))
+            .ForPath(d => d.SellPrice, opt => opt.MapFrom(d => d.SellPrice))
+            .ForPath(d => d.Unit, opt => opt.MapFrom(d => d.Unit))
+            .ForPath(d => d.IsReturned, opt => opt.MapFrom(opt => opt.IsReturned));
+
+            cfg.CreateMap<Return, ReturnDto>()
+            .ForPath(d => d.Unit, opt => opt.MapFrom(d => d.Unit))
+            .ForPath(d => d.SellPrice, opt => opt.MapFrom(d => d.SellPrice))
+            .ForPath(d => d.PurchasePrice, opt => opt.MapFrom(d => d.PurchasePrice))
+            .ForPath(d => d.Date, opt => opt.MapFrom(d => d.Date))
+            .ForPath(d => d.Quantity, opt => opt.MapFrom(d => d.Quantity))
+            .ForPath(d => d.Products, opt => opt.MapFrom(d => d.Products))
+            .ForPath(d => d.IsReturned, opt => opt.MapFrom(src => (src.IsReturned ? "Tak" : "Nie")));
+
+
+            cfg.CreateMap<CreateReturnDto, Return>()
+            .ForPath(d => d.Date, opt => opt.MapFrom(d => d.Date))
+            .ForPath(d => d.Products, opt => opt.MapFrom(d => d.Products))
+            .ForPath(d => d.PurchasePrice, opt => opt.MapFrom(d => d.PurchasePrice))
+            .ForPath(d => d.Quantity, opt => opt.MapFrom(d => d.Quantity))
+            .ForPath(d => d.SellPrice, opt => opt.MapFrom(d => d.SellPrice))
+            .ForPath(d => d.Unit, opt => opt.MapFrom(d => d.Unit))
+            .ForPath(d => d.IsReturned, opt => opt.MapFrom(opt=>opt.IsReturned));
         }
     ).CreateMapper();
     }

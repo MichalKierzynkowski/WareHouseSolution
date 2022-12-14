@@ -8,5 +8,10 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         {
             InitializeComponent();
         }
+
+        private void Sale_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

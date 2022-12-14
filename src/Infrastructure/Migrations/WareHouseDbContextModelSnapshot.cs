@@ -84,6 +84,9 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsReturned")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("PurchasePrice")
                         .HasColumnType("TEXT");
 
@@ -110,6 +113,9 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsReturned")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("PurchasePrice")
                         .HasColumnType("TEXT");

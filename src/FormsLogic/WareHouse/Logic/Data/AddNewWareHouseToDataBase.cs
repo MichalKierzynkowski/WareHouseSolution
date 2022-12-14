@@ -1,4 +1,4 @@
-﻿using ApplicationLayer.Dto.ProductDtos;
+﻿using ApplicationLayer.Dto.ReturnDtos;
 using ApplicationLayer.Dto.WareHouse;
 using ApplicationLayer.Interfaces;
 using Domain.Entities;
@@ -29,6 +29,7 @@ namespace FormsLogic.WareHouse.Logic.Data
         private void EinrichWareHouse()
         {
             _createWareHouseDto.Unit = "szt";
+            _createWareHouseDto.IsReturned = false;
             var product = GetProductByRegistrationNumber();
             
             _createWareHouseDto.Products = new List<Product>()

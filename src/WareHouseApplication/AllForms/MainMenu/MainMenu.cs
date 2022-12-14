@@ -12,6 +12,7 @@ namespace WareHouseApplication.AllForms.MainMenu;
 public partial class MainMenu : BaseForm
 {
     private readonly IProductRepository _productRepository;
+    private readonly IReturnService _returnService;
 
     #region Properties
     private Random _random;
@@ -21,9 +22,10 @@ public partial class MainMenu : BaseForm
     #endregion
 
     #region Constructor
-    public MainMenu(IProductService productService, IWareHouseService wareHouseService,IProductRepository productRepository)
+    public MainMenu(IProductService productService, IWareHouseService wareHouseService,IProductRepository productRepository,IReturnService returnService)
     {
         _productRepository = productRepository;
+        _returnService = returnService;
         InitializeComponent();
         _random = new Random();
         timer1.Start();
@@ -41,7 +43,7 @@ public partial class MainMenu : BaseForm
 
     private void btnWareHouse_Click(object sender, EventArgs e)
     {
-        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(ProductService,WareHouseService,_productRepository));
+        OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(ProductService,WareHouseService,_productRepository,_returnService));
     }
 
     private void btnSales_Click(object sender, EventArgs e)

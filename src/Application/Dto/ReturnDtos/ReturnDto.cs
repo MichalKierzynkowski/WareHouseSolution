@@ -10,7 +10,7 @@ namespace ApplicationLayer.Dto.ReturnDtos
         public decimal PurchasePrice { get; set; }
         public decimal SellPrice { get; set; }
         public DateTime Date { get; set; }
-
+        public string IsReturned { get; set; }
         public ReturnDto()
         {
 
