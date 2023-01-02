@@ -1,5 +1,4 @@
 ﻿using ApplicationLayer.Dto.WareHouse;
-using ApplicationLayer.Dto.WareHouseDtos;
 using ApplicationLayer.Interfaces;
 using AutoMapper;
 using Domain.Entities;
@@ -24,20 +23,11 @@ namespace ApplicationLayer.Services
             return _mapper.Map<List<WareHouseDto>>(wareHouses);
         }
 
-        public GetWareHouseForSaleDto GetWareHouseByIdForSale(int id)
-        {
-            var wareHouse = _wareHouseRepository.GetById(id);
-            return _mapper.Map<GetWareHouseForSaleDto>(wareHouse);
-        }
-
         public WareHouseDto AddNewWareHouse(CreateWareHouseDto newWareHouse)
         {
             var wareHouse = _mapper.Map<WareHouse>(newWareHouse);
             _wareHouseRepository.Add(wareHouse);
             return _mapper.Map<WareHouseDto>(wareHouse);
         }
-
-       
-
     }
 }

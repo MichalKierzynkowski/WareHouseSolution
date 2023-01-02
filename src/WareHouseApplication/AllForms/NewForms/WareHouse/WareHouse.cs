@@ -19,7 +19,7 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
     {
         private readonly IReturnService _returnService;
         public IProductService ProductService { get; set; }
-        public GetProductDto GetProductDto { get; set; }
+        public ProductDto ProductDto { get; set; }
         public CreateWareHouseDto CreateWareHouseDto { get; set; }
         public IWareHouseService WareHouseService { get; set; }
         public IProductRepository ProductRepository { get; set; }
@@ -54,11 +54,11 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
         {
             using (SelectProduct selectProduct = new SelectProduct(ProductService))
             {
-                GetProductDto = null;
+                ProductDto = null;
                 selectProduct.ShowDialog();
-                if (selectProduct.GetProductDto != null)
+                if (selectProduct.ProductDto != null)
                 {
-                    GetProductDto = selectProduct.GetProductDto;
+                    ProductDto = selectProduct.ProductDto;
                     AssigneDataToInputs();
                 }
             }
@@ -67,9 +67,9 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
 
         private void AssigneDataToInputs()
         {
-            txtRegistrationNumber.Text = GetProductDto.RegistrationNumber.ToString();
-            txtProductType.Text = GetProductDto.Type;
-            txtName.Text = GetProductDto.Name.ToString();
+            txtRegistrationNumber.Text = ProductDto.RegistrationNumber.ToString();
+            txtProductType.Text = ProductDto.ProductDetailDto.Type;
+            txtName.Text = ProductDto.ProductDetailDto.Name.ToString();
         }
 
 
@@ -258,7 +258,7 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
             CreateWareHouseDto.PurchasePrice = buyPriceNumeric.Value;
             CreateWareHouseDto.SellPrice = sellPriceNumeric.Value;
             CreateWareHouseDto.Quantity = Convert.ToInt32(quantityNumeric.Value);
-            CreateWareHouseDto.IsReturned =false;
+            CreateWareHouseDto.IsReturned ="Nie";
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

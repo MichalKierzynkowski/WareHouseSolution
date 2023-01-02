@@ -9,14 +9,12 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
     {
         public  IWareHouseService WareHouseService;
         public IProductService ProductService { get; set; }
-        public GetProductDtoForSale ProductDto { get; set; }
         public Sale(IProductService productService,IWareHouseService wareHouseService)
         {
             WareHouseService = wareHouseService;
             InitializeComponent();
             SetOffDeleteAndEditButtons();
             ProductService = productService;
-            ProductDto = new GetProductDtoForSale();
         }
 
         private void SetOffDeleteAndEditButtons()

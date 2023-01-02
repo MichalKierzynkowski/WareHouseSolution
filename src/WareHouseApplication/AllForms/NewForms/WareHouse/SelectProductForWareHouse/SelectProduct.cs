@@ -18,7 +18,8 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse;
 public partial class SelectProduct : Form
 {
     public IProductService ProductService { get; set; }
-    public GetProductDto GetProductDto { get; set; }
+    public ProductDto ProductDto { get; set; }
+    public ProductDetailDto ProductDetailDto { get; set; }
 
     public SelectProduct(IProductService productService)
     {
@@ -135,11 +136,13 @@ public partial class SelectProduct : Form
     {
         if (digitOfSelectedRow >= 0)
         {
-            GetProductDto = new GetProductDto();
+            ProductDetailDto = new ProductDetailDto();
+            ProductDto = new ProductDto(ProductDetailDto);
+           
             var selectedRow = dataGridView1.Rows[digitOfSelectedRow];
-            GetProductDto.RegistrationNumber = (int) selectedRow.Cells[0].Value;
-            GetProductDto.Name= selectedRow.Cells[1].Value.ToString();
-            GetProductDto.Type=selectedRow.Cells[2].Value.ToString();
+            ProductDto.RegistrationNumber = (int) selectedRow.Cells[0].Value;
+            ProductDto.ProductDetailDto.Name= selectedRow.Cells[1].Value.ToString();
+            ProductDto.ProductDetailDto.Type=selectedRow.Cells[2].Value.ToString();
         }
     }
 }

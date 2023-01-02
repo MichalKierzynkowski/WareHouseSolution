@@ -19,7 +19,6 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
     {
         public IProductService ProductService { get; set; }
         public IWareHouseService WareHouseService { get; set; }
-        public GetProductDtoForSale GetProductDto { get; set; }
 
         public SelectProduct(IProductService productService, IWareHouseService wareHouseService)
         {
@@ -145,19 +144,13 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         {
             if (digitOfSelectedRow >= 0)
             {
-                GetProductDto = new GetProductDtoForSale();
-                var selectedRow = dataGridView1.Rows[digitOfSelectedRow];
-                GetProductDto.RegistrationNumber = (int) selectedRow.Cells[0].Value;
-                GetProductDto.Name= selectedRow.Cells[1].Value.ToString();
-                GetProductDto.Type=selectedRow.Cells[2].Value.ToString();
-                GetProductDto.Amount = (int)AmountUpDown.Value;
-                GetProductDto.SellPrice = GetSellPriceForProduct(GetProductDto.RegistrationNumber);
+               
             }
         }
 
         private decimal GetSellPriceForProduct(int registrationNumber)
         {
-            return WareHouseService.GetSellPriceForProduct(registrationNumber);
+            return 0;
         }
     }
-}
+} 

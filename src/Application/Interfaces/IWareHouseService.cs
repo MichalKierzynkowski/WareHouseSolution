@@ -1,5 +1,4 @@
 ﻿using ApplicationLayer.Dto.WareHouse;
-using ApplicationLayer.Dto.WareHouseDtos;
 
 namespace ApplicationLayer.Interfaces
 {

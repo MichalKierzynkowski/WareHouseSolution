@@ -29,7 +29,7 @@ namespace FormsLogic.WareHouse.Logic.Data
         private void EinrichWareHouse()
         {
             _createWareHouseDto.Unit = "szt";
-            _createWareHouseDto.IsReturned = false;
+            _createWareHouseDto.IsReturned = "Nie";
             var product = GetProductByRegistrationNumber();
             
             _createWareHouseDto.Products = new List<Product>()
