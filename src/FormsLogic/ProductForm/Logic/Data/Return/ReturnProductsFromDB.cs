@@ -1,13 +1,13 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 
-namespace FormsLogic.ProductForm.Logic.Data
+namespace FormsLogic.ProductForm.Logic.Data.Return
 {
-    public class ReturnDataFromDb
+    public class ReturnProductsFromDB
     {
         public IEnumerable<ProductDto> Products { get; set; }
 
-        public ReturnDataFromDb(IProductService productService)
+        public ReturnProductsFromDB(IProductService productService)
         {
             Products = productService.GetAllProducts().ToList();
         }

@@ -11,6 +11,7 @@ using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.ProductForm.Logic.Data.Return;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 
 namespace WareHouseApplication.AllForms.NewForms.Sale
@@ -57,10 +58,11 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             CBoxSearchByCategory.SelectedIndex = 0;
         }
 
-        public IEnumerable<ProductDto> ReturnDataFromDataBase()
+        public IEnumerable<ProductDto> ReturnProductsFromWareHouse()
         {
-            var dataReturn = new ReturnDataFromDb(ProductService);
+            var dataReturn = new ReturnProductsFromDB(ProductService);
             return dataReturn.Products;
+
         }
 
         private void btnLoadData_Click(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
 
         private void LoadTable()
         {
-            var products = ReturnDataFromDataBase();
+            var products = ReturnProductsFromWareHouse();
             SetDataSource(products);
             dataGridView1.ClearSelection();
         }
@@ -115,7 +117,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         {
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            var products = ReturnDataFromDataBase();
+            var products = ReturnProductsFromWareHouse();
             LoadProductsToDataGridView(products);
         }
 

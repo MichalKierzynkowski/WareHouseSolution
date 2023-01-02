@@ -4,7 +4,7 @@ using ApplicationLayer.Interfaces;
 using Domain.Entities;
 using Domain.Interfaces;
 
-namespace FormsLogic.WareHouse.Logic.Data
+namespace FormsLogic.WareHouse.Logic.Data.Add
 {
     public class AddNewWareHouseToDataBase
     {
@@ -12,7 +12,7 @@ namespace FormsLogic.WareHouse.Logic.Data
         private readonly IWareHouseService _wareHouseService;
         private readonly IProductRepository _productRepository;
 
-        public AddNewWareHouseToDataBase(CreateWareHouseDto createWareHouseDto,IWareHouseService wareHouseService, IProductRepository productRepository)
+        public AddNewWareHouseToDataBase(CreateWareHouseDto createWareHouseDto, IWareHouseService wareHouseService, IProductRepository productRepository)
         {
             _createWareHouseDto = createWareHouseDto;
             _wareHouseService = wareHouseService;
@@ -31,7 +31,7 @@ namespace FormsLogic.WareHouse.Logic.Data
             _createWareHouseDto.Unit = "szt";
             _createWareHouseDto.IsReturned = "Nie";
             var product = GetProductByRegistrationNumber();
-            
+
             _createWareHouseDto.Products = new List<Product>()
             {
                 product

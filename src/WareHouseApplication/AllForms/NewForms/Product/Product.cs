@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
-using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.ProductForm.Logic.Data.Add;
 using FormsLogic.ProductForm.Logic.Edit;
 using FormsLogic.ProductForm.Logic.Filtering;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
@@ -525,7 +525,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product
         #region LoadData
         public IEnumerable<ProductDto> ReturnDataFromDataBase()
         {
-            var dataReturn = new ReturnDataFromDb(ProductService);
+            var dataReturn = new ReturnProductsFromDB(ProductService);
             return dataReturn.Products;
         }
         private void Product_Load(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿using ApplicationLayer.Interfaces;
 
-namespace FormsLogic.ProductForm.Logic.Data
+namespace FormsLogic.ProductForm.Logic.Data.Delete
 {
     public class DeleteProductFromDataBase
     {

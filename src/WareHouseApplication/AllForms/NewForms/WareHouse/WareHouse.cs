@@ -9,8 +9,11 @@ using ApplicationLayer.Dto.WareHouse;
 using ApplicationLayer.Interfaces;
 using Domain.Interfaces;
 using FormsLogic.Return.Logic.Data;
+using FormsLogic.Return.Logic.Data.Add;
+using FormsLogic.Return.Logic.Data.Return;
 using FormsLogic.Return.Validation;
 using FormsLogic.WareHouse.Logic.Data;
+using FormsLogic.WareHouse.Logic.Data.Add;
 using FormsLogic.WareHouse.Validation;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse
@@ -332,7 +335,7 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
 
         private IEnumerable<WareHouseDto> ReturnDataFromWareHouse()
         {
-            var dataReturn = new ReturnWareHousesFromDB(WareHouseService,ProductRepository);
+            var dataReturn = new ReturnWareHousesFromDB(WareHouseService);
             
             return dataReturn.WareHouses;
         }

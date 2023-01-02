@@ -60,7 +60,7 @@ public partial class SelectProduct : Form
 
     public IEnumerable<ProductDto> ReturnDataFromDataBase()
     {
-        var dataReturn = new ReturnDataFromDb(ProductService);
+        var dataReturn = new ReturnProductsFromDB(ProductService);
         return dataReturn.Products;
     }
 

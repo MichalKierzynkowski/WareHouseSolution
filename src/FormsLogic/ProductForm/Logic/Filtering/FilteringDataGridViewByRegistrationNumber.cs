@@ -11,7 +11,7 @@ namespace FormsLogic.ProductForm.Logic.Filtering
         public FilteringDataGridViewByRegistrationNumber(int registrationNumber, IProductService productService)
         {
             RegistrationNumber = registrationNumber;
-            var getProducts = new ReturnDataFromDb(productService);
+            var getProducts = new ReturnProductsFromDB(productService);
             Products = getProducts.Products;
         }
 

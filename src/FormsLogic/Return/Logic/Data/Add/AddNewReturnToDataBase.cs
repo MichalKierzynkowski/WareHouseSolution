@@ -4,7 +4,7 @@ using ApplicationLayer.Interfaces;
 using Domain.Entities;
 using Domain.Interfaces;
 
-namespace FormsLogic.Return.Logic.Data
+namespace FormsLogic.Return.Logic.Data.Add
 {
     public class AddNewReturnToDataBase
     {
