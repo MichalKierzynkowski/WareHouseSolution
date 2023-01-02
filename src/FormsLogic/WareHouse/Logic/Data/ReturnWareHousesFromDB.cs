@@ -11,7 +11,7 @@ namespace FormsLogic.WareHouse.Logic.Data
         private readonly IProductRepository _productRepository;
         public IEnumerable<WareHouseDto> WareHouses { get; set; }
 
-       public ReturnWareHousesFromDB(IWareHouseService wareHouseService, IProductRepository productRepository)
+        public ReturnWareHousesFromDB(IWareHouseService wareHouseService, IProductRepository productRepository)
         {
             _productRepository = productRepository;
             var products = GetAllProducts();

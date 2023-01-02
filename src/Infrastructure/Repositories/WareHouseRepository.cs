@@ -20,7 +20,8 @@ namespace Infrastructure.Repositories
 
         public WareHouse GetById(int id)
         {
-            throw new NotImplementedException();
+           var wareHouse= _context.WareHouse.FirstOrDefault(x => x.Id == id);
+           return wareHouse;
         }
         public WareHouse Add(WareHouse wareHouse)
         {

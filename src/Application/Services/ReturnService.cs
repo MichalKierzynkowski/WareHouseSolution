@@ -29,9 +29,9 @@ namespace ApplicationLayer.Services
 
         public ReturnDto AddNewReturn(CreateReturnDto newReturn)
         {
-           var returnItem =_mapper.Map<Return>(newReturn);
-           _returnRepository.Add(returnItem);
-           return _mapper.Map<ReturnDto>(returnItem);
+            var returnItem =_mapper.Map<Return>(newReturn);
+            _returnRepository.Add(returnItem);
+            return _mapper.Map<ReturnDto>(returnItem);
         }
 
         public void DeleteReturnById(int id)

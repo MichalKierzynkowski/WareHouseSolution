@@ -85,7 +85,7 @@ namespace WareHouseApplication.AllForms.NewForms.BaseForm
                 Point p1 = new Point(e.X, e.Y);
                 Point p2 = this.PointToScreen(p1);
                 Point p3 = new Point(p2.X - this.start_point.X,
-                                     p2.Y - this.start_point.Y);
+                    p2.Y - this.start_point.Y);
                 this.Location = p3;
             }
         }

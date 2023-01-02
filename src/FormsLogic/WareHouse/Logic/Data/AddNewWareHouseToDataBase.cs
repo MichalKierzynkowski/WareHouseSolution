@@ -6,7 +6,7 @@ using Domain.Interfaces;
 
 namespace FormsLogic.WareHouse.Logic.Data
 {
-   public class AddNewWareHouseToDataBase
+    public class AddNewWareHouseToDataBase
     {
         private readonly CreateWareHouseDto _createWareHouseDto;
         private readonly IWareHouseService _wareHouseService;

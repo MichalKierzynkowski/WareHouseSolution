@@ -99,7 +99,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             if (dataGridView1.Rows.Count <= 0)
             {
                 MessageBox.Show("Brak produktów do zapisu!", "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -115,7 +115,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             if ((filteringOption.ErrorMessages != null) && (filteringOption.ErrorMessages.Any()))
             {
                 MessageBox.Show(string.Join("\n", filteringOption.ErrorMessages), "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -149,12 +149,12 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             if (checkAvailability.StatusCode == "Failed")
             {
                 MessageBox.Show(checkAvailability.AvailabilityInformation, "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (checkAvailability.StatusCode == "Success")
             {
                 MessageBox.Show(checkAvailability.AvailabilityInformation, "Informacja",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -466,13 +466,13 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             if (!result.IsValid)
             {
                 MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 SwapProductWithEditProduct swapProducts = new SwapProductWithEditProduct(ProductService, UpdateProductDto);
                 MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetValuesInDataGridAndFillWithValuesAgain();
                 Timer.Start();
                 TLPnlTop.Enabled = true;
@@ -486,13 +486,13 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             if (!result.IsValid)
             {
                 MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 AddNewProductToDataBase newProduct = new AddNewProductToDataBase(CreateProductDto, ProductService);
                 MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetValuesInDataGridAndFillWithValuesAgain();
                 Timer.Start();
                 TLPnlTop.Enabled = true;
@@ -507,7 +507,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             {
                 var deleteProduct = new DeleteProductFromDataBase(DeleteProductDto.RegistrationNumber, ProductService);
                 MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetValuesInDataGridAndFillWithValuesAgain();
                 Timer.Start();
                 TLPnlTop.Enabled = true;
@@ -516,7 +516,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             else
             {
                 MessageBox.Show("Nie wybrano produktu do usunięcia!", "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -588,22 +588,22 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             switch (CBoxSearchByCategory.SelectedItem)
             {
                 case "Data Dodania":
+                {
+                    TxtSearch.Enabled = false;
+                    TxtSearch.Clear();
+
+                    using (DatePicker datePicker = new DatePicker())
                     {
-                        TxtSearch.Enabled = false;
-                        TxtSearch.Clear();
-
-                        using (DatePicker datePicker = new DatePicker())
+                        if (datePicker.ShowDialog() == DialogResult.OK && datePicker.IsFormatCorrect)
                         {
-                            if (datePicker.ShowDialog() == DialogResult.OK && datePicker.IsFormatCorrect)
-                            {
-                                var filteringDataByDate = new FilteringDataGridViewByDate(datePicker.SelectedDate, ProductService);
-                                var products = filteringDataByDate.ProductsAfterFiltering;
-                                LoadProductsToDataGridView(products);
+                            var filteringDataByDate = new FilteringDataGridViewByDate(datePicker.SelectedDate, ProductService);
+                            var products = filteringDataByDate.ProductsAfterFiltering;
+                            LoadProductsToDataGridView(products);
 
-                            }
                         }
-                        break;
                     }
+                    break;
+                }
 
                 default:
                     TxtSearch.Enabled = true;
