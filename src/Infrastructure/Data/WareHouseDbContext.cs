@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Infrastructure.Data
 {
@@ -15,20 +16,19 @@ namespace Infrastructure.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetail { get; set; }
+        public DbSet<WareHouse> WareHouse { get; set; }
+        public DbSet<Return> Returns { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source=C:\Users\Michal\source\repos\MichalKierzynkowski\WareHouseSolution\src\WareHouseApplication\WareHouse.db");
+            optionsBuilder.UseSqlite(@"Data Source=C:\Users\michu\source\repos\I4BWorkspace\WareHouseSolution\src\WareHouseApplication\WareHouse.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>()
-            .HasOne(x => x.ProductDetail)
-            .WithOne(x => x.Product)
-            .HasForeignKey<ProductDetail>(c => c.ProductId);
-
-            modelBuilder.Entity<ProductDetail>().HasKey(s => s.Id);
+            modelBuilder.Entity<WareHouse>().Navigation(e => e.Products).AutoInclude();
+            modelBuilder.Entity<Product>().Navigation(e => e.ProductDetail).AutoInclude();
+            modelBuilder.Entity<Return>().Navigation(e => e.Products).AutoInclude();
         }
     }
 }

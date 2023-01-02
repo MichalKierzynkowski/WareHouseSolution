@@ -2,12 +2,9 @@
 
 namespace ApplicationLayer.Dto.ProductDtos
 {
-    public class CreateProductDto
+    public class CreateProductDto:ProductDto
     {
-        public int RegistrationNumber { get; set; }
         public CreateProductDetailDto CreateProductDetailDto { get; set; }
-        public DateTime AddedAt { get; set; }
-
         public CreateProductDto(CreateProductDetailDto createProductDetailDto)
         {
             CreateProductDetailDto = createProductDetailDto;

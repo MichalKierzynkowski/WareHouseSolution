@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(WareHouseDbContext))]
-    [Migration("20220513152057_AddRegistrationNumber")]
-    partial class AddRegistrationNumber
+    [Migration("20221205194738_DeleteFieldOverHead")]
+    partial class DeleteFieldOverHead
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,12 @@ namespace Infrastructure.Migrations
                     b.Property<int>("RegistrationNumber")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("WareHouseId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("WareHouseId");
 
                     b.ToTable("Products");
                 });
@@ -43,10 +48,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ExtraDescription")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("LastChangedAt")
+                    b.Property<DateTime?>("LastChangedAt")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -68,6 +72,40 @@ namespace Infrastructure.Migrations
                     b.ToTable("ProductDetail");
                 });
 
+            modelBuilder.Entity("Domain.Entities.WareHouse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("PurchasePrice")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("SellPrice")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WareHouse");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Product", b =>
+                {
+                    b.HasOne("Domain.Entities.WareHouse", null)
+                        .WithMany("Products")
+                        .HasForeignKey("WareHouseId");
+                });
+
             modelBuilder.Entity("Domain.Entities.ProductDetail", b =>
                 {
                     b.HasOne("Domain.Entities.Product", "Product")
@@ -83,6 +121,11 @@ namespace Infrastructure.Migrations
                 {
                     b.Navigation("ProductDetail")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.WareHouse", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

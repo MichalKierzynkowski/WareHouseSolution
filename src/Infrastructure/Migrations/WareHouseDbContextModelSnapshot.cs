@@ -29,7 +29,17 @@ namespace Infrastructure.Migrations
                     b.Property<int>("RegistrationNumber")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ReturnId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("WareHouseId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ReturnId");
+
+                    b.HasIndex("WareHouseId");
 
                     b.ToTable("Products");
                 });
@@ -65,6 +75,77 @@ namespace Infrastructure.Migrations
                     b.ToTable("ProductDetail");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Return", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsReturned")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("PurchasePrice")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("SellPrice")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Returns");
+                });
+
+            modelBuilder.Entity("Domain.Entities.WareHouse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsReturned")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("PurchasePrice")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("SellPrice")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WareHouse");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Product", b =>
+                {
+                    b.HasOne("Domain.Entities.Return", null)
+                        .WithMany("Products")
+                        .HasForeignKey("ReturnId");
+
+                    b.HasOne("Domain.Entities.WareHouse", null)
+                        .WithMany("Products")
+                        .HasForeignKey("WareHouseId");
+                });
+
             modelBuilder.Entity("Domain.Entities.ProductDetail", b =>
                 {
                     b.HasOne("Domain.Entities.Product", "Product")
@@ -80,6 +161,16 @@ namespace Infrastructure.Migrations
                 {
                     b.Navigation("ProductDetail")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.Return", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("Domain.Entities.WareHouse", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

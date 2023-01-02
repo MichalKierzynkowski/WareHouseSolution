@@ -35,7 +35,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp
             {
                 IsFormatCorrect = false;
                 MessageBox.Show(string.Join("\n", result.Errors), "Błąd",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

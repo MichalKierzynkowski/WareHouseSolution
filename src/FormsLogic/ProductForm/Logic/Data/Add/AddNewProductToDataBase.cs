@@ -1,7 +1,7 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 
-namespace FormsLogic.ProductForm.Logic.Data
+namespace FormsLogic.ProductForm.Logic.Data.Add
 {
     public class AddNewProductToDataBase
     {

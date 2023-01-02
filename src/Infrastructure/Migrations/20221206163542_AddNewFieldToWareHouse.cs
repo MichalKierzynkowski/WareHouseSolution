@@ -4,13 +4,13 @@
 
 namespace Infrastructure.Migrations
 {
-    public partial class AddRegistrationNumber : Migration
+    public partial class AddNewFieldToWareHouse : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "RegistrationNumber",
-                table: "Products",
+                name: "ProductId",
+                table: "WareHouse",
                 type: "INTEGER",
                 nullable: false,
                 defaultValue: 0);
@@ -19,8 +19,8 @@ namespace Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "RegistrationNumber",
-                table: "Products");
+                name: "ProductId",
+                table: "WareHouse");
         }
     }
 }

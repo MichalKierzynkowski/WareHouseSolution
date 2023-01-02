@@ -17,7 +17,7 @@ namespace FormsLogic.ProductForm.Logic.Filtering
         public FilteringDataGridViewByDate(SelectedDate selectedDate, IProductService productService)
         {
             SelectedDate = selectedDate;
-            var getProducts = new ReturnDataFromDb(productService);
+            var getProducts = new ReturnProductsFromDB(productService);
             Products = getProducts.Products;
             FiteringProductsByDate();
         }

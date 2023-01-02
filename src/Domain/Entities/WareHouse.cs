@@ -3,11 +3,12 @@
     public class WareHouse
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
+        public ICollection<Product> Products { get; set; }
+        public int Quantity { get; set; }
+        public string Unit { get; set; }
         public decimal PurchasePrice { get; set; }
-        public decimal SellingPrice { get; set; }
-        public DateTime AddedAt { get; set; }
-        public Product Product { get; set; }
+        public decimal SellPrice { get; set; }
+        public DateTime Date { get; set; }
         public bool IsReturned { get; set; }
 
     }

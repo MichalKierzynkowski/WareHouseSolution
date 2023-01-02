@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WareHouse));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLPnlTop = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
             this.PnlSearch = new System.Windows.Forms.Panel();
@@ -52,21 +52,22 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtRegistrationNumber = new System.Windows.Forms.TextBox();
             this.btnSelectProduct = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelProductType = new System.Windows.Forms.Label();
+            this.txtProductType = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.buyPriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.sellPriceNumeric = new System.Windows.Forms.NumericUpDown();
+            this.quantityNumeric = new System.Windows.Forms.NumericUpDown();
             this.btnResetValues = new RJCodeAdvance.RJControls.RJButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.isReturnedBox = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblRightPanelMainName = new System.Windows.Forms.Label();
             this.btnAccept = new RJCodeAdvance.RJControls.RJButton();
@@ -87,6 +88,7 @@
             this.rjButton13 = new RJCodeAdvance.RJControls.RJButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.PnlGrid = new System.Windows.Forms.Panel();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NameDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegistrationNumberDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,7 +97,7 @@
             this.ExtraDescriptionDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddedAtDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -105,9 +107,9 @@
             this.TLPnlAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyPriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellPriceNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -156,7 +158,7 @@
             this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.Location = new System.Drawing.Point(416, 7);
@@ -164,10 +166,11 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(131, 69);
             this.btnRefresh.TabIndex = 5;
-            this.btnRefresh.Text = "Odśwież";
+            this.btnRefresh.Text = "Załaduj Dane";
             this.btnRefresh.TextColor = System.Drawing.Color.White;
             this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // PnlSearch
             // 
@@ -226,8 +229,8 @@
             "Numer Ewidencyjny",
             "Nazwa",
             "Rodzaj",
-            "Opis",
-            "Data Dodania"});
+            "Data Dodania",
+            "Zwrócony"});
             this.CBoxSearchByCategory.Location = new System.Drawing.Point(45, 23);
             this.CBoxSearchByCategory.Name = "CBoxSearchByCategory";
             this.CBoxSearchByCategory.Size = new System.Drawing.Size(195, 25);
@@ -347,6 +350,7 @@
             this.btnAddProduct.TextColor = System.Drawing.Color.White;
             this.btnAddProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // btnEditProduct
             // 
@@ -405,26 +409,27 @@
             this.TLPnlAdd.Controls.Add(this.pictureBox5, 2, 10);
             this.TLPnlAdd.Controls.Add(this.pictureBox4, 1, 10);
             this.TLPnlAdd.Controls.Add(this.label1, 0, 8);
-            this.TLPnlAdd.Controls.Add(this.txtName, 0, 3);
+            this.TLPnlAdd.Controls.Add(this.txtRegistrationNumber, 0, 3);
             this.TLPnlAdd.Controls.Add(this.btnSelectProduct, 0, 1);
-            this.TLPnlAdd.Controls.Add(this.textBox1, 0, 5);
+            this.TLPnlAdd.Controls.Add(this.txtName, 0, 5);
             this.TLPnlAdd.Controls.Add(this.label2, 1, 0);
-            this.TLPnlAdd.Controls.Add(this.label3, 1, 2);
             this.TLPnlAdd.Controls.Add(this.label10, 0, 4);
-            this.TLPnlAdd.Controls.Add(this.label9, 1, 5);
-            this.TLPnlAdd.Controls.Add(this.textBox2, 1, 6);
+            this.TLPnlAdd.Controls.Add(this.labelProductType, 1, 5);
+            this.TLPnlAdd.Controls.Add(this.txtProductType, 1, 6);
             this.TLPnlAdd.Controls.Add(this.label8, 1, 8);
             this.TLPnlAdd.Controls.Add(this.label11, 2, 8);
-            this.TLPnlAdd.Controls.Add(this.numericUpDown1, 0, 9);
-            this.TLPnlAdd.Controls.Add(this.numericUpDown2, 1, 9);
-            this.TLPnlAdd.Controls.Add(this.numericUpDown3, 2, 9);
+            this.TLPnlAdd.Controls.Add(this.buyPriceNumeric, 0, 9);
+            this.TLPnlAdd.Controls.Add(this.sellPriceNumeric, 1, 9);
+            this.TLPnlAdd.Controls.Add(this.quantityNumeric, 2, 9);
             this.TLPnlAdd.Controls.Add(this.btnResetValues, 2, 0);
             this.TLPnlAdd.Controls.Add(this.pictureBox3, 0, 10);
+            this.TLPnlAdd.Controls.Add(this.label3, 0, 2);
+            this.TLPnlAdd.Controls.Add(this.isReturnedBox, 0, 0);
             this.TLPnlAdd.Location = new System.Drawing.Point(0, 4);
             this.TLPnlAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TLPnlAdd.Name = "TLPnlAdd";
             this.TLPnlAdd.Padding = new System.Windows.Forms.Padding(11, 7, 11, 7);
-            this.TLPnlAdd.RowCount = 14;
+            this.TLPnlAdd.RowCount = 15;
             this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.TLPnlAdd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
@@ -475,39 +480,41 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(14, 423);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 52);
+            this.label1.Size = new System.Drawing.Size(135, 52);
             this.label1.TabIndex = 28;
             this.label1.Text = "Cena Zakupu:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtName
+            // txtRegistrationNumber
             // 
-            this.TLPnlAdd.SetColumnSpan(this.txtName, 3);
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtName.Location = new System.Drawing.Point(14, 166);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(423, 31);
-            this.txtName.TabIndex = 10;
+            this.TLPnlAdd.SetColumnSpan(this.txtRegistrationNumber, 3);
+            this.txtRegistrationNumber.Enabled = false;
+            this.txtRegistrationNumber.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRegistrationNumber.Location = new System.Drawing.Point(14, 166);
+            this.txtRegistrationNumber.Name = "txtRegistrationNumber";
+            this.txtRegistrationNumber.Size = new System.Drawing.Size(421, 31);
+            this.txtRegistrationNumber.TabIndex = 10;
             // 
             // btnSelectProduct
             // 
             this.TLPnlAdd.SetColumnSpan(this.btnSelectProduct, 3);
             this.btnSelectProduct.Location = new System.Drawing.Point(14, 62);
             this.btnSelectProduct.Name = "btnSelectProduct";
-            this.btnSelectProduct.Size = new System.Drawing.Size(423, 46);
+            this.btnSelectProduct.Size = new System.Drawing.Size(422, 45);
             this.btnSelectProduct.TabIndex = 20;
             this.btnSelectProduct.Text = "Dodaj Produkt";
             this.btnSelectProduct.UseVisualStyleBackColor = true;
             this.btnSelectProduct.Click += new System.EventHandler(this.btnSelectProduct_Click);
             // 
-            // textBox1
+            // txtName
             // 
-            this.TLPnlAdd.SetColumnSpan(this.textBox1, 3);
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(14, 270);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(423, 31);
-            this.textBox1.TabIndex = 21;
+            this.TLPnlAdd.SetColumnSpan(this.txtName, 3);
+            this.txtName.Enabled = false;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtName.Location = new System.Drawing.Point(14, 270);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(421, 31);
+            this.txtName.TabIndex = 21;
             // 
             // label2
             // 
@@ -520,18 +527,6 @@
             this.label2.Text = "Wybierz Produkt";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            this.TLPnlAdd.SetColumnSpan(this.label3, 2);
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(156, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 52);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Nazwa:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label10
             // 
             this.TLPnlAdd.SetColumnSpan(this.label10, 3);
@@ -539,35 +534,36 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(14, 215);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(423, 52);
+            this.label10.Size = new System.Drawing.Size(422, 52);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Numer Ewidencyjny:";
+            this.label10.Text = "Nazwa:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // labelProductType
             // 
-            this.TLPnlAdd.SetColumnSpan(this.label9, 3);
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(14, 319);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(423, 52);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Rodzaj:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TLPnlAdd.SetColumnSpan(this.labelProductType, 3);
+            this.labelProductType.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelProductType.ForeColor = System.Drawing.Color.White;
+            this.labelProductType.Location = new System.Drawing.Point(14, 319);
+            this.labelProductType.Name = "labelProductType";
+            this.labelProductType.Size = new System.Drawing.Size(422, 52);
+            this.labelProductType.TabIndex = 26;
+            this.labelProductType.Text = "Rodzaj:";
+            this.labelProductType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // txtProductType
             // 
-            this.TLPnlAdd.SetColumnSpan(this.textBox2, 3);
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(14, 374);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(423, 31);
-            this.textBox2.TabIndex = 27;
+            this.TLPnlAdd.SetColumnSpan(this.txtProductType, 3);
+            this.txtProductType.Enabled = false;
+            this.txtProductType.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtProductType.Location = new System.Drawing.Point(14, 374);
+            this.txtProductType.Name = "txtProductType";
+            this.txtProductType.Size = new System.Drawing.Size(421, 31);
+            this.txtProductType.TabIndex = 27;
             // 
             // label8
             // 
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(156, 423);
             this.label8.Name = "label8";
@@ -587,26 +583,26 @@
             this.label11.Text = "Stan:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown1
+            // buyPriceNumeric
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(14, 478);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(136, 27);
-            this.numericUpDown1.TabIndex = 31;
+            this.buyPriceNumeric.Location = new System.Drawing.Point(14, 478);
+            this.buyPriceNumeric.Name = "buyPriceNumeric";
+            this.buyPriceNumeric.Size = new System.Drawing.Size(135, 27);
+            this.buyPriceNumeric.TabIndex = 31;
             // 
-            // numericUpDown2
+            // sellPriceNumeric
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(156, 478);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(136, 27);
-            this.numericUpDown2.TabIndex = 32;
+            this.sellPriceNumeric.Location = new System.Drawing.Point(156, 478);
+            this.sellPriceNumeric.Name = "sellPriceNumeric";
+            this.sellPriceNumeric.Size = new System.Drawing.Size(136, 27);
+            this.sellPriceNumeric.TabIndex = 32;
             // 
-            // numericUpDown3
+            // quantityNumeric
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(299, 478);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(136, 27);
-            this.numericUpDown3.TabIndex = 33;
+            this.quantityNumeric.Location = new System.Drawing.Point(299, 478);
+            this.quantityNumeric.Name = "quantityNumeric";
+            this.quantityNumeric.Size = new System.Drawing.Size(136, 27);
+            this.quantityNumeric.TabIndex = 33;
             // 
             // btnResetValues
             // 
@@ -629,6 +625,7 @@
             this.btnResetValues.TextColor = System.Drawing.Color.White;
             this.btnResetValues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnResetValues.UseVisualStyleBackColor = false;
+            this.btnResetValues.Click += new System.EventHandler(this.btnResetValues_Click);
             // 
             // pictureBox3
             // 
@@ -642,6 +639,32 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 36;
             this.pictureBox3.TabStop = false;
+            // 
+            // label3
+            // 
+            this.TLPnlAdd.SetColumnSpan(this.label3, 3);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(14, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(421, 52);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Numer Ewidencyjny:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // isReturnedBox
+            // 
+            this.isReturnedBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.isReturnedBox.AutoSize = true;
+            this.isReturnedBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.isReturnedBox.ForeColor = System.Drawing.Color.White;
+            this.isReturnedBox.Location = new System.Drawing.Point(43, 10);
+            this.isReturnedBox.Name = "isReturnedBox";
+            this.isReturnedBox.Size = new System.Drawing.Size(77, 46);
+            this.isReturnedBox.TabIndex = 39;
+            this.isReturnedBox.Text = "Zwrot";
+            this.isReturnedBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.isReturnedBox.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -688,6 +711,7 @@
             this.btnAccept.TextColor = System.Drawing.Color.White;
             this.btnAccept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAccept.UseVisualStyleBackColor = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
@@ -710,6 +734,7 @@
             this.btnCancel.TextColor = System.Drawing.Color.White;
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label4
             // 
@@ -918,9 +943,11 @@
             // Timer
             // 
             this.Timer.Interval = 500;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // PnlGrid
             // 
+            this.PnlGrid.Controls.Add(this.progressBar);
             this.PnlGrid.Controls.Add(this.dataGridView1);
             this.PnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlGrid.Location = new System.Drawing.Point(0, 83);
@@ -928,6 +955,15 @@
             this.PnlGrid.Name = "PnlGrid";
             this.PnlGrid.Size = new System.Drawing.Size(866, 818);
             this.PnlGrid.TabIndex = 2;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(421, 435);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(442, 45);
+            this.progressBar.TabIndex = 6;
+            this.progressBar.Visible = false;
             // 
             // dataGridView1
             // 
@@ -939,14 +975,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 54;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -957,7 +993,7 @@
             this.ExtraDescriptionDG,
             this.AddedAtDG,
             this.Column1,
-            this.Column2});
+            this.Column3});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
@@ -967,31 +1003,32 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 45;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.Desktop;
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowTemplate.DividerHeight = 3;
-            this.dataGridView1.RowTemplate.Height = 40;
+            this.dataGridView1.RowTemplate.Height = 45;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(866, 818);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // NameDG
             // 
@@ -1054,13 +1091,13 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 125;
             // 
-            // Column2
+            // Column3
             // 
-            this.Column2.HeaderText = "Narzut";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
+            this.Column3.HeaderText = "Zwrócony";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
             // 
             // WareHouse
             // 
@@ -1075,6 +1112,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WareHouse";
             this.Text = "Cudeńka - Magazyn";
+            this.Load += new System.EventHandler(this.WareHouse_Load);
             this.TLPnlTop.ResumeLayout(false);
             this.PnlSearch.ResumeLayout(false);
             this.PnlSearch.PerformLayout();
@@ -1086,9 +1124,9 @@
             this.TLPnlAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyPriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellPriceNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1119,7 +1157,7 @@
         private System.Windows.Forms.Label label2;
         private RJCodeAdvance.RJControls.RJButton rjButton9;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtRegistrationNumber;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -1148,6 +1186,22 @@
         private RJCodeAdvance.RJControls.RJButton btnSearch;
         private System.Windows.Forms.Button btnSelectProduct;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtProductType;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown buyPriceNumeric;
+        private System.Windows.Forms.NumericUpDown sellPriceNumeric;
+        private System.Windows.Forms.NumericUpDown quantityNumeric;
+        private RJCodeAdvance.RJControls.RJButton btnResetValues;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label labelProductType;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.CheckBox isReturnedBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationNumberDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rodzaj;
@@ -1155,18 +1209,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ExtraDescriptionDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddedAtDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private RJCodeAdvance.RJControls.RJButton btnResetValues;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

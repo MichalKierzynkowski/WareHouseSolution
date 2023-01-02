@@ -76,8 +76,8 @@ namespace WareHouseApplication.AllForms.NewForms.Product.SaveProducts
                 object[,] Cells = new object[RowsCount, ColumnsCount];
 
                 for (int j = 0; j < RowsCount; j++)
-                    for (int i = 0; i < ColumnsCount; i++)
-                        Cells[j, i] = DataTable.Rows[j][i];
+                for (int i = 0; i < ColumnsCount; i++)
+                    Cells[j, i] = DataTable.Rows[j][i];
 
                 Worksheet.get_Range((Microsoft.Office.Interop.Excel.Range)(Worksheet.Cells[2, 1]), (Microsoft.Office.Interop.Excel.Range)(Worksheet.Cells[RowsCount + 1, ColumnsCount])).Value = Cells;
                 if (ExcelFilePath != null && ExcelFilePath != "")
@@ -91,7 +91,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product.SaveProducts
                     catch (Exception ex)
                     {
                         throw new Exception("ExportToExcel: Excel file could not be saved! Check filepath.\n"
-                          + ex.Message);
+                                            + ex.Message);
                     }
                 }
                 else
@@ -124,6 +124,4 @@ namespace WareHouseApplication.AllForms.NewForms.Product.SaveProducts
         }
 
     }
-
 }
-

@@ -11,7 +11,7 @@ namespace FormsLogic.ProductForm.Logic.Filtering
         public FilteringDataGridViewByProductName(string productName, IProductService productService)
         {
             ProductName = productName;
-            var getProducts = new ReturnDataFromDb(productService);
+            var getProducts = new ReturnProductsFromDB(productService);
             Products = getProducts.Products;
         }
         public IEnumerable<ProductDto> ReturnFilteringProductsByProductName()
