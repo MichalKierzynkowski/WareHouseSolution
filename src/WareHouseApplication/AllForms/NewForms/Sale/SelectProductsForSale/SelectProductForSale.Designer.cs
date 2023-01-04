@@ -1,6 +1,6 @@
 ﻿namespace WareHouseApplication.AllForms.NewForms.Sale
 {
-    partial class SelectProduct
+    partial class SelectProductForSale
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectProduct));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectProductForSale));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLoadData = new RJCodeAdvance.RJControls.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,15 +40,17 @@
             this.btnClearFilters = new RJCodeAdvance.RJControls.RJButton();
             this.btnSearch = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.RegistrationNumberDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExtraDescriptionDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new RJCodeAdvance.RJControls.RJButton();
             this.btnPick = new RJCodeAdvance.RJControls.RJButton();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label8 = new System.Windows.Forms.Label();
             this.AmountUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RegistrationNumberDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExtraDescriptionDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountUpDown)).BeginInit();
@@ -180,21 +182,23 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 54;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RegistrationNumberDG,
             this.NameDG,
             this.TypeDG,
-            this.ExtraDescriptionDG});
+            this.ExtraDescriptionDG,
+            this.Column2,
+            this.Column1});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(0, 77);
@@ -203,19 +207,19 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 45;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -229,41 +233,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(782, 453);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // RegistrationNumberDG
-            // 
-            this.RegistrationNumberDG.HeaderText = "Numer Ewidencyjny";
-            this.RegistrationNumberDG.MinimumWidth = 6;
-            this.RegistrationNumberDG.Name = "RegistrationNumberDG";
-            this.RegistrationNumberDG.ReadOnly = true;
-            this.RegistrationNumberDG.Width = 110;
-            // 
-            // NameDG
-            // 
-            this.NameDG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NameDG.FillWeight = 110F;
-            this.NameDG.HeaderText = "Nazwa";
-            this.NameDG.MinimumWidth = 110;
-            this.NameDG.Name = "NameDG";
-            this.NameDG.ReadOnly = true;
-            // 
-            // TypeDG
-            // 
-            this.TypeDG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TypeDG.FillWeight = 110F;
-            this.TypeDG.HeaderText = "Rodzaj";
-            this.TypeDG.MinimumWidth = 110;
-            this.TypeDG.Name = "TypeDG";
-            this.TypeDG.ReadOnly = true;
-            // 
-            // ExtraDescriptionDG
-            // 
-            this.ExtraDescriptionDG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ExtraDescriptionDG.FillWeight = 110F;
-            this.ExtraDescriptionDG.HeaderText = "Opis";
-            this.ExtraDescriptionDG.MinimumWidth = 110;
-            this.ExtraDescriptionDG.Name = "ExtraDescriptionDG";
-            this.ExtraDescriptionDG.ReadOnly = true;
             // 
             // btnCancel
             // 
@@ -331,7 +300,58 @@
             this.AmountUpDown.Size = new System.Drawing.Size(195, 27);
             this.AmountUpDown.TabIndex = 6;
             // 
-            // SelectProduct
+            // RegistrationNumberDG
+            // 
+            this.RegistrationNumberDG.HeaderText = "Numer Ewidencyjny";
+            this.RegistrationNumberDG.MinimumWidth = 6;
+            this.RegistrationNumberDG.Name = "RegistrationNumberDG";
+            this.RegistrationNumberDG.ReadOnly = true;
+            this.RegistrationNumberDG.Width = 110;
+            // 
+            // NameDG
+            // 
+            this.NameDG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NameDG.FillWeight = 110F;
+            this.NameDG.HeaderText = "Nazwa";
+            this.NameDG.MinimumWidth = 110;
+            this.NameDG.Name = "NameDG";
+            this.NameDG.ReadOnly = true;
+            // 
+            // TypeDG
+            // 
+            this.TypeDG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TypeDG.FillWeight = 110F;
+            this.TypeDG.HeaderText = "Rodzaj";
+            this.TypeDG.MinimumWidth = 110;
+            this.TypeDG.Name = "TypeDG";
+            this.TypeDG.ReadOnly = true;
+            // 
+            // ExtraDescriptionDG
+            // 
+            this.ExtraDescriptionDG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ExtraDescriptionDG.FillWeight = 110F;
+            this.ExtraDescriptionDG.HeaderText = "Opis";
+            this.ExtraDescriptionDG.MinimumWidth = 110;
+            this.ExtraDescriptionDG.Name = "ExtraDescriptionDG";
+            this.ExtraDescriptionDG.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Ilość";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Zwrócony";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // SelectProductForSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -345,7 +365,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "SelectProduct";
+            this.Name = "SelectProductForSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SelectProduct";
             this.Load += new System.EventHandler(this.SelectProduct_Load);
@@ -367,15 +387,17 @@
         private RJCodeAdvance.RJControls.RJButton btnSearch;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationNumberDG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameDG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeDG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExtraDescriptionDG;
         private RJCodeAdvance.RJControls.RJButton btnCancel;
         private RJCodeAdvance.RJControls.RJButton btnPick;
         private RJCodeAdvance.RJControls.RJButton btnLoadData;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown AmountUpDown;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationNumberDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExtraDescriptionDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

@@ -7,6 +7,8 @@ using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data.Add;
+using FormsLogic.ProductForm.Logic.Data.Delete;
+using FormsLogic.ProductForm.Logic.Data.Return;
 using FormsLogic.ProductForm.Logic.Edit;
 using FormsLogic.ProductForm.Logic.Filtering;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;

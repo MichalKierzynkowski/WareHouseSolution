@@ -8,10 +8,12 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
     public partial class Sale : Form
     {
         public  IWareHouseService WareHouseService;
+        public  IReturnService ReturnService;
         public IProductService ProductService { get; set; }
-        public Sale(IProductService productService,IWareHouseService wareHouseService)
+        public Sale(IProductService productService,IWareHouseService wareHouseService,IReturnService returnService)
         {
             WareHouseService = wareHouseService;
+            ReturnService = returnService;
             InitializeComponent();
             SetOffDeleteAndEditButtons();
             ProductService = productService;
@@ -68,7 +70,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
 
         private void btnSelectProduct_Click(object sender, System.EventArgs e)
         {
-            using (SelectProduct selectProduct = new SelectProduct(ProductService,WareHouseService))
+            using (SelectProductForSale selectProduct = new SelectProductForSale(ProductService,WareHouseService,ReturnService))
             {
                 selectProduct.ShowDialog();
             }

@@ -11,17 +11,18 @@ using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.Logic.Data;
+using FormsLogic.ProductForm.Logic.Data.Return;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse;
 
-public partial class SelectProduct : Form
+public partial class SelectProductForWareHouse : Form
 {
     public IProductService ProductService { get; set; }
     public ProductDto ProductDto { get; set; }
     public ProductDetailDto ProductDetailDto { get; set; }
 
-    public SelectProduct(IProductService productService)
+    public SelectProductForWareHouse(IProductService productService)
     {
         InitializeComponent();
         this.TopMost = true;

@@ -48,7 +48,7 @@ namespace WareHouseApplication.AllForms.MainMenu
 
         private void btnSales_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AllForms.NewForms.Sale.Sale(ProductService,WareHouseService));
+            OpenChildForm(new AllForms.NewForms.Sale.Sale(ProductService,WareHouseService,_returnService));
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

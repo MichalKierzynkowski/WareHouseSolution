@@ -14,6 +14,7 @@ using FormsLogic.Return.Logic.Data.Return;
 using FormsLogic.Return.Validation;
 using FormsLogic.WareHouse.Logic.Data;
 using FormsLogic.WareHouse.Logic.Data.Add;
+using FormsLogic.WareHouse.Logic.Data.Return;
 using FormsLogic.WareHouse.Validation;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse
@@ -55,7 +56,7 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
 
         private void btnSelectProduct_Click(object sender, System.EventArgs e)
         {
-            using (SelectProduct selectProduct = new SelectProduct(ProductService))
+            using (SelectProductForWareHouse selectProduct = new SelectProductForWareHouse(ProductService))
             {
                 ProductDto = null;
                 selectProduct.ShowDialog();
