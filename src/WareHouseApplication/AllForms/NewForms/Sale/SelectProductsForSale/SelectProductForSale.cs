@@ -23,7 +23,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         public ReturnDto ReturnDto { get; set; }
         public bool IsReturned {get; set; }
         public IReturnService ReturnService { get; set; }
-
+        public int AmountOfProductSelectByUser { get; set; }
         public SelectProductForSale(IProductService productService, IWareHouseService wareHouseService, IReturnService returnService)
         {
             InitializeComponent();
@@ -36,6 +36,8 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            WareHouseDto = null;
+            ReturnDto = null;
         }
        
         internal delegate void SetDataSourceDelegate(IEnumerable<WareHouseDto> wareHouses,IEnumerable<ReturnDto> returns);
@@ -62,7 +64,6 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                 progressBar.Visible = false;
             }
         }
-
         private void SelectProduct_Load(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
@@ -75,7 +76,6 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             return dataReturn.Products;
 
         }
-
         private void btnLoadData_Click(object sender, EventArgs e)
         {
             progressBar.Visible = true;
@@ -153,6 +153,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                     }
                     else
                     {
+                        AmountOfProductSelectByUser = (int)AmountUpDown.Value;
                         SuccessAddedInfo();
                     }
                 }
@@ -167,6 +168,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                     }
                     else
                     {
+                        AmountOfProductSelectByUser = (int)AmountUpDown.Value;
                         SuccessAddedInfo();
                     }
                 }
@@ -203,7 +205,6 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                }
             }
         }
-
         private WareHouseDto FindWareHouseDtoBaseOnRegistrationNumber(int registrationNumber)
         {
             var findCorrectWareHouse = new ReturnSpecificWareHouseBaseOnRegistrationNumber(WareHouseService,registrationNumber);
@@ -215,6 +216,5 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             var findCorrectReturn = new ReturnSpecificReturnBaseOnRegistrationNumber(ReturnService,registrationNumber);
             return findCorrectReturn.Return;
         }
-
     }
 } 

@@ -9,7 +9,7 @@ namespace FormsLogic.Sale.Validation
         public ReturnItemValidation(int amount)
         {
             Amount = amount;
-            RuleFor(x => x.Quantity).Must(x => CheckAmount(x)).WithMessage("Wybrana ilość jest większa niż ta która jest na magazynie!");
+            RuleFor(x => x.Quantity).Must(x => CheckAmount(x)).WithMessage("Wybrana ilość jest większa niż maksymalna ilość magazynowana!");
         }
 
         private bool CheckAmount(int amountOfProduct)
