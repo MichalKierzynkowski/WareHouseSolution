@@ -47,14 +47,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.PicturePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDekstopPane = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblDay = new System.Windows.Forms.Label();
-            this.lblsecond = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
             this.DropDownMenu = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.sdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblTime = new System.Windows.Forms.Label();
             this.PanelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UpPanel.SuspendLayout();
@@ -63,8 +58,6 @@ namespace WareHouseApplication.AllForms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimalize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.PicturePanel.SuspendLayout();
-            this.panelDekstopPane.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.DropDownMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -310,63 +303,11 @@ namespace WareHouseApplication.AllForms.MainMenu
             // 
             // panelDekstopPane
             // 
-            this.panelDekstopPane.Controls.Add(this.tableLayoutPanel2);
             this.panelDekstopPane.Location = new System.Drawing.Point(283, 83);
             this.panelDekstopPane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelDekstopPane.Name = "panelDekstopPane";
             this.panelDekstopPane.Size = new System.Drawing.Size(1432, 1019);
             this.panelDekstopPane.TabIndex = 3;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.lblDay, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblsecond, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblDate, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblTime, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(89, 183);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1190, 601);
-            this.tableLayoutPanel2.TabIndex = 5;
-            // 
-            // lblDay
-            // 
-            this.lblDay.AutoSize = true;
-            this.lblDay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDay.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDay.Location = new System.Drawing.Point(598, 300);
-            this.lblDay.Name = "lblDay";
-            this.lblDay.Size = new System.Drawing.Size(589, 301);
-            this.lblDay.TabIndex = 2;
-            this.lblDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblsecond
-            // 
-            this.lblsecond.AutoSize = true;
-            this.lblsecond.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblsecond.Font = new System.Drawing.Font("Segoe UI Semibold", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblsecond.Location = new System.Drawing.Point(598, 0);
-            this.lblsecond.Name = "lblsecond";
-            this.lblsecond.Size = new System.Drawing.Size(589, 300);
-            this.lblsecond.TabIndex = 3;
-            this.lblsecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.Location = new System.Drawing.Point(3, 300);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(589, 301);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DropDownMenu
             // 
@@ -389,18 +330,6 @@ namespace WareHouseApplication.AllForms.MainMenu
             // timer1
             // 
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 90F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTime.Location = new System.Drawing.Point(3, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(589, 300);
-            this.lblTime.TabIndex = 0;
-            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainMenu
             // 
@@ -430,9 +359,6 @@ namespace WareHouseApplication.AllForms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimalize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             this.PicturePanel.ResumeLayout(false);
-            this.panelDekstopPane.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.DropDownMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -453,17 +379,12 @@ namespace WareHouseApplication.AllForms.MainMenu
         private System.Windows.Forms.Panel panelDekstopPane;
         private RJCodeAdvance.RJControls.RJDropdownMenu DropDownMenu;
         private System.Windows.Forms.ToolStripMenuItem sdfToolStripMenuItem;
-        private System.Windows.Forms.Label lblsecond;
-        private System.Windows.Forms.Label lblDay;
-        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox btnMinimalize;
         private System.Windows.Forms.PictureBox btnExit;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel UpTitlePanel;
         private System.Windows.Forms.Button btnReports;
-        private System.Windows.Forms.Label lblTime;
     }
 }
 

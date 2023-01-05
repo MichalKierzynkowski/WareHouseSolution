@@ -73,18 +73,7 @@ namespace WareHouseApplication.AllForms.MainMenu
             }
         }
         #endregion
-
-
-        #region Timer
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblTime.Text = DateTime.Now.ToString("HH:mm");
-            lblsecond.Text = DateTime.Now.ToString("ss");
-            lblDate.Text = DateTime.Now.ToString("MM dd yyyy");
-            lblDay.Text = DateTime.Now.ToString("dddd");
-        }
-        #endregion
-
+        
         #region OpenForms
         private void OpenChildForm(Form childForm)
         {
