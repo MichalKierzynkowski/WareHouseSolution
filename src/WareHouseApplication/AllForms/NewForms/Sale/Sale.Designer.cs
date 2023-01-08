@@ -33,10 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TLPnlTop = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new RJCodeAdvance.RJControls.RJButton();
             this.PnlSearch = new System.Windows.Forms.Panel();
@@ -58,10 +58,16 @@
             this.btnResetValues = new RJCodeAdvance.RJControls.RJButton();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuń = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.DiscountNumeric = new System.Windows.Forms.NumericUpDown();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.DiscountPicker = new System.Windows.Forms.ComboBox();
             this.EndPriceTBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.paymentMethodCBox = new System.Windows.Forms.ComboBox();
@@ -96,12 +102,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuń = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -552,14 +552,67 @@
             this.dataGridView2.TabIndex = 40;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "ID";
+            this.Column11.MinimumWidth = 50;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 50;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column4.HeaderText = "Nazwa";
+            this.Column4.MinimumWidth = 125;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Ilość";
+            this.Column5.MinimumWidth = 45;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 45;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Cena";
+            this.Column6.MinimumWidth = 70;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 70;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Zwrócony";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 74;
+            // 
+            // Usuń
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            this.Usuń.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Usuń.HeaderText = "";
+            this.Usuń.MinimumWidth = 6;
+            this.Usuń.Name = "Usuń";
+            this.Usuń.ReadOnly = true;
+            this.Usuń.Text = "X";
+            this.Usuń.Width = 50;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TLPnlAdd.SetColumnSpan(this.panel5, 3);
+            this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.DiscountNumeric);
             this.panel5.Controls.Add(this.textBox5);
-            this.panel5.Controls.Add(this.DiscountPicker);
             this.panel5.Controls.Add(this.EndPriceTBox);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.paymentMethodCBox);
@@ -572,12 +625,23 @@
             this.panel5.Size = new System.Drawing.Size(423, 150);
             this.panel5.TabIndex = 41;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(299, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(45, 27);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.Text = "[ZŁ]";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // DiscountNumeric
             // 
             this.DiscountNumeric.Location = new System.Drawing.Point(177, 60);
             this.DiscountNumeric.Name = "DiscountNumeric";
             this.DiscountNumeric.Size = new System.Drawing.Size(115, 27);
             this.DiscountNumeric.TabIndex = 9;
+            this.DiscountNumeric.ValueChanged += new System.EventHandler(this.DiscountNumeric_ValueChanged);
             // 
             // textBox5
             // 
@@ -588,18 +652,6 @@
             this.textBox5.TabIndex = 8;
             this.textBox5.Text = "[ZŁ]";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // DiscountPicker
-            // 
-            this.DiscountPicker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DiscountPicker.FormattingEnabled = true;
-            this.DiscountPicker.Items.AddRange(new object[] {
-            "ZŁ",
-            "%"});
-            this.DiscountPicker.Location = new System.Drawing.Point(298, 57);
-            this.DiscountPicker.Name = "DiscountPicker";
-            this.DiscountPicker.Size = new System.Drawing.Size(46, 28);
-            this.DiscountPicker.TabIndex = 6;
             // 
             // EndPriceTBox
             // 
@@ -697,6 +749,7 @@
             this.btnAccept.TextColor = System.Drawing.Color.White;
             this.btnAccept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAccept.UseVisualStyleBackColor = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
@@ -1069,59 +1122,6 @@
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "ID";
-            this.Column11.MinimumWidth = 50;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 50;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column4.HeaderText = "Nazwa";
-            this.Column4.MinimumWidth = 125;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Ilość";
-            this.Column5.MinimumWidth = 45;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 45;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Cena";
-            this.Column6.MinimumWidth = 70;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 70;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Zwrócony";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 74;
-            // 
-            // Usuń
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            this.Usuń.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Usuń.HeaderText = "";
-            this.Usuń.MinimumWidth = 6;
-            this.Usuń.Name = "Usuń";
-            this.Usuń.ReadOnly = true;
-            this.Usuń.Text = "X";
-            this.Usuń.Width = 50;
-            // 
             // Sale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1212,7 +1212,6 @@
         private System.Windows.Forms.ComboBox paymentMethodCBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox DiscountPicker;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationNumberDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -1228,5 +1227,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewButtonColumn Usuń;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

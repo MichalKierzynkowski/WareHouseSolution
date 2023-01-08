@@ -32,9 +32,6 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.PanelTitleBar = new System.Windows.Forms.Panel();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
             this.btnSales = new System.Windows.Forms.Button();
             this.btnWareHouse = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
@@ -66,9 +63,6 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.PanelTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PanelTitleBar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.PanelTitleBar.Controls.Add(this.btnSettings);
-            this.PanelTitleBar.Controls.Add(this.btnHelp);
-            this.PanelTitleBar.Controls.Add(this.btnReports);
             this.PanelTitleBar.Controls.Add(this.btnSales);
             this.PanelTitleBar.Controls.Add(this.btnWareHouse);
             this.PanelTitleBar.Controls.Add(this.btnProducts);
@@ -78,68 +72,6 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.PanelTitleBar.Name = "PanelTitleBar";
             this.PanelTitleBar.Size = new System.Drawing.Size(283, 768);
             this.PanelTitleBar.TabIndex = 0;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(0, 400);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnSettings.Size = new System.Drawing.Size(283, 80);
-            this.btnSettings.TabIndex = 4;
-            this.btnSettings.Text = "Ustawienia";
-            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHelp.FlatAppearance.BorderSize = 0;
-            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHelp.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnHelp.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
-            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 320);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(283, 80);
-            this.btnHelp.TabIndex = 5;
-            this.btnHelp.Text = "Pomoc";
-            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // btnReports
-            // 
-            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnReports.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReports.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.Image")));
-            this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.Location = new System.Drawing.Point(0, 240);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.btnReports.Size = new System.Drawing.Size(283, 80);
-            this.btnReports.TabIndex = 6;
-            this.btnReports.Text = "Raporty";
-            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReports.UseVisualStyleBackColor = true;
             // 
             // btnSales
             // 
@@ -372,8 +304,6 @@ namespace WareHouseApplication.AllForms.MainMenu
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.FlowLayoutPanel PicturePanel;
-        private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.Button btnWareHouse;
         private System.Windows.Forms.Panel panelDekstopPane;
@@ -384,7 +314,6 @@ namespace WareHouseApplication.AllForms.MainMenu
         private System.Windows.Forms.PictureBox btnMinimalize;
         private System.Windows.Forms.PictureBox btnExit;
         private System.Windows.Forms.Panel UpTitlePanel;
-        private System.Windows.Forms.Button btnReports;
     }
 }
 

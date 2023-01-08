@@ -40,5 +40,10 @@ namespace Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Return GetByProductId(int productId)
+        {
+            return _context.Returns.FirstOrDefault(x => x.Products.Any(x => x.RegistrationNumber == productId));
+        }
     }
 }

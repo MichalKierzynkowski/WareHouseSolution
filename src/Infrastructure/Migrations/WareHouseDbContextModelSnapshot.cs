@@ -105,6 +105,33 @@ namespace Infrastructure.Migrations
                     b.ToTable("Returns");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Dreams")
+                        .HasColumnType("REAL");
+
+                    b.Property<decimal>("EndPrice")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Profit")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sale");
+                });
+
             modelBuilder.Entity("Domain.Entities.WareHouse", b =>
                 {
                     b.Property<int>("Id")
@@ -135,6 +162,36 @@ namespace Infrastructure.Migrations
                     b.ToTable("WareHouse");
                 });
 
+            modelBuilder.Entity("ReturnSale", b =>
+                {
+                    b.Property<int>("ReturnsId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SalesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ReturnsId", "SalesId");
+
+                    b.HasIndex("SalesId");
+
+                    b.ToTable("ReturnSale");
+                });
+
+            modelBuilder.Entity("SaleWareHouse", b =>
+                {
+                    b.Property<int>("SalesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("WareHousesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("SalesId", "WareHousesId");
+
+                    b.HasIndex("WareHousesId");
+
+                    b.ToTable("SaleWareHouse");
+                });
+
             modelBuilder.Entity("Domain.Entities.Product", b =>
                 {
                     b.HasOne("Domain.Entities.Return", null)
@@ -155,6 +212,36 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ReturnSale", b =>
+                {
+                    b.HasOne("Domain.Entities.Return", null)
+                        .WithMany()
+                        .HasForeignKey("ReturnsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Sale", null)
+                        .WithMany()
+                        .HasForeignKey("SalesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SaleWareHouse", b =>
+                {
+                    b.HasOne("Domain.Entities.Sale", null)
+                        .WithMany()
+                        .HasForeignKey("SalesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.WareHouse", null)
+                        .WithMany()
+                        .HasForeignKey("WareHousesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Entities.Product", b =>

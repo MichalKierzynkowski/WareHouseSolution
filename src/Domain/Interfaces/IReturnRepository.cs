@@ -13,5 +13,6 @@ namespace Domain.Interfaces
         void Update(Return returnItem);
 
         void Delete(Return returnItem);
+        Return GetByProductId(int productId);
     }
 }

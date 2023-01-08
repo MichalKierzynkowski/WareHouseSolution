@@ -37,12 +37,14 @@ namespace WareHouseApplication
                         services.AddScoped<IWareHouseService, WareHouseService>();
                         services.AddEntityFrameworkSqlite().AddDbContext<WareHouseDbContext>();
                         services.AddScoped<IProductRepository, ProductRepository>();
-                        services.AddScoped<IWareHouseRepository, WareHouseRepository>();
                         services.AddTransient<MainMenu>();
                         services.AddScoped<ISqlLiteDataAccess, SqlLiteDataAccess>();
                         services.AddSingleton(AutoMapperConfig.Initialize());
                         services.AddScoped<IReturnService, ReturnService>();
                         services.AddScoped<IReturnRepository, ReturnRepository>();
+                        services.AddScoped<ISaleService,SaleService>();
+                        services.AddScoped<ISaleRepository,SaleRepository>();
+                        services.AddScoped<IWareHouseRepository, WareHouseRepository>();
                     });
             }
         }

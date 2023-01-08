@@ -30,7 +30,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product.SaveProducts
         {
             try
             {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
+                SaveFileDialog openFileDialog = new SaveFileDialog();
                 openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|Excel 2007 (*.xls)|*.xls";
                 openFileDialog.FilterIndex = 1;
@@ -116,7 +116,7 @@ namespace WareHouseApplication.AllForms.NewForms.Product.SaveProducts
                 DataRow dRow = ExportDataTable.NewRow();
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    dRow[cell.ColumnIndex] = cell.Value;
+                    dRow[cell.ColumnIndex] = cell.Value.ToString();
                 }
                 ExportDataTable.Rows.Add(dRow);
             }

@@ -1,12 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using ApplicationLayer.Services;
 using System.Windows.Forms;
 using ApplicationLayer.Dto.ReturnDtos;
+using ApplicationLayer.Dto.Sale;
 using ApplicationLayer.Dto.WareHouse;
+using Domain.Entities;
+using Domain.Interfaces;
+using FlaUI.Core.AutomationElements;
+using Infrastructure.Repositories;
+using Org.BouncyCastle.Asn1.Cmp;
 
 namespace WareHouseApplication.AllForms.NewForms.Sale
 {
@@ -15,15 +23,24 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         public  IWareHouseService WareHouseService;
         public  IReturnService ReturnService;
         public IProductService ProductService { get; set; }
+        public ISaleService SaleService { get; set; }
+        public IReturnRepository ReturnRepository { get; set; }
+        public IWareHouseRepository WareHouseRepository { get; set; }
         public WareHouseDto WareHouse { get; set; }
         public ReturnDto Return { get; set; }
-        public Sale(IProductService productService,IWareHouseService wareHouseService,IReturnService returnService)
+        public SaleDto SaleDto { get; set; }
+
+        public Sale(IProductService productService,IWareHouseService wareHouseService,IReturnService returnService,ISaleService saleService,IReturnRepository returnRepository,IWareHouseRepository wareHouseRepository)
         {
             WareHouseService = wareHouseService;
             ReturnService = returnService;
             InitializeComponent();
             SetOffDeleteAndEditButtons();
+            WareHouseRepository = wareHouseRepository;
             ProductService = productService;
+            ReturnRepository = returnRepository;
+            SaleService = saleService;
+            SaleDto = new SaleDto();
         }
 
         private void SetOffDeleteAndEditButtons()
@@ -122,7 +139,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     var row = dataGridView2.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = dataGridView2.Rows[row];
+                    System.Windows.Forms.DataGridViewRow selectedRow = dataGridView2.Rows[row];
                     UpdateEndPrice(Convert.ToDecimal(selectedRow.Cells[3].Value));
                     dataGridView2.Rows.RemoveAt(e.RowIndex);
                 }
@@ -139,8 +156,90 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             dataGridView2.Rows.Clear();
             paymentMethodCBox.SelectedIndex = -1;
             DiscountNumeric.Value = 0;
-            DiscountPicker.SelectedIndex = -1;
             EndPriceTBox.Text = "0";
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy jesteś pewny?", "Informacja", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                AddNewSalePreValidation();
+            }
+        }
+
+        private void AddNewSalePreValidation()
+        {
+            AssignedValuesFromInputsToCreateSale();
+        }
+
+        private void AssignedValuesFromInputsToCreateSale()
+        {
+            if (dataGridView2.Rows.Count > 0)
+            {
+                SaleDto.Returns = new List<Return>();
+                SaleDto.WareHouses = new List<Domain.Entities.WareHouse>();
+                foreach (System.Windows.Forms.DataGridViewRow row in dataGridView2.Rows)
+                {
+                    if (row.Cells[4].Value == "Tak")
+                    {
+                        var returnItem = FindReturnById(Convert.ToInt32(row.Cells[0].Value));
+                        SaleDto.Returns.Add(returnItem);
+                    }
+                    else
+                    {
+                        var wareHouseItem = FindWareHouseById(Convert.ToInt32(row.Cells[0].Value));
+                        SaleDto.WareHouses.Add(wareHouseItem);
+                    }
+                }
+
+                if (string.IsNullOrWhiteSpace(paymentMethodCBox.Text))
+                {
+                    MessageBox.Show("Metoda platnosci jest pusta!", "Błąd",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    SaleDto.PaymentMethod = paymentMethodCBox.Text;
+                    SaleDto.Discount = DiscountNumeric.Value;
+                    SaleDto.EndPrice = Convert.ToDecimal(EndPriceTBox.Text);
+                    SaleDto.Profit = CalculateProfit();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tabela produktów jest pusta!", "Błąd",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private decimal CalculateProfit()
+        
+            throw new NotImplementedException();
+        }
+
+        private Return FindReturnById(int id)
+        {
+            return ReturnRepository.GetByProductId(id);
+        }
+
+        private Domain.Entities.WareHouse FindWareHouseById(int id)
+        {
+            return WareHouseRepository.GetByProductId(id);
+        }
+
+        private void DiscountNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            if (EndPriceTBox.Text == "0")
+            {
+                MessageBox.Show("Dodaj produkty, aby uwzglednic rabat!", "Błąd",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DiscountNumeric.Value = 0;
+            }
+            else
+            {
+                EndPriceTBox.Text = (Convert.ToDecimal(EndPriceTBox.Text) - DiscountNumeric.Value).ToString();
+            }
         }
     }
 }

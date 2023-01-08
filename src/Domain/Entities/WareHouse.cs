@@ -10,6 +10,7 @@
         public decimal SellPrice { get; set; }
         public DateTime Date { get; set; }
         public bool IsReturned { get; set; }
+        public ICollection<Sale> Sales { get; set; }
 
     }
 }

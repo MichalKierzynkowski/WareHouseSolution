@@ -18,6 +18,7 @@ namespace Infrastructure.Data
         public DbSet<ProductDetail> ProductDetail { get; set; }
         public DbSet<WareHouse> WareHouse { get; set; }
         public DbSet<Return> Returns { get; set; }
+        public DbSet<Sale> Sales { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,6 +30,8 @@ namespace Infrastructure.Data
             modelBuilder.Entity<WareHouse>().Navigation(e => e.Products).AutoInclude();
             modelBuilder.Entity<Product>().Navigation(e => e.ProductDetail).AutoInclude();
             modelBuilder.Entity<Return>().Navigation(e => e.Products).AutoInclude();
+            modelBuilder.Entity<Sale>().Navigation(e => e.Returns).AutoInclude();
+            modelBuilder.Entity<Sale>().Navigation(e => e.WareHouses).AutoInclude();
         }
     }
 }
