@@ -1,5 +1,6 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Dto.ReturnDtos;
+using ApplicationLayer.Dto.Sale;
 using ApplicationLayer.Dto.WareHouse;
 using AutoMapper;
 using Domain.Entities;
@@ -66,6 +67,30 @@ namespace ApplicationLayer.Mappings
                     .ForPath(d => d.SellPrice, opt => opt.MapFrom(d => d.SellPrice))
                     .ForPath(d => d.Unit, opt => opt.MapFrom(d => d.Unit))
                     .ForPath(d => d.IsReturned, opt => opt.MapFrom(opt => opt.IsReturned));
+
+
+                cfg.CreateMap<CreateSaleDto, Sale>()
+                    .ForPath(d => d.EndPrice, opt => opt.MapFrom(d => d.EndPrice))
+                    .ForPath(d => d.Margin, opt => opt.MapFrom(d => d.Margin))
+                    .ForPath(d => d.Discount, opt => opt.MapFrom(d => d.Discount))
+                    .ForPath(d => d.Profit, opt => opt.MapFrom(d => d.Profit))
+                    .ForPath(d => d.Returns, opt => opt.MapFrom(d => d.Returns))
+                    .ForPath(d => d.PaymentMethod, opt => opt.MapFrom(d => d.PaymentMethod))
+                    .ForPath(d => d.WareHouses, opt => opt.MapFrom(d => d.WareHouses))
+                    .ForPath(d => d.Id, opt => opt.Ignore())
+                    .ForPath(d => d.Date, opt => opt.MapFrom(d => d.Date));
+
+                cfg.CreateMap<Sale, SaleDto>()
+                    .ForPath(d => d.EndPrice, opt => opt.MapFrom(d => d.EndPrice))
+                    .ForPath(d => d.Margin, opt => opt.MapFrom(d => d.Margin))
+                    .ForPath(d => d.Discount, opt => opt.MapFrom(d => d.Discount))
+                    .ForPath(d => d.Profit, opt => opt.MapFrom(d => d.Profit))
+                    .ForPath(d => d.Returns, opt => opt.MapFrom(d => d.Returns))
+                    .ForPath(d => d.PaymentMethod, opt => opt.MapFrom(d => d.PaymentMethod))
+                    .ForPath(d => d.WareHouses, opt => opt.MapFrom(d => d.WareHouses))
+                    .ForPath(d => d.Id, opt => opt.MapFrom(d => d.Id))
+                    .ForPath(d => d.Date, opt => opt.MapFrom(d => d.Date));
+
 
             }
         ).CreateMapper();

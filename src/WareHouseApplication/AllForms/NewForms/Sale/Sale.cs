@@ -15,6 +15,7 @@ using Domain.Interfaces;
 using FlaUI.Core.AutomationElements;
 using Infrastructure.Repositories;
 using Org.BouncyCastle.Asn1.Cmp;
+using WareHouseApplication.AllForms.NewForms.WareHouse;
 
 namespace WareHouseApplication.AllForms.NewForms.Sale
 {
@@ -28,7 +29,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         public IWareHouseRepository WareHouseRepository { get; set; }
         public WareHouseDto WareHouse { get; set; }
         public ReturnDto Return { get; set; }
-        public SaleDto SaleDto { get; set; }
+        public CreateSaleDto SaleDto { get; set; }
 
         public Sale(IProductService productService,IWareHouseService wareHouseService,IReturnService returnService,ISaleService saleService,IReturnRepository returnRepository,IWareHouseRepository wareHouseRepository)
         {
@@ -40,7 +41,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             ProductService = productService;
             ReturnRepository = returnRepository;
             SaleService = saleService;
-            SaleDto = new SaleDto();
+            SaleDto = new CreateSaleDto();
         }
 
         private void SetOffDeleteAndEditButtons()
@@ -184,11 +185,13 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                     if (row.Cells[4].Value == "Tak")
                     {
                         var returnItem = FindReturnById(Convert.ToInt32(row.Cells[0].Value));
+                        returnItem.Quantity = Convert.ToInt32(row.Cells[2]);
                         SaleDto.Returns.Add(returnItem);
                     }
                     else
                     {
                         var wareHouseItem = FindWareHouseById(Convert.ToInt32(row.Cells[0].Value));
+                        wareHouseItem.Quantity = Convert.ToInt32(row.Cells[2].Value);
                         SaleDto.WareHouses.Add(wareHouseItem);
                     }
                 }
@@ -204,6 +207,13 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                     SaleDto.Discount = DiscountNumeric.Value;
                     SaleDto.EndPrice = Convert.ToDecimal(EndPriceTBox.Text);
                     SaleDto.Profit = CalculateProfit();
+                    SaleDto.Margin = CalculateMargin();
+                    SaleDto.Date= DateTime.Now;
+                    SaleService.AddNewSale(SaleDto);
+                    MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Timer.Start();
+                    TLPnlTop.Enabled = true;
                 }
             }
             else
@@ -213,9 +223,44 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             }
         }
 
+        private double CalculateMargin()
+        {
+            decimal purchasePrice = 0;
+            decimal sellPrice = 0;
+            foreach (var item in SaleDto.Returns)
+            {
+                purchasePrice = purchasePrice + item.PurchasePrice*item.Quantity;
+                sellPrice = sellPrice + item.SellPrice*item.Quantity;
+            }
+
+            foreach (var item in SaleDto.WareHouses)
+            {
+                purchasePrice = purchasePrice + item.PurchasePrice * item.Quantity;
+                sellPrice = sellPrice + item.SellPrice * item.Quantity;
+            }
+
+            var valueToReturn = Math.Round(Convert.ToDouble((sellPrice - purchasePrice) / sellPrice) * 100, 2);
+            return valueToReturn;
+        }
+
         private decimal CalculateProfit()
-        
-            throw new NotImplementedException();
+        {
+            decimal purchasePrice=0;
+            decimal sellPrice = 0;
+            foreach (var item in SaleDto.Returns)
+            {
+                purchasePrice = purchasePrice + item.PurchasePrice * item.Quantity;
+                sellPrice = sellPrice + item.SellPrice * item.Quantity;
+            }
+
+            foreach (var item in SaleDto.WareHouses)
+            {
+                purchasePrice = purchasePrice + item.PurchasePrice * item.Quantity;
+                sellPrice = sellPrice + item.SellPrice * item.Quantity;
+            }
+
+            return sellPrice - purchasePrice;
+
         }
 
         private Return FindReturnById(int id)
@@ -239,6 +284,47 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             else
             {
                 EndPriceTBox.Text = (Convert.ToDecimal(EndPriceTBox.Text) - DiscountNumeric.Value).ToString();
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            progressBar.Visible = true;
+            progressBar.Style = ProgressBarStyle.Marquee;
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            System.Threading.Thread thread =
+                new System.Threading.Thread(new System.Threading.ThreadStart(LoadTable));
+            thread.Start();
+        }
+
+        private void LoadTable()
+        {
+            var sales = SaleService.GetAllSales();
+            SetDataSource(sales);
+            dataGridView1.ClearSelection();
+
+        }
+
+        internal delegate void SetDataSourceDelegate(IEnumerable<SaleDto> sales);
+        private void SetDataSource(IEnumerable<SaleDto> sales)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new SetDataSourceDelegate(SetDataSource), sales);
+            }
+            else
+            {
+                dataGridView1.DataSource = null;
+                foreach (var item in sales)
+                {
+                    dataGridView1.Rows.Add(new object[]
+                        {
+                           item.Id,item.PaymentMethod,item.EndPrice,item.Discount,item.Margin,item.Profit,item.Date,"Więcej Informacji"
+                        });
+                    
+                }
+                progressBar.Visible = false;
             }
         }
     }

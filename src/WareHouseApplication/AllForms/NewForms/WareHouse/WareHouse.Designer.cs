@@ -90,8 +90,8 @@
             this.PnlGrid = new System.Windows.Forms.Panel();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NameDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegistrationNumberDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rodzaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExtraDescriptionDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -986,8 +986,8 @@
             this.dataGridView1.ColumnHeadersHeight = 54;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameDG,
             this.RegistrationNumberDG,
+            this.NameDG,
             this.Rodzaj,
             this.TypeDG,
             this.ExtraDescriptionDG,
@@ -1030,6 +1030,14 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // RegistrationNumberDG
+            // 
+            this.RegistrationNumberDG.HeaderText = "Numer Ewidencyjny";
+            this.RegistrationNumberDG.MinimumWidth = 6;
+            this.RegistrationNumberDG.Name = "RegistrationNumberDG";
+            this.RegistrationNumberDG.ReadOnly = true;
+            this.RegistrationNumberDG.Width = 110;
+            // 
             // NameDG
             // 
             this.NameDG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1038,14 +1046,6 @@
             this.NameDG.MinimumWidth = 110;
             this.NameDG.Name = "NameDG";
             this.NameDG.ReadOnly = true;
-            // 
-            // RegistrationNumberDG
-            // 
-            this.RegistrationNumberDG.HeaderText = "Numer Ewidencyjny";
-            this.RegistrationNumberDG.MinimumWidth = 6;
-            this.RegistrationNumberDG.Name = "RegistrationNumberDG";
-            this.RegistrationNumberDG.ReadOnly = true;
-            this.RegistrationNumberDG.Width = 110;
             // 
             // Rodzaj
             // 
@@ -1202,8 +1202,8 @@
         private System.Windows.Forms.Label labelProductType;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.CheckBox isReturnedBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationNumberDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rodzaj;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExtraDescriptionDG;

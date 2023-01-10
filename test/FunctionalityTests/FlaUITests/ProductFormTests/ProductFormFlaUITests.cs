@@ -36,19 +36,12 @@ namespace FunctionalityTests.FlaUITests.ProductFormTests
             var app = Application.Launch(PathOfApplication);
             var mainWindow = app.GetMainWindow(new UIA3Automation());
             ConditionFactory cf = new ConditionFactory(new UIA3PropertyLibrary());
-
             mainWindow.FindFirstDescendant(cf.ByName("Magazyn")).AsButton().Click();
             mainWindow.FindFirstDescendant(cf.ByName("Dodaj")).AsButton().Click();
             Thread.Sleep(2000);
             mainWindow.FindFirstDescendant(cf.ByAutomationId("btnSelectProduct")).AsButton().Click();
             mainWindow.FindFirstDescendant(cf.ByAutomationId("btnLoadData")).AsButton().Click();
             Thread.Sleep(3000);
-            Keyboard.Pressing(VirtualKeyShort.TAB);
-            Keyboard.Pressing(VirtualKeyShort.TAB);
-            Keyboard.Pressing(VirtualKeyShort.TAB);
-            Keyboard.Pressing(VirtualKeyShort.TAB);
-            Keyboard.Pressing(VirtualKeyShort.TAB);
-            Keyboard.Pressing(VirtualKeyShort.TAB);
             Keyboard.Pressing(VirtualKeyShort.TAB);
             Keyboard.Pressing(VirtualKeyShort.ENTER);
             mainWindow.FindFirstDescendant(cf.ByAutomationId("btnPick")).AsButton().Click();

@@ -111,14 +111,17 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("Discount")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Dreams")
-                        .HasColumnType("REAL");
-
                     b.Property<decimal>("EndPrice")
                         .HasColumnType("TEXT");
+
+                    b.Property<double>("Margin")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("PaymentMethod")
                         .IsRequired()
@@ -129,7 +132,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sale");
+                    b.ToTable("Sales");
                 });
 
             modelBuilder.Entity("Domain.Entities.WareHouse", b =>

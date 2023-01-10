@@ -308,8 +308,8 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
                     {
                         dataGridView1.Rows.Add(new object[]
                         {
-                            product.Name,
                             product.Product.RegistrationNumber,
+                            product.Name,
                             product.Type, item.Quantity,
                             item.Unit, item.PurchasePrice, item.SellPrice, item.IsReturned
                         });
@@ -322,8 +322,8 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
                     {
                         dataGridView1.Rows.Add(new object[]
                         {
-                            product.Name,
                             product.Product.RegistrationNumber,
+                            product.Name,
                             product.Type, item.Quantity,
                             item.Unit, item.PurchasePrice, item.SellPrice,
                             item.IsReturned

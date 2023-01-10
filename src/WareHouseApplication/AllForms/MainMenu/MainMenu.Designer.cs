@@ -44,6 +44,10 @@ namespace WareHouseApplication.AllForms.MainMenu
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.PicturePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDekstopPane = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.rjButton3 = new RJCodeAdvance.RJControls.RJButton();
+            this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
+            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             this.DropDownMenu = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.sdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -55,6 +59,8 @@ namespace WareHouseApplication.AllForms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimalize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.PicturePanel.SuspendLayout();
+            this.panelDekstopPane.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.DropDownMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -235,11 +241,85 @@ namespace WareHouseApplication.AllForms.MainMenu
             // 
             // panelDekstopPane
             // 
+            this.panelDekstopPane.Controls.Add(this.pictureBox2);
+            this.panelDekstopPane.Controls.Add(this.rjButton3);
+            this.panelDekstopPane.Controls.Add(this.rjButton2);
+            this.panelDekstopPane.Controls.Add(this.rjButton1);
             this.panelDekstopPane.Location = new System.Drawing.Point(283, 83);
             this.panelDekstopPane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelDekstopPane.Name = "panelDekstopPane";
             this.panelDekstopPane.Size = new System.Drawing.Size(1432, 1019);
             this.panelDekstopPane.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(482, 715);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(480, 253);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // rjButton3
+            // 
+            this.rjButton3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.rjButton3.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton3.BorderRadius = 0;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rjButton3.ForeColor = System.Drawing.Color.White;
+            this.rjButton3.Location = new System.Drawing.Point(959, 301);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(398, 247);
+            this.rjButton3.TabIndex = 2;
+            this.rjButton3.Text = "Dodaj Sprzedaż";
+            this.rjButton3.TextColor = System.Drawing.Color.White;
+            this.rjButton3.UseVisualStyleBackColor = false;
+            this.rjButton3.Click += new System.EventHandler(this.rjButton3_Click);
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(520, 301);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(398, 247);
+            this.rjButton2.TabIndex = 1;
+            this.rjButton2.Text = "Dodaj Produkt do Magazynu";
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 0;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(71, 301);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(398, 247);
+            this.rjButton1.TabIndex = 0;
+            this.rjButton1.Text = "Dodaj Produkt";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // DropDownMenu
             // 
@@ -291,6 +371,9 @@ namespace WareHouseApplication.AllForms.MainMenu
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimalize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             this.PicturePanel.ResumeLayout(false);
+            this.panelDekstopPane.ResumeLayout(false);
+            this.panelDekstopPane.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.DropDownMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -314,6 +397,10 @@ namespace WareHouseApplication.AllForms.MainMenu
         private System.Windows.Forms.PictureBox btnMinimalize;
         private System.Windows.Forms.PictureBox btnExit;
         private System.Windows.Forms.Panel UpTitlePanel;
+        private RJCodeAdvance.RJControls.RJButton rjButton3;
+        private RJCodeAdvance.RJControls.RJButton rjButton2;
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

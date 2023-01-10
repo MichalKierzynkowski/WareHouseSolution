@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using ApplicationLayer.Interfaces;
 using Domain.Interfaces;
-using Infrastructure.Repositories;
 using WareHouseApplication.AllForms.NewForms.BaseForm;
 using WareHouseApplication.AllForms.NewForms.Product;
 using WareHouseApplication.AllForms.NewForms.Settings;
@@ -98,5 +97,21 @@ namespace WareHouseApplication.AllForms.MainMenu
         }
         #endregion
 
+        
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllForms.NewForms.WareHouse.WareHouse(ProductService, WareHouseService, _productRepository, _returnService));
+        }
+
+        private void rjButton3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllForms.NewForms.Sale.Sale(ProductService, WareHouseService, _returnService, _saleService, _returnRepository, _wareHouseRepository));
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Product(ProductService));
+        }
     }
 }
