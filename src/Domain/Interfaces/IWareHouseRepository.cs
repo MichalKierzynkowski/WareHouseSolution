@@ -14,5 +14,6 @@ namespace Domain.Interfaces
 
         void Delete(WareHouse wareHouse);
         WareHouse GetByProductId(int productId);
+        void UpdateQuantity(int quantity,WareHouse wareHouse);
     }
 }

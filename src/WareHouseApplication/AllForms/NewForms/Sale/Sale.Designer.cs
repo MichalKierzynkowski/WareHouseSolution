@@ -102,6 +102,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Information = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TLPnlTop.SuspendLayout();
             this.PnlSearch.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -305,6 +306,7 @@
             this.btnSaveProducts.TextColor = System.Drawing.Color.White;
             this.btnSaveProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSaveProducts.UseVisualStyleBackColor = false;
+            this.btnSaveProducts.Click += new System.EventHandler(this.btnSaveProducts_Click);
             // 
             // btnDelete
             // 
@@ -1031,7 +1033,8 @@
             this.Column2,
             this.Column3,
             this.Column7,
-            this.Column8});
+            this.Column8,
+            this.Information});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
@@ -1066,6 +1069,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(866, 818);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // RegistrationNumberDG
             // 
@@ -1086,7 +1090,7 @@
             // Column9
             // 
             this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column9.HeaderText = "Całkowita Wartość[ZŁ]";
+            this.Column9.HeaderText = "Wartość[ZŁ]";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -1122,6 +1126,16 @@
             this.Column8.MinimumWidth = 125;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            // 
+            // Information
+            // 
+            this.Information.HeaderText = "";
+            this.Information.MinimumWidth = 6;
+            this.Information.Name = "Information";
+            this.Information.ReadOnly = true;
+            this.Information.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Information.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Information.Width = 125;
             // 
             // Sale
             // 
@@ -1229,5 +1243,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewButtonColumn Information;
     }
 }

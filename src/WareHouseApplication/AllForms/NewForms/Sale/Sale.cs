@@ -12,10 +12,7 @@ using ApplicationLayer.Dto.Sale;
 using ApplicationLayer.Dto.WareHouse;
 using Domain.Entities;
 using Domain.Interfaces;
-using FlaUI.Core.AutomationElements;
-using Infrastructure.Repositories;
-using Org.BouncyCastle.Asn1.Cmp;
-using WareHouseApplication.AllForms.NewForms.WareHouse;
+using WareHouseApplication.AllForms.NewForms.Product.SaveProducts;
 
 namespace WareHouseApplication.AllForms.NewForms.Sale
 {
@@ -95,7 +92,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
 
         private void btnSelectProduct_Click(object sender, System.EventArgs e)
         {
-            using (SelectProductForSale selectProduct = new SelectProductForSale(ProductService,WareHouseService,ReturnService))
+            using (var selectProduct = new SelectProductForSale(ProductService,WareHouseService,ReturnService))
             {
                 selectProduct.ShowDialog();
                 if (selectProduct.IsReturned && selectProduct.ReturnDto!=null)
@@ -191,6 +188,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                     else
                     {
                         var wareHouseItem = FindWareHouseById(Convert.ToInt32(row.Cells[0].Value));
+                        ChangeTheAmountOfQuantityForWareHouseItem(wareHouseItem.Quantity, wareHouseItem);
                         wareHouseItem.Quantity = Convert.ToInt32(row.Cells[2].Value);
                         SaleDto.WareHouses.Add(wareHouseItem);
                     }
@@ -206,8 +204,8 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                     SaleDto.PaymentMethod = paymentMethodCBox.Text;
                     SaleDto.Discount = DiscountNumeric.Value;
                     SaleDto.EndPrice = Convert.ToDecimal(EndPriceTBox.Text);
-                    SaleDto.Profit = CalculateProfit();
-                    SaleDto.Margin = CalculateMargin();
+                    SaleDto.Profit = CalculateProfit(SaleDto.Discount);
+                    SaleDto.Margin = CalculateMargin(SaleDto.Discount);
                     SaleDto.Date= DateTime.Now;
                     SaleService.AddNewSale(SaleDto);
                     MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
@@ -223,7 +221,13 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             }
         }
 
-        private double CalculateMargin()
+        private void ChangeTheAmountOfQuantityForWareHouseItem(int quantity,Domain.Entities.WareHouse wareHouse)
+        {
+           WareHouseRepository.UpdateQuantity(quantity,wareHouse);
+        }
+
+
+        private double CalculateMargin(decimal discount)
         {
             decimal purchasePrice = 0;
             decimal sellPrice = 0;
@@ -239,11 +243,11 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                 sellPrice = sellPrice + item.SellPrice * item.Quantity;
             }
 
-            var valueToReturn = Math.Round(Convert.ToDouble((sellPrice - purchasePrice) / sellPrice) * 100, 2);
+            var valueToReturn = Math.Round(Convert.ToDouble(((sellPrice - purchasePrice)-discount) / sellPrice) * 100, 2);
             return valueToReturn;
         }
 
-        private decimal CalculateProfit()
+        private decimal CalculateProfit(decimal discount)
         {
             decimal purchasePrice=0;
             decimal sellPrice = 0;
@@ -259,7 +263,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                 sellPrice = sellPrice + item.SellPrice * item.Quantity;
             }
 
-            return sellPrice - purchasePrice;
+            return (sellPrice - purchasePrice)-discount;
 
         }
 
@@ -320,11 +324,35 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                 {
                     dataGridView1.Rows.Add(new object[]
                         {
-                           item.Id,item.PaymentMethod,item.EndPrice,item.Discount,item.Margin,item.Profit,item.Date,"Więcej Informacji"
+                           item.Id,item.PaymentMethod,item.EndPrice,item.Discount,item.Margin,item.Profit,item.Date,"INFO"
                         });
                     
                 }
                 progressBar.Visible = false;
+            }
+        }
+
+        private void btnSaveProducts_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count <= 0)
+            {
+                MessageBox.Show("Brak produktów do zapisu!", "Błąd",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                SavingProducts savingProducts = new SavingProducts(dataGridView1);
+                savingProducts.Show();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "Info")
+            {
+                
             }
         }
     }

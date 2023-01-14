@@ -16,6 +16,7 @@ using FormsLogic.WareHouse.Logic.Data;
 using FormsLogic.WareHouse.Logic.Data.Add;
 using FormsLogic.WareHouse.Logic.Data.Return;
 using FormsLogic.WareHouse.Validation;
+using WareHouseApplication.AllForms.NewForms.Product.SaveProducts;
 
 namespace WareHouseApplication.AllForms.NewForms.WareHouse
 {
@@ -341,5 +342,19 @@ namespace WareHouseApplication.AllForms.NewForms.WareHouse
             return dataReturn.WareHouses;
         }
 
+        private void btnSaveProducts_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count <= 0)
+            {
+                MessageBox.Show("Brak produktów do zapisu!", "Błąd",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                SavingProducts savingProducts = new SavingProducts(dataGridView1);
+                savingProducts.Show();
+            }
+        }
     }
 }

@@ -44,5 +44,13 @@ namespace Infrastructure.Repositories
         {
             return _context.WareHouse.FirstOrDefault(x => x.Products.Any(x => x.RegistrationNumber == productId));
         }
+
+        public void UpdateQuantity(int quantity, WareHouse wareHouse)
+        {
+
+            var wareHouses = _context.WareHouse.FirstOrDefault(x => x.Id == wareHouse.Id);
+            wareHouses.Quantity = wareHouses.Quantity - wareHouse.Quantity;
+            _context.SaveChanges();
+        }
     }
 }

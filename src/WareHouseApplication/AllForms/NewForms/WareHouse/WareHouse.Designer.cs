@@ -304,6 +304,7 @@
             this.btnSaveProducts.TextColor = System.Drawing.Color.White;
             this.btnSaveProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSaveProducts.UseVisualStyleBackColor = false;
+            this.btnSaveProducts.Click += new System.EventHandler(this.btnSaveProducts_Click);
             // 
             // btnDelete
             // 
