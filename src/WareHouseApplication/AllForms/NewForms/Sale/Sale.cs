@@ -350,9 +350,13 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (dataGridView2.Columns[e.ColumnIndex].Name == "Info")
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Information")
             {
-                
+                 var row = dataGridView1.SelectedCells[0].RowIndex;
+                 System.Windows.Forms.DataGridViewRow selectedRow = dataGridView1.Rows[row];
+                 var idOfSale = Convert.ToInt32(selectedRow.Cells[0].Value);
+                using var showInformation = new SaleInformations(SaleService, idOfSale);
+                showInformation.ShowDialog();
             }
         }
     }

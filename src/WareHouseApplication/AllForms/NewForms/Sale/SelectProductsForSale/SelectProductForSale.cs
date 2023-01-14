@@ -52,13 +52,19 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
                 foreach (var item in wareHouses)
                 {
                     var product = item.Products.FirstOrDefault();
-                    dataGridView1.Rows.Add(new object[] { product.RegistrationNumber, product.ProductDetail.Name,product.ProductDetail.Type, product.ProductDetail.ExtraDescription,item.Quantity,item.IsReturned});
+                    if (product != null)
+                    {
+                        dataGridView1.Rows.Add(new object[] { product.RegistrationNumber, product.ProductDetail.Name, product.ProductDetail.Type, product.ProductDetail.ExtraDescription, item.Quantity, item.IsReturned });
+                    }
                 }
 
                 foreach (var item in returns)
                 {
                     var product = item.Products.FirstOrDefault();
-                    dataGridView1.Rows.Add(new object[] { product.RegistrationNumber, product.ProductDetail.Name, product.ProductDetail.Type, product.ProductDetail.ExtraDescription, item.Quantity, item.IsReturned });
+                    if (product != null)
+                    {
+                        dataGridView1.Rows.Add(new object[] { product.RegistrationNumber, product.ProductDetail.Name, product.ProductDetail.Type, product.ProductDetail.ExtraDescription, item.Quantity, item.IsReturned });
+                    }
                 }
                 progressBar.Visible = false;
             }
@@ -83,7 +89,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             dataGridView1.Rows.Clear();
             System.Threading.Thread thread =
                 new System.Threading.Thread(new System.Threading.ThreadStart(LoadTable));
-            thread.Start();
+            thread.Start(); 
             btnPick.Enabled = true;
         }
 
@@ -114,7 +120,7 @@ namespace WareHouseApplication.AllForms.NewForms.Sale
             dataGridView1.DataSource = null;
             foreach (var item in products)
             {
-                dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
+                dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt});
             }
         }
 

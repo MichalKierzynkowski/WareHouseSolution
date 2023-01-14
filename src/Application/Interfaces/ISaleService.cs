@@ -6,5 +6,6 @@ namespace ApplicationLayer.Interfaces
     {
         IEnumerable<SaleDto> GetAllSales();
         SaleDto AddNewSale(CreateSaleDto newSale);
+        SaleDto GetById(int id);
     }
 }

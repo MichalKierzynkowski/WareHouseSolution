@@ -27,5 +27,11 @@ namespace ApplicationLayer.Services
             _saleRepository.Add(sale);
             return _mapper.Map<SaleDto>(sale);
         }
+
+        public SaleDto GetById(int id)
+        {
+            var sale = _saleRepository.GetById(id);
+            return _mapper.Map<SaleDto>(sale);
+        }
     }
 }

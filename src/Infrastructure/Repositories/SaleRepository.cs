@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
 
         public Sale GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Sales.FirstOrDefault(x => x.Id == id);
         }
 
         public Sale Add(Sale sale)

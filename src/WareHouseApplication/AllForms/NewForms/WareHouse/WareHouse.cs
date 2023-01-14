@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,11 +7,9 @@ using ApplicationLayer.Dto.ReturnDtos;
 using ApplicationLayer.Dto.WareHouse;
 using ApplicationLayer.Interfaces;
 using Domain.Interfaces;
-using FormsLogic.Return.Logic.Data;
 using FormsLogic.Return.Logic.Data.Add;
 using FormsLogic.Return.Logic.Data.Return;
 using FormsLogic.Return.Validation;
-using FormsLogic.WareHouse.Logic.Data;
 using FormsLogic.WareHouse.Logic.Data.Add;
 using FormsLogic.WareHouse.Logic.Data.Return;
 using FormsLogic.WareHouse.Validation;
