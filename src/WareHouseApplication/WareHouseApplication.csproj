@@ -87,6 +87,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Application\ApplicationLayer.csproj" />
 		<ProjectReference Include="..\FormsLogic\FormsLogic.csproj" />
+		<ProjectReference Include="..\FormsLogic\Logic.csproj" />
 		<ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>
 </Project>

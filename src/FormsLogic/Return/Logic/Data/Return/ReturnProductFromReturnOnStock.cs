@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using ApplicationLayer.Dto.ReturnDtos;
+﻿using ApplicationLayer.Dto.ReturnDtos;
 using ApplicationLayer.Interfaces;
 
 namespace FormsLogic.Return.Logic.Data.Return

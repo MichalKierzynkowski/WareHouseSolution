@@ -15,7 +15,6 @@ using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 using FormsLogic.ProductForm.Validation;
 using WareHouseApplication.AllForms.NewForms.Product.DatePickPopUp;
 using WareHouseApplication.AllForms.NewForms.Product.SaveProducts;
-using WareHouseApplication.AllForms.NewForms.WareHouse;
 
 namespace WareHouseApplication.AllForms.NewForms.Product
 {

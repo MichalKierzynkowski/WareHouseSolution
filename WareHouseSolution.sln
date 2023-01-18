@@ -11,13 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{F88AAB0D-A2A3-4E9C-A21A-32D3E5BBEC2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationLayer", "src\Application\ApplicationLayer.csproj", "{FC2F944A-1738-425D-938B-A0B1E37136A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{FC2F944A-1738-425D-938B-A0B1E37136A0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormsLogic", "src\FormsLogic\FormsLogic.csproj", "{A78CB5C7-2F29-48AE-BC89-FA935C78CC07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "src\FormsLogic\Logic.csproj", "{A78CB5C7-2F29-48AE-BC89-FA935C78CC07}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0AD56CCF-AA7E-4770-A98D-3F9BD72B89FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalityTests", "test\FunctionalityTests\FunctionalityTests.csproj", "{4E589AFD-63A8-4000-B3A6-F4E398D8A9FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalityTests", "test\FunctionalityTests\FunctionalityTests.csproj", "{4E589AFD-63A8-4000-B3A6-F4E398D8A9FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

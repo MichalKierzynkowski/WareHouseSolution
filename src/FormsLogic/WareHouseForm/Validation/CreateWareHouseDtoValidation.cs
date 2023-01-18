@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using ApplicationLayer.Dto.WareHouse;
+﻿using ApplicationLayer.Dto.WareHouse;
 using FluentValidation;
 
 namespace FormsLogic.WareHouse.Validation

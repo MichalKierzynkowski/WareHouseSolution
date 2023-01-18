@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Infrastructure.Data
 {

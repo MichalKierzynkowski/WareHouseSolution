@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
-using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
-using ApplicationLayer.Services;
 using System.Windows.Forms;
 using ApplicationLayer.Dto.ReturnDtos;
 using ApplicationLayer.Dto.Sale;

@@ -1,7 +1,4 @@
-﻿using ApplicationLayer.Dto.ProductDtos;
-using Domain.Entities;
-
-namespace ApplicationLayer.Dto.WareHouse
+﻿namespace ApplicationLayer.Dto.WareHouse
 {
     public class CreateWareHouseDto:WareHouseDto
     {

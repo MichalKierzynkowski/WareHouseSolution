@@ -1,8 +1,5 @@
-﻿using ApplicationLayer.Dto.ProductDtos;
-using ApplicationLayer.Dto.WareHouse;
+﻿using ApplicationLayer.Dto.WareHouse;
 using ApplicationLayer.Interfaces;
-using Domain.Entities;
-using Domain.Interfaces;
 
 namespace FormsLogic.WareHouse.Logic.Data.Return
 {

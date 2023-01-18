@@ -1,7 +1,6 @@
 ﻿using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
 using FormsLogic.ProductForm.DatePickPopUp.Entities;
-using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Logic.Data.Return;
 
 namespace FormsLogic.ProductForm.Logic.Filtering

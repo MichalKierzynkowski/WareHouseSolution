@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationLayer.Dto.ProductDetailDtos;
 using ApplicationLayer.Dto.ProductDtos;
 using ApplicationLayer.Interfaces;
-using FormsLogic.ProductForm.Logic.Data;
 using FormsLogic.ProductForm.Logic.Data.Return;
 using FormsLogic.ProductForm.Logic.FilteringOptionsManagement;
 

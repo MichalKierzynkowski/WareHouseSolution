@@ -28,8 +28,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\Application\ApplicationLayer.csproj" />
-		<ProjectReference Include="..\..\src\FormsLogic\FormsLogic.csproj" />
+		<ProjectReference Include="..\..\src\Application\Application.csproj" />
+		<ProjectReference Include="..\..\src\FormsLogic\Logic.csproj" />
 		<ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
 		<Compile Remove="FakesAssemblies\**" />
 		<EmbeddedResource Remove="FakesAssemblies\**" />
