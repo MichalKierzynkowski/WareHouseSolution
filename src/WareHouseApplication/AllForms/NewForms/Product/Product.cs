@@ -196,8 +196,12 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             {
                 dataGridView1.DataSource = null;
                 foreach (var item in products)
+                { 
+                dataGridView1.Rows.Add(new object[] 
                 {
-                    dataGridView1.Rows.Add(new object[] { item.RegistrationNumber, item.ProductDetailDto.Name, item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription, item.AddedAt });
+                    item.RegistrationNumber, item.ProductDetailDto.Name, 
+                    item.ProductDetailDto.Type, item.ProductDetailDto.ExtraDescription,
+                    item.AddedAt });
                 }
                 progressBar.Visible = false;
             }
@@ -482,7 +486,8 @@ namespace WareHouseApplication.AllForms.NewForms.Product
         private void AddNewProductPreValidation()
         {
             AssignedValuesFromInputsToCreateProductDto();
-            CreateProductDtoValidation productValidation = new CreateProductDtoValidation(IsExtraDescriptionOpen, ProductService);
+            CreateProductDtoValidation productValidation = 
+                new CreateProductDtoValidation(IsExtraDescriptionOpen, ProductService);
             var result = productValidation.Validate(CreateProductDto);
             if (!result.IsValid)
             {
@@ -491,13 +496,13 @@ namespace WareHouseApplication.AllForms.NewForms.Product
             }
             else
             {
-                AddNewProductToDataBase newProduct = new AddNewProductToDataBase(CreateProductDto, ProductService);
+                AddNewProductToDataBase newProduct = 
+                    new AddNewProductToDataBase(CreateProductDto, ProductService);
                 MessageBox.Show("Operacja przebiegła pomyślnie!", "Sukces!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetValuesInDataGridAndFillWithValuesAgain();
                 Timer.Start();
                 TLPnlTop.Enabled = true;
-
                 ExtraDescriptionTBox.Enabled = false;
             }
         }

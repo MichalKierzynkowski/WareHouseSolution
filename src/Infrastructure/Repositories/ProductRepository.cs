@@ -21,12 +21,14 @@ namespace Infrastructure.Repositories
 
         public Product GetById(int id)
         {
-            return _context.Products.Include(x => x.ProductDetail).SingleOrDefault(x => x.Id == id);
+            return _context.Products.Include(x => x.ProductDetail).
+                SingleOrDefault(x => x.Id == id);
         }
 
         public Product GetByRegistrationNumber(int registrationNumber)
         {
-            return _context.Products.Include(x => x.ProductDetail).SingleOrDefault(x => x.RegistrationNumber == registrationNumber);
+            return _context.Products.Include(x => x.ProductDetail).
+                SingleOrDefault(x => x.RegistrationNumber == registrationNumber);
         }
 
        

@@ -39,8 +39,10 @@ namespace FunctionalityTests.ProductServiceTests
                 }
             };
 
-            _productRepository.GetById(product.Id).Returns(product);
-            var customer = _productRepository.GetById(product.Id);
+            _productRepository.GetById(product.Id).
+                Returns(product);
+            var customer = _productRepository.
+                GetById(product.Id);
 
             Assert.Equal(product.Id, customer.Id);
         }
@@ -61,8 +63,10 @@ namespace FunctionalityTests.ProductServiceTests
                     Type = "Test"
                 }
             };
-            _productRepository.GetByRegistrationNumber(product.RegistrationNumber).Returns(product);
-            var productFromDb = _productRepository.GetByRegistrationNumber(product.RegistrationNumber);
+            _productRepository.GetByRegistrationNumber
+                (product.RegistrationNumber).Returns(product);
+            var productFromDb = _productRepository.
+                GetByRegistrationNumber(product.RegistrationNumber);
 
             Assert.Equal(product.RegistrationNumber, productFromDb.RegistrationNumber);
         }

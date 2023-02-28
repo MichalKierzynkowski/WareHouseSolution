@@ -13,11 +13,16 @@ namespace FormsLogic.ProductForm.Validation
         {
             IsExtraDescriptionOpen = isExtraDescriptionOpen;
             ProductService = productService;
-            RuleFor(x => x.RegistrationNumber).NotEmpty().WithMessage("Pole Numer Ewidencyjny nie może być puste!");
-            RuleFor(x => x.RegistrationNumber).Must(RegistrationNumber => CheckAvailabilityOfRegisterNumber(RegistrationNumber)).WithMessage("Podany numer ewidencyjny znajduje się już w bazie!");
-            RuleFor(x => x.CreateProductDetailDto.Name).NotEmpty().WithMessage("Pole Nazwa Produktu nie może być puste!");
-            RuleFor(x => x.CreateProductDetailDto.ExtraDescription).Must(Description => CheckingStatusOfExtraDescription(Description)).WithMessage("Pole Opis Produktu nie może być puste!");
-            RuleFor(x => x.CreateProductDetailDto.Type).NotEmpty().WithMessage("Pole Rodzaj Produktu nie może byc puste!");
+            RuleFor(x => x.RegistrationNumber).NotEmpty().
+                WithMessage("Pole Numer Ewidencyjny nie może być puste!");
+            RuleFor(x => x.RegistrationNumber).
+                Must(RegistrationNumber => CheckAvailabilityOfRegisterNumber(RegistrationNumber)).WithMessage("Podany numer ewidencyjny znajduje się już w bazie!");
+            RuleFor(x => x.CreateProductDetailDto.Name).
+                NotEmpty().WithMessage("Pole Nazwa Produktu nie może być puste!");
+            RuleFor(x => x.CreateProductDetailDto.ExtraDescription).
+                Must(Description => CheckingStatusOfExtraDescription(Description)).WithMessage("Pole Opis Produktu nie może być puste!");
+            RuleFor(x => x.CreateProductDetailDto.Type).NotEmpty().
+                WithMessage("Pole Rodzaj Produktu nie może byc puste!");
 
 
         }

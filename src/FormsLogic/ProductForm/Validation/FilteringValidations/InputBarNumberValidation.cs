@@ -8,8 +8,12 @@ namespace FormsLogic.ProductForm.Validation.FilteringValidations
         public InputBarNumberValidation()
         {
 
-            RuleFor(x => x.Input).Must(x => IsBarNumberContainsOnlyDigits(x)).WithMessage("Numer Ewidencyjny może zawierać tylko cyfry!");
-            RuleFor(x => x.Input).Must(x => IsStringIsNotNull(x)).WithMessage("Numer Ewidencyjny nie może byc pusty!");
+            RuleFor(x => x.Input).
+                Must(x => IsBarNumberContainsOnlyDigits(x)).
+                WithMessage("Numer Ewidencyjny może zawierać tylko cyfry!");
+            RuleFor(x => x.Input).
+                Must(x => IsStringIsNotNull(x)).
+                WithMessage("Numer Ewidencyjny nie może byc pusty!");
 
         }
         private bool IsBarNumberContainsOnlyDigits(string input)
